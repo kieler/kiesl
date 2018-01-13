@@ -1,0 +1,254 @@
+/*
+ * KIELER - Kiel Integrated Environment for Layout Eclipse RichClient
+ *
+ * http://rtsys.informatik.uni-kiel.de/kieler
+ * 
+ * Copyright 2018 by
+ * + Kiel University
+ *   + Department of Computer Science
+ *     + Real-Time and Embedded Systems Group
+ * 
+ * This code is provided under the terms of the Eclipse Public License (EPL).
+ */
+grammar de.cau.cs.kieler.kiesl.text.Kiesl with org.eclipse.xtext.common.Terminals
+
+generate kiesl "http://www.cau.de/cs/kieler/Kiesl"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SEQUENCE DIAGRAM
+
+/**
+ * A sequence diagram contains a set of lifelines and a set of elements that do stuff with the lifelines. The
+ * interaction depicted by the diagram can have an optional caption, and can have an ID that messages can use
+ * to refer to it.
+ */
+Interaction returns Interaction:
+    {Interaction}
+    ('interaction' caption = STRING ('as' name = ID)?)? 
+    
+    lifelines += Lifeline*
+    elements += Element*;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// BASIC ELEMENTS
+
+/**
+ * A lifeline represents an entity that can act as the sender and receiver of messages.
+ */
+Lifeline returns Lifeline:
+    'lifeline' caption = STRING 'as' name = ID;
+
+/**
+ * Parent rule for all non-lifeline elements of a sequence diagram.
+ */
+Element returns Element:
+    RegularMessage
+     | LostOrFoundMessage
+     | SelfMessage
+     | LifelineDestructionEvent
+     | InteractionUse
+     | CombinedFragment
+     | Continuation
+     | StateInvariant;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TWO-OBJECT MESSAGE
+
+/**
+ * Two-object messages can connect two lifelines, but they can also connect one lifeline to the interaction
+ * itself (or to one of its gates, to be precise). We do not support the explicit declaration of gates, but
+ * we do support messages from and to the interaction.
+ */
+CommunicationParticipant:
+    Interaction
+    | Lifeline;
+
+/**
+ * A message between two participants. This comprises the usual messages from a known sender to a known receiver.
+ * Messages can start and end execution specifications at the source and / or the target. Note that the sender or
+ * the receiver can also be the surrounding interaction. 
+ */
+RegularMessage returns RegularMessage:
+    source = [CommunicationParticipant|ID]
+    type = TwoParticipantsMessageType
+    caption = STRING
+    'to'
+    target = [CommunicationParticipant|ID]
+    
+    // Options
+    (sourceStartEndExec ?= 'sourceStartEndExec'
+        | sourceStartExec ?= 'sourceStartExec' 
+        | sourceEndExec ?= 'sourceEndExec' (sourceEndExecCount = INT_GREATER_ZERO_OR_ALL)?)?
+    (targetStartEndExec ?= 'targetStartEndExec'
+        | targetStartExec ?= 'targetStartExec' 
+        | targetEndExec ?= 'targetEndExec' (targetEndExecCount = INT_GREATER_ZERO_OR_ALL)?)?
+    ('sourceNote' sourceNote = STRING)?
+    ('targetNote' targetNote = STRING)?;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ONE-OBJECT MESSAGE
+
+/**
+ * Lost and found messages. This must always involve a lifeline, not the surrounding interaction.
+ */
+LostOrFoundMessage returns LostOrFoundMessage:
+    lifeline = [Lifeline|ID]
+    type = OneParticipantMessageType
+    lostOrFound = LostOrFound
+    caption = STRING
+    
+    // Options
+    (startEndExec ?= 'startEndExec'
+        | startExec ?= 'startExec' 
+        | endExec ?= 'endExec' (endExecCount = INT_GREATER_ZERO_OR_ALL)?)?
+    ('note' note = STRING)?;
+
+/**
+ * Whether a message is lost or found.
+ */
+enum LostOrFound:
+    LOST = 'lost'
+    | FOUND = 'found';
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SELF MESSAGE
+
+/**
+ * A self message is used to send a message from a lifeline to itself.
+ */
+SelfMessage returns SelfMessage:
+    lifeline = [Lifeline|ID]
+    type = OneParticipantMessageType
+    'self'
+    caption = STRING
+    
+    // Options
+    (startEndExec ?= 'startEndExec'
+        | startExec ?= 'startExec' 
+        | endExec ?= 'endExec' (endExecCount = INT_GREATER_ZERO_OR_ALL)?)?
+    ('note' note = STRING)?;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OTHER EVENTS
+
+/**
+ * The destruction of a lifeline.
+ */
+LifelineDestructionEvent returns LifelineDestructionEvent:
+    lifeline = [Lifeline|ID]
+    'destroy';
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FRAGMENTS
+
+/**
+ * Reference to another interaction that involves a given set of lifelines. Note that the caption field could
+ * well be an actual reference to an interaction. However, this being a lightweight application, we spare us
+ * that level of cross-referencing magic and simply go with a caption here.
+ */
+InteractionUse returns InteractionUse:
+    'ref'
+    caption = STRING
+    'lifelines' lifelines += [Lifeline|ID] (',' lifelines += [Lifeline|ID])*;
+
+/**
+ * A grouping of messages that contains one or more operators (or "sections").
+ */
+CombinedFragment returns CombinedFragment:
+    'fragment'
+    type = CombinedFragmentType
+    sections += Section+;
+
+/**
+ * All possible types of combined fragments.
+ */
+enum CombinedFragmentType:
+    SEQ = 'seq'
+    | ALT = 'alt'
+    | OPT = 'opt'
+    | BREAK = 'break'
+    | PAR = 'par'
+    | STRICT = 'strict'
+    | LOOP = 'loop'
+    | CRITICAL = 'critical'
+    | NEG = 'neg'
+    | ASSERT = 'assert'
+    | IGNORE = 'ignore'
+    | CONSIDER = 'consider';
+
+/**
+ * A section or operator of a combined fragment.
+ */
+Section returns Section:
+    '{'
+        ('label' caption = STRING)?
+        elements += Element+
+    '}';
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MISCELLANEOUS ELEMENTS
+
+/**
+ * A continuation.
+ */
+Continuation returns Continuation:
+    'continuation'
+    name = STRING
+    'lifelines' lifelines += [Lifeline|ID] (',' lifelines += [Lifeline|ID])*
+    
+    // Options
+    ('note' note = STRING)?;
+
+/**
+ * An invariant is a property assumed to be true at a given point for a given lifeline.
+ */
+StateInvariant returns StateInvariant:
+    lifeline = [Lifeline|ID]
+    'invariant'
+    invariant = STRING
+    
+    // Options
+    ('note' note = STRING)?;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ENUMERATIONS
+
+/**
+ * Enumeration of the possible types of messages that involve a single participant.
+ */
+enum OneParticipantMessageType:
+    ASYNC = 'async'
+    | SYNC = 'sync'
+    | RESPONSE = 'response';
+
+/**
+ * Enumeration of the possible types of messages that involve two participants.
+ */
+enum TwoParticipantsMessageType:
+    ASYNC = 'async'
+    | SYNC = 'sync'
+    | RESPONSE = 'response'
+    | CREATE = 'create'
+    | DESTROY = 'destroy';
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// TERMINALS
+
+/**
+ * A terminal rule that accepts integers above zero or the special value 'all'. Used to determine how many
+ * execution specifications should be closed by a message.
+ */
+terminal INT_GREATER_ZERO_OR_ALL returns ecore::EInt:
+    '1'..'9' ('0'..'9')* | 'all';

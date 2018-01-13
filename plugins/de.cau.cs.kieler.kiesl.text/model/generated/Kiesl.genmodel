@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="KIELER - Kiel Integrated Environment for Layout Eclipse RichClient&#xA; *&#xA;http://rtsys.informatik.uni-kiel.de/kieler&#xA;&#xA;Copyright 2018 by&#xA;+ Kiel University&#xA;  + Department of Computer Science&#xA;    + Real-Time and Embedded Systems Group&#xA;&#xA;This code is provided under the terms of the Eclipse Public License (EPL)."
+    modelDirectory="/de.cau.cs.kieler.kiesl.text/src-gen" modelPluginID="de.cau.cs.kieler.kiesl.text"
+    forceOverwrite="true" modelName="Kiesl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
+  <genPackages prefix="Kiesl" basePackage="de.cau.cs.kieler.kiesl.text" disposableProviderFactory="true"
+      fileExtensions="sd" ecorePackage="Kiesl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Kiesl.ecore#//LostOrFound">
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//LostOrFound/LOST"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//LostOrFound/FOUND"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Kiesl.ecore#//CombinedFragmentType">
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/SEQ"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/ALT"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/OPT"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/BREAK"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/PAR"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/STRICT"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/LOOP"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/CRITICAL"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/NEG"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/ASSERT"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/IGNORE"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//CombinedFragmentType/CONSIDER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Kiesl.ecore#//OneParticipantMessageType">
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//OneParticipantMessageType/ASYNC"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//OneParticipantMessageType/SYNC"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//OneParticipantMessageType/RESPONSE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Kiesl.ecore#//TwoParticipantsMessageType">
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//TwoParticipantsMessageType/ASYNC"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//TwoParticipantsMessageType/SYNC"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//TwoParticipantsMessageType/RESPONSE"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//TwoParticipantsMessageType/CREATE"/>
+      <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//TwoParticipantsMessageType/DESTROY"/>
+    </genEnums>
+    <genClasses ecoreClass="Kiesl.ecore#//Interaction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kiesl.ecore#//Interaction/lifelines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kiesl.ecore#//Interaction/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//Lifeline"/>
+    <genClasses ecoreClass="Kiesl.ecore#//Element"/>
+    <genClasses ecoreClass="Kiesl.ecore#//CommunicationParticipant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//CommunicationParticipant/caption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//CommunicationParticipant/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//RegularMessage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//RegularMessage/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/caption"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//RegularMessage/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/sourceStartEndExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/sourceStartExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/sourceEndExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/sourceEndExecCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/targetStartEndExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/targetStartExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/targetEndExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/targetEndExecCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/sourceNote"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//RegularMessage/targetNote"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//LostOrFoundMessage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//LostOrFoundMessage/lifeline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/lostOrFound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/caption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/startEndExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/startExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/endExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/endExecCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//LostOrFoundMessage/note"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//SelfMessage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//SelfMessage/lifeline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//SelfMessage/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//SelfMessage/caption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//SelfMessage/startEndExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//SelfMessage/startExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//SelfMessage/endExec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//SelfMessage/endExecCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//SelfMessage/note"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//LifelineDestructionEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//LifelineDestructionEvent/lifeline"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//InteractionUse">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//InteractionUse/caption"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//InteractionUse/lifelines"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//CombinedFragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//CombinedFragment/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kiesl.ecore#//CombinedFragment/sections"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//Section/caption"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kiesl.ecore#//Section/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//Continuation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//Continuation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//Continuation/lifelines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//Continuation/note"/>
+    </genClasses>
+    <genClasses ecoreClass="Kiesl.ecore#//StateInvariant">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Kiesl.ecore#//StateInvariant/lifeline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//StateInvariant/invariant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//StateInvariant/note"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

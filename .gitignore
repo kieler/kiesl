@@ -2,3 +2,5 @@
 bin/
 xtend-gen/
 target/
+plugins/de.cau.cs.kieler.kiesl.text/.launch
+.antlr-generator-3.2.0-patch.jar

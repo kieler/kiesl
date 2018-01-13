@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.cau.cs.kieler.kiesl.text
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: de.cau.cs.kieler.kiesl.text; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package:  de.cau.cs.kieler.kiesl.text.services,
+ de.cau.cs.kieler.kiesl.text.kiesl.util,
+ de.cau.cs.kieler.kiesl.text.kiesl,
+ de.cau.cs.kieler.kiesl.text.kiesl.impl,
+ de.cau.cs.kieler.kiesl.text,
+ de.cau.cs.kieler.kiesl.text.parser.antlr,
+ de.cau.cs.kieler.kiesl.text.serializer,
+ de.cau.cs.kieler.kiesl.text.scoping,
+ de.cau.cs.kieler.kiesl.text.generator,
+ de.cau.cs.kieler.kiesl.text.validation,
+ de.cau.cs.kieler.kiesl.text.parser.antlr.internal
+Import-Package: org.apache.log4j

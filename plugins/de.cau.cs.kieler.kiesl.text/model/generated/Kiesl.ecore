@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kiesl" nsURI="http://www.cau.de/cs/kieler/Kiesl" nsPrefix="kiesl">
+  <eClassifiers xsi:type="ecore:EClass" name="Interaction" eSuperTypes="#//CommunicationParticipant">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifelines" upperBound="-1"
+        eType="#//Lifeline" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lifeline" eSuperTypes="#//CommunicationParticipant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationParticipant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RegularMessage" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//CommunicationParticipant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TwoParticipantsMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//CommunicationParticipant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceStartEndExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceStartExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceEndExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceEndExecCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetStartEndExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetStartExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetEndExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetEndExecCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LostOrFoundMessage" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" eType="#//Lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//OneParticipantMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lostOrFound" eType="#//LostOrFound"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startEndExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endExecCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LostOrFound">
+    <eLiterals name="LOST" literal="lost"/>
+    <eLiterals name="FOUND" value="1" literal="found"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfMessage" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" eType="#//Lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//OneParticipantMessageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startEndExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endExec" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endExecCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LifelineDestructionEvent" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" eType="#//Lifeline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InteractionUse" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifelines" unique="false"
+        upperBound="-1" eType="#//Lifeline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CombinedFragment" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CombinedFragmentType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
+        eType="#//Section" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CombinedFragmentType">
+    <eLiterals name="SEQ" literal="seq"/>
+    <eLiterals name="ALT" value="1" literal="alt"/>
+    <eLiterals name="OPT" value="2" literal="opt"/>
+    <eLiterals name="BREAK" value="3" literal="break"/>
+    <eLiterals name="PAR" value="4" literal="par"/>
+    <eLiterals name="STRICT" value="5" literal="strict"/>
+    <eLiterals name="LOOP" value="6" literal="loop"/>
+    <eLiterals name="CRITICAL" value="7" literal="critical"/>
+    <eLiterals name="NEG" value="8" literal="neg"/>
+    <eLiterals name="ASSERT" value="9" literal="assert"/>
+    <eLiterals name="IGNORE" value="10" literal="ignore"/>
+    <eLiterals name="CONSIDER" value="11" literal="consider"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Section">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//Element" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Continuation" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifelines" unique="false"
+        upperBound="-1" eType="#//Lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateInvariant" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifeline" eType="#//Lifeline"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invariant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OneParticipantMessageType">
+    <eLiterals name="ASYNC" literal="async"/>
+    <eLiterals name="SYNC" value="1" literal="sync"/>
+    <eLiterals name="RESPONSE" value="2" literal="response"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TwoParticipantsMessageType">
+    <eLiterals name="ASYNC" literal="async"/>
+    <eLiterals name="SYNC" value="1" literal="sync"/>
+    <eLiterals name="RESPONSE" value="2" literal="response"/>
+    <eLiterals name="CREATE" value="3" literal="create"/>
+    <eLiterals name="DESTROY" value="4" literal="destroy"/>
+  </eClassifiers>
+</ecore:EPackage>
