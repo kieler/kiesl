@@ -252,3 +252,4 @@ enum TwoParticipantsMessageType:
  */
 terminal INT_GREATER_ZERO_OR_ALL returns ecore::EInt:
     '1'..'9' ('0'..'9')* | 'all';
+    
