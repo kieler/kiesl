@@ -124,16 +124,7 @@ class KieslFormatter extends AbstractFormatter2 {
         iu.regionFor.keyword(interactionUseAccess.refKeyword_0).surround[oneSpace];
         iu.regionFor.assignment(interactionUseAccess.captionAssignment_1).surround[oneSpace];
         iu.regionFor.keyword(interactionUseAccess.lifelinesKeyword_2).surround[oneSpace];
-        iu.regionFor.keyword(interactionUseAccess.commaKeyword_4_0).prepend[noSpace].append[newLine];
-        
-        // FIXME This somehow doesn't cover any but the first lifeline
-        iu.interior[indent];
-        
-        // If there is only one affected lifeline, put it on the same line. If there are more, put
-        // all of them on separate lines
-        if (iu.lifelines.size > 1) {
-            iu.regionFor.keyword(interactionUseAccess.lifelinesKeyword_2).append[newLine];
-        }
+        iu.regionFor.keyword(interactionUseAccess.commaKeyword_4_0).prepend[noSpace].append[oneSpace];
     }
     
     def dispatch void format(CombinedFragment cf, extension IFormattableDocument document) {
@@ -163,18 +154,12 @@ class KieslFormatter extends AbstractFormatter2 {
         c.regionFor.assignment(continuationAccess.nameAssignment_1).surround[oneSpace];
         c.regionFor.keyword(continuationAccess.lifelinesKeyword_2).surround[oneSpace];
         
-        c.regionFor.keyword(continuationAccess.commaKeyword_4_0).prepend[noSpace].append[newLine];
+        c.regionFor.keyword(continuationAccess.commaKeyword_4_0).prepend[noSpace].append[oneSpace];
         
         c.regionFor.keyword(continuationAccess.noteKeyword_5_0).prepend[newLine];
         c.regionFor.assignment(continuationAccess.noteAssignment_5_1).surround[oneSpace];
         
         c.interior[indent];
-        
-        // If there is only one affected lifeline, put it on the same line. If there are more, put
-        // all of them on separate lines
-        if (c.lifelines.size > 1) {
-            c.regionFor.keyword(continuationAccess.lifelinesKeyword_2).append[newLine];
-        }
     }
     
     def dispatch void format(StateInvariant si, extension IFormattableDocument document) {
