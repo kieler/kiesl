@@ -24,6 +24,7 @@ import de.cau.cs.kieler.klighd.krendering.extensions.KLabelExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KNodeExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KRenderingExtensions
 import de.cau.cs.kieler.klighd.syntheses.AbstractDiagramSynthesis
+import de.cau.cs.kieler.klighd.krendering.LineStyle
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -72,15 +73,15 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
             
         } else {
             // Add a proper surrounding rectangle with a caption
-            kinteraction.addRectangle() => [ rect |
-                rect.foreground = "#c0c0c0".color;
-                rect.background = "white".color;
+            kinteraction.addRectangle() => [ container |
+                container.foreground = "#c0c0c0".color;
+                container.background = "white".color;
                 
-                rect.setGridPlacement(1)
+                container.setGridPlacement(1)
                     .from(LEFT, 0, 0, TOP, 0, 0)
                     .to(RIGHT, 0, 0, BOTTOM, 0, 0);
                 
-                val captionCell = rect.addGridBox(0, 0,
+                val captionCell = container.addGridBox(0, 0,
                     createKPosition(LEFT, 0, 0, TOP, 0, 0),
                     createKPosition(RIGHT, 0, 0, BOTTOM, 0, 0));
                 (captionCell.placementData as KGridPlacementData).flexibleHeight = false;
@@ -101,15 +102,15 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
                     poly.setPointPlacementData(LEFT, 0, 0, TOP, 0, 0, H_LEFT, V_TOP, 10, 0, 0, 0);
                     
                     // This text will contain the interaction's name
-                    poly.addText(interaction.caption) => [text |
+                    poly.addText(interaction.caption.trim()) => [text |
                         text.foreground = "#666666".color;
                         text.fontSize = 12;
                         
                         text.setSurroundingSpaceGrid(10, 0, 8, 0);
-                    ]
+                    ];
                 ];
                 
-                val contentCell = rect.addGridBox(0, 0,
+                val contentCell = container.addGridBox(0, 0,
                     createKPosition(LEFT, 10, 0, TOP, 10, 0),
                     createKPosition(RIGHT, 10, 0, BOTTOM, 10, 0));
                 contentCell.addChildArea();
@@ -125,7 +126,41 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         
         // TODO Configure layout options
         
-        klifeline.setSize(100, 100);
+        // Define the lifeline's rendering
+        klifeline.addRectangle() => [ container |
+            container.foregroundInvisible = true;
+            container.backgroundInvisible = true;
+            
+            // The lifeline itself
+            container.addPolyline() => [ line |
+                line.foreground = "#666666".color;
+                line.lineStyle = LineStyle.DASH;
+                
+                line.points += createKPosition(LEFT, 0, 0.5f, TOP, 4, 0);
+                line.points += createKPosition(LEFT, 0, 0.5f, BOTTOM, 0, 0);
+            ];
+            
+            // The lifeline's header
+            container.addRectangle() => [ captionRect |
+                captionRect.foreground = "#c0c0c0".color;
+                captionRect.setBackgroundGradient("white".color, "#f2f2f2".color, 90);
+                
+                captionRect.setPointPlacementData(LEFT, 0, 0.5f, TOP, 0, 0, H_CENTRAL, V_TOP, 0, 20, 0, 0);
+                
+                // Guard against null captions here
+                val actualCaption =
+                    if (Strings.isNullOrEmpty(lifeline.caption)) {
+                        "";
+                    } else {
+                        lifeline.caption.trim();
+                    };
+                
+                captionRect.addText(actualCaption) => [ text |
+                    text.fontSize = 12;
+                    text.setSurroundingSpaceGrid(10, 0, 8, 0);
+                ];
+            ];
+        ];
     }    
         
 }
