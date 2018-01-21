@@ -14,7 +14,7 @@ package de.cau.cs.kieler.kiesl.klighd.transform
 
 import com.google.common.base.Strings
 import com.google.inject.Inject
-import de.cau.cs.kieler.kiesl.klighd.SequenceDiagramSynthesis
+import de.cau.cs.kieler.kiesl.klighd.SequenceDiagramSynthesis.Options
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction
 import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline
 import de.cau.cs.kieler.klighd.kgraph.KNode
@@ -26,25 +26,26 @@ import de.cau.cs.kieler.klighd.krendering.extensions.KLabelExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KNodeExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KRenderingExtensions
 
+import static de.cau.cs.kieler.kiesl.klighd.themes.Style.StyleColor.*
+
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
  * layout algorithm.
  */
 public class SequenceDiagramTransformation {
     
-    @Inject extension KColorExtensions
     @Inject extension KContainerRenderingExtensions
     @Inject extension KLabelExtensions
     @Inject extension KNodeExtensions
     @Inject extension KRenderingExtensions
     
-    private var SequenceDiagramSynthesis synthesis;
+    private var Options options;
     
     /**
      * Entry point.
      */
-    public def transformModel(Interaction interaction, SequenceDiagramSynthesis synthesis) {
-        this.synthesis = synthesis;
+    public def transformModel(Interaction interaction, Options options) {
+        this.options = options;
         
         // The root of the diagram
         val kroot = createNode();
@@ -64,7 +65,7 @@ public class SequenceDiagramTransformation {
      * Creates a node to represent the given interaction.
      */
     private def KNode create kinteraction : interaction.createNode() transform(Interaction interaction) {
-        synthesis.associateWith(kinteraction, interaction);
+        options.synthesis.associateWith(kinteraction, interaction);
         
         // TODO Configure layout options
         
@@ -77,9 +78,10 @@ public class SequenceDiagramTransformation {
             
         } else {
             // Add a proper surrounding rectangle with a caption
+            val style = options.style.interaction();
             kinteraction.addRectangle() => [ container |
-                container.foreground = "#c0c0c0".color;
-                container.background = "white".color;
+                container.foreground = style.color(FOREGROUND);
+                container.background = style.color(BACKGROUND);
                 
                 container.setGridPlacement(1)
                     .from(LEFT, 0, 0, TOP, 0, 0)
@@ -100,14 +102,17 @@ public class SequenceDiagramTransformation {
                     poly.points += createKPosition(RIGHT, 10, 0, BOTTOM, 0, 0);
                     poly.points += createKPosition(LEFT, 0.5f, 0, BOTTOM, 0, 0);
                     
-                    poly.foreground = "#c0c0c0".color;
-                    poly.setBackgroundGradient("white".color, "#f2f2f2".color, 90);
+                    poly.foreground = style.color(FOREGROUND);
+                    poly.setBackgroundGradient(
+                        style.color(CAPTION_BACKGROUND_START),
+                        style.color(CAPTION_BACKGROUND_END),
+                        90);
                     
                     poly.setPointPlacementData(LEFT, 0, 0, TOP, 0, 0, H_LEFT, V_TOP, 10, 0, 0, 0);
                     
                     // This text will contain the interaction's name
                     poly.addText(interaction.caption.trim()) => [text |
-                        text.foreground = "#666666".color;
+                        text.foreground = style.color(CAPTION_TEXT);
                         text.fontSize = 12;
                         
                         text.setSurroundingSpaceGrid(10, 0, 8, 0);
@@ -126,18 +131,19 @@ public class SequenceDiagramTransformation {
      * Creates a node to represent the given lifeline
      */
     private def KNode create klifeline : lifeline.createNode() transform(Lifeline lifeline) {
-        synthesis.associateWith(klifeline, lifeline);
+        options.synthesis.associateWith(klifeline, lifeline);
         
         // TODO Configure layout options
         
         // Define the lifeline's rendering
+        val style = options.style.lifeline();
         klifeline.addRectangle() => [ container |
             container.foregroundInvisible = true;
             container.backgroundInvisible = true;
             
             // The lifeline itself
             container.addPolyline() => [ line |
-                line.foreground = "#666666".color;
+                line.foreground = style.color(LIFELINE);
                 line.lineStyle = LineStyle.DASH;
                 
                 line.points += createKPosition(LEFT, 0, 0.5f, TOP, 4, 0);
@@ -146,8 +152,11 @@ public class SequenceDiagramTransformation {
             
             // The lifeline's header
             container.addRectangle() => [ captionRect |
-                captionRect.foreground = "#c0c0c0".color;
-                captionRect.setBackgroundGradient("white".color, "#f2f2f2".color, 90);
+                captionRect.foreground = style.color(FOREGROUND);
+                captionRect.setBackgroundGradient(
+                        style.color(CAPTION_BACKGROUND_START),
+                        style.color(CAPTION_BACKGROUND_END),
+                        90);
                 
                 captionRect.setPointPlacementData(LEFT, 0, 0.5f, TOP, 0, 0, H_CENTRAL, V_TOP, 0, 20, 0, 0);
                 
@@ -160,6 +169,7 @@ public class SequenceDiagramTransformation {
                     };
                 
                 captionRect.addText(actualCaption) => [ text |
+                    text.foreground = style.color(CAPTION_TEXT);
                     text.fontSize = 12;
                     text.setSurroundingSpaceGrid(10, 0, 8, 0);
                 ];
