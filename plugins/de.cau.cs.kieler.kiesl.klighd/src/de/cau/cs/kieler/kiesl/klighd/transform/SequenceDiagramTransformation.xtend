@@ -12,21 +12,20 @@
  */
 package de.cau.cs.kieler.kiesl.klighd.transform
 
-import com.google.common.base.Strings
 import com.google.inject.Inject
 import de.cau.cs.kieler.kiesl.klighd.SequenceDiagramSynthesis.Options
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction
 import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline
+import de.cau.cs.kieler.kiesl.text.kiesl.RegularMessage
+import de.cau.cs.kieler.klighd.kgraph.KEdge
 import de.cau.cs.kieler.klighd.kgraph.KNode
-import de.cau.cs.kieler.klighd.krendering.KGridPlacementData
-import de.cau.cs.kieler.klighd.krendering.LineStyle
-import de.cau.cs.kieler.klighd.krendering.extensions.KColorExtensions
-import de.cau.cs.kieler.klighd.krendering.extensions.KContainerRenderingExtensions
+import de.cau.cs.kieler.klighd.krendering.extensions.KEdgeExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KLabelExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KNodeExtensions
-import de.cau.cs.kieler.klighd.krendering.extensions.KRenderingExtensions
-
-import static de.cau.cs.kieler.kiesl.klighd.themes.Style.StyleColor.*
+import org.eclipse.elk.alg.sequence.options.NodeType
+import org.eclipse.elk.alg.sequence.options.SequenceDiagramOptions
+import org.eclipse.elk.core.options.CoreOptions
+import org.eclipse.elk.core.options.FixedLayouterOptions
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -34,10 +33,9 @@ import static de.cau.cs.kieler.kiesl.klighd.themes.Style.StyleColor.*
  */
 public class SequenceDiagramTransformation {
     
-    @Inject extension KContainerRenderingExtensions
+    @Inject extension KEdgeExtensions
     @Inject extension KLabelExtensions
     @Inject extension KNodeExtensions
-    @Inject extension KRenderingExtensions
     
     private var Options options;
     
@@ -49,13 +47,18 @@ public class SequenceDiagramTransformation {
         
         // The root of the diagram
         val kroot = createNode();
+        kroot.setProperty(CoreOptions.ALGORITHM, FixedLayouterOptions.ALGORITHM_ID);
         
         // The main interaction node and its lifelines
-        val kinteraction = transform(interaction);
+        val kinteraction = toNode(interaction);
         kroot.children += kinteraction;
         
         interaction.lifelines.forEach[ ll |
-            kinteraction.children += transform(ll);
+            kinteraction.children += toNode(ll);
+        ];
+        
+        interaction.elements.forEach[ e |
+            
         ];
         
         return kroot;
@@ -64,117 +67,71 @@ public class SequenceDiagramTransformation {
     /**
      * Creates a node to represent the given interaction.
      */
-    private def KNode create kinteraction : interaction.createNode() transform(Interaction interaction) {
+    private def KNode create kinteraction : interaction.createNode() toNode(Interaction interaction) {
         options.synthesis.associateWith(kinteraction, interaction);
         
-        // TODO Configure layout options
+        // Configure layout options
+        kinteraction.setProperty(CoreOptions.ALGORITHM, SequenceDiagramOptions.ALGORITHM_ID);
+        kinteraction.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.SURROUNDING_INTERACTION);
+        kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_SORTING_STRATEGY, options.llsort);
         
-        if (Strings.isNullOrEmpty(interaction.caption)) {
-            // Give the interaction a simple invisible rectangle
-            kinteraction.addRectangle() => [ rect |
-                rect.foregroundInvisible = true;
-                rect.backgroundInvisible = true;
-            ]
-            
-        } else {
-            // Add a proper surrounding rectangle with a caption
-            val style = options.style.interaction();
-            kinteraction.addRectangle() => [ container |
-                container.foreground = style.color(FOREGROUND);
-                container.background = style.color(BACKGROUND);
-                
-                container.setGridPlacement(1)
-                    .from(LEFT, 0, 0, TOP, 0, 0)
-                    .to(RIGHT, 0, 0, BOTTOM, 0, 0);
-                
-                val captionCell = container.addGridBox(0, 0,
-                    createKPosition(LEFT, 0, 0, TOP, 0, 0),
-                    createKPosition(RIGHT, 0, 0, BOTTOM, 0, 0));
-                (captionCell.placementData as KGridPlacementData).flexibleHeight = false;
-                
-                // This polygon will contain the interaction's name
-                captionCell.addPolygon() => [ poly |
-                    // We need the 0.5 offset to keep the polygon's lines exactly on the
-                    // surrounding rectangle's lines
-                    poly.points += createKPosition(LEFT, 0.5f, 0, TOP, 0.5f, 0);
-                    poly.points += createKPosition(RIGHT, 0, 0, TOP, 0.5f, 0);
-                    poly.points += createKPosition(RIGHT, 0, 0, BOTTOM, 10, 0);
-                    poly.points += createKPosition(RIGHT, 10, 0, BOTTOM, 0, 0);
-                    poly.points += createKPosition(LEFT, 0.5f, 0, BOTTOM, 0, 0);
-                    
-                    poly.foreground = style.color(FOREGROUND);
-                    poly.setBackgroundGradient(
-                        style.color(CAPTION_BACKGROUND_START),
-                        style.color(CAPTION_BACKGROUND_END),
-                        90);
-                    
-                    poly.setPointPlacementData(LEFT, 0, 0, TOP, 0, 0, H_LEFT, V_TOP, 10, 0, 0, 0);
-                    
-                    // This text will contain the interaction's name
-                    poly.addText(interaction.caption.trim()) => [text |
-                        text.foreground = style.color(CAPTION_TEXT);
-                        text.fontSize = 12;
-                        
-                        text.setSurroundingSpaceGrid(10, 0, 8, 0);
-                    ];
-                ];
-                
-                val contentCell = container.addGridBox(0, 0,
-                    createKPosition(LEFT, 10, 0, TOP, 10, 0),
-                    createKPosition(RIGHT, 10, 0, BOTTOM, 10, 0));
-                contentCell.addChildArea();
-            ];
-        }
+        // TODO Check which of these we may need as well
+//        .addLayoutParam(SequenceDiagramOptions.SPACING_BORDER, 10f)
+//        .addLayoutParam(SequenceDiagramOptions.MESSAGE_SPACING, 65f)
+//        .addLayoutParam(SequenceDiagramOptions.LIFELINE_Y_POS, 50f)
+//        .addLayoutParam(SequenceDiagramOptions.LIFELINE_HEADER_HEIGHT, 40f)
+//        .addLayoutParam(SequenceDiagramOptions.AREA_HEADER_HEIGHT, 45f)
+        
+        options.style.render(kinteraction, interaction);
     }
 
     /**
      * Creates a node to represent the given lifeline
      */
-    private def KNode create klifeline : lifeline.createNode() transform(Lifeline lifeline) {
+    private def KNode create klifeline : lifeline.createNode() toNode(Lifeline lifeline) {
         options.synthesis.associateWith(klifeline, lifeline);
         
-        // TODO Configure layout options
+        // Configure layout options
+        klifeline.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.LIFELINE);
         
         // Define the lifeline's rendering
-        val style = options.style.lifeline();
-        klifeline.addRectangle() => [ container |
-            container.foregroundInvisible = true;
-            container.backgroundInvisible = true;
-            
-            // The lifeline itself
-            container.addPolyline() => [ line |
-                line.foreground = style.color(LIFELINE);
-                line.lineStyle = LineStyle.DASH;
-                
-                line.points += createKPosition(LEFT, 0, 0.5f, TOP, 4, 0);
-                line.points += createKPosition(LEFT, 0, 0.5f, BOTTOM, 0, 0);
-            ];
-            
-            // The lifeline's header
-            container.addRectangle() => [ captionRect |
-                captionRect.foreground = style.color(FOREGROUND);
-                captionRect.setBackgroundGradient(
-                        style.color(CAPTION_BACKGROUND_START),
-                        style.color(CAPTION_BACKGROUND_END),
-                        90);
-                
-                captionRect.setPointPlacementData(LEFT, 0, 0.5f, TOP, 0, 0, H_CENTRAL, V_TOP, 0, 20, 0, 0);
-                
-                // Guard against null captions here
-                val actualCaption =
-                    if (Strings.isNullOrEmpty(lifeline.caption)) {
-                        "";
-                    } else {
-                        lifeline.caption.trim();
-                    };
-                
-                captionRect.addText(actualCaption) => [ text |
-                    text.foreground = style.color(CAPTION_TEXT);
-                    text.fontSize = 12;
-                    text.setSurroundingSpaceGrid(10, 0, 8, 0);
-                ];
-            ];
-        ];
-    }    
+        options.style.render(klifeline, lifeline);
+    }
+    
+    private def KEdge create kmessage : message.createEdge() toEdge(RegularMessage message) {
+        options.synthesis.associateWith(kmessage, message);
+        
+        // TODO Make this work with gates as well
+        if (!(message.source instanceof Lifeline && message.target instanceof Lifeline)) {
+            return;
+        }
+        
+        // Set the source and target lifelines
+        kmessage.source = toNode(message.source as Lifeline);
+        kmessage.target = toNode(message.target as Lifeline);
+        
+        // TODO Set the edge order for the layout algorithm to be able to infer said order based on y coordinates
+        
+        // TODO Check for and possibly create source note
+        
+        // TODO Check for and possibly create target note
+        
+        // TODO Check whether an execution should be started at the source lifeline, and possibly start one
+        
+        // TODO Check whether an execution should be started at the target lifeline, and possibly start one
+        
+        // TODO Add the message to the executions currently active on the source lifeline
+        
+        // TODO Add the message to the executions currently active on the target lifeline
+        
+        // TODO Check whether executions should be terminated at the source lifeline, and possibly terminate them
+        
+        // TODO Check whether executions should be terminated at the target lifeline, and possibly terminate them
+        
+        // TODO Add to any active sections in fragments
+        
+        // Configure the edge's rendering
+        
+    }
         
 }

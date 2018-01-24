@@ -19,6 +19,9 @@ package de.cau.cs.kieler.kiesl.text.validation
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class KieslValidator extends AbstractKieslValidator {
+    
+    // TODO Check that a regular message has at least one involved lifeline
+    // TODO Check that a regular message involves two different participants
 	
 //	public static val INVALID_NAME = 'invalidName'
 //

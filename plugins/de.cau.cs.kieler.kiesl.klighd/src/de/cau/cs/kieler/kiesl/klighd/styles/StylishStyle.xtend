@@ -10,17 +10,17 @@
  * 
  * This code is provided under the terms of the Eclipse Public License (EPL).
  */
-package de.cau.cs.kieler.kiesl.klighd.themes
+package de.cau.cs.kieler.kiesl.klighd.styles
 
-import static de.cau.cs.kieler.kiesl.klighd.themes.Style.StyleColor.*
+import static de.cau.cs.kieler.kiesl.klighd.styles.BasicStyle.ThemeColor.*;
 
 /**
  * The stylish theme. It's stylish.
  */
-class StylishStyle extends Style {
+class StylishStyle extends BasicStyle {
     
     override protected initInteraction() {
-        return new EntityStyle()
+        return new EntityColorTheme()
             .define(BACKGROUND, "white")
             .define(FOREGROUND, "#c0c0c0")
             .define(CAPTION_BACKGROUND_START, "white")
@@ -29,7 +29,7 @@ class StylishStyle extends Style {
     }
     
     override protected initLifeline() {
-        return new EntityStyle()
+        return new EntityColorTheme()
             .define(BACKGROUND, "white")
             .define(FOREGROUND, "#c0c0c0")
             .define(CAPTION_BACKGROUND_START, "white")
