@@ -40,7 +40,7 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         STYLE_STYLISH);
     
     private static val LLSORT_INTERACTIVE = "Declaration Order";
-    private static val LLSORT_MESSAGE_ORDER = "First Message Left";
+    private static val LLSORT_MESSAGE_ORDER = "Message Order";
     private static val LLSORT_SHORT_MESSAGE = "Short Messages";
     private static val SynthesisOption LLSORT = SynthesisOption.createChoiceOption(
         "Lifeline Order", ImmutableList.of(
