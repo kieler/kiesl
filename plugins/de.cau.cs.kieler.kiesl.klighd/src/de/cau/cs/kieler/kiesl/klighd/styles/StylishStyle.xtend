@@ -51,4 +51,11 @@ class StylishStyle extends BasicStyle {
             .define(FOREGROUND, "#c0c0c0");
     }
     
+    override protected EntityColorTheme initNoteTheme() {
+        return new EntityColorTheme()
+            .define(ThemeColor.BACKGROUND, "#fafafa")
+            .define(ThemeColor.FOREGROUND, "#c0c0c0")
+            .define(ThemeColor.CAPTION_TEXT, "#666666");
+    }
+    
 }

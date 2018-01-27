@@ -60,4 +60,9 @@ public interface IStyle {
      */
     void renderExecution(KNode kexecution);
     
+    /**
+     * Adds rendering information to the given node which represents a note with the given text.
+     */
+    void renderNote(KNode knote, String text);
+    
 }

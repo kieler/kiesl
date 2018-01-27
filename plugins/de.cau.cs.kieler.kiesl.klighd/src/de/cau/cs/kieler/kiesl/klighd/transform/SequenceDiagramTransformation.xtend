@@ -166,9 +166,15 @@ public class SequenceDiagramTransformation {
         // Set the necessary properties for the layout algorithm
         kmessage.setProperty(SequenceDiagramOptions.MESSAGE_TYPE, message.type.toSequenceMessageType());
         
-        // TODO Check for and possibly create source note
+        // Check for and possibly create source note
+        if (!Strings.isNullOrEmpty(message.sourceNote)) {
+            createNote(message.sourceNote, kmessage);
+        } 
         
-        // TODO Check for and possibly create target note
+        // Check for and possibly create target note
+        if (!Strings.isNullOrEmpty(message.targetNote)) {
+            createNote(message.targetNote, kmessage);
+        } 
         
         // If the source is a lifeline, we may need to handle executions
         if (message.source instanceof Lifeline) {
@@ -211,7 +217,6 @@ public class SequenceDiagramTransformation {
                 endExecutions(targetLifeline, 1);
             }
         }
-        
         
         // TODO Add to any active sections in fragments
         
@@ -290,19 +295,42 @@ public class SequenceDiagramTransformation {
     
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Comments
+    
+    /**
+     * Creates a note with the given text attached to the given element (if any).
+     */
+    private def void createNote(String text, KGraphElement kelement) {
+        // Create and configure a note node
+        val knote = createNode();
+        kinteraction.children += knote;
+        
+        knote.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.COMMENT);
+        
+        if (kelement !== null) {
+            knote.setProperty(SequenceDiagramOptions.ATTACHED_OBJECT_ID, kelement.elementId);
+        }
+        
+        // TODO This should probably use a label instead
+        //      (once the layout algorithm supports node size calculation and label management)
+        options.style.renderNote(knote, text);
+    }
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Element Identifiers
     
     /**
      * Assigns the next available identifier to the given element. This is done by setting the
      * {@link SequenceDiagramOptions#ELEMENT_ID} option.
      */
-    private def void assignElementId(KGraphElement element) {
-        element.setProperty(SequenceDiagramOptions.ELEMENT_ID, nextElementId);
+    private def void assignElementId(KGraphElement kelement) {
+        kelement.setProperty(SequenceDiagramOptions.ELEMENT_ID, nextElementId);
         
         // If the element is an edge, it represents a message. We need to help the layout algorithm figure out the
         // order of messages on each lifeline by assigning y coordinates. We simply use the element ID.
-        if (element instanceof KEdge) {
-            val kedge = element as KEdge;
+        if (kelement instanceof KEdge) {
+            val kedge = kelement as KEdge;
             kedge.sourcePoint.y = nextElementId;
             kedge.targetPoint.y = nextElementId;
         }

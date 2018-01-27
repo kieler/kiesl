@@ -56,6 +56,7 @@ public class BasicStyle implements IStyle {
         entityThemeMap.put(Entity.LIFELINE, initLifelineTheme());
         entityThemeMap.put(Entity.EXECUTION, initExecutionTheme());
         entityThemeMap.put(Entity.MESSAGE, initMessageTheme());
+        entityThemeMap.put(Entity.NOTE, initNoteTheme());
     }
     
     
@@ -225,6 +226,21 @@ public class BasicStyle implements IStyle {
         ]
     }
     
+    override renderNote(KNode knote, String text) {
+        val theme = entityThemeMap.get(Entity.NOTE);
+        
+        knote.addRectangle() => [
+            foreground = theme.color(ThemeColor.FOREGROUND);
+            configureBackground(it, theme, ThemeColor.BACKGROUND, 90);
+            
+            addText(text) => [
+                foreground = theme.color(ThemeColor.CAPTION_TEXT);
+                fontSize = 8;
+                setSurroundingSpaceGrid(5, 0, 3, 0);
+            ];
+        ];
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Utilities
@@ -281,7 +297,8 @@ public class BasicStyle implements IStyle {
         INTERACTION,
         LIFELINE,
         EXECUTION,
-        MESSAGE;
+        MESSAGE,
+        NOTE;
     }
     
     /**
@@ -373,6 +390,16 @@ public class BasicStyle implements IStyle {
         return new EntityColorTheme()
             .define(ThemeColor.BACKGROUND, "white")
             .define(ThemeColor.FOREGROUND, "black");
+    }
+    
+    /**
+     * Returns the entity theme to be used for interactions.
+     */
+    protected def EntityColorTheme initNoteTheme() {
+        return new EntityColorTheme()
+            .define(ThemeColor.BACKGROUND, "white")
+            .define(ThemeColor.FOREGROUND, "black")
+            .define(ThemeColor.CAPTION_TEXT, "black");
     }
     
 }
