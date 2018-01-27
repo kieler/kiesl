@@ -16,18 +16,27 @@ import com.google.common.base.Strings
 import com.google.inject.Inject
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction
 import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline
+import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFoundMessage
+import de.cau.cs.kieler.kiesl.text.kiesl.RegularMessage
+import de.cau.cs.kieler.kiesl.text.kiesl.SelfMessage
+import de.cau.cs.kieler.kiesl.text.kiesl.TwoParticipantsMessageType
+import de.cau.cs.kieler.klighd.kgraph.KEdge
+import de.cau.cs.kieler.klighd.kgraph.KLabel
 import de.cau.cs.kieler.klighd.kgraph.KNode
 import de.cau.cs.kieler.klighd.krendering.KColor
 import de.cau.cs.kieler.klighd.krendering.KGridPlacementData
+import de.cau.cs.kieler.klighd.krendering.KRendering
+import de.cau.cs.kieler.klighd.krendering.KRenderingFactory
 import de.cau.cs.kieler.klighd.krendering.KRenderingUtil
+import de.cau.cs.kieler.klighd.krendering.LineCap
+import de.cau.cs.kieler.klighd.krendering.LineStyle
 import de.cau.cs.kieler.klighd.krendering.extensions.KContainerRenderingExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KEdgeExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KLabelExtensions
-import de.cau.cs.kieler.klighd.krendering.extensions.KNodeExtensions
+import de.cau.cs.kieler.klighd.krendering.extensions.KPolylineExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KRenderingExtensions
 import java.util.EnumMap
 import java.util.Map
-import de.cau.cs.kieler.klighd.krendering.LineStyle
 
 /**
  * The basic style has a basic style of rendering things that should be quite enough for a sequence diagram to
@@ -43,8 +52,10 @@ public class BasicStyle implements IStyle {
      * The constructor calls the {@code initX()} methods to initialize the colours to be used for rendering.
      */
     public new() {
-        entityThemeMap.put(Entity.INTERACTION, initInteraction());
-        entityThemeMap.put(Entity.LIFELINE, initLifeline());
+        entityThemeMap.put(Entity.INTERACTION, initInteractionTheme());
+        entityThemeMap.put(Entity.LIFELINE, initLifelineTheme());
+        entityThemeMap.put(Entity.EXECUTION, initExecutionTheme());
+        entityThemeMap.put(Entity.MESSAGE, initMessageTheme());
     }
     
     
@@ -54,61 +65,59 @@ public class BasicStyle implements IStyle {
     @Inject extension KContainerRenderingExtensions
     @Inject extension KEdgeExtensions
     @Inject extension KLabelExtensions
-    @Inject extension KNodeExtensions
+    @Inject extension KPolylineExtensions
     @Inject extension KRenderingExtensions
+    private static KRenderingFactory renderingFactory = KRenderingFactory::eINSTANCE
     
-    public override render(KNode kinteraction, Interaction interaction) {
+    public override renderInteraction(KNode kinteraction, Interaction interaction) {
         if (Strings.isNullOrEmpty(interaction.caption)) {
             // Give the interaction a simple invisible rectangle
-            kinteraction.addRectangle() => [ rect |
-                rect.foregroundInvisible = true;
-                rect.backgroundInvisible = true;
+            kinteraction.addRectangle() => [
+                foregroundInvisible = true;
+                backgroundInvisible = true;
             ]
             
         } else {
             // Add a proper surrounding rectangle with a caption
             val theme = entityThemeMap.get(Entity.INTERACTION);
-            kinteraction.addRectangle() => [ container |
-                container.foreground = theme.color(ThemeColor.FOREGROUND);
-                container.background = theme.color(ThemeColor.BACKGROUND);
+            kinteraction.addRectangle() => [
+                foreground = theme.color(ThemeColor.FOREGROUND);
+                configureBackground(it, theme, ThemeColor.BACKGROUND, 90);
                 
-                container.setGridPlacement(1)
+                setGridPlacement(1)
                     .from(LEFT, 0, 0, TOP, 0, 0)
                     .to(RIGHT, 0, 0, BOTTOM, 0, 0);
                 
-                val captionCell = container.addGridBox(0, 0,
+                val captionCell = addGridBox(0, 0,
                     createKPosition(LEFT, 0, 0, TOP, 0, 0),
                     createKPosition(RIGHT, 0, 0, BOTTOM, 0, 0));
                 (captionCell.placementData as KGridPlacementData).flexibleHeight = false;
                 
                 // This polygon will contain the interaction's name
-                captionCell.addPolygon() => [ poly |
+                captionCell.addPolygon() => [
                     // We need the 0.5 offset to keep the polygon's lines exactly on the
                     // surrounding rectangle's lines
-                    poly.points += createKPosition(LEFT, 0.5f, 0, TOP, 0.5f, 0);
-                    poly.points += createKPosition(RIGHT, 0, 0, TOP, 0.5f, 0);
-                    poly.points += createKPosition(RIGHT, 0, 0, BOTTOM, 10, 0);
-                    poly.points += createKPosition(RIGHT, 10, 0, BOTTOM, 0, 0);
-                    poly.points += createKPosition(LEFT, 0.5f, 0, BOTTOM, 0, 0);
+                    points += createKPosition(LEFT, 0.5f, 0, TOP, 0.5f, 0);
+                    points += createKPosition(RIGHT, 0, 0, TOP, 0.5f, 0);
+                    points += createKPosition(RIGHT, 0, 0, BOTTOM, 10, 0);
+                    points += createKPosition(RIGHT, 10, 0, BOTTOM, 0, 0);
+                    points += createKPosition(LEFT, 0.5f, 0, BOTTOM, 0, 0);
                     
-                    poly.foreground = theme.color(ThemeColor.FOREGROUND);
-                    poly.setBackgroundGradient(
-                        theme.color(ThemeColor.CAPTION_BACKGROUND_START),
-                        theme.color(ThemeColor.CAPTION_BACKGROUND_END),
-                        90);
+                    foreground = theme.color(ThemeColor.FOREGROUND);
+                    configureBackground(it, theme, ThemeColor.CAPTION_BACKGROUND, 90);
                     
-                    poly.setPointPlacementData(LEFT, 0, 0, TOP, 0, 0, H_LEFT, V_TOP, 10, 0, 0, 0);
+                    setPointPlacementData(LEFT, 0, 0, TOP, 0, 0, H_LEFT, V_TOP, 10, 0, 0, 0);
                     
                     // This text will contain the interaction's name
-                    poly.addText(interaction.caption.trim()) => [text |
-                        text.foreground = theme.color(ThemeColor.CAPTION_TEXT);
-                        text.fontSize = 12;
+                    addText(interaction.caption.trim()) => [
+                        foreground = theme.color(ThemeColor.CAPTION_TEXT);
+                        fontSize = 12;
                         
-                        text.setSurroundingSpaceGrid(10, 0, 8, 0);
+                        setSurroundingSpaceGrid(10, 0, 8, 0);
                     ];
                 ];
                 
-                val contentCell = container.addGridBox(0, 0,
+                val contentCell = addGridBox(0, 0,
                     createKPosition(LEFT, 10, 0, TOP, 10, 0),
                     createKPosition(RIGHT, 10, 0, BOTTOM, 10, 0));
                 contentCell.addChildArea();
@@ -116,30 +125,27 @@ public class BasicStyle implements IStyle {
         }
     }
     
-    public override render(KNode klifeline, Lifeline lifeline) {
+    public override renderLifeline(KNode klifeline, Lifeline lifeline) {
         val theme = entityThemeMap.get(Entity.LIFELINE);
-        klifeline.addRectangle() => [ container |
-            container.foregroundInvisible = true;
-            container.backgroundInvisible = true;
+        klifeline.addRectangle() => [
+            foregroundInvisible = true;
+            backgroundInvisible = true;
             
             // The lifeline itself
-            container.addPolyline() => [ line |
-                line.foreground = theme.color(ThemeColor.LIFELINE);
-                line.lineStyle = LineStyle.DASH;
+            addPolyline() => [
+                foreground = theme.color(ThemeColor.LIFELINE);
+                lineStyle = LineStyle.DASH;
                 
-                line.points += createKPosition(LEFT, 0, 0.5f, TOP, 4, 0);
-                line.points += createKPosition(LEFT, 0, 0.5f, BOTTOM, 0, 0);
+                points += createKPosition(LEFT, 0, 0.5f, TOP, 4, 0);
+                points += createKPosition(LEFT, 0, 0.5f, BOTTOM, 0, 0);
             ];
             
             // The lifeline's header
-            container.addRectangle() => [ captionRect |
-                captionRect.foreground = theme.color(ThemeColor.FOREGROUND);
-                captionRect.setBackgroundGradient(
-                        theme.color(ThemeColor.CAPTION_BACKGROUND_START),
-                        theme.color(ThemeColor.CAPTION_BACKGROUND_END),
-                        90);
+            addRectangle() => [
+                foreground = theme.color(ThemeColor.FOREGROUND);
+                configureBackground(it, theme, ThemeColor.CAPTION_BACKGROUND, 90);
                 
-                captionRect.setPointPlacementData(LEFT, 0, 0.5f, TOP, 0, 0, H_CENTRAL, V_TOP, 0, 20, 0, 0);
+                setPointPlacementData(LEFT, 0, 0.5f, TOP, 0, 0, H_CENTRAL, V_TOP, 0, 20, 0, 0);
                 
                 // Guard against null captions here
                 val actualCaption =
@@ -149,13 +155,119 @@ public class BasicStyle implements IStyle {
                         lifeline.caption.trim();
                     };
                 
-                captionRect.addText(actualCaption) => [ text |
-                    text.foreground = theme.color(ThemeColor.CAPTION_TEXT);
-                    text.fontSize = 12;
-                    text.setSurroundingSpaceGrid(10, 0, 8, 0);
+                addText(actualCaption) => [
+                    foreground = theme.color(ThemeColor.CAPTION_TEXT);
+                    fontSize = 12;
+                    setSurroundingSpaceGrid(10, 0, 8, 0);
                 ];
             ];
         ];
+    }
+    
+    override renderRegularMessage(KEdge kmessage, KLabel klabel, RegularMessage message) {
+        val lineStyle = switch (message.type) {
+            case RESPONSE,
+            case CREATE:
+                LineStyle.DASH
+            default:
+                LineStyle.SOLID
+        };
+        
+        val filledArrow = message.type == TwoParticipantsMessageType.SYNC;
+        
+        renderMessage(kmessage, klabel, lineStyle, filledArrow);
+    }
+    
+    override renderLostOrFoundMessage(KEdge kmessage, KLabel klabel, LostOrFoundMessage message) {
+        renderMessage(kmessage, klabel, LineStyle.SOLID, false);
+    }
+    
+    override renderSelfMessage(KEdge kmessage, KLabel klabel, SelfMessage message) {
+        renderMessage(kmessage, klabel, LineStyle.SOLID, false);
+    }
+    
+    private def renderMessage(KEdge kmessage, KLabel klabel, LineStyle theLineStyle, boolean filledArrow) {
+        val theme = entityThemeMap.get(Entity.MESSAGE);
+        
+        kmessage.addRoundedBendsPolyline(5f, 1f) => [
+            foreground = theme.color(ThemeColor.FOREGROUND);
+            lineStyle = theLineStyle;
+            
+            if (filledArrow) {
+                addArrowDecorator();
+            } else {
+                addPolyline(1f) => [
+                    foreground = theme.color(ThemeColor.FOREGROUND);
+                    lineCap = LineCap.CAP_ROUND;
+                    
+                    points += createKPosition(LEFT, 0, 0, TOP, 0, 0);
+                    points += createKPosition(RIGHT, 0, 0, TOP, 0, 0.5f);
+                    points += createKPosition(LEFT, 0, 0, BOTTOM, 0, 0);
+                    setDecoratorPlacementData(8, 6, -4, 1.0f, true);
+                ];
+            }
+        ];
+        
+        if (klabel !== null) {
+            klabel.data += renderingFactory.createKText() => [
+                foreground = theme.color(ThemeColor.CAPTION_TEXT);
+                fontSize = 10;
+            ]
+        }
+    }
+    
+    override renderExecution(KNode kexecution) {
+        val theme = entityThemeMap.get(Entity.EXECUTION);
+        
+        kexecution.addRectangle() => [
+            foreground = theme.color(ThemeColor.FOREGROUND);
+            configureBackground(it, theme, ThemeColor.BACKGROUND, 90);
+        ]
+    }
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Utilities
+    
+    /**
+     * If the theme defines the given color, a solid background is defined on the rendering. Otherwise, we check
+     * whether the given color has a gradient version. If so, and if the theme defines both gradient colors, we
+     * define a gradient background.
+     */
+    private def void configureBackground(KRendering krendering, EntityColorTheme colorTheme,
+        ThemeColor basicThemeColor, float angle) {
+        
+        // Check if the theme defines the basic color
+        if (colorTheme.isDefined(basicThemeColor)) {
+            krendering.background = colorTheme.color(basicThemeColor);
+            
+        } else {
+            // Check whether the gradient colors exist
+            val gradientColors = basicThemeColor.toGradientPair();
+            if (gradientColors !== null
+                && colorTheme.isDefined(gradientColors.key)
+                && colorTheme.isDefined(gradientColors.value)) {
+                
+                krendering.setBackgroundGradient(
+                    colorTheme.color(gradientColors.key),
+                    colorTheme.color(gradientColors.value),
+                    angle);
+            }
+        }
+    }
+    
+    /**
+     * Turns a basic theme color into its gradient version, if there is one.
+     */
+    def Pair<ThemeColor, ThemeColor> toGradientPair(ThemeColor themeColor) {
+        return switch (themeColor) {
+            case BACKGROUND:
+                ThemeColor.BACKGROUND_START -> ThemeColor.BACKGROUND_END
+            case CAPTION_BACKGROUND:
+                ThemeColor.CAPTION_BACKGROUND_START -> ThemeColor.CAPTION_BACKGROUND_END
+            default:
+                null
+        };
     }
     
     
@@ -167,7 +279,9 @@ public class BasicStyle implements IStyle {
      */
     protected static enum Entity {
         INTERACTION,
-        LIFELINE;
+        LIFELINE,
+        EXECUTION,
+        MESSAGE;
     }
     
     /**
@@ -176,6 +290,9 @@ public class BasicStyle implements IStyle {
     protected static enum ThemeColor {
         FOREGROUND,
         BACKGROUND,
+        BACKGROUND_START,
+        BACKGROUND_END,
+        CAPTION_BACKGROUND,
         CAPTION_BACKGROUND_START,
         CAPTION_BACKGROUND_END,
         CAPTION_TEXT,
@@ -208,31 +325,54 @@ public class BasicStyle implements IStyle {
             return this;
         }
         
+        /**
+         * Checks whether the theme defines the given color.
+         */
+        protected def boolean isDefined(ThemeColor c) {
+            return colorMap.containsKey(c);
+        }
+        
     }
     
     /**
      * Returns the entity theme to be used for interactions.
      */
-    protected def EntityColorTheme initInteraction() {
+    protected def EntityColorTheme initInteractionTheme() {
         return new EntityColorTheme()
             .define(ThemeColor.BACKGROUND, "white")
             .define(ThemeColor.FOREGROUND, "black")
-            .define(ThemeColor.CAPTION_BACKGROUND_START, "white")
-            .define(ThemeColor.CAPTION_BACKGROUND_END, "white")
+            .define(ThemeColor.CAPTION_BACKGROUND, "white")
             .define(ThemeColor.CAPTION_TEXT, "black");
     }
     
     /**
      * Returns the entity theme to be used for lifelines.
      */
-    protected def EntityColorTheme initLifeline() {
+    protected def EntityColorTheme initLifelineTheme() {
         return new EntityColorTheme()
             .define(ThemeColor.BACKGROUND, "white")
             .define(ThemeColor.FOREGROUND, "black")
-            .define(ThemeColor.CAPTION_BACKGROUND_START, "white")
-            .define(ThemeColor.CAPTION_BACKGROUND_END, "white")
+            .define(ThemeColor.CAPTION_BACKGROUND, "white")
             .define(ThemeColor.CAPTION_TEXT, "black")
             .define(ThemeColor.LIFELINE, "black");
+    }
+    
+    /**
+     * Returns the entity theme to be used for messages and their captions.
+     */
+    protected def EntityColorTheme initMessageTheme() {
+        return new EntityColorTheme()
+            .define(ThemeColor.FOREGROUND, "black")
+            .define(ThemeColor.CAPTION_TEXT, "black");
+    }
+    
+    /**
+     * Returns the entity theme to be used for executions.
+     */
+    protected def EntityColorTheme initExecutionTheme() {
+        return new EntityColorTheme()
+            .define(ThemeColor.BACKGROUND, "white")
+            .define(ThemeColor.FOREGROUND, "black");
     }
     
 }

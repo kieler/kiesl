@@ -19,7 +19,7 @@ import static de.cau.cs.kieler.kiesl.klighd.styles.BasicStyle.ThemeColor.*;
  */
 class StylishStyle extends BasicStyle {
     
-    override protected initInteraction() {
+    override protected initInteractionTheme() {
         return new EntityColorTheme()
             .define(BACKGROUND, "white")
             .define(FOREGROUND, "#c0c0c0")
@@ -28,7 +28,7 @@ class StylishStyle extends BasicStyle {
             .define(CAPTION_TEXT, "#666666");
     }
     
-    override protected initLifeline() {
+    override protected initLifelineTheme() {
         return new EntityColorTheme()
             .define(BACKGROUND, "white")
             .define(FOREGROUND, "#c0c0c0")
@@ -36,6 +36,19 @@ class StylishStyle extends BasicStyle {
             .define(CAPTION_BACKGROUND_END, "#f2f2f2")
             .define(CAPTION_TEXT, "black")
             .define(LIFELINE, "#666666");
+    }
+    
+    override protected EntityColorTheme initMessageTheme() {
+        return new EntityColorTheme()
+            .define(FOREGROUND, "#666666")
+            .define(CAPTION_TEXT, "black");
+    }
+    
+    override protected EntityColorTheme initExecutionTheme() {
+        return new EntityColorTheme()
+            .define(BACKGROUND_START, "white")
+            .define(BACKGROUND_END, "#f2f2f2")
+            .define(FOREGROUND, "#c0c0c0");
     }
     
 }

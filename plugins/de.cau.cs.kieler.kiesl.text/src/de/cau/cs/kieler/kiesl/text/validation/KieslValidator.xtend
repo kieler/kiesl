@@ -22,6 +22,8 @@ class KieslValidator extends AbstractKieslValidator {
     
     // TODO Check that a regular message has at least one involved lifeline
     // TODO Check that a regular message involves two different participants
+    // TODO Check that executions are only started at lifelines, not at interactions
+    // TODO Check whether a message wants to end more executions than there are
 	
 //	public static val INVALID_NAME = 'invalidName'
 //
