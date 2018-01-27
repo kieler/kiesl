@@ -13,18 +13,24 @@
 package de.cau.cs.kieler.kiesl.klighd.transform
 
 import com.google.common.base.Strings
+import com.google.common.collect.Lists
 import com.google.inject.Inject
 import de.cau.cs.kieler.kiesl.klighd.SequenceDiagramSynthesis.Options
+import de.cau.cs.kieler.kiesl.text.kiesl.CombinedFragment
+import de.cau.cs.kieler.kiesl.text.kiesl.Element
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction
 import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline
+import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFound
+import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFoundMessage
+import de.cau.cs.kieler.kiesl.text.kiesl.OneParticipantMessageType
 import de.cau.cs.kieler.kiesl.text.kiesl.RegularMessage
+import de.cau.cs.kieler.kiesl.text.kiesl.SelfMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.TwoParticipantsMessageType
 import de.cau.cs.kieler.klighd.kgraph.KEdge
 import de.cau.cs.kieler.klighd.kgraph.KGraphElement
 import de.cau.cs.kieler.klighd.kgraph.KNode
 import de.cau.cs.kieler.klighd.kgraph.util.KGraphUtil
 import de.cau.cs.kieler.klighd.krendering.extensions.KEdgeExtensions
-import de.cau.cs.kieler.klighd.krendering.extensions.KLabelExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KNodeExtensions
 import java.util.ArrayDeque
 import java.util.Deque
@@ -37,7 +43,7 @@ import org.eclipse.elk.alg.sequence.options.SequenceDiagramOptions
 import org.eclipse.elk.alg.sequence.options.SequenceExecutionType
 import org.eclipse.elk.core.options.CoreOptions
 import org.eclipse.elk.core.options.FixedLayouterOptions
-import com.google.common.collect.Lists
+import de.cau.cs.kieler.kiesl.text.kiesl.LifelineDestructionEvent
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -46,7 +52,6 @@ import com.google.common.collect.Lists
 public class SequenceDiagramTransformation {
     
     @Inject extension KEdgeExtensions
-    @Inject extension KLabelExtensions
     @Inject extension KNodeExtensions
     
     /** The options passed to us by the synthesis. */
@@ -57,6 +62,8 @@ public class SequenceDiagramTransformation {
     private var int nextElementId;
     /** IDs of the executions active at any given lifeline. */
     private var Map<Lifeline, Deque<Integer>> activeExecutions;
+    /** IDs of currently active combined fragments. */
+    private var Deque<Integer> activeFragments;
     
     
     /**
@@ -67,6 +74,7 @@ public class SequenceDiagramTransformation {
         this.options = options;
         this.nextElementId = 0;
         this.activeExecutions = new HashMap();
+        this.activeFragments = new ArrayDeque(6);
         
         // The root of the diagram
         val kroot = createNode();
@@ -80,23 +88,41 @@ public class SequenceDiagramTransformation {
             toNode(ll);
         ];
         
-        interaction.elements.forEach[ e |
-            if (e instanceof RegularMessage) {
-                toEdge(e as RegularMessage);
-            }
-        ];
+        // The rest of the elements
+        transformElements(interaction.elements);
         
         // Release state
         this.options = null;
         this.kinteraction = null;
         this.activeExecutions = null;
+        this.activeFragments = null;
         
         return kroot;
     }
     
+    /**
+     * Transforms the given list of elements. This is a separate method because we need to call it through indirect
+     * recursion when transforming fragments.
+     */
+    private def void transformElements(List<Element> elements) {
+        elements.forEach[ e |
+            if (e instanceof RegularMessage) {
+                toEdge(e as RegularMessage);
+            } else if (e instanceof LostOrFoundMessage) {
+                toEdge(e as LostOrFoundMessage);
+            } else if (e instanceof SelfMessage) {
+                toEdge(e as SelfMessage);
+            } else if (e instanceof CombinedFragment) {
+                toNode(e as CombinedFragment);
+            } else if (e instanceof LifelineDestructionEvent) {
+                toNode(e as LifelineDestructionEvent);
+            }
+        ];
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Individual Transformations
+    // Individual Node Transformations
     
     /**
      * Creates a node to represent the given interaction.
@@ -114,10 +140,6 @@ public class SequenceDiagramTransformation {
         // TODO The following options would actually have to be calculated based on the interaction and lifeline labels
         kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_Y_POS, 90.0);
         kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_HEADER_HEIGHT, 20.0);
-        
-        // TODO Check which of these we may need as well
-//        kinteraction.setProperty(SequenceDiagramOptions.SPACING_BORDER, 10f)
-//        kinteraction.setProperty(SequenceDiagramOptions.AREA_HEADER_HEIGHT, 45f)
         
         options.style.renderInteraction(kinteraction, interaction);
     }
@@ -138,6 +160,59 @@ public class SequenceDiagramTransformation {
         // Define the lifeline's rendering
         options.style.renderLifeline(klifeline, lifeline);
     }
+    
+    /**
+     * Creates a node to represent the given fragment together with its sections and transforms all of its child
+     * elements. 
+     */
+    private def KNode create kfragment : fragment.createNode() toNode(CombinedFragment fragment) {
+        options.synthesis.associateWith(kfragment, fragment);
+        assignElementId(kfragment);
+        
+        // Add to interaction
+        kinteraction.children += kfragment;
+        
+        // Configure options
+        kfragment.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.COMBINED_FRAGMENT);
+        if (!activeFragments.isEmpty()) {
+            kfragment.setProperty(SequenceDiagramOptions.PARENT_AREA_ID, activeFragments.peekLast());
+        }
+        kfragment.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
+        
+        // Indicate that this fragment is now active
+        activeFragments.addLast(kfragment.elementId);
+        
+        // Transform everything in the sections
+        fragment.sections.forEach[ section |
+            // TODO Sections would have to be visualized somehow
+            
+            transformElements(section.elements);
+        ]
+        
+        // Indicate that this fragment is now over
+        activeFragments.removeLast();
+        
+        // Configure the rendering
+        options.style.renderCombinedFragment(kfragment, fragment);
+    }
+    
+    private def KNode create kdestroy : destroy.createNode() toNode(LifelineDestructionEvent destroy) {
+        options.synthesis.associateWith(kdestroy, destroy);
+        assignElementId(kdestroy);
+        
+        // Configure options
+        kdestroy.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.DESTRUCTION_EVENT);
+        
+        // Add to lifeline
+        toNode(destroy.lifeline).children += kdestroy;
+        
+        // Configure the rendering
+        options.style.renderLifelineDestruction(kdestroy, destroy);
+    }
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Individual Edge Transformations
     
     /**
      * Creates an edge with an associated label to represent the given regular message.
@@ -218,10 +293,129 @@ public class SequenceDiagramTransformation {
             }
         }
         
-        // TODO Add to any active sections in fragments
+        // Add to any active sections in fragments
+        kmessage.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
         
         // Configure the edge's rendering
         options.style.renderRegularMessage(kmessage, klabel, message);
+    }
+    
+    /**
+     * Creates an edge with an associated label to represent the given lost or found message. The corresponding
+     * circular thing is created and added as well.
+     */
+    private def KEdge create kmessage : message.createEdge() toEdge(LostOrFoundMessage message) {
+        // Assigning an element ID to the edge also ensures that message order is preserved at each lifeline
+        options.synthesis.associateWith(kmessage, message);
+        assignElementId(kmessage);
+        
+        // Create a dummy to represent the source thing (for a found message) or the target thing (lost message)
+        val kdummy = createNode();
+        assignElementId(kdummy);
+        
+        kinteraction.children += kdummy;
+        
+        // Set the proper source and target
+        if (message.lostOrFound == LostOrFound.LOST) {
+            kdummy.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.LOST_MESSAGE_TARGET);
+            kmessage.source = toNode(message.lifeline);
+            kmessage.target = kdummy;
+            
+        } else {
+            kdummy.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.FOUND_MESSAGE_SOURCE);
+            kmessage.source = kdummy;
+            kmessage.target = toNode(message.lifeline);
+        }
+        
+        // Add a label to represent the message's text, if any
+        val klabel = if (!Strings.isNullOrEmpty(message.caption)) {
+            KGraphUtil.createInitializedLabel(kmessage) => [
+                text = message.caption;
+            ];
+        }
+        
+        // Set the necessary properties for the layout algorithm
+        kmessage.setProperty(SequenceDiagramOptions.MESSAGE_TYPE, message.type.toSequenceMessageType());
+        
+        // Check for and possibly create note
+        if (!Strings.isNullOrEmpty(message.note)) {
+            createNote(message.note, kmessage);
+        } 
+        
+        // Start an execution?
+        if (message.startExec || message.startEndExec) {
+            startExecution(message.lifeline);
+        }
+        
+        // Add to active executions, if any
+        if (message.lostOrFound == LostOrFound.LOST) {
+            kmessage.setProperty(SequenceDiagramOptions.SOURCE_EXECUTION_IDS, activeExecutions(message.lifeline));
+        } else {
+            kmessage.setProperty(SequenceDiagramOptions.TARGET_EXECUTION_IDS, activeExecutions(message.lifeline));
+        }
+        
+        // End executions?
+        if (message.endExec) {
+            // In this case the user determines how many executions should be ended
+            endExecutions(message.lifeline, message.endExecCount);
+        } else if (message.startEndExec) {
+            endExecutions(message.lifeline, 1);
+        }
+        
+        // Add to any active sections in fragments
+        kmessage.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
+        
+        // Configure the edge's rendering
+        options.style.renderLostOrFoundMessage(kmessage, klabel, kdummy, message);
+    }
+    
+    /**
+     * Creates an edge with an associated label to represent the given self message.
+     */
+    private def KEdge create kmessage : message.createEdge() toEdge(SelfMessage message) {
+        // Assigning an element ID to the edge also ensures that message order is preserved at each lifeline
+        options.synthesis.associateWith(kmessage, message);
+        assignElementId(kmessage);
+        
+        kmessage.source = toNode(message.lifeline);
+        kmessage.target = toNode(message.lifeline);
+        
+        // Add a label to represent the message's text, if any
+        val klabel = if (!Strings.isNullOrEmpty(message.caption)) {
+            KGraphUtil.createInitializedLabel(kmessage) => [
+                text = message.caption;
+            ];
+        }
+        
+        // Set the necessary properties for the layout algorithm
+        kmessage.setProperty(SequenceDiagramOptions.MESSAGE_TYPE, message.type.toSequenceMessageType());
+        
+        // Check for and possibly create note
+        if (!Strings.isNullOrEmpty(message.note)) {
+            createNote(message.note, kmessage);
+        } 
+        
+        // Start an execution?
+        if (message.startExec || message.startEndExec) {
+            startExecution(message.lifeline);
+        }
+        
+        // Add to active executions, if any
+        kmessage.setProperty(SequenceDiagramOptions.SOURCE_EXECUTION_IDS, activeExecutions(message.lifeline));
+        
+        // End executions?
+        if (message.endExec) {
+            // In this case the user determines how many executions should be ended
+            endExecutions(message.lifeline, message.endExecCount);
+        } else if (message.startEndExec) {
+            endExecutions(message.lifeline, 1);
+        }
+        
+        // Add to any active sections in fragments
+        kmessage.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
+        
+        // Configure the edge's rendering
+        options.style.renderSelfMessage(kmessage, klabel, message);
     }
     
     
@@ -361,6 +555,21 @@ public class SequenceDiagramTransformation {
                 MessageType.CREATE
             case DESTROY:
                 MessageType.DELETE
+            case RESPONSE:
+                MessageType.REPLY
+            case SYNC:
+                MessageType.SYNCHRONOUS
+        };
+    }
+    
+    /**
+     * Translates a message type used for lost or found messages in KIESL to the corresponding message type used by the
+     * layout algorithm.
+     */
+    private def MessageType toSequenceMessageType(OneParticipantMessageType type) {
+        return switch (type) {
+            case ASYNC:
+                MessageType.ASYNCHRONOUS
             case RESPONSE:
                 MessageType.REPLY
             case SYNC:

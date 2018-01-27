@@ -38,10 +38,30 @@ class StylishStyle extends BasicStyle {
             .define(LIFELINE, "#666666");
     }
     
+    override protected EntityColorTheme initLifelineDestructionTheme() {
+        return new EntityColorTheme()
+            .define(BACKGROUND, "white")
+            .define(FOREGROUND, "#666666");
+    }
+    
+    override protected initCombinedFragmentTheme() {
+        return new EntityColorTheme()
+            .define(FOREGROUND, "#c0c0c0")
+            .define(CAPTION_BACKGROUND_START, "white")
+            .define(CAPTION_BACKGROUND_END, "#f2f2f2")
+            .define(CAPTION_TEXT, "#666666");
+    }
+    
     override protected EntityColorTheme initMessageTheme() {
         return new EntityColorTheme()
             .define(FOREGROUND, "#666666")
             .define(CAPTION_TEXT, "black");
+    }
+    
+    override protected EntityColorTheme initLostFoundDummyTheme() {
+        return new EntityColorTheme()
+            .define(BACKGROUND, "#fafafa")
+            .define(FOREGROUND, "#666666");
     }
     
     override protected EntityColorTheme initExecutionTheme() {
@@ -53,9 +73,9 @@ class StylishStyle extends BasicStyle {
     
     override protected EntityColorTheme initNoteTheme() {
         return new EntityColorTheme()
-            .define(ThemeColor.BACKGROUND, "#fafafa")
-            .define(ThemeColor.FOREGROUND, "#c0c0c0")
-            .define(ThemeColor.CAPTION_TEXT, "#666666");
+            .define(BACKGROUND, "#fafafa")
+            .define(FOREGROUND, "#c0c0c0")
+            .define(CAPTION_TEXT, "#666666");
     }
     
 }

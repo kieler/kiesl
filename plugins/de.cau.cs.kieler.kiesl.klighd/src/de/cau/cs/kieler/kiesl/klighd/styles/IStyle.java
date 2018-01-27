@@ -12,8 +12,10 @@
  */
 package de.cau.cs.kieler.kiesl.klighd.styles;
 
+import de.cau.cs.kieler.kiesl.text.kiesl.CombinedFragment;
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction;
 import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline;
+import de.cau.cs.kieler.kiesl.text.kiesl.LifelineDestructionEvent;
 import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFoundMessage;
 import de.cau.cs.kieler.kiesl.text.kiesl.RegularMessage;
 import de.cau.cs.kieler.kiesl.text.kiesl.SelfMessage;
@@ -38,6 +40,17 @@ public interface IStyle {
     void renderLifeline(KNode klifeline, Lifeline lifeline);
     
     /**
+     * Adds rendering information to the given node which represents the given lifeline
+     * destruction event.
+     */
+    void renderLifelineDestruction(KNode kdestroy, LifelineDestructionEvent destroy);
+    
+    /**
+     * Adds rendering information to the given node which represents the given combined fragment.
+     */
+    void renderCombinedFragment(KNode kfragment, CombinedFragment fragment);
+    
+    /**
      * Adds rendering information to the given edge and its label which represents the given
      * message.
      */
@@ -45,9 +58,11 @@ public interface IStyle {
     
     /**
      * Adds rendering information to the given edge and its label which represents the given
-     * message.
+     * message. The dummy node that represents the lost target or the found source is rendered
+     * as well.
      */
-    void renderLostOrFoundMessage(KEdge kmessage, KLabel klabel, LostOrFoundMessage message);
+    void renderLostOrFoundMessage(KEdge kmessage, KLabel klabel, KNode kdummy,
+            LostOrFoundMessage message);
     
     /**
      * Adds rendering information to the given edge and its label which represents the given
