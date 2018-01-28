@@ -516,7 +516,9 @@ public class SequenceDiagramTransformation {
     
     /**
      * Assigns the next available identifier to the given element. This is done by setting the
-     * {@link SequenceDiagramOptions#ELEMENT_ID} option.
+     * {@link SequenceDiagramOptions#ELEMENT_ID} option. Edges are assigned source and target points
+     * to preserve their order. Lifelines (all nodes, for that matter) are assigned x positions for
+     * a similar reason.
      */
     private def void assignElementId(KGraphElement kelement) {
         kelement.setProperty(SequenceDiagramOptions.ELEMENT_ID, nextElementId);
@@ -527,6 +529,10 @@ public class SequenceDiagramTransformation {
             val kedge = kelement as KEdge;
             kedge.sourcePoint.y = nextElementId;
             kedge.targetPoint.y = nextElementId;
+            
+        } else if (kelement instanceof KNode) {
+            val knode = kelement as KNode;
+            knode.xpos = nextElementId;
         }
         
         nextElementId++;
