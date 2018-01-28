@@ -502,7 +502,7 @@ public class SequenceDiagramTransformation {
         knote.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.COMMENT);
         
         if (kelement !== null) {
-            knote.setProperty(SequenceDiagramOptions.ATTACHED_OBJECT_ID, kelement.elementId);
+            knote.setProperty(SequenceDiagramOptions.ATTACHED_ELEMENT_ID, kelement.elementId);
         }
         
         // TODO This should probably use a label instead
