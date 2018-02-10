@@ -20,6 +20,7 @@ import de.cau.cs.kieler.kiesl.text.kiesl.CombinedFragment
 import de.cau.cs.kieler.kiesl.text.kiesl.Element
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction
 import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline
+import de.cau.cs.kieler.kiesl.text.kiesl.LifelineDestructionEvent
 import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFound
 import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFoundMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.OneParticipantMessageType
@@ -41,9 +42,10 @@ import org.eclipse.elk.alg.sequence.options.MessageType
 import org.eclipse.elk.alg.sequence.options.NodeType
 import org.eclipse.elk.alg.sequence.options.SequenceDiagramOptions
 import org.eclipse.elk.alg.sequence.options.SequenceExecutionType
+import org.eclipse.elk.core.math.ElkPadding
 import org.eclipse.elk.core.options.CoreOptions
 import org.eclipse.elk.core.options.FixedLayouterOptions
-import de.cau.cs.kieler.kiesl.text.kiesl.LifelineDestructionEvent
+import org.eclipse.elk.core.math.ElkMargin
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -53,6 +55,9 @@ public class SequenceDiagramTransformation {
     
     @Inject extension KEdgeExtensions
     @Inject extension KNodeExtensions
+    
+    /** Space between interaction and diagram's border. */
+    private static val BORDER_SPACING = 5;
     
     /** The options passed to us by the synthesis. */
     private var Options options;
@@ -79,6 +84,7 @@ public class SequenceDiagramTransformation {
         // The root of the diagram
         val kroot = createNode();
         kroot.setProperty(CoreOptions.ALGORITHM, FixedLayouterOptions.ALGORITHM_ID);
+        kroot.setProperty(FixedLayouterOptions.PADDING, new ElkPadding(0, BORDER_SPACING, BORDER_SPACING, 0));
         
         // The main interaction node and its lifelines
         kinteraction = toNode(interaction);
@@ -133,13 +139,19 @@ public class SequenceDiagramTransformation {
         
         // Configure layout options
         kinteraction.setProperty(CoreOptions.ALGORITHM, SequenceDiagramOptions.ALGORITHM_ID);
-        kinteraction.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.SURROUNDING_INTERACTION);
+        kinteraction.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.SURROUNDING_INTERACTION);
         kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_SORTING_STRATEGY, options.llsort);
-        kinteraction.setProperty(SequenceDiagramOptions.MESSAGE_SPACING, 40.0)
+        kinteraction.setProperty(SequenceDiagramOptions.MARGINS, new ElkMargin(BORDER_SPACING, 0, 0, BORDER_SPACING));
+        kinteraction.setProperty(SequenceDiagramOptions.SPACING_MESSAGE, 40.0);
+        kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 20.0);
+        kinteraction.setProperty(SequenceDiagramOptions.SIZE_AREA_HEADER_HEIGHT, 25.0);
         
-        // TODO The following options would actually have to be calculated based on the interaction and lifeline labels
-        kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_Y_POS, 90.0);
-        kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_HEADER_HEIGHT, 20.0);
+        // The padding depends on whether the interaction's border and title are in fact drawn
+        if (Strings.isNullOrEmpty(interaction.caption)) {
+            kinteraction.setProperty(SequenceDiagramOptions.INTERACTION_PADDING, new ElkPadding(5, 5, 5, 5));
+        } else {
+            kinteraction.setProperty(SequenceDiagramOptions.INTERACTION_PADDING, new ElkPadding(50, 20, 20, 20));
+        }
         
         options.style.renderInteraction(kinteraction, interaction);
     }
@@ -155,7 +167,7 @@ public class SequenceDiagramTransformation {
         kinteraction.children += klifeline;
         
         // Configure layout options
-        klifeline.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.LIFELINE);
+        klifeline.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.LIFELINE);
         
         // Define the lifeline's rendering
         options.style.renderLifeline(klifeline, lifeline);
@@ -173,11 +185,11 @@ public class SequenceDiagramTransformation {
         kinteraction.children += kfragment;
         
         // Configure options
-        kfragment.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.COMBINED_FRAGMENT);
+        kfragment.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.COMBINED_FRAGMENT);
         if (!activeFragments.isEmpty()) {
-            kfragment.setProperty(SequenceDiagramOptions.PARENT_AREA_ID, activeFragments.peekLast());
+            kfragment.setProperty(SequenceDiagramOptions.ID_PARENT_AREA, activeFragments.peekLast());
         }
-        kfragment.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
+        kfragment.setProperty(SequenceDiagramOptions.ID_AREAS, Lists.newArrayList(activeFragments));
         
         // Indicate that this fragment is now active
         activeFragments.addLast(kfragment.elementId);
@@ -201,10 +213,11 @@ public class SequenceDiagramTransformation {
         assignElementId(kdestroy);
         
         // Configure options
-        kdestroy.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.DESTRUCTION_EVENT);
+        kdestroy.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.DESTRUCTION_EVENT);
+        kdestroy.setProperty(SequenceDiagramOptions.ID_PARENT_LIFELINE, toNode(destroy.lifeline).elementId);
         
-        // Add to lifeline
-        toNode(destroy.lifeline).children += kdestroy;
+        // Add to interaction
+        kinteraction.children += kdestroy;
         
         // Configure the rendering
         options.style.renderLifelineDestruction(kdestroy, destroy);
@@ -239,7 +252,7 @@ public class SequenceDiagramTransformation {
         }
         
         // Set the necessary properties for the layout algorithm
-        kmessage.setProperty(SequenceDiagramOptions.MESSAGE_TYPE, message.type.toSequenceMessageType());
+        kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, message.type.toSequenceMessageType());
         
         // Check for and possibly create source note
         if (!Strings.isNullOrEmpty(message.sourceNote)) {
@@ -261,7 +274,7 @@ public class SequenceDiagramTransformation {
             }
             
             // Add to active executions, if any
-            kmessage.setProperty(SequenceDiagramOptions.SOURCE_EXECUTION_IDS, activeExecutions(sourceLifeline));
+            kmessage.setProperty(SequenceDiagramOptions.ID_SOURCE_EXECUTIONS, activeExecutions(sourceLifeline));
             
             // End executions?
             if (message.sourceEndExec) {
@@ -282,7 +295,7 @@ public class SequenceDiagramTransformation {
             }
             
             // Add to active executions, if any
-            kmessage.setProperty(SequenceDiagramOptions.TARGET_EXECUTION_IDS, activeExecutions(targetLifeline));
+            kmessage.setProperty(SequenceDiagramOptions.ID_TARGET_EXECUTIONS, activeExecutions(targetLifeline));
             
             // Check whether executions should be terminated at the target lifeline, and possibly terminate them
             if (message.targetEndExec) {
@@ -294,7 +307,7 @@ public class SequenceDiagramTransformation {
         }
         
         // Add to any active sections in fragments
-        kmessage.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
+        kmessage.setProperty(SequenceDiagramOptions.ID_AREAS, Lists.newArrayList(activeFragments));
         
         // Configure the edge's rendering
         options.style.renderRegularMessage(kmessage, klabel, message);
@@ -317,12 +330,12 @@ public class SequenceDiagramTransformation {
         
         // Set the proper source and target
         if (message.lostOrFound == LostOrFound.LOST) {
-            kdummy.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.LOST_MESSAGE_TARGET);
+            kdummy.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.LOST_MESSAGE_TARGET);
             kmessage.source = toNode(message.lifeline);
             kmessage.target = kdummy;
             
         } else {
-            kdummy.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.FOUND_MESSAGE_SOURCE);
+            kdummy.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.FOUND_MESSAGE_SOURCE);
             kmessage.source = kdummy;
             kmessage.target = toNode(message.lifeline);
         }
@@ -335,7 +348,7 @@ public class SequenceDiagramTransformation {
         }
         
         // Set the necessary properties for the layout algorithm
-        kmessage.setProperty(SequenceDiagramOptions.MESSAGE_TYPE, message.type.toSequenceMessageType());
+        kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, message.type.toSequenceMessageType());
         
         // Check for and possibly create note
         if (!Strings.isNullOrEmpty(message.note)) {
@@ -349,9 +362,9 @@ public class SequenceDiagramTransformation {
         
         // Add to active executions, if any
         if (message.lostOrFound == LostOrFound.LOST) {
-            kmessage.setProperty(SequenceDiagramOptions.SOURCE_EXECUTION_IDS, activeExecutions(message.lifeline));
+            kmessage.setProperty(SequenceDiagramOptions.ID_SOURCE_EXECUTIONS, activeExecutions(message.lifeline));
         } else {
-            kmessage.setProperty(SequenceDiagramOptions.TARGET_EXECUTION_IDS, activeExecutions(message.lifeline));
+            kmessage.setProperty(SequenceDiagramOptions.ID_TARGET_EXECUTIONS, activeExecutions(message.lifeline));
         }
         
         // End executions?
@@ -363,7 +376,7 @@ public class SequenceDiagramTransformation {
         }
         
         // Add to any active sections in fragments
-        kmessage.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
+        kmessage.setProperty(SequenceDiagramOptions.ID_AREAS, Lists.newArrayList(activeFragments));
         
         // Configure the edge's rendering
         options.style.renderLostOrFoundMessage(kmessage, klabel, kdummy, message);
@@ -388,7 +401,7 @@ public class SequenceDiagramTransformation {
         }
         
         // Set the necessary properties for the layout algorithm
-        kmessage.setProperty(SequenceDiagramOptions.MESSAGE_TYPE, message.type.toSequenceMessageType());
+        kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, message.type.toSequenceMessageType());
         
         // Check for and possibly create note
         if (!Strings.isNullOrEmpty(message.note)) {
@@ -401,7 +414,7 @@ public class SequenceDiagramTransformation {
         }
         
         // Add to active executions, if any
-        kmessage.setProperty(SequenceDiagramOptions.SOURCE_EXECUTION_IDS, activeExecutions(message.lifeline));
+        kmessage.setProperty(SequenceDiagramOptions.ID_SOURCE_EXECUTIONS, activeExecutions(message.lifeline));
         
         // End executions?
         if (message.endExec) {
@@ -412,7 +425,7 @@ public class SequenceDiagramTransformation {
         }
         
         // Add to any active sections in fragments
-        kmessage.setProperty(SequenceDiagramOptions.AREA_IDS, Lists.newArrayList(activeFragments));
+        kmessage.setProperty(SequenceDiagramOptions.ID_AREAS, Lists.newArrayList(activeFragments));
         
         // Configure the edge's rendering
         options.style.renderSelfMessage(kmessage, klabel, message);
@@ -428,12 +441,13 @@ public class SequenceDiagramTransformation {
     private def void startExecution(Lifeline lifeline) {
         // Create and configure a node that represents the execution
         val kexecution = createNode();
-        toNode(lifeline).children += kexecution;
+        kinteraction.children += kexecution;
         
         assignElementId(kexecution);
         
-        kexecution.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.ACTION_EXEC_SPECIFICATION);
-        kexecution.setProperty(SequenceDiagramOptions.EXECUTION_TYPE, SequenceExecutionType.EXECUTION);
+        kexecution.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.ACTION_EXEC_SPECIFICATION);
+        kexecution.setProperty(SequenceDiagramOptions.TYPE_EXECUTION, SequenceExecutionType.EXECUTION);
+        kexecution.setProperty(SequenceDiagramOptions.ID_PARENT_LIFELINE, toNode(lifeline).elementId);
         
         // Push the execution on the lifeline's stack
         if (!activeExecutions.containsKey(lifeline)) {
@@ -499,10 +513,10 @@ public class SequenceDiagramTransformation {
         val knote = createNode();
         kinteraction.children += knote;
         
-        knote.setProperty(SequenceDiagramOptions.NODE_TYPE, NodeType.COMMENT);
+        knote.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.COMMENT);
         
         if (kelement !== null) {
-            knote.setProperty(SequenceDiagramOptions.ATTACHED_ELEMENT_ID, kelement.elementId);
+            knote.setProperty(SequenceDiagramOptions.ID_ATTACHED_ELEMENT, kelement.elementId);
         }
         
         // TODO This should probably use a label instead
@@ -516,12 +530,12 @@ public class SequenceDiagramTransformation {
     
     /**
      * Assigns the next available identifier to the given element. This is done by setting the
-     * {@link SequenceDiagramOptions#ELEMENT_ID} option. Edges are assigned source and target points
+     * {@link SequenceDiagramOptions#ID_ELEMENT} option. Edges are assigned source and target points
      * to preserve their order. Lifelines (all nodes, for that matter) are assigned x positions for
      * a similar reason.
      */
     private def void assignElementId(KGraphElement kelement) {
-        kelement.setProperty(SequenceDiagramOptions.ELEMENT_ID, nextElementId);
+        kelement.setProperty(SequenceDiagramOptions.ID_ELEMENT, nextElementId);
         
         // If the element is an edge, it represents a message. We need to help the layout algorithm figure out the
         // order of messages on each lifeline by assigning y coordinates. We simply use the element ID.
@@ -542,7 +556,7 @@ public class SequenceDiagramTransformation {
      * Retrieves the given element's identifier.
      */
     private def int elementId(KGraphElement element) {
-        return element.getProperty(SequenceDiagramOptions.ELEMENT_ID);
+        return element.getProperty(SequenceDiagramOptions.ID_ELEMENT);
     }
     
     
