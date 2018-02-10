@@ -145,12 +145,12 @@ public class BasicStyle implements IStyle {
                 ];
             ];
             
-            if (isSurroundingInteraction) {
-                val contentCell = addGridBox(0, 0,
-                    createKPosition(LEFT, 10, 0, TOP, 10, 0),
-                    createKPosition(RIGHT, 10, 0, BOTTOM, 10, 0));
-                contentCell.addChildArea();
-            }
+//            if (isSurroundingInteraction) {
+//                val contentCell = addGridBox(0, 0,
+//                    createKPosition(LEFT, 10, 0, TOP, 10, 0),
+//                    createKPosition(RIGHT, 10, 0, BOTTOM, 10, 0));
+//                contentCell.addChildArea();
+//            }
         ];
         
     }
@@ -161,21 +161,19 @@ public class BasicStyle implements IStyle {
             foregroundInvisible = true;
             backgroundInvisible = true;
             
-            // The lifeline itself
-            addPolyline() => [
-                foreground = theme.color(ThemeColor.LIFELINE);
-                lineStyle = LineStyle.DASH;
-                
-                points += createKPosition(LEFT, 0, 0.5f, TOP, 4, 0);
-                points += createKPosition(LEFT, 0, 0.5f, BOTTOM, 0, 0);
-            ];
+            setGridPlacement(1)
+                .from(LEFT, 0, 0, TOP, 0, 0)
+                .to(RIGHT, 0, 0, BOTTOM, 0, 0);
             
             // The lifeline's header
             addRectangle() => [
                 foreground = theme.color(ThemeColor.FOREGROUND);
                 configureBackground(it, theme, ThemeColor.CAPTION_BACKGROUND, 90);
                 
-                setPointPlacementData(LEFT, 0, 0.5f, TOP, 0, 0, H_CENTRAL, V_TOP, 0, 20, 0, 0);
+                setGridPlacementData(it, 0, 0,
+                    createKPosition(LEFT, 0, 0, TOP, 0, 0),
+                    createKPosition(RIGHT, 0, 0, BOTTOM, 0, 0));
+                (placementData as KGridPlacementData).flexibleHeight = false;
                 
                 // Guard against null captions here
                 val actualCaption =
@@ -190,6 +188,15 @@ public class BasicStyle implements IStyle {
                     fontSize = 12;
                     setSurroundingSpaceGrid(10, 0, 8, 0);
                 ];
+            ];
+            
+            // The lifeline itself, inside a rectangle
+            addPolyline() => [
+                foreground = theme.color(ThemeColor.LIFELINE);
+                lineStyle = LineStyle.DASH;
+                
+                points += createKPosition(LEFT, 0, 0.5f, TOP, 1, 0);
+                points += createKPosition(LEFT, 0, 0.5f, BOTTOM, 0, 0);
             ];
         ];
     }
