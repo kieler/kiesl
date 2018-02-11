@@ -333,11 +333,13 @@ public class SequenceDiagramTransformation {
             kdummy.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.LOST_MESSAGE_TARGET);
             kmessage.source = toNode(message.lifeline);
             kmessage.target = kdummy;
+            kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, MessageType.LOST);
             
         } else {
             kdummy.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.FOUND_MESSAGE_SOURCE);
             kmessage.source = kdummy;
             kmessage.target = toNode(message.lifeline);
+            kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, MessageType.FOUND);
         }
         
         // Add a label to represent the message's text, if any
@@ -346,9 +348,6 @@ public class SequenceDiagramTransformation {
                 text = message.caption;
             ];
         }
-        
-        // Set the necessary properties for the layout algorithm
-        kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, message.type.toSequenceMessageType());
         
         // Check for and possibly create note
         if (!Strings.isNullOrEmpty(message.note)) {
@@ -399,9 +398,6 @@ public class SequenceDiagramTransformation {
                 text = message.caption;
             ];
         }
-        
-        // Set the necessary properties for the layout algorithm
-        kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, message.type.toSequenceMessageType());
         
         // Check for and possibly create note
         if (!Strings.isNullOrEmpty(message.note)) {
@@ -569,31 +565,12 @@ public class SequenceDiagramTransformation {
      */
     private def MessageType toSequenceMessageType(TwoParticipantsMessageType type) {
         return switch (type) {
-            case ASYNC:
-                MessageType.ASYNCHRONOUS
             case CREATE:
                 MessageType.CREATE
             case DESTROY:
                 MessageType.DELETE
-            case RESPONSE:
-                MessageType.REPLY
-            case SYNC:
-                MessageType.SYNCHRONOUS
-        };
-    }
-    
-    /**
-     * Translates a message type used for lost or found messages in KIESL to the corresponding message type used by the
-     * layout algorithm.
-     */
-    private def MessageType toSequenceMessageType(OneParticipantMessageType type) {
-        return switch (type) {
-            case ASYNC:
-                MessageType.ASYNCHRONOUS
-            case RESPONSE:
-                MessageType.REPLY
-            case SYNC:
-                MessageType.SYNCHRONOUS
+            default:
+                null
         };
     }
         
