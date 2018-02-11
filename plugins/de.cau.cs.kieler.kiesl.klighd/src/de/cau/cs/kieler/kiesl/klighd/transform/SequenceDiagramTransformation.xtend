@@ -144,7 +144,7 @@ public class SequenceDiagramTransformation {
         kinteraction.setProperty(SequenceDiagramOptions.MARGINS, new ElkMargin(BORDER_SPACING, 0, 0, BORDER_SPACING));
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_MESSAGE, 40.0);
         kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 20.0);
-        kinteraction.setProperty(SequenceDiagramOptions.SIZE_AREA_HEADER_HEIGHT, 25.0);
+        kinteraction.setProperty(SequenceDiagramOptions.AREAS_PADDING, new ElkPadding(40, 15, 8, 15));
         
         // The padding depends on whether the interaction's border and title are in fact drawn
         if (Strings.isNullOrEmpty(interaction.caption)) {
