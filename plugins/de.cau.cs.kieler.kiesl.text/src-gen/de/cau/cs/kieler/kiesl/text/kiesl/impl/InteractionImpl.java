@@ -19,12 +19,15 @@ import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.cau.cs.kieler.kiesl.text.kiesl.impl.InteractionImpl#getNote <em>Note</em>}</li>
  *   <li>{@link de.cau.cs.kieler.kiesl.text.kiesl.impl.InteractionImpl#getLifelines <em>Lifelines</em>}</li>
  *   <li>{@link de.cau.cs.kieler.kiesl.text.kiesl.impl.InteractionImpl#getElements <em>Elements</em>}</li>
  * </ul>
@@ -45,6 +49,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class InteractionImpl extends CommunicationParticipantImpl implements Interaction
 {
+  /**
+   * The default value of the '{@link #getNote() <em>Note</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNote()
+   * @generated
+   * @ordered
+   */
+  protected static final String NOTE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNote() <em>Note</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNote()
+   * @generated
+   * @ordered
+   */
+  protected String note = NOTE_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getLifelines() <em>Lifelines</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -84,6 +108,29 @@ public class InteractionImpl extends CommunicationParticipantImpl implements Int
   protected EClass eStaticClass()
   {
     return KieslPackage.Literals.INTERACTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNote()
+  {
+    return note;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNote(String newNote)
+  {
+    String oldNote = note;
+    note = newNote;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, KieslPackage.INTERACTION__NOTE, oldNote, note));
   }
 
   /**
@@ -142,6 +189,8 @@ public class InteractionImpl extends CommunicationParticipantImpl implements Int
   {
     switch (featureID)
     {
+      case KieslPackage.INTERACTION__NOTE:
+        return getNote();
       case KieslPackage.INTERACTION__LIFELINES:
         return getLifelines();
       case KieslPackage.INTERACTION__ELEMENTS:
@@ -161,6 +210,9 @@ public class InteractionImpl extends CommunicationParticipantImpl implements Int
   {
     switch (featureID)
     {
+      case KieslPackage.INTERACTION__NOTE:
+        setNote((String)newValue);
+        return;
       case KieslPackage.INTERACTION__LIFELINES:
         getLifelines().clear();
         getLifelines().addAll((Collection<? extends Lifeline>)newValue);
@@ -183,6 +235,9 @@ public class InteractionImpl extends CommunicationParticipantImpl implements Int
   {
     switch (featureID)
     {
+      case KieslPackage.INTERACTION__NOTE:
+        setNote(NOTE_EDEFAULT);
+        return;
       case KieslPackage.INTERACTION__LIFELINES:
         getLifelines().clear();
         return;
@@ -203,12 +258,31 @@ public class InteractionImpl extends CommunicationParticipantImpl implements Int
   {
     switch (featureID)
     {
+      case KieslPackage.INTERACTION__NOTE:
+        return NOTE_EDEFAULT == null ? note != null : !NOTE_EDEFAULT.equals(note);
       case KieslPackage.INTERACTION__LIFELINES:
         return lifelines != null && !lifelines.isEmpty();
       case KieslPackage.INTERACTION__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (note: ");
+    result.append(note);
+    result.append(')');
+    return result.toString();
   }
 
 } //InteractionImpl

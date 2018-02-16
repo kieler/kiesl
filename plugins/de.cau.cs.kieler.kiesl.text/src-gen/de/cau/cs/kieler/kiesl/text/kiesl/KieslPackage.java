@@ -133,13 +133,22 @@ public interface KieslPackage extends EPackage
   int INTERACTION__NAME = COMMUNICATION_PARTICIPANT__NAME;
 
   /**
+   * The feature id for the '<em><b>Note</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERACTION__NOTE = COMMUNICATION_PARTICIPANT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Lifelines</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERACTION__LIFELINES = COMMUNICATION_PARTICIPANT_FEATURE_COUNT + 0;
+  int INTERACTION__LIFELINES = COMMUNICATION_PARTICIPANT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -148,7 +157,7 @@ public interface KieslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTERACTION__ELEMENTS = COMMUNICATION_PARTICIPANT_FEATURE_COUNT + 1;
+  int INTERACTION__ELEMENTS = COMMUNICATION_PARTICIPANT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Interaction</em>' class.
@@ -157,7 +166,7 @@ public interface KieslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTERACTION_FEATURE_COUNT = COMMUNICATION_PARTICIPANT_FEATURE_COUNT + 2;
+  int INTERACTION_FEATURE_COUNT = COMMUNICATION_PARTICIPANT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link de.cau.cs.kieler.kiesl.text.kiesl.impl.LifelineImpl <em>Lifeline</em>}' class.
@@ -832,6 +841,17 @@ public interface KieslPackage extends EPackage
    * @generated
    */
   EClass getInteraction();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.cau.cs.kieler.kiesl.text.kiesl.Interaction#getNote <em>Note</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Note</em>'.
+   * @see de.cau.cs.kieler.kiesl.text.kiesl.Interaction#getNote()
+   * @see #getInteraction()
+   * @generated
+   */
+  EAttribute getInteraction_Note();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.cau.cs.kieler.kiesl.text.kiesl.Interaction#getLifelines <em>Lifelines</em>}'.
@@ -1553,6 +1573,14 @@ public interface KieslPackage extends EPackage
      * @generated
      */
     EClass INTERACTION = eINSTANCE.getInteraction();
+
+    /**
+     * The meta object literal for the '<em><b>Note</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTERACTION__NOTE = eINSTANCE.getInteraction_Note();
 
     /**
      * The meta object literal for the '<em><b>Lifelines</b></em>' containment reference list feature.

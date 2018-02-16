@@ -16,12 +16,12 @@
 'interaction'=31
 'invariant'=47
 'label'=45
-'lifeline'=33
+'lifeline'=34
 'lifelines'=40
 'loop'=20
 'lost'=12
 'neg'=22
-'note'=37
+'note'=33
 'opt'=16
 'par'=18
 'ref'=39
@@ -29,7 +29,7 @@
 'self'=38
 'seq'=14
 'sourceEndExec'=50
-'sourceNote'=35
+'sourceNote'=36
 'sourceStartEndExec'=48
 'sourceStartExec'=49
 'startEndExec'=54
@@ -37,10 +37,10 @@
 'strict'=19
 'sync'=27
 'targetEndExec'=53
-'targetNote'=36
+'targetNote'=37
 'targetStartEndExec'=51
 'targetStartExec'=52
-'to'=34
+'to'=35
 '{'=43
 '}'=44
 RULE_ANY_OTHER=11

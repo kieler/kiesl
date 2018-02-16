@@ -23,7 +23,6 @@ import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline
 import de.cau.cs.kieler.kiesl.text.kiesl.LifelineDestructionEvent
 import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFound
 import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFoundMessage
-import de.cau.cs.kieler.kiesl.text.kiesl.OneParticipantMessageType
 import de.cau.cs.kieler.kiesl.text.kiesl.RegularMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.SelfMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.TwoParticipantsMessageType
@@ -42,10 +41,10 @@ import org.eclipse.elk.alg.sequence.options.MessageType
 import org.eclipse.elk.alg.sequence.options.NodeType
 import org.eclipse.elk.alg.sequence.options.SequenceDiagramOptions
 import org.eclipse.elk.alg.sequence.options.SequenceExecutionType
+import org.eclipse.elk.core.math.ElkMargin
 import org.eclipse.elk.core.math.ElkPadding
 import org.eclipse.elk.core.options.CoreOptions
 import org.eclipse.elk.core.options.FixedLayouterOptions
-import org.eclipse.elk.core.math.ElkMargin
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -254,14 +253,14 @@ public class SequenceDiagramTransformation {
         // Set the necessary properties for the layout algorithm
         kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, message.type.toSequenceMessageType());
         
-        // Check for and possibly create source note
+        // Check for and possibly create note
         if (!Strings.isNullOrEmpty(message.sourceNote)) {
-            createNote(message.sourceNote, kmessage);
+            createNote(message.sourceNote, kmessage, kmessage.source);
         } 
         
         // Check for and possibly create target note
         if (!Strings.isNullOrEmpty(message.targetNote)) {
-            createNote(message.targetNote, kmessage);
+            createNote(message.targetNote, kmessage, kmessage.target);
         } 
         
         // If the source is a lifeline, we may need to handle executions
@@ -504,15 +503,20 @@ public class SequenceDiagramTransformation {
     /**
      * Creates a note with the given text attached to the given element (if any).
      */
-    private def void createNote(String text, KGraphElement kelement) {
+    private def void createNote(String text, KGraphElement... kelements) {
         // Create and configure a note node
         val knote = createNode();
         kinteraction.children += knote;
         
         knote.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.COMMENT);
         
-        if (kelement !== null) {
-            knote.setProperty(SequenceDiagramOptions.ID_ATTACHED_ELEMENT, kelement.elementId);
+        if (kelements !== null) {
+            val List<Integer> attachedElementIDs = Lists.newArrayList();
+            for (kelement : kelements) {
+                attachedElementIDs.add(kelement.elementId);
+            }
+            
+            knote.setProperty(SequenceDiagramOptions.ID_ATTACHED_ELEMENTS, attachedElementIDs);
         }
         
         // TODO This should probably use a label instead

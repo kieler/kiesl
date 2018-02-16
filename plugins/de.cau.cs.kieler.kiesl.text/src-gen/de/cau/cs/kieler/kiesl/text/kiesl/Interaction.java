@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link de.cau.cs.kieler.kiesl.text.kiesl.Interaction#getNote <em>Note</em>}</li>
  *   <li>{@link de.cau.cs.kieler.kiesl.text.kiesl.Interaction#getLifelines <em>Lifelines</em>}</li>
  *   <li>{@link de.cau.cs.kieler.kiesl.text.kiesl.Interaction#getElements <em>Elements</em>}</li>
  * </ul>
@@ -33,6 +34,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Interaction extends CommunicationParticipant
 {
+  /**
+   * Returns the value of the '<em><b>Note</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Note</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Note</em>' attribute.
+   * @see #setNote(String)
+   * @see de.cau.cs.kieler.kiesl.text.kiesl.KieslPackage#getInteraction_Note()
+   * @model
+   * @generated
+   */
+  String getNote();
+
+  /**
+   * Sets the value of the '{@link de.cau.cs.kieler.kiesl.text.kiesl.Interaction#getNote <em>Note</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Note</em>' attribute.
+   * @see #getNote()
+   * @generated
+   */
+  void setNote(String value);
+
   /**
    * Returns the value of the '<em><b>Lifelines</b></em>' containment reference list.
    * The list contents are of type {@link de.cau.cs.kieler.kiesl.text.kiesl.Lifeline}.

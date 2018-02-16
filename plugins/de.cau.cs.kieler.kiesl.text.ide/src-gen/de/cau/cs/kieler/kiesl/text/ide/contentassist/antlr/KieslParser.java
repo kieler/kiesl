@@ -53,6 +53,7 @@ public class KieslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInteractionAccess().getGroup(), "rule__Interaction__Group__0");
 					put(grammarAccess.getInteractionAccess().getGroup_1(), "rule__Interaction__Group_1__0");
 					put(grammarAccess.getInteractionAccess().getGroup_1_2(), "rule__Interaction__Group_1_2__0");
+					put(grammarAccess.getInteractionAccess().getGroup_1_3(), "rule__Interaction__Group_1_3__0");
 					put(grammarAccess.getLifelineAccess().getGroup(), "rule__Lifeline__Group__0");
 					put(grammarAccess.getRegularMessageAccess().getGroup(), "rule__RegularMessage__Group__0");
 					put(grammarAccess.getRegularMessageAccess().getGroup_5_2(), "rule__RegularMessage__Group_5_2__0");
@@ -78,6 +79,7 @@ public class KieslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStateInvariantAccess().getGroup_3(), "rule__StateInvariant__Group_3__0");
 					put(grammarAccess.getInteractionAccess().getCaptionAssignment_1_1(), "rule__Interaction__CaptionAssignment_1_1");
 					put(grammarAccess.getInteractionAccess().getNameAssignment_1_2_1(), "rule__Interaction__NameAssignment_1_2_1");
+					put(grammarAccess.getInteractionAccess().getNoteAssignment_1_3_1(), "rule__Interaction__NoteAssignment_1_3_1");
 					put(grammarAccess.getInteractionAccess().getLifelinesAssignment_2(), "rule__Interaction__LifelinesAssignment_2");
 					put(grammarAccess.getInteractionAccess().getElementsAssignment_3(), "rule__Interaction__ElementsAssignment_3");
 					put(grammarAccess.getLifelineAccess().getCaptionAssignment_1(), "rule__Lifeline__CaptionAssignment_1");

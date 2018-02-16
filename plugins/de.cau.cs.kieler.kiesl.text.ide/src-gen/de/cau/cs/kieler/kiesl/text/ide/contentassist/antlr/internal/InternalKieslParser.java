@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalKieslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT_GREATER_ZERO_OR_ALL", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'lost'", "'found'", "'seq'", "'alt'", "'opt'", "'break'", "'par'", "'strict'", "'loop'", "'critical'", "'neg'", "'assert'", "'ignore'", "'consider'", "'async'", "'sync'", "'response'", "'create'", "'destroy'", "'interaction'", "'as'", "'lifeline'", "'to'", "'sourceNote'", "'targetNote'", "'note'", "'self'", "'ref'", "'lifelines'", "','", "'fragment'", "'{'", "'}'", "'label'", "'continuation'", "'invariant'", "'sourceStartEndExec'", "'sourceStartExec'", "'sourceEndExec'", "'targetStartEndExec'", "'targetStartExec'", "'targetEndExec'", "'startEndExec'", "'startExec'", "'endExec'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT_GREATER_ZERO_OR_ALL", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'lost'", "'found'", "'seq'", "'alt'", "'opt'", "'break'", "'par'", "'strict'", "'loop'", "'critical'", "'neg'", "'assert'", "'ignore'", "'consider'", "'async'", "'sync'", "'response'", "'create'", "'destroy'", "'interaction'", "'as'", "'note'", "'lifeline'", "'to'", "'sourceNote'", "'targetNote'", "'self'", "'ref'", "'lifelines'", "','", "'fragment'", "'{'", "'}'", "'label'", "'continuation'", "'invariant'", "'sourceStartEndExec'", "'sourceStartExec'", "'sourceEndExec'", "'targetStartEndExec'", "'targetStartExec'", "'targetEndExec'", "'startEndExec'", "'startExec'", "'endExec'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -2843,7 +2843,7 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
                 int alt11=2;
                 int LA11_0 = input.LA(1);
 
-                if ( (LA11_0==33) ) {
+                if ( (LA11_0==34) ) {
                     alt11=1;
                 }
 
@@ -3147,17 +3147,22 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__Group_1__2"
-    // InternalKiesl.g:920:1: rule__Interaction__Group_1__2 : rule__Interaction__Group_1__2__Impl ;
+    // InternalKiesl.g:920:1: rule__Interaction__Group_1__2 : rule__Interaction__Group_1__2__Impl rule__Interaction__Group_1__3 ;
     public final void rule__Interaction__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:924:1: ( rule__Interaction__Group_1__2__Impl )
-            // InternalKiesl.g:925:2: rule__Interaction__Group_1__2__Impl
+            // InternalKiesl.g:924:1: ( rule__Interaction__Group_1__2__Impl rule__Interaction__Group_1__3 )
+            // InternalKiesl.g:925:2: rule__Interaction__Group_1__2__Impl rule__Interaction__Group_1__3
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_7);
             rule__Interaction__Group_1__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Interaction__Group_1__3();
 
             state._fsp--;
 
@@ -3180,20 +3185,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__Group_1__2__Impl"
-    // InternalKiesl.g:931:1: rule__Interaction__Group_1__2__Impl : ( ( rule__Interaction__Group_1_2__0 )? ) ;
+    // InternalKiesl.g:932:1: rule__Interaction__Group_1__2__Impl : ( ( rule__Interaction__Group_1_2__0 )? ) ;
     public final void rule__Interaction__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:935:1: ( ( ( rule__Interaction__Group_1_2__0 )? ) )
-            // InternalKiesl.g:936:1: ( ( rule__Interaction__Group_1_2__0 )? )
+            // InternalKiesl.g:936:1: ( ( ( rule__Interaction__Group_1_2__0 )? ) )
+            // InternalKiesl.g:937:1: ( ( rule__Interaction__Group_1_2__0 )? )
             {
-            // InternalKiesl.g:936:1: ( ( rule__Interaction__Group_1_2__0 )? )
-            // InternalKiesl.g:937:2: ( rule__Interaction__Group_1_2__0 )?
+            // InternalKiesl.g:937:1: ( ( rule__Interaction__Group_1_2__0 )? )
+            // InternalKiesl.g:938:2: ( rule__Interaction__Group_1_2__0 )?
             {
              before(grammarAccess.getInteractionAccess().getGroup_1_2()); 
-            // InternalKiesl.g:938:2: ( rule__Interaction__Group_1_2__0 )?
+            // InternalKiesl.g:939:2: ( rule__Interaction__Group_1_2__0 )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -3202,7 +3207,7 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
             }
             switch (alt13) {
                 case 1 :
-                    // InternalKiesl.g:938:3: rule__Interaction__Group_1_2__0
+                    // InternalKiesl.g:939:3: rule__Interaction__Group_1_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Interaction__Group_1_2__0();
@@ -3237,15 +3242,106 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Interaction__Group_1__2__Impl"
 
 
+    // $ANTLR start "rule__Interaction__Group_1__3"
+    // InternalKiesl.g:947:1: rule__Interaction__Group_1__3 : rule__Interaction__Group_1__3__Impl ;
+    public final void rule__Interaction__Group_1__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKiesl.g:951:1: ( rule__Interaction__Group_1__3__Impl )
+            // InternalKiesl.g:952:2: rule__Interaction__Group_1__3__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Interaction__Group_1__3__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Interaction__Group_1__3"
+
+
+    // $ANTLR start "rule__Interaction__Group_1__3__Impl"
+    // InternalKiesl.g:958:1: rule__Interaction__Group_1__3__Impl : ( ( rule__Interaction__Group_1_3__0 )? ) ;
+    public final void rule__Interaction__Group_1__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKiesl.g:962:1: ( ( ( rule__Interaction__Group_1_3__0 )? ) )
+            // InternalKiesl.g:963:1: ( ( rule__Interaction__Group_1_3__0 )? )
+            {
+            // InternalKiesl.g:963:1: ( ( rule__Interaction__Group_1_3__0 )? )
+            // InternalKiesl.g:964:2: ( rule__Interaction__Group_1_3__0 )?
+            {
+             before(grammarAccess.getInteractionAccess().getGroup_1_3()); 
+            // InternalKiesl.g:965:2: ( rule__Interaction__Group_1_3__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
+
+            if ( (LA14_0==33) ) {
+                alt14=1;
+            }
+            switch (alt14) {
+                case 1 :
+                    // InternalKiesl.g:965:3: rule__Interaction__Group_1_3__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Interaction__Group_1_3__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getInteractionAccess().getGroup_1_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Interaction__Group_1__3__Impl"
+
+
     // $ANTLR start "rule__Interaction__Group_1_2__0"
-    // InternalKiesl.g:947:1: rule__Interaction__Group_1_2__0 : rule__Interaction__Group_1_2__0__Impl rule__Interaction__Group_1_2__1 ;
+    // InternalKiesl.g:974:1: rule__Interaction__Group_1_2__0 : rule__Interaction__Group_1_2__0__Impl rule__Interaction__Group_1_2__1 ;
     public final void rule__Interaction__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:951:1: ( rule__Interaction__Group_1_2__0__Impl rule__Interaction__Group_1_2__1 )
-            // InternalKiesl.g:952:2: rule__Interaction__Group_1_2__0__Impl rule__Interaction__Group_1_2__1
+            // InternalKiesl.g:978:1: ( rule__Interaction__Group_1_2__0__Impl rule__Interaction__Group_1_2__1 )
+            // InternalKiesl.g:979:2: rule__Interaction__Group_1_2__0__Impl rule__Interaction__Group_1_2__1
             {
             pushFollow(FOLLOW_8);
             rule__Interaction__Group_1_2__0__Impl();
@@ -3276,17 +3372,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__Group_1_2__0__Impl"
-    // InternalKiesl.g:959:1: rule__Interaction__Group_1_2__0__Impl : ( 'as' ) ;
+    // InternalKiesl.g:986:1: rule__Interaction__Group_1_2__0__Impl : ( 'as' ) ;
     public final void rule__Interaction__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:963:1: ( ( 'as' ) )
-            // InternalKiesl.g:964:1: ( 'as' )
+            // InternalKiesl.g:990:1: ( ( 'as' ) )
+            // InternalKiesl.g:991:1: ( 'as' )
             {
-            // InternalKiesl.g:964:1: ( 'as' )
-            // InternalKiesl.g:965:2: 'as'
+            // InternalKiesl.g:991:1: ( 'as' )
+            // InternalKiesl.g:992:2: 'as'
             {
              before(grammarAccess.getInteractionAccess().getAsKeyword_1_2_0()); 
             match(input,32,FOLLOW_2); 
@@ -3313,14 +3409,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__Group_1_2__1"
-    // InternalKiesl.g:974:1: rule__Interaction__Group_1_2__1 : rule__Interaction__Group_1_2__1__Impl ;
+    // InternalKiesl.g:1001:1: rule__Interaction__Group_1_2__1 : rule__Interaction__Group_1_2__1__Impl ;
     public final void rule__Interaction__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:978:1: ( rule__Interaction__Group_1_2__1__Impl )
-            // InternalKiesl.g:979:2: rule__Interaction__Group_1_2__1__Impl
+            // InternalKiesl.g:1005:1: ( rule__Interaction__Group_1_2__1__Impl )
+            // InternalKiesl.g:1006:2: rule__Interaction__Group_1_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Interaction__Group_1_2__1__Impl();
@@ -3346,21 +3442,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__Group_1_2__1__Impl"
-    // InternalKiesl.g:985:1: rule__Interaction__Group_1_2__1__Impl : ( ( rule__Interaction__NameAssignment_1_2_1 ) ) ;
+    // InternalKiesl.g:1012:1: rule__Interaction__Group_1_2__1__Impl : ( ( rule__Interaction__NameAssignment_1_2_1 ) ) ;
     public final void rule__Interaction__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:989:1: ( ( ( rule__Interaction__NameAssignment_1_2_1 ) ) )
-            // InternalKiesl.g:990:1: ( ( rule__Interaction__NameAssignment_1_2_1 ) )
+            // InternalKiesl.g:1016:1: ( ( ( rule__Interaction__NameAssignment_1_2_1 ) ) )
+            // InternalKiesl.g:1017:1: ( ( rule__Interaction__NameAssignment_1_2_1 ) )
             {
-            // InternalKiesl.g:990:1: ( ( rule__Interaction__NameAssignment_1_2_1 ) )
-            // InternalKiesl.g:991:2: ( rule__Interaction__NameAssignment_1_2_1 )
+            // InternalKiesl.g:1017:1: ( ( rule__Interaction__NameAssignment_1_2_1 ) )
+            // InternalKiesl.g:1018:2: ( rule__Interaction__NameAssignment_1_2_1 )
             {
              before(grammarAccess.getInteractionAccess().getNameAssignment_1_2_1()); 
-            // InternalKiesl.g:992:2: ( rule__Interaction__NameAssignment_1_2_1 )
-            // InternalKiesl.g:992:3: rule__Interaction__NameAssignment_1_2_1
+            // InternalKiesl.g:1019:2: ( rule__Interaction__NameAssignment_1_2_1 )
+            // InternalKiesl.g:1019:3: rule__Interaction__NameAssignment_1_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Interaction__NameAssignment_1_2_1();
@@ -3392,15 +3488,170 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Interaction__Group_1_2__1__Impl"
 
 
+    // $ANTLR start "rule__Interaction__Group_1_3__0"
+    // InternalKiesl.g:1028:1: rule__Interaction__Group_1_3__0 : rule__Interaction__Group_1_3__0__Impl rule__Interaction__Group_1_3__1 ;
+    public final void rule__Interaction__Group_1_3__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKiesl.g:1032:1: ( rule__Interaction__Group_1_3__0__Impl rule__Interaction__Group_1_3__1 )
+            // InternalKiesl.g:1033:2: rule__Interaction__Group_1_3__0__Impl rule__Interaction__Group_1_3__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__Interaction__Group_1_3__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Interaction__Group_1_3__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Interaction__Group_1_3__0"
+
+
+    // $ANTLR start "rule__Interaction__Group_1_3__0__Impl"
+    // InternalKiesl.g:1040:1: rule__Interaction__Group_1_3__0__Impl : ( 'note' ) ;
+    public final void rule__Interaction__Group_1_3__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKiesl.g:1044:1: ( ( 'note' ) )
+            // InternalKiesl.g:1045:1: ( 'note' )
+            {
+            // InternalKiesl.g:1045:1: ( 'note' )
+            // InternalKiesl.g:1046:2: 'note'
+            {
+             before(grammarAccess.getInteractionAccess().getNoteKeyword_1_3_0()); 
+            match(input,33,FOLLOW_2); 
+             after(grammarAccess.getInteractionAccess().getNoteKeyword_1_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Interaction__Group_1_3__0__Impl"
+
+
+    // $ANTLR start "rule__Interaction__Group_1_3__1"
+    // InternalKiesl.g:1055:1: rule__Interaction__Group_1_3__1 : rule__Interaction__Group_1_3__1__Impl ;
+    public final void rule__Interaction__Group_1_3__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKiesl.g:1059:1: ( rule__Interaction__Group_1_3__1__Impl )
+            // InternalKiesl.g:1060:2: rule__Interaction__Group_1_3__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Interaction__Group_1_3__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Interaction__Group_1_3__1"
+
+
+    // $ANTLR start "rule__Interaction__Group_1_3__1__Impl"
+    // InternalKiesl.g:1066:1: rule__Interaction__Group_1_3__1__Impl : ( ( rule__Interaction__NoteAssignment_1_3_1 ) ) ;
+    public final void rule__Interaction__Group_1_3__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKiesl.g:1070:1: ( ( ( rule__Interaction__NoteAssignment_1_3_1 ) ) )
+            // InternalKiesl.g:1071:1: ( ( rule__Interaction__NoteAssignment_1_3_1 ) )
+            {
+            // InternalKiesl.g:1071:1: ( ( rule__Interaction__NoteAssignment_1_3_1 ) )
+            // InternalKiesl.g:1072:2: ( rule__Interaction__NoteAssignment_1_3_1 )
+            {
+             before(grammarAccess.getInteractionAccess().getNoteAssignment_1_3_1()); 
+            // InternalKiesl.g:1073:2: ( rule__Interaction__NoteAssignment_1_3_1 )
+            // InternalKiesl.g:1073:3: rule__Interaction__NoteAssignment_1_3_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Interaction__NoteAssignment_1_3_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getInteractionAccess().getNoteAssignment_1_3_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Interaction__Group_1_3__1__Impl"
+
+
     // $ANTLR start "rule__Lifeline__Group__0"
-    // InternalKiesl.g:1001:1: rule__Lifeline__Group__0 : rule__Lifeline__Group__0__Impl rule__Lifeline__Group__1 ;
+    // InternalKiesl.g:1082:1: rule__Lifeline__Group__0 : rule__Lifeline__Group__0__Impl rule__Lifeline__Group__1 ;
     public final void rule__Lifeline__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1005:1: ( rule__Lifeline__Group__0__Impl rule__Lifeline__Group__1 )
-            // InternalKiesl.g:1006:2: rule__Lifeline__Group__0__Impl rule__Lifeline__Group__1
+            // InternalKiesl.g:1086:1: ( rule__Lifeline__Group__0__Impl rule__Lifeline__Group__1 )
+            // InternalKiesl.g:1087:2: rule__Lifeline__Group__0__Impl rule__Lifeline__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Lifeline__Group__0__Impl();
@@ -3431,20 +3682,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__Group__0__Impl"
-    // InternalKiesl.g:1013:1: rule__Lifeline__Group__0__Impl : ( 'lifeline' ) ;
+    // InternalKiesl.g:1094:1: rule__Lifeline__Group__0__Impl : ( 'lifeline' ) ;
     public final void rule__Lifeline__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1017:1: ( ( 'lifeline' ) )
-            // InternalKiesl.g:1018:1: ( 'lifeline' )
+            // InternalKiesl.g:1098:1: ( ( 'lifeline' ) )
+            // InternalKiesl.g:1099:1: ( 'lifeline' )
             {
-            // InternalKiesl.g:1018:1: ( 'lifeline' )
-            // InternalKiesl.g:1019:2: 'lifeline'
+            // InternalKiesl.g:1099:1: ( 'lifeline' )
+            // InternalKiesl.g:1100:2: 'lifeline'
             {
              before(grammarAccess.getLifelineAccess().getLifelineKeyword_0()); 
-            match(input,33,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getLifelineAccess().getLifelineKeyword_0()); 
 
             }
@@ -3468,16 +3719,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__Group__1"
-    // InternalKiesl.g:1028:1: rule__Lifeline__Group__1 : rule__Lifeline__Group__1__Impl rule__Lifeline__Group__2 ;
+    // InternalKiesl.g:1109:1: rule__Lifeline__Group__1 : rule__Lifeline__Group__1__Impl rule__Lifeline__Group__2 ;
     public final void rule__Lifeline__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1032:1: ( rule__Lifeline__Group__1__Impl rule__Lifeline__Group__2 )
-            // InternalKiesl.g:1033:2: rule__Lifeline__Group__1__Impl rule__Lifeline__Group__2
+            // InternalKiesl.g:1113:1: ( rule__Lifeline__Group__1__Impl rule__Lifeline__Group__2 )
+            // InternalKiesl.g:1114:2: rule__Lifeline__Group__1__Impl rule__Lifeline__Group__2
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_9);
             rule__Lifeline__Group__1__Impl();
 
             state._fsp--;
@@ -3506,21 +3757,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__Group__1__Impl"
-    // InternalKiesl.g:1040:1: rule__Lifeline__Group__1__Impl : ( ( rule__Lifeline__CaptionAssignment_1 ) ) ;
+    // InternalKiesl.g:1121:1: rule__Lifeline__Group__1__Impl : ( ( rule__Lifeline__CaptionAssignment_1 ) ) ;
     public final void rule__Lifeline__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1044:1: ( ( ( rule__Lifeline__CaptionAssignment_1 ) ) )
-            // InternalKiesl.g:1045:1: ( ( rule__Lifeline__CaptionAssignment_1 ) )
+            // InternalKiesl.g:1125:1: ( ( ( rule__Lifeline__CaptionAssignment_1 ) ) )
+            // InternalKiesl.g:1126:1: ( ( rule__Lifeline__CaptionAssignment_1 ) )
             {
-            // InternalKiesl.g:1045:1: ( ( rule__Lifeline__CaptionAssignment_1 ) )
-            // InternalKiesl.g:1046:2: ( rule__Lifeline__CaptionAssignment_1 )
+            // InternalKiesl.g:1126:1: ( ( rule__Lifeline__CaptionAssignment_1 ) )
+            // InternalKiesl.g:1127:2: ( rule__Lifeline__CaptionAssignment_1 )
             {
              before(grammarAccess.getLifelineAccess().getCaptionAssignment_1()); 
-            // InternalKiesl.g:1047:2: ( rule__Lifeline__CaptionAssignment_1 )
-            // InternalKiesl.g:1047:3: rule__Lifeline__CaptionAssignment_1
+            // InternalKiesl.g:1128:2: ( rule__Lifeline__CaptionAssignment_1 )
+            // InternalKiesl.g:1128:3: rule__Lifeline__CaptionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Lifeline__CaptionAssignment_1();
@@ -3553,14 +3804,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__Group__2"
-    // InternalKiesl.g:1055:1: rule__Lifeline__Group__2 : rule__Lifeline__Group__2__Impl rule__Lifeline__Group__3 ;
+    // InternalKiesl.g:1136:1: rule__Lifeline__Group__2 : rule__Lifeline__Group__2__Impl rule__Lifeline__Group__3 ;
     public final void rule__Lifeline__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1059:1: ( rule__Lifeline__Group__2__Impl rule__Lifeline__Group__3 )
-            // InternalKiesl.g:1060:2: rule__Lifeline__Group__2__Impl rule__Lifeline__Group__3
+            // InternalKiesl.g:1140:1: ( rule__Lifeline__Group__2__Impl rule__Lifeline__Group__3 )
+            // InternalKiesl.g:1141:2: rule__Lifeline__Group__2__Impl rule__Lifeline__Group__3
             {
             pushFollow(FOLLOW_8);
             rule__Lifeline__Group__2__Impl();
@@ -3591,17 +3842,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__Group__2__Impl"
-    // InternalKiesl.g:1067:1: rule__Lifeline__Group__2__Impl : ( 'as' ) ;
+    // InternalKiesl.g:1148:1: rule__Lifeline__Group__2__Impl : ( 'as' ) ;
     public final void rule__Lifeline__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1071:1: ( ( 'as' ) )
-            // InternalKiesl.g:1072:1: ( 'as' )
+            // InternalKiesl.g:1152:1: ( ( 'as' ) )
+            // InternalKiesl.g:1153:1: ( 'as' )
             {
-            // InternalKiesl.g:1072:1: ( 'as' )
-            // InternalKiesl.g:1073:2: 'as'
+            // InternalKiesl.g:1153:1: ( 'as' )
+            // InternalKiesl.g:1154:2: 'as'
             {
              before(grammarAccess.getLifelineAccess().getAsKeyword_2()); 
             match(input,32,FOLLOW_2); 
@@ -3628,14 +3879,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__Group__3"
-    // InternalKiesl.g:1082:1: rule__Lifeline__Group__3 : rule__Lifeline__Group__3__Impl ;
+    // InternalKiesl.g:1163:1: rule__Lifeline__Group__3 : rule__Lifeline__Group__3__Impl ;
     public final void rule__Lifeline__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1086:1: ( rule__Lifeline__Group__3__Impl )
-            // InternalKiesl.g:1087:2: rule__Lifeline__Group__3__Impl
+            // InternalKiesl.g:1167:1: ( rule__Lifeline__Group__3__Impl )
+            // InternalKiesl.g:1168:2: rule__Lifeline__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Lifeline__Group__3__Impl();
@@ -3661,21 +3912,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__Group__3__Impl"
-    // InternalKiesl.g:1093:1: rule__Lifeline__Group__3__Impl : ( ( rule__Lifeline__NameAssignment_3 ) ) ;
+    // InternalKiesl.g:1174:1: rule__Lifeline__Group__3__Impl : ( ( rule__Lifeline__NameAssignment_3 ) ) ;
     public final void rule__Lifeline__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1097:1: ( ( ( rule__Lifeline__NameAssignment_3 ) ) )
-            // InternalKiesl.g:1098:1: ( ( rule__Lifeline__NameAssignment_3 ) )
+            // InternalKiesl.g:1178:1: ( ( ( rule__Lifeline__NameAssignment_3 ) ) )
+            // InternalKiesl.g:1179:1: ( ( rule__Lifeline__NameAssignment_3 ) )
             {
-            // InternalKiesl.g:1098:1: ( ( rule__Lifeline__NameAssignment_3 ) )
-            // InternalKiesl.g:1099:2: ( rule__Lifeline__NameAssignment_3 )
+            // InternalKiesl.g:1179:1: ( ( rule__Lifeline__NameAssignment_3 ) )
+            // InternalKiesl.g:1180:2: ( rule__Lifeline__NameAssignment_3 )
             {
              before(grammarAccess.getLifelineAccess().getNameAssignment_3()); 
-            // InternalKiesl.g:1100:2: ( rule__Lifeline__NameAssignment_3 )
-            // InternalKiesl.g:1100:3: rule__Lifeline__NameAssignment_3
+            // InternalKiesl.g:1181:2: ( rule__Lifeline__NameAssignment_3 )
+            // InternalKiesl.g:1181:3: rule__Lifeline__NameAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Lifeline__NameAssignment_3();
@@ -3708,16 +3959,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__0"
-    // InternalKiesl.g:1109:1: rule__RegularMessage__Group__0 : rule__RegularMessage__Group__0__Impl rule__RegularMessage__Group__1 ;
+    // InternalKiesl.g:1190:1: rule__RegularMessage__Group__0 : rule__RegularMessage__Group__0__Impl rule__RegularMessage__Group__1 ;
     public final void rule__RegularMessage__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1113:1: ( rule__RegularMessage__Group__0__Impl rule__RegularMessage__Group__1 )
-            // InternalKiesl.g:1114:2: rule__RegularMessage__Group__0__Impl rule__RegularMessage__Group__1
+            // InternalKiesl.g:1194:1: ( rule__RegularMessage__Group__0__Impl rule__RegularMessage__Group__1 )
+            // InternalKiesl.g:1195:2: rule__RegularMessage__Group__0__Impl rule__RegularMessage__Group__1
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_10);
             rule__RegularMessage__Group__0__Impl();
 
             state._fsp--;
@@ -3746,21 +3997,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__0__Impl"
-    // InternalKiesl.g:1121:1: rule__RegularMessage__Group__0__Impl : ( ( rule__RegularMessage__SourceAssignment_0 ) ) ;
+    // InternalKiesl.g:1202:1: rule__RegularMessage__Group__0__Impl : ( ( rule__RegularMessage__SourceAssignment_0 ) ) ;
     public final void rule__RegularMessage__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1125:1: ( ( ( rule__RegularMessage__SourceAssignment_0 ) ) )
-            // InternalKiesl.g:1126:1: ( ( rule__RegularMessage__SourceAssignment_0 ) )
+            // InternalKiesl.g:1206:1: ( ( ( rule__RegularMessage__SourceAssignment_0 ) ) )
+            // InternalKiesl.g:1207:1: ( ( rule__RegularMessage__SourceAssignment_0 ) )
             {
-            // InternalKiesl.g:1126:1: ( ( rule__RegularMessage__SourceAssignment_0 ) )
-            // InternalKiesl.g:1127:2: ( rule__RegularMessage__SourceAssignment_0 )
+            // InternalKiesl.g:1207:1: ( ( rule__RegularMessage__SourceAssignment_0 ) )
+            // InternalKiesl.g:1208:2: ( rule__RegularMessage__SourceAssignment_0 )
             {
              before(grammarAccess.getRegularMessageAccess().getSourceAssignment_0()); 
-            // InternalKiesl.g:1128:2: ( rule__RegularMessage__SourceAssignment_0 )
-            // InternalKiesl.g:1128:3: rule__RegularMessage__SourceAssignment_0
+            // InternalKiesl.g:1209:2: ( rule__RegularMessage__SourceAssignment_0 )
+            // InternalKiesl.g:1209:3: rule__RegularMessage__SourceAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__SourceAssignment_0();
@@ -3793,14 +4044,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__1"
-    // InternalKiesl.g:1136:1: rule__RegularMessage__Group__1 : rule__RegularMessage__Group__1__Impl rule__RegularMessage__Group__2 ;
+    // InternalKiesl.g:1217:1: rule__RegularMessage__Group__1 : rule__RegularMessage__Group__1__Impl rule__RegularMessage__Group__2 ;
     public final void rule__RegularMessage__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1140:1: ( rule__RegularMessage__Group__1__Impl rule__RegularMessage__Group__2 )
-            // InternalKiesl.g:1141:2: rule__RegularMessage__Group__1__Impl rule__RegularMessage__Group__2
+            // InternalKiesl.g:1221:1: ( rule__RegularMessage__Group__1__Impl rule__RegularMessage__Group__2 )
+            // InternalKiesl.g:1222:2: rule__RegularMessage__Group__1__Impl rule__RegularMessage__Group__2
             {
             pushFollow(FOLLOW_6);
             rule__RegularMessage__Group__1__Impl();
@@ -3831,21 +4082,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__1__Impl"
-    // InternalKiesl.g:1148:1: rule__RegularMessage__Group__1__Impl : ( ( rule__RegularMessage__TypeAssignment_1 ) ) ;
+    // InternalKiesl.g:1229:1: rule__RegularMessage__Group__1__Impl : ( ( rule__RegularMessage__TypeAssignment_1 ) ) ;
     public final void rule__RegularMessage__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1152:1: ( ( ( rule__RegularMessage__TypeAssignment_1 ) ) )
-            // InternalKiesl.g:1153:1: ( ( rule__RegularMessage__TypeAssignment_1 ) )
+            // InternalKiesl.g:1233:1: ( ( ( rule__RegularMessage__TypeAssignment_1 ) ) )
+            // InternalKiesl.g:1234:1: ( ( rule__RegularMessage__TypeAssignment_1 ) )
             {
-            // InternalKiesl.g:1153:1: ( ( rule__RegularMessage__TypeAssignment_1 ) )
-            // InternalKiesl.g:1154:2: ( rule__RegularMessage__TypeAssignment_1 )
+            // InternalKiesl.g:1234:1: ( ( rule__RegularMessage__TypeAssignment_1 ) )
+            // InternalKiesl.g:1235:2: ( rule__RegularMessage__TypeAssignment_1 )
             {
              before(grammarAccess.getRegularMessageAccess().getTypeAssignment_1()); 
-            // InternalKiesl.g:1155:2: ( rule__RegularMessage__TypeAssignment_1 )
-            // InternalKiesl.g:1155:3: rule__RegularMessage__TypeAssignment_1
+            // InternalKiesl.g:1236:2: ( rule__RegularMessage__TypeAssignment_1 )
+            // InternalKiesl.g:1236:3: rule__RegularMessage__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__TypeAssignment_1();
@@ -3878,16 +4129,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__2"
-    // InternalKiesl.g:1163:1: rule__RegularMessage__Group__2 : rule__RegularMessage__Group__2__Impl rule__RegularMessage__Group__3 ;
+    // InternalKiesl.g:1244:1: rule__RegularMessage__Group__2 : rule__RegularMessage__Group__2__Impl rule__RegularMessage__Group__3 ;
     public final void rule__RegularMessage__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1167:1: ( rule__RegularMessage__Group__2__Impl rule__RegularMessage__Group__3 )
-            // InternalKiesl.g:1168:2: rule__RegularMessage__Group__2__Impl rule__RegularMessage__Group__3
+            // InternalKiesl.g:1248:1: ( rule__RegularMessage__Group__2__Impl rule__RegularMessage__Group__3 )
+            // InternalKiesl.g:1249:2: rule__RegularMessage__Group__2__Impl rule__RegularMessage__Group__3
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             rule__RegularMessage__Group__2__Impl();
 
             state._fsp--;
@@ -3916,21 +4167,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__2__Impl"
-    // InternalKiesl.g:1175:1: rule__RegularMessage__Group__2__Impl : ( ( rule__RegularMessage__CaptionAssignment_2 ) ) ;
+    // InternalKiesl.g:1256:1: rule__RegularMessage__Group__2__Impl : ( ( rule__RegularMessage__CaptionAssignment_2 ) ) ;
     public final void rule__RegularMessage__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1179:1: ( ( ( rule__RegularMessage__CaptionAssignment_2 ) ) )
-            // InternalKiesl.g:1180:1: ( ( rule__RegularMessage__CaptionAssignment_2 ) )
+            // InternalKiesl.g:1260:1: ( ( ( rule__RegularMessage__CaptionAssignment_2 ) ) )
+            // InternalKiesl.g:1261:1: ( ( rule__RegularMessage__CaptionAssignment_2 ) )
             {
-            // InternalKiesl.g:1180:1: ( ( rule__RegularMessage__CaptionAssignment_2 ) )
-            // InternalKiesl.g:1181:2: ( rule__RegularMessage__CaptionAssignment_2 )
+            // InternalKiesl.g:1261:1: ( ( rule__RegularMessage__CaptionAssignment_2 ) )
+            // InternalKiesl.g:1262:2: ( rule__RegularMessage__CaptionAssignment_2 )
             {
              before(grammarAccess.getRegularMessageAccess().getCaptionAssignment_2()); 
-            // InternalKiesl.g:1182:2: ( rule__RegularMessage__CaptionAssignment_2 )
-            // InternalKiesl.g:1182:3: rule__RegularMessage__CaptionAssignment_2
+            // InternalKiesl.g:1263:2: ( rule__RegularMessage__CaptionAssignment_2 )
+            // InternalKiesl.g:1263:3: rule__RegularMessage__CaptionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__CaptionAssignment_2();
@@ -3963,14 +4214,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__3"
-    // InternalKiesl.g:1190:1: rule__RegularMessage__Group__3 : rule__RegularMessage__Group__3__Impl rule__RegularMessage__Group__4 ;
+    // InternalKiesl.g:1271:1: rule__RegularMessage__Group__3 : rule__RegularMessage__Group__3__Impl rule__RegularMessage__Group__4 ;
     public final void rule__RegularMessage__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1194:1: ( rule__RegularMessage__Group__3__Impl rule__RegularMessage__Group__4 )
-            // InternalKiesl.g:1195:2: rule__RegularMessage__Group__3__Impl rule__RegularMessage__Group__4
+            // InternalKiesl.g:1275:1: ( rule__RegularMessage__Group__3__Impl rule__RegularMessage__Group__4 )
+            // InternalKiesl.g:1276:2: rule__RegularMessage__Group__3__Impl rule__RegularMessage__Group__4
             {
             pushFollow(FOLLOW_8);
             rule__RegularMessage__Group__3__Impl();
@@ -4001,20 +4252,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__3__Impl"
-    // InternalKiesl.g:1202:1: rule__RegularMessage__Group__3__Impl : ( 'to' ) ;
+    // InternalKiesl.g:1283:1: rule__RegularMessage__Group__3__Impl : ( 'to' ) ;
     public final void rule__RegularMessage__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1206:1: ( ( 'to' ) )
-            // InternalKiesl.g:1207:1: ( 'to' )
+            // InternalKiesl.g:1287:1: ( ( 'to' ) )
+            // InternalKiesl.g:1288:1: ( 'to' )
             {
-            // InternalKiesl.g:1207:1: ( 'to' )
-            // InternalKiesl.g:1208:2: 'to'
+            // InternalKiesl.g:1288:1: ( 'to' )
+            // InternalKiesl.g:1289:2: 'to'
             {
              before(grammarAccess.getRegularMessageAccess().getToKeyword_3()); 
-            match(input,34,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getRegularMessageAccess().getToKeyword_3()); 
 
             }
@@ -4038,16 +4289,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__4"
-    // InternalKiesl.g:1217:1: rule__RegularMessage__Group__4 : rule__RegularMessage__Group__4__Impl rule__RegularMessage__Group__5 ;
+    // InternalKiesl.g:1298:1: rule__RegularMessage__Group__4 : rule__RegularMessage__Group__4__Impl rule__RegularMessage__Group__5 ;
     public final void rule__RegularMessage__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1221:1: ( rule__RegularMessage__Group__4__Impl rule__RegularMessage__Group__5 )
-            // InternalKiesl.g:1222:2: rule__RegularMessage__Group__4__Impl rule__RegularMessage__Group__5
+            // InternalKiesl.g:1302:1: ( rule__RegularMessage__Group__4__Impl rule__RegularMessage__Group__5 )
+            // InternalKiesl.g:1303:2: rule__RegularMessage__Group__4__Impl rule__RegularMessage__Group__5
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__RegularMessage__Group__4__Impl();
 
             state._fsp--;
@@ -4076,21 +4327,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__4__Impl"
-    // InternalKiesl.g:1229:1: rule__RegularMessage__Group__4__Impl : ( ( rule__RegularMessage__TargetAssignment_4 ) ) ;
+    // InternalKiesl.g:1310:1: rule__RegularMessage__Group__4__Impl : ( ( rule__RegularMessage__TargetAssignment_4 ) ) ;
     public final void rule__RegularMessage__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1233:1: ( ( ( rule__RegularMessage__TargetAssignment_4 ) ) )
-            // InternalKiesl.g:1234:1: ( ( rule__RegularMessage__TargetAssignment_4 ) )
+            // InternalKiesl.g:1314:1: ( ( ( rule__RegularMessage__TargetAssignment_4 ) ) )
+            // InternalKiesl.g:1315:1: ( ( rule__RegularMessage__TargetAssignment_4 ) )
             {
-            // InternalKiesl.g:1234:1: ( ( rule__RegularMessage__TargetAssignment_4 ) )
-            // InternalKiesl.g:1235:2: ( rule__RegularMessage__TargetAssignment_4 )
+            // InternalKiesl.g:1315:1: ( ( rule__RegularMessage__TargetAssignment_4 ) )
+            // InternalKiesl.g:1316:2: ( rule__RegularMessage__TargetAssignment_4 )
             {
              before(grammarAccess.getRegularMessageAccess().getTargetAssignment_4()); 
-            // InternalKiesl.g:1236:2: ( rule__RegularMessage__TargetAssignment_4 )
-            // InternalKiesl.g:1236:3: rule__RegularMessage__TargetAssignment_4
+            // InternalKiesl.g:1317:2: ( rule__RegularMessage__TargetAssignment_4 )
+            // InternalKiesl.g:1317:3: rule__RegularMessage__TargetAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__TargetAssignment_4();
@@ -4123,16 +4374,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__5"
-    // InternalKiesl.g:1244:1: rule__RegularMessage__Group__5 : rule__RegularMessage__Group__5__Impl rule__RegularMessage__Group__6 ;
+    // InternalKiesl.g:1325:1: rule__RegularMessage__Group__5 : rule__RegularMessage__Group__5__Impl rule__RegularMessage__Group__6 ;
     public final void rule__RegularMessage__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1248:1: ( rule__RegularMessage__Group__5__Impl rule__RegularMessage__Group__6 )
-            // InternalKiesl.g:1249:2: rule__RegularMessage__Group__5__Impl rule__RegularMessage__Group__6
+            // InternalKiesl.g:1329:1: ( rule__RegularMessage__Group__5__Impl rule__RegularMessage__Group__6 )
+            // InternalKiesl.g:1330:2: rule__RegularMessage__Group__5__Impl rule__RegularMessage__Group__6
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__RegularMessage__Group__5__Impl();
 
             state._fsp--;
@@ -4161,29 +4412,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__5__Impl"
-    // InternalKiesl.g:1256:1: rule__RegularMessage__Group__5__Impl : ( ( rule__RegularMessage__Alternatives_5 )? ) ;
+    // InternalKiesl.g:1337:1: rule__RegularMessage__Group__5__Impl : ( ( rule__RegularMessage__Alternatives_5 )? ) ;
     public final void rule__RegularMessage__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1260:1: ( ( ( rule__RegularMessage__Alternatives_5 )? ) )
-            // InternalKiesl.g:1261:1: ( ( rule__RegularMessage__Alternatives_5 )? )
+            // InternalKiesl.g:1341:1: ( ( ( rule__RegularMessage__Alternatives_5 )? ) )
+            // InternalKiesl.g:1342:1: ( ( rule__RegularMessage__Alternatives_5 )? )
             {
-            // InternalKiesl.g:1261:1: ( ( rule__RegularMessage__Alternatives_5 )? )
-            // InternalKiesl.g:1262:2: ( rule__RegularMessage__Alternatives_5 )?
+            // InternalKiesl.g:1342:1: ( ( rule__RegularMessage__Alternatives_5 )? )
+            // InternalKiesl.g:1343:2: ( rule__RegularMessage__Alternatives_5 )?
             {
              before(grammarAccess.getRegularMessageAccess().getAlternatives_5()); 
-            // InternalKiesl.g:1263:2: ( rule__RegularMessage__Alternatives_5 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalKiesl.g:1344:2: ( rule__RegularMessage__Alternatives_5 )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( ((LA14_0>=48 && LA14_0<=50)) ) {
-                alt14=1;
+            if ( ((LA15_0>=48 && LA15_0<=50)) ) {
+                alt15=1;
             }
-            switch (alt14) {
+            switch (alt15) {
                 case 1 :
-                    // InternalKiesl.g:1263:3: rule__RegularMessage__Alternatives_5
+                    // InternalKiesl.g:1344:3: rule__RegularMessage__Alternatives_5
                     {
                     pushFollow(FOLLOW_2);
                     rule__RegularMessage__Alternatives_5();
@@ -4219,16 +4470,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__6"
-    // InternalKiesl.g:1271:1: rule__RegularMessage__Group__6 : rule__RegularMessage__Group__6__Impl rule__RegularMessage__Group__7 ;
+    // InternalKiesl.g:1352:1: rule__RegularMessage__Group__6 : rule__RegularMessage__Group__6__Impl rule__RegularMessage__Group__7 ;
     public final void rule__RegularMessage__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1275:1: ( rule__RegularMessage__Group__6__Impl rule__RegularMessage__Group__7 )
-            // InternalKiesl.g:1276:2: rule__RegularMessage__Group__6__Impl rule__RegularMessage__Group__7
+            // InternalKiesl.g:1356:1: ( rule__RegularMessage__Group__6__Impl rule__RegularMessage__Group__7 )
+            // InternalKiesl.g:1357:2: rule__RegularMessage__Group__6__Impl rule__RegularMessage__Group__7
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__RegularMessage__Group__6__Impl();
 
             state._fsp--;
@@ -4257,29 +4508,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__6__Impl"
-    // InternalKiesl.g:1283:1: rule__RegularMessage__Group__6__Impl : ( ( rule__RegularMessage__Alternatives_6 )? ) ;
+    // InternalKiesl.g:1364:1: rule__RegularMessage__Group__6__Impl : ( ( rule__RegularMessage__Alternatives_6 )? ) ;
     public final void rule__RegularMessage__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1287:1: ( ( ( rule__RegularMessage__Alternatives_6 )? ) )
-            // InternalKiesl.g:1288:1: ( ( rule__RegularMessage__Alternatives_6 )? )
+            // InternalKiesl.g:1368:1: ( ( ( rule__RegularMessage__Alternatives_6 )? ) )
+            // InternalKiesl.g:1369:1: ( ( rule__RegularMessage__Alternatives_6 )? )
             {
-            // InternalKiesl.g:1288:1: ( ( rule__RegularMessage__Alternatives_6 )? )
-            // InternalKiesl.g:1289:2: ( rule__RegularMessage__Alternatives_6 )?
+            // InternalKiesl.g:1369:1: ( ( rule__RegularMessage__Alternatives_6 )? )
+            // InternalKiesl.g:1370:2: ( rule__RegularMessage__Alternatives_6 )?
             {
              before(grammarAccess.getRegularMessageAccess().getAlternatives_6()); 
-            // InternalKiesl.g:1290:2: ( rule__RegularMessage__Alternatives_6 )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // InternalKiesl.g:1371:2: ( rule__RegularMessage__Alternatives_6 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( ((LA15_0>=51 && LA15_0<=53)) ) {
-                alt15=1;
+            if ( ((LA16_0>=51 && LA16_0<=53)) ) {
+                alt16=1;
             }
-            switch (alt15) {
+            switch (alt16) {
                 case 1 :
-                    // InternalKiesl.g:1290:3: rule__RegularMessage__Alternatives_6
+                    // InternalKiesl.g:1371:3: rule__RegularMessage__Alternatives_6
                     {
                     pushFollow(FOLLOW_2);
                     rule__RegularMessage__Alternatives_6();
@@ -4315,16 +4566,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__7"
-    // InternalKiesl.g:1298:1: rule__RegularMessage__Group__7 : rule__RegularMessage__Group__7__Impl rule__RegularMessage__Group__8 ;
+    // InternalKiesl.g:1379:1: rule__RegularMessage__Group__7 : rule__RegularMessage__Group__7__Impl rule__RegularMessage__Group__8 ;
     public final void rule__RegularMessage__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1302:1: ( rule__RegularMessage__Group__7__Impl rule__RegularMessage__Group__8 )
-            // InternalKiesl.g:1303:2: rule__RegularMessage__Group__7__Impl rule__RegularMessage__Group__8
+            // InternalKiesl.g:1383:1: ( rule__RegularMessage__Group__7__Impl rule__RegularMessage__Group__8 )
+            // InternalKiesl.g:1384:2: rule__RegularMessage__Group__7__Impl rule__RegularMessage__Group__8
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__RegularMessage__Group__7__Impl();
 
             state._fsp--;
@@ -4353,29 +4604,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__7__Impl"
-    // InternalKiesl.g:1310:1: rule__RegularMessage__Group__7__Impl : ( ( rule__RegularMessage__Group_7__0 )? ) ;
+    // InternalKiesl.g:1391:1: rule__RegularMessage__Group__7__Impl : ( ( rule__RegularMessage__Group_7__0 )? ) ;
     public final void rule__RegularMessage__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1314:1: ( ( ( rule__RegularMessage__Group_7__0 )? ) )
-            // InternalKiesl.g:1315:1: ( ( rule__RegularMessage__Group_7__0 )? )
+            // InternalKiesl.g:1395:1: ( ( ( rule__RegularMessage__Group_7__0 )? ) )
+            // InternalKiesl.g:1396:1: ( ( rule__RegularMessage__Group_7__0 )? )
             {
-            // InternalKiesl.g:1315:1: ( ( rule__RegularMessage__Group_7__0 )? )
-            // InternalKiesl.g:1316:2: ( rule__RegularMessage__Group_7__0 )?
+            // InternalKiesl.g:1396:1: ( ( rule__RegularMessage__Group_7__0 )? )
+            // InternalKiesl.g:1397:2: ( rule__RegularMessage__Group_7__0 )?
             {
              before(grammarAccess.getRegularMessageAccess().getGroup_7()); 
-            // InternalKiesl.g:1317:2: ( rule__RegularMessage__Group_7__0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalKiesl.g:1398:2: ( rule__RegularMessage__Group_7__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==35) ) {
-                alt16=1;
+            if ( (LA17_0==36) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // InternalKiesl.g:1317:3: rule__RegularMessage__Group_7__0
+                    // InternalKiesl.g:1398:3: rule__RegularMessage__Group_7__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__RegularMessage__Group_7__0();
@@ -4411,14 +4662,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__8"
-    // InternalKiesl.g:1325:1: rule__RegularMessage__Group__8 : rule__RegularMessage__Group__8__Impl ;
+    // InternalKiesl.g:1406:1: rule__RegularMessage__Group__8 : rule__RegularMessage__Group__8__Impl ;
     public final void rule__RegularMessage__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1329:1: ( rule__RegularMessage__Group__8__Impl )
-            // InternalKiesl.g:1330:2: rule__RegularMessage__Group__8__Impl
+            // InternalKiesl.g:1410:1: ( rule__RegularMessage__Group__8__Impl )
+            // InternalKiesl.g:1411:2: rule__RegularMessage__Group__8__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__Group__8__Impl();
@@ -4444,29 +4695,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group__8__Impl"
-    // InternalKiesl.g:1336:1: rule__RegularMessage__Group__8__Impl : ( ( rule__RegularMessage__Group_8__0 )? ) ;
+    // InternalKiesl.g:1417:1: rule__RegularMessage__Group__8__Impl : ( ( rule__RegularMessage__Group_8__0 )? ) ;
     public final void rule__RegularMessage__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1340:1: ( ( ( rule__RegularMessage__Group_8__0 )? ) )
-            // InternalKiesl.g:1341:1: ( ( rule__RegularMessage__Group_8__0 )? )
+            // InternalKiesl.g:1421:1: ( ( ( rule__RegularMessage__Group_8__0 )? ) )
+            // InternalKiesl.g:1422:1: ( ( rule__RegularMessage__Group_8__0 )? )
             {
-            // InternalKiesl.g:1341:1: ( ( rule__RegularMessage__Group_8__0 )? )
-            // InternalKiesl.g:1342:2: ( rule__RegularMessage__Group_8__0 )?
+            // InternalKiesl.g:1422:1: ( ( rule__RegularMessage__Group_8__0 )? )
+            // InternalKiesl.g:1423:2: ( rule__RegularMessage__Group_8__0 )?
             {
              before(grammarAccess.getRegularMessageAccess().getGroup_8()); 
-            // InternalKiesl.g:1343:2: ( rule__RegularMessage__Group_8__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalKiesl.g:1424:2: ( rule__RegularMessage__Group_8__0 )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==36) ) {
-                alt17=1;
+            if ( (LA18_0==37) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalKiesl.g:1343:3: rule__RegularMessage__Group_8__0
+                    // InternalKiesl.g:1424:3: rule__RegularMessage__Group_8__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__RegularMessage__Group_8__0();
@@ -4502,16 +4753,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_5_2__0"
-    // InternalKiesl.g:1352:1: rule__RegularMessage__Group_5_2__0 : rule__RegularMessage__Group_5_2__0__Impl rule__RegularMessage__Group_5_2__1 ;
+    // InternalKiesl.g:1433:1: rule__RegularMessage__Group_5_2__0 : rule__RegularMessage__Group_5_2__0__Impl rule__RegularMessage__Group_5_2__1 ;
     public final void rule__RegularMessage__Group_5_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1356:1: ( rule__RegularMessage__Group_5_2__0__Impl rule__RegularMessage__Group_5_2__1 )
-            // InternalKiesl.g:1357:2: rule__RegularMessage__Group_5_2__0__Impl rule__RegularMessage__Group_5_2__1
+            // InternalKiesl.g:1437:1: ( rule__RegularMessage__Group_5_2__0__Impl rule__RegularMessage__Group_5_2__1 )
+            // InternalKiesl.g:1438:2: rule__RegularMessage__Group_5_2__0__Impl rule__RegularMessage__Group_5_2__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__RegularMessage__Group_5_2__0__Impl();
 
             state._fsp--;
@@ -4540,21 +4791,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_5_2__0__Impl"
-    // InternalKiesl.g:1364:1: rule__RegularMessage__Group_5_2__0__Impl : ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) ) ;
+    // InternalKiesl.g:1445:1: rule__RegularMessage__Group_5_2__0__Impl : ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) ) ;
     public final void rule__RegularMessage__Group_5_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1368:1: ( ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) ) )
-            // InternalKiesl.g:1369:1: ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) )
+            // InternalKiesl.g:1449:1: ( ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) ) )
+            // InternalKiesl.g:1450:1: ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) )
             {
-            // InternalKiesl.g:1369:1: ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) )
-            // InternalKiesl.g:1370:2: ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 )
+            // InternalKiesl.g:1450:1: ( ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 ) )
+            // InternalKiesl.g:1451:2: ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 )
             {
              before(grammarAccess.getRegularMessageAccess().getSourceEndExecAssignment_5_2_0()); 
-            // InternalKiesl.g:1371:2: ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 )
-            // InternalKiesl.g:1371:3: rule__RegularMessage__SourceEndExecAssignment_5_2_0
+            // InternalKiesl.g:1452:2: ( rule__RegularMessage__SourceEndExecAssignment_5_2_0 )
+            // InternalKiesl.g:1452:3: rule__RegularMessage__SourceEndExecAssignment_5_2_0
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__SourceEndExecAssignment_5_2_0();
@@ -4587,14 +4838,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_5_2__1"
-    // InternalKiesl.g:1379:1: rule__RegularMessage__Group_5_2__1 : rule__RegularMessage__Group_5_2__1__Impl ;
+    // InternalKiesl.g:1460:1: rule__RegularMessage__Group_5_2__1 : rule__RegularMessage__Group_5_2__1__Impl ;
     public final void rule__RegularMessage__Group_5_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1383:1: ( rule__RegularMessage__Group_5_2__1__Impl )
-            // InternalKiesl.g:1384:2: rule__RegularMessage__Group_5_2__1__Impl
+            // InternalKiesl.g:1464:1: ( rule__RegularMessage__Group_5_2__1__Impl )
+            // InternalKiesl.g:1465:2: rule__RegularMessage__Group_5_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__Group_5_2__1__Impl();
@@ -4620,29 +4871,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_5_2__1__Impl"
-    // InternalKiesl.g:1390:1: rule__RegularMessage__Group_5_2__1__Impl : ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? ) ;
+    // InternalKiesl.g:1471:1: rule__RegularMessage__Group_5_2__1__Impl : ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? ) ;
     public final void rule__RegularMessage__Group_5_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1394:1: ( ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? ) )
-            // InternalKiesl.g:1395:1: ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? )
+            // InternalKiesl.g:1475:1: ( ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? ) )
+            // InternalKiesl.g:1476:1: ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? )
             {
-            // InternalKiesl.g:1395:1: ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? )
-            // InternalKiesl.g:1396:2: ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )?
+            // InternalKiesl.g:1476:1: ( ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )? )
+            // InternalKiesl.g:1477:2: ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )?
             {
              before(grammarAccess.getRegularMessageAccess().getSourceEndExecCountAssignment_5_2_1()); 
-            // InternalKiesl.g:1397:2: ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalKiesl.g:1478:2: ( rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
-                alt18=1;
+            if ( (LA19_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
-                    // InternalKiesl.g:1397:3: rule__RegularMessage__SourceEndExecCountAssignment_5_2_1
+                    // InternalKiesl.g:1478:3: rule__RegularMessage__SourceEndExecCountAssignment_5_2_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__RegularMessage__SourceEndExecCountAssignment_5_2_1();
@@ -4678,16 +4929,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_6_2__0"
-    // InternalKiesl.g:1406:1: rule__RegularMessage__Group_6_2__0 : rule__RegularMessage__Group_6_2__0__Impl rule__RegularMessage__Group_6_2__1 ;
+    // InternalKiesl.g:1487:1: rule__RegularMessage__Group_6_2__0 : rule__RegularMessage__Group_6_2__0__Impl rule__RegularMessage__Group_6_2__1 ;
     public final void rule__RegularMessage__Group_6_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1410:1: ( rule__RegularMessage__Group_6_2__0__Impl rule__RegularMessage__Group_6_2__1 )
-            // InternalKiesl.g:1411:2: rule__RegularMessage__Group_6_2__0__Impl rule__RegularMessage__Group_6_2__1
+            // InternalKiesl.g:1491:1: ( rule__RegularMessage__Group_6_2__0__Impl rule__RegularMessage__Group_6_2__1 )
+            // InternalKiesl.g:1492:2: rule__RegularMessage__Group_6_2__0__Impl rule__RegularMessage__Group_6_2__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__RegularMessage__Group_6_2__0__Impl();
 
             state._fsp--;
@@ -4716,21 +4967,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_6_2__0__Impl"
-    // InternalKiesl.g:1418:1: rule__RegularMessage__Group_6_2__0__Impl : ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) ) ;
+    // InternalKiesl.g:1499:1: rule__RegularMessage__Group_6_2__0__Impl : ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) ) ;
     public final void rule__RegularMessage__Group_6_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1422:1: ( ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) ) )
-            // InternalKiesl.g:1423:1: ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) )
+            // InternalKiesl.g:1503:1: ( ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) ) )
+            // InternalKiesl.g:1504:1: ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) )
             {
-            // InternalKiesl.g:1423:1: ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) )
-            // InternalKiesl.g:1424:2: ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 )
+            // InternalKiesl.g:1504:1: ( ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 ) )
+            // InternalKiesl.g:1505:2: ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 )
             {
              before(grammarAccess.getRegularMessageAccess().getTargetEndExecAssignment_6_2_0()); 
-            // InternalKiesl.g:1425:2: ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 )
-            // InternalKiesl.g:1425:3: rule__RegularMessage__TargetEndExecAssignment_6_2_0
+            // InternalKiesl.g:1506:2: ( rule__RegularMessage__TargetEndExecAssignment_6_2_0 )
+            // InternalKiesl.g:1506:3: rule__RegularMessage__TargetEndExecAssignment_6_2_0
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__TargetEndExecAssignment_6_2_0();
@@ -4763,14 +5014,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_6_2__1"
-    // InternalKiesl.g:1433:1: rule__RegularMessage__Group_6_2__1 : rule__RegularMessage__Group_6_2__1__Impl ;
+    // InternalKiesl.g:1514:1: rule__RegularMessage__Group_6_2__1 : rule__RegularMessage__Group_6_2__1__Impl ;
     public final void rule__RegularMessage__Group_6_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1437:1: ( rule__RegularMessage__Group_6_2__1__Impl )
-            // InternalKiesl.g:1438:2: rule__RegularMessage__Group_6_2__1__Impl
+            // InternalKiesl.g:1518:1: ( rule__RegularMessage__Group_6_2__1__Impl )
+            // InternalKiesl.g:1519:2: rule__RegularMessage__Group_6_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__Group_6_2__1__Impl();
@@ -4796,29 +5047,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_6_2__1__Impl"
-    // InternalKiesl.g:1444:1: rule__RegularMessage__Group_6_2__1__Impl : ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? ) ;
+    // InternalKiesl.g:1525:1: rule__RegularMessage__Group_6_2__1__Impl : ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? ) ;
     public final void rule__RegularMessage__Group_6_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1448:1: ( ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? ) )
-            // InternalKiesl.g:1449:1: ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? )
+            // InternalKiesl.g:1529:1: ( ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? ) )
+            // InternalKiesl.g:1530:1: ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? )
             {
-            // InternalKiesl.g:1449:1: ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? )
-            // InternalKiesl.g:1450:2: ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )?
+            // InternalKiesl.g:1530:1: ( ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )? )
+            // InternalKiesl.g:1531:2: ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )?
             {
              before(grammarAccess.getRegularMessageAccess().getTargetEndExecCountAssignment_6_2_1()); 
-            // InternalKiesl.g:1451:2: ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalKiesl.g:1532:2: ( rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
-                alt19=1;
+            if ( (LA20_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
+                alt20=1;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
-                    // InternalKiesl.g:1451:3: rule__RegularMessage__TargetEndExecCountAssignment_6_2_1
+                    // InternalKiesl.g:1532:3: rule__RegularMessage__TargetEndExecCountAssignment_6_2_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__RegularMessage__TargetEndExecCountAssignment_6_2_1();
@@ -4854,14 +5105,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_7__0"
-    // InternalKiesl.g:1460:1: rule__RegularMessage__Group_7__0 : rule__RegularMessage__Group_7__0__Impl rule__RegularMessage__Group_7__1 ;
+    // InternalKiesl.g:1541:1: rule__RegularMessage__Group_7__0 : rule__RegularMessage__Group_7__0__Impl rule__RegularMessage__Group_7__1 ;
     public final void rule__RegularMessage__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1464:1: ( rule__RegularMessage__Group_7__0__Impl rule__RegularMessage__Group_7__1 )
-            // InternalKiesl.g:1465:2: rule__RegularMessage__Group_7__0__Impl rule__RegularMessage__Group_7__1
+            // InternalKiesl.g:1545:1: ( rule__RegularMessage__Group_7__0__Impl rule__RegularMessage__Group_7__1 )
+            // InternalKiesl.g:1546:2: rule__RegularMessage__Group_7__0__Impl rule__RegularMessage__Group_7__1
             {
             pushFollow(FOLLOW_6);
             rule__RegularMessage__Group_7__0__Impl();
@@ -4892,20 +5143,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_7__0__Impl"
-    // InternalKiesl.g:1472:1: rule__RegularMessage__Group_7__0__Impl : ( 'sourceNote' ) ;
+    // InternalKiesl.g:1553:1: rule__RegularMessage__Group_7__0__Impl : ( 'sourceNote' ) ;
     public final void rule__RegularMessage__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1476:1: ( ( 'sourceNote' ) )
-            // InternalKiesl.g:1477:1: ( 'sourceNote' )
+            // InternalKiesl.g:1557:1: ( ( 'sourceNote' ) )
+            // InternalKiesl.g:1558:1: ( 'sourceNote' )
             {
-            // InternalKiesl.g:1477:1: ( 'sourceNote' )
-            // InternalKiesl.g:1478:2: 'sourceNote'
+            // InternalKiesl.g:1558:1: ( 'sourceNote' )
+            // InternalKiesl.g:1559:2: 'sourceNote'
             {
              before(grammarAccess.getRegularMessageAccess().getSourceNoteKeyword_7_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getRegularMessageAccess().getSourceNoteKeyword_7_0()); 
 
             }
@@ -4929,14 +5180,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_7__1"
-    // InternalKiesl.g:1487:1: rule__RegularMessage__Group_7__1 : rule__RegularMessage__Group_7__1__Impl ;
+    // InternalKiesl.g:1568:1: rule__RegularMessage__Group_7__1 : rule__RegularMessage__Group_7__1__Impl ;
     public final void rule__RegularMessage__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1491:1: ( rule__RegularMessage__Group_7__1__Impl )
-            // InternalKiesl.g:1492:2: rule__RegularMessage__Group_7__1__Impl
+            // InternalKiesl.g:1572:1: ( rule__RegularMessage__Group_7__1__Impl )
+            // InternalKiesl.g:1573:2: rule__RegularMessage__Group_7__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__Group_7__1__Impl();
@@ -4962,21 +5213,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_7__1__Impl"
-    // InternalKiesl.g:1498:1: rule__RegularMessage__Group_7__1__Impl : ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) ) ;
+    // InternalKiesl.g:1579:1: rule__RegularMessage__Group_7__1__Impl : ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) ) ;
     public final void rule__RegularMessage__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1502:1: ( ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) ) )
-            // InternalKiesl.g:1503:1: ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) )
+            // InternalKiesl.g:1583:1: ( ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) ) )
+            // InternalKiesl.g:1584:1: ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) )
             {
-            // InternalKiesl.g:1503:1: ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) )
-            // InternalKiesl.g:1504:2: ( rule__RegularMessage__SourceNoteAssignment_7_1 )
+            // InternalKiesl.g:1584:1: ( ( rule__RegularMessage__SourceNoteAssignment_7_1 ) )
+            // InternalKiesl.g:1585:2: ( rule__RegularMessage__SourceNoteAssignment_7_1 )
             {
              before(grammarAccess.getRegularMessageAccess().getSourceNoteAssignment_7_1()); 
-            // InternalKiesl.g:1505:2: ( rule__RegularMessage__SourceNoteAssignment_7_1 )
-            // InternalKiesl.g:1505:3: rule__RegularMessage__SourceNoteAssignment_7_1
+            // InternalKiesl.g:1586:2: ( rule__RegularMessage__SourceNoteAssignment_7_1 )
+            // InternalKiesl.g:1586:3: rule__RegularMessage__SourceNoteAssignment_7_1
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__SourceNoteAssignment_7_1();
@@ -5009,14 +5260,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_8__0"
-    // InternalKiesl.g:1514:1: rule__RegularMessage__Group_8__0 : rule__RegularMessage__Group_8__0__Impl rule__RegularMessage__Group_8__1 ;
+    // InternalKiesl.g:1595:1: rule__RegularMessage__Group_8__0 : rule__RegularMessage__Group_8__0__Impl rule__RegularMessage__Group_8__1 ;
     public final void rule__RegularMessage__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1518:1: ( rule__RegularMessage__Group_8__0__Impl rule__RegularMessage__Group_8__1 )
-            // InternalKiesl.g:1519:2: rule__RegularMessage__Group_8__0__Impl rule__RegularMessage__Group_8__1
+            // InternalKiesl.g:1599:1: ( rule__RegularMessage__Group_8__0__Impl rule__RegularMessage__Group_8__1 )
+            // InternalKiesl.g:1600:2: rule__RegularMessage__Group_8__0__Impl rule__RegularMessage__Group_8__1
             {
             pushFollow(FOLLOW_6);
             rule__RegularMessage__Group_8__0__Impl();
@@ -5047,20 +5298,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_8__0__Impl"
-    // InternalKiesl.g:1526:1: rule__RegularMessage__Group_8__0__Impl : ( 'targetNote' ) ;
+    // InternalKiesl.g:1607:1: rule__RegularMessage__Group_8__0__Impl : ( 'targetNote' ) ;
     public final void rule__RegularMessage__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1530:1: ( ( 'targetNote' ) )
-            // InternalKiesl.g:1531:1: ( 'targetNote' )
+            // InternalKiesl.g:1611:1: ( ( 'targetNote' ) )
+            // InternalKiesl.g:1612:1: ( 'targetNote' )
             {
-            // InternalKiesl.g:1531:1: ( 'targetNote' )
-            // InternalKiesl.g:1532:2: 'targetNote'
+            // InternalKiesl.g:1612:1: ( 'targetNote' )
+            // InternalKiesl.g:1613:2: 'targetNote'
             {
              before(grammarAccess.getRegularMessageAccess().getTargetNoteKeyword_8_0()); 
-            match(input,36,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getRegularMessageAccess().getTargetNoteKeyword_8_0()); 
 
             }
@@ -5084,14 +5335,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_8__1"
-    // InternalKiesl.g:1541:1: rule__RegularMessage__Group_8__1 : rule__RegularMessage__Group_8__1__Impl ;
+    // InternalKiesl.g:1622:1: rule__RegularMessage__Group_8__1 : rule__RegularMessage__Group_8__1__Impl ;
     public final void rule__RegularMessage__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1545:1: ( rule__RegularMessage__Group_8__1__Impl )
-            // InternalKiesl.g:1546:2: rule__RegularMessage__Group_8__1__Impl
+            // InternalKiesl.g:1626:1: ( rule__RegularMessage__Group_8__1__Impl )
+            // InternalKiesl.g:1627:2: rule__RegularMessage__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__Group_8__1__Impl();
@@ -5117,21 +5368,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__Group_8__1__Impl"
-    // InternalKiesl.g:1552:1: rule__RegularMessage__Group_8__1__Impl : ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) ) ;
+    // InternalKiesl.g:1633:1: rule__RegularMessage__Group_8__1__Impl : ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) ) ;
     public final void rule__RegularMessage__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1556:1: ( ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) ) )
-            // InternalKiesl.g:1557:1: ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) )
+            // InternalKiesl.g:1637:1: ( ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) ) )
+            // InternalKiesl.g:1638:1: ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) )
             {
-            // InternalKiesl.g:1557:1: ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) )
-            // InternalKiesl.g:1558:2: ( rule__RegularMessage__TargetNoteAssignment_8_1 )
+            // InternalKiesl.g:1638:1: ( ( rule__RegularMessage__TargetNoteAssignment_8_1 ) )
+            // InternalKiesl.g:1639:2: ( rule__RegularMessage__TargetNoteAssignment_8_1 )
             {
              before(grammarAccess.getRegularMessageAccess().getTargetNoteAssignment_8_1()); 
-            // InternalKiesl.g:1559:2: ( rule__RegularMessage__TargetNoteAssignment_8_1 )
-            // InternalKiesl.g:1559:3: rule__RegularMessage__TargetNoteAssignment_8_1
+            // InternalKiesl.g:1640:2: ( rule__RegularMessage__TargetNoteAssignment_8_1 )
+            // InternalKiesl.g:1640:3: rule__RegularMessage__TargetNoteAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__RegularMessage__TargetNoteAssignment_8_1();
@@ -5164,16 +5415,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__0"
-    // InternalKiesl.g:1568:1: rule__LostOrFoundMessage__Group__0 : rule__LostOrFoundMessage__Group__0__Impl rule__LostOrFoundMessage__Group__1 ;
+    // InternalKiesl.g:1649:1: rule__LostOrFoundMessage__Group__0 : rule__LostOrFoundMessage__Group__0__Impl rule__LostOrFoundMessage__Group__1 ;
     public final void rule__LostOrFoundMessage__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1572:1: ( rule__LostOrFoundMessage__Group__0__Impl rule__LostOrFoundMessage__Group__1 )
-            // InternalKiesl.g:1573:2: rule__LostOrFoundMessage__Group__0__Impl rule__LostOrFoundMessage__Group__1
+            // InternalKiesl.g:1653:1: ( rule__LostOrFoundMessage__Group__0__Impl rule__LostOrFoundMessage__Group__1 )
+            // InternalKiesl.g:1654:2: rule__LostOrFoundMessage__Group__0__Impl rule__LostOrFoundMessage__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__LostOrFoundMessage__Group__0__Impl();
 
             state._fsp--;
@@ -5202,21 +5453,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__0__Impl"
-    // InternalKiesl.g:1580:1: rule__LostOrFoundMessage__Group__0__Impl : ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) ) ;
+    // InternalKiesl.g:1661:1: rule__LostOrFoundMessage__Group__0__Impl : ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) ) ;
     public final void rule__LostOrFoundMessage__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1584:1: ( ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) ) )
-            // InternalKiesl.g:1585:1: ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) )
+            // InternalKiesl.g:1665:1: ( ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) ) )
+            // InternalKiesl.g:1666:1: ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) )
             {
-            // InternalKiesl.g:1585:1: ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) )
-            // InternalKiesl.g:1586:2: ( rule__LostOrFoundMessage__LifelineAssignment_0 )
+            // InternalKiesl.g:1666:1: ( ( rule__LostOrFoundMessage__LifelineAssignment_0 ) )
+            // InternalKiesl.g:1667:2: ( rule__LostOrFoundMessage__LifelineAssignment_0 )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getLifelineAssignment_0()); 
-            // InternalKiesl.g:1587:2: ( rule__LostOrFoundMessage__LifelineAssignment_0 )
-            // InternalKiesl.g:1587:3: rule__LostOrFoundMessage__LifelineAssignment_0
+            // InternalKiesl.g:1668:2: ( rule__LostOrFoundMessage__LifelineAssignment_0 )
+            // InternalKiesl.g:1668:3: rule__LostOrFoundMessage__LifelineAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__LifelineAssignment_0();
@@ -5249,16 +5500,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__1"
-    // InternalKiesl.g:1595:1: rule__LostOrFoundMessage__Group__1 : rule__LostOrFoundMessage__Group__1__Impl rule__LostOrFoundMessage__Group__2 ;
+    // InternalKiesl.g:1676:1: rule__LostOrFoundMessage__Group__1 : rule__LostOrFoundMessage__Group__1__Impl rule__LostOrFoundMessage__Group__2 ;
     public final void rule__LostOrFoundMessage__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1599:1: ( rule__LostOrFoundMessage__Group__1__Impl rule__LostOrFoundMessage__Group__2 )
-            // InternalKiesl.g:1600:2: rule__LostOrFoundMessage__Group__1__Impl rule__LostOrFoundMessage__Group__2
+            // InternalKiesl.g:1680:1: ( rule__LostOrFoundMessage__Group__1__Impl rule__LostOrFoundMessage__Group__2 )
+            // InternalKiesl.g:1681:2: rule__LostOrFoundMessage__Group__1__Impl rule__LostOrFoundMessage__Group__2
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__LostOrFoundMessage__Group__1__Impl();
 
             state._fsp--;
@@ -5287,21 +5538,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__1__Impl"
-    // InternalKiesl.g:1607:1: rule__LostOrFoundMessage__Group__1__Impl : ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) ) ;
+    // InternalKiesl.g:1688:1: rule__LostOrFoundMessage__Group__1__Impl : ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) ) ;
     public final void rule__LostOrFoundMessage__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1611:1: ( ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) ) )
-            // InternalKiesl.g:1612:1: ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) )
+            // InternalKiesl.g:1692:1: ( ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) ) )
+            // InternalKiesl.g:1693:1: ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) )
             {
-            // InternalKiesl.g:1612:1: ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) )
-            // InternalKiesl.g:1613:2: ( rule__LostOrFoundMessage__TypeAssignment_1 )
+            // InternalKiesl.g:1693:1: ( ( rule__LostOrFoundMessage__TypeAssignment_1 ) )
+            // InternalKiesl.g:1694:2: ( rule__LostOrFoundMessage__TypeAssignment_1 )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getTypeAssignment_1()); 
-            // InternalKiesl.g:1614:2: ( rule__LostOrFoundMessage__TypeAssignment_1 )
-            // InternalKiesl.g:1614:3: rule__LostOrFoundMessage__TypeAssignment_1
+            // InternalKiesl.g:1695:2: ( rule__LostOrFoundMessage__TypeAssignment_1 )
+            // InternalKiesl.g:1695:3: rule__LostOrFoundMessage__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__TypeAssignment_1();
@@ -5334,14 +5585,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__2"
-    // InternalKiesl.g:1622:1: rule__LostOrFoundMessage__Group__2 : rule__LostOrFoundMessage__Group__2__Impl rule__LostOrFoundMessage__Group__3 ;
+    // InternalKiesl.g:1703:1: rule__LostOrFoundMessage__Group__2 : rule__LostOrFoundMessage__Group__2__Impl rule__LostOrFoundMessage__Group__3 ;
     public final void rule__LostOrFoundMessage__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1626:1: ( rule__LostOrFoundMessage__Group__2__Impl rule__LostOrFoundMessage__Group__3 )
-            // InternalKiesl.g:1627:2: rule__LostOrFoundMessage__Group__2__Impl rule__LostOrFoundMessage__Group__3
+            // InternalKiesl.g:1707:1: ( rule__LostOrFoundMessage__Group__2__Impl rule__LostOrFoundMessage__Group__3 )
+            // InternalKiesl.g:1708:2: rule__LostOrFoundMessage__Group__2__Impl rule__LostOrFoundMessage__Group__3
             {
             pushFollow(FOLLOW_6);
             rule__LostOrFoundMessage__Group__2__Impl();
@@ -5372,21 +5623,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__2__Impl"
-    // InternalKiesl.g:1634:1: rule__LostOrFoundMessage__Group__2__Impl : ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) ) ;
+    // InternalKiesl.g:1715:1: rule__LostOrFoundMessage__Group__2__Impl : ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) ) ;
     public final void rule__LostOrFoundMessage__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1638:1: ( ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) ) )
-            // InternalKiesl.g:1639:1: ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) )
+            // InternalKiesl.g:1719:1: ( ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) ) )
+            // InternalKiesl.g:1720:1: ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) )
             {
-            // InternalKiesl.g:1639:1: ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) )
-            // InternalKiesl.g:1640:2: ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 )
+            // InternalKiesl.g:1720:1: ( ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 ) )
+            // InternalKiesl.g:1721:2: ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getLostOrFoundAssignment_2()); 
-            // InternalKiesl.g:1641:2: ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 )
-            // InternalKiesl.g:1641:3: rule__LostOrFoundMessage__LostOrFoundAssignment_2
+            // InternalKiesl.g:1722:2: ( rule__LostOrFoundMessage__LostOrFoundAssignment_2 )
+            // InternalKiesl.g:1722:3: rule__LostOrFoundMessage__LostOrFoundAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__LostOrFoundAssignment_2();
@@ -5419,16 +5670,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__3"
-    // InternalKiesl.g:1649:1: rule__LostOrFoundMessage__Group__3 : rule__LostOrFoundMessage__Group__3__Impl rule__LostOrFoundMessage__Group__4 ;
+    // InternalKiesl.g:1730:1: rule__LostOrFoundMessage__Group__3 : rule__LostOrFoundMessage__Group__3__Impl rule__LostOrFoundMessage__Group__4 ;
     public final void rule__LostOrFoundMessage__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1653:1: ( rule__LostOrFoundMessage__Group__3__Impl rule__LostOrFoundMessage__Group__4 )
-            // InternalKiesl.g:1654:2: rule__LostOrFoundMessage__Group__3__Impl rule__LostOrFoundMessage__Group__4
+            // InternalKiesl.g:1734:1: ( rule__LostOrFoundMessage__Group__3__Impl rule__LostOrFoundMessage__Group__4 )
+            // InternalKiesl.g:1735:2: rule__LostOrFoundMessage__Group__3__Impl rule__LostOrFoundMessage__Group__4
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__LostOrFoundMessage__Group__3__Impl();
 
             state._fsp--;
@@ -5457,21 +5708,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__3__Impl"
-    // InternalKiesl.g:1661:1: rule__LostOrFoundMessage__Group__3__Impl : ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) ) ;
+    // InternalKiesl.g:1742:1: rule__LostOrFoundMessage__Group__3__Impl : ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) ) ;
     public final void rule__LostOrFoundMessage__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1665:1: ( ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) ) )
-            // InternalKiesl.g:1666:1: ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) )
+            // InternalKiesl.g:1746:1: ( ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) ) )
+            // InternalKiesl.g:1747:1: ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) )
             {
-            // InternalKiesl.g:1666:1: ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) )
-            // InternalKiesl.g:1667:2: ( rule__LostOrFoundMessage__CaptionAssignment_3 )
+            // InternalKiesl.g:1747:1: ( ( rule__LostOrFoundMessage__CaptionAssignment_3 ) )
+            // InternalKiesl.g:1748:2: ( rule__LostOrFoundMessage__CaptionAssignment_3 )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getCaptionAssignment_3()); 
-            // InternalKiesl.g:1668:2: ( rule__LostOrFoundMessage__CaptionAssignment_3 )
-            // InternalKiesl.g:1668:3: rule__LostOrFoundMessage__CaptionAssignment_3
+            // InternalKiesl.g:1749:2: ( rule__LostOrFoundMessage__CaptionAssignment_3 )
+            // InternalKiesl.g:1749:3: rule__LostOrFoundMessage__CaptionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__CaptionAssignment_3();
@@ -5504,16 +5755,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__4"
-    // InternalKiesl.g:1676:1: rule__LostOrFoundMessage__Group__4 : rule__LostOrFoundMessage__Group__4__Impl rule__LostOrFoundMessage__Group__5 ;
+    // InternalKiesl.g:1757:1: rule__LostOrFoundMessage__Group__4 : rule__LostOrFoundMessage__Group__4__Impl rule__LostOrFoundMessage__Group__5 ;
     public final void rule__LostOrFoundMessage__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1680:1: ( rule__LostOrFoundMessage__Group__4__Impl rule__LostOrFoundMessage__Group__5 )
-            // InternalKiesl.g:1681:2: rule__LostOrFoundMessage__Group__4__Impl rule__LostOrFoundMessage__Group__5
+            // InternalKiesl.g:1761:1: ( rule__LostOrFoundMessage__Group__4__Impl rule__LostOrFoundMessage__Group__5 )
+            // InternalKiesl.g:1762:2: rule__LostOrFoundMessage__Group__4__Impl rule__LostOrFoundMessage__Group__5
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__LostOrFoundMessage__Group__4__Impl();
 
             state._fsp--;
@@ -5542,29 +5793,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__4__Impl"
-    // InternalKiesl.g:1688:1: rule__LostOrFoundMessage__Group__4__Impl : ( ( rule__LostOrFoundMessage__Alternatives_4 )? ) ;
+    // InternalKiesl.g:1769:1: rule__LostOrFoundMessage__Group__4__Impl : ( ( rule__LostOrFoundMessage__Alternatives_4 )? ) ;
     public final void rule__LostOrFoundMessage__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1692:1: ( ( ( rule__LostOrFoundMessage__Alternatives_4 )? ) )
-            // InternalKiesl.g:1693:1: ( ( rule__LostOrFoundMessage__Alternatives_4 )? )
+            // InternalKiesl.g:1773:1: ( ( ( rule__LostOrFoundMessage__Alternatives_4 )? ) )
+            // InternalKiesl.g:1774:1: ( ( rule__LostOrFoundMessage__Alternatives_4 )? )
             {
-            // InternalKiesl.g:1693:1: ( ( rule__LostOrFoundMessage__Alternatives_4 )? )
-            // InternalKiesl.g:1694:2: ( rule__LostOrFoundMessage__Alternatives_4 )?
+            // InternalKiesl.g:1774:1: ( ( rule__LostOrFoundMessage__Alternatives_4 )? )
+            // InternalKiesl.g:1775:2: ( rule__LostOrFoundMessage__Alternatives_4 )?
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getAlternatives_4()); 
-            // InternalKiesl.g:1695:2: ( rule__LostOrFoundMessage__Alternatives_4 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalKiesl.g:1776:2: ( rule__LostOrFoundMessage__Alternatives_4 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( ((LA20_0>=54 && LA20_0<=56)) ) {
-                alt20=1;
+            if ( ((LA21_0>=54 && LA21_0<=56)) ) {
+                alt21=1;
             }
-            switch (alt20) {
+            switch (alt21) {
                 case 1 :
-                    // InternalKiesl.g:1695:3: rule__LostOrFoundMessage__Alternatives_4
+                    // InternalKiesl.g:1776:3: rule__LostOrFoundMessage__Alternatives_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__LostOrFoundMessage__Alternatives_4();
@@ -5600,14 +5851,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__5"
-    // InternalKiesl.g:1703:1: rule__LostOrFoundMessage__Group__5 : rule__LostOrFoundMessage__Group__5__Impl ;
+    // InternalKiesl.g:1784:1: rule__LostOrFoundMessage__Group__5 : rule__LostOrFoundMessage__Group__5__Impl ;
     public final void rule__LostOrFoundMessage__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1707:1: ( rule__LostOrFoundMessage__Group__5__Impl )
-            // InternalKiesl.g:1708:2: rule__LostOrFoundMessage__Group__5__Impl
+            // InternalKiesl.g:1788:1: ( rule__LostOrFoundMessage__Group__5__Impl )
+            // InternalKiesl.g:1789:2: rule__LostOrFoundMessage__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__Group__5__Impl();
@@ -5633,29 +5884,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group__5__Impl"
-    // InternalKiesl.g:1714:1: rule__LostOrFoundMessage__Group__5__Impl : ( ( rule__LostOrFoundMessage__Group_5__0 )? ) ;
+    // InternalKiesl.g:1795:1: rule__LostOrFoundMessage__Group__5__Impl : ( ( rule__LostOrFoundMessage__Group_5__0 )? ) ;
     public final void rule__LostOrFoundMessage__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1718:1: ( ( ( rule__LostOrFoundMessage__Group_5__0 )? ) )
-            // InternalKiesl.g:1719:1: ( ( rule__LostOrFoundMessage__Group_5__0 )? )
+            // InternalKiesl.g:1799:1: ( ( ( rule__LostOrFoundMessage__Group_5__0 )? ) )
+            // InternalKiesl.g:1800:1: ( ( rule__LostOrFoundMessage__Group_5__0 )? )
             {
-            // InternalKiesl.g:1719:1: ( ( rule__LostOrFoundMessage__Group_5__0 )? )
-            // InternalKiesl.g:1720:2: ( rule__LostOrFoundMessage__Group_5__0 )?
+            // InternalKiesl.g:1800:1: ( ( rule__LostOrFoundMessage__Group_5__0 )? )
+            // InternalKiesl.g:1801:2: ( rule__LostOrFoundMessage__Group_5__0 )?
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getGroup_5()); 
-            // InternalKiesl.g:1721:2: ( rule__LostOrFoundMessage__Group_5__0 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // InternalKiesl.g:1802:2: ( rule__LostOrFoundMessage__Group_5__0 )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0==37) ) {
-                alt21=1;
+            if ( (LA22_0==33) ) {
+                alt22=1;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // InternalKiesl.g:1721:3: rule__LostOrFoundMessage__Group_5__0
+                    // InternalKiesl.g:1802:3: rule__LostOrFoundMessage__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LostOrFoundMessage__Group_5__0();
@@ -5691,16 +5942,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_4_2__0"
-    // InternalKiesl.g:1730:1: rule__LostOrFoundMessage__Group_4_2__0 : rule__LostOrFoundMessage__Group_4_2__0__Impl rule__LostOrFoundMessage__Group_4_2__1 ;
+    // InternalKiesl.g:1811:1: rule__LostOrFoundMessage__Group_4_2__0 : rule__LostOrFoundMessage__Group_4_2__0__Impl rule__LostOrFoundMessage__Group_4_2__1 ;
     public final void rule__LostOrFoundMessage__Group_4_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1734:1: ( rule__LostOrFoundMessage__Group_4_2__0__Impl rule__LostOrFoundMessage__Group_4_2__1 )
-            // InternalKiesl.g:1735:2: rule__LostOrFoundMessage__Group_4_2__0__Impl rule__LostOrFoundMessage__Group_4_2__1
+            // InternalKiesl.g:1815:1: ( rule__LostOrFoundMessage__Group_4_2__0__Impl rule__LostOrFoundMessage__Group_4_2__1 )
+            // InternalKiesl.g:1816:2: rule__LostOrFoundMessage__Group_4_2__0__Impl rule__LostOrFoundMessage__Group_4_2__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__LostOrFoundMessage__Group_4_2__0__Impl();
 
             state._fsp--;
@@ -5729,21 +5980,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_4_2__0__Impl"
-    // InternalKiesl.g:1742:1: rule__LostOrFoundMessage__Group_4_2__0__Impl : ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) ) ;
+    // InternalKiesl.g:1823:1: rule__LostOrFoundMessage__Group_4_2__0__Impl : ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) ) ;
     public final void rule__LostOrFoundMessage__Group_4_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1746:1: ( ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) ) )
-            // InternalKiesl.g:1747:1: ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) )
+            // InternalKiesl.g:1827:1: ( ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) ) )
+            // InternalKiesl.g:1828:1: ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) )
             {
-            // InternalKiesl.g:1747:1: ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) )
-            // InternalKiesl.g:1748:2: ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 )
+            // InternalKiesl.g:1828:1: ( ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 ) )
+            // InternalKiesl.g:1829:2: ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getEndExecAssignment_4_2_0()); 
-            // InternalKiesl.g:1749:2: ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 )
-            // InternalKiesl.g:1749:3: rule__LostOrFoundMessage__EndExecAssignment_4_2_0
+            // InternalKiesl.g:1830:2: ( rule__LostOrFoundMessage__EndExecAssignment_4_2_0 )
+            // InternalKiesl.g:1830:3: rule__LostOrFoundMessage__EndExecAssignment_4_2_0
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__EndExecAssignment_4_2_0();
@@ -5776,14 +6027,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_4_2__1"
-    // InternalKiesl.g:1757:1: rule__LostOrFoundMessage__Group_4_2__1 : rule__LostOrFoundMessage__Group_4_2__1__Impl ;
+    // InternalKiesl.g:1838:1: rule__LostOrFoundMessage__Group_4_2__1 : rule__LostOrFoundMessage__Group_4_2__1__Impl ;
     public final void rule__LostOrFoundMessage__Group_4_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1761:1: ( rule__LostOrFoundMessage__Group_4_2__1__Impl )
-            // InternalKiesl.g:1762:2: rule__LostOrFoundMessage__Group_4_2__1__Impl
+            // InternalKiesl.g:1842:1: ( rule__LostOrFoundMessage__Group_4_2__1__Impl )
+            // InternalKiesl.g:1843:2: rule__LostOrFoundMessage__Group_4_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__Group_4_2__1__Impl();
@@ -5809,29 +6060,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_4_2__1__Impl"
-    // InternalKiesl.g:1768:1: rule__LostOrFoundMessage__Group_4_2__1__Impl : ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? ) ;
+    // InternalKiesl.g:1849:1: rule__LostOrFoundMessage__Group_4_2__1__Impl : ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? ) ;
     public final void rule__LostOrFoundMessage__Group_4_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1772:1: ( ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? ) )
-            // InternalKiesl.g:1773:1: ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? )
+            // InternalKiesl.g:1853:1: ( ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? ) )
+            // InternalKiesl.g:1854:1: ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? )
             {
-            // InternalKiesl.g:1773:1: ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? )
-            // InternalKiesl.g:1774:2: ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )?
+            // InternalKiesl.g:1854:1: ( ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )? )
+            // InternalKiesl.g:1855:2: ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )?
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getEndExecCountAssignment_4_2_1()); 
-            // InternalKiesl.g:1775:2: ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalKiesl.g:1856:2: ( rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
-                alt22=1;
+            if ( (LA23_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalKiesl.g:1775:3: rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1
+                    // InternalKiesl.g:1856:3: rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1();
@@ -5867,14 +6118,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_5__0"
-    // InternalKiesl.g:1784:1: rule__LostOrFoundMessage__Group_5__0 : rule__LostOrFoundMessage__Group_5__0__Impl rule__LostOrFoundMessage__Group_5__1 ;
+    // InternalKiesl.g:1865:1: rule__LostOrFoundMessage__Group_5__0 : rule__LostOrFoundMessage__Group_5__0__Impl rule__LostOrFoundMessage__Group_5__1 ;
     public final void rule__LostOrFoundMessage__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1788:1: ( rule__LostOrFoundMessage__Group_5__0__Impl rule__LostOrFoundMessage__Group_5__1 )
-            // InternalKiesl.g:1789:2: rule__LostOrFoundMessage__Group_5__0__Impl rule__LostOrFoundMessage__Group_5__1
+            // InternalKiesl.g:1869:1: ( rule__LostOrFoundMessage__Group_5__0__Impl rule__LostOrFoundMessage__Group_5__1 )
+            // InternalKiesl.g:1870:2: rule__LostOrFoundMessage__Group_5__0__Impl rule__LostOrFoundMessage__Group_5__1
             {
             pushFollow(FOLLOW_6);
             rule__LostOrFoundMessage__Group_5__0__Impl();
@@ -5905,20 +6156,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_5__0__Impl"
-    // InternalKiesl.g:1796:1: rule__LostOrFoundMessage__Group_5__0__Impl : ( 'note' ) ;
+    // InternalKiesl.g:1877:1: rule__LostOrFoundMessage__Group_5__0__Impl : ( 'note' ) ;
     public final void rule__LostOrFoundMessage__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1800:1: ( ( 'note' ) )
-            // InternalKiesl.g:1801:1: ( 'note' )
+            // InternalKiesl.g:1881:1: ( ( 'note' ) )
+            // InternalKiesl.g:1882:1: ( 'note' )
             {
-            // InternalKiesl.g:1801:1: ( 'note' )
-            // InternalKiesl.g:1802:2: 'note'
+            // InternalKiesl.g:1882:1: ( 'note' )
+            // InternalKiesl.g:1883:2: 'note'
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getNoteKeyword_5_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getLostOrFoundMessageAccess().getNoteKeyword_5_0()); 
 
             }
@@ -5942,14 +6193,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_5__1"
-    // InternalKiesl.g:1811:1: rule__LostOrFoundMessage__Group_5__1 : rule__LostOrFoundMessage__Group_5__1__Impl ;
+    // InternalKiesl.g:1892:1: rule__LostOrFoundMessage__Group_5__1 : rule__LostOrFoundMessage__Group_5__1__Impl ;
     public final void rule__LostOrFoundMessage__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1815:1: ( rule__LostOrFoundMessage__Group_5__1__Impl )
-            // InternalKiesl.g:1816:2: rule__LostOrFoundMessage__Group_5__1__Impl
+            // InternalKiesl.g:1896:1: ( rule__LostOrFoundMessage__Group_5__1__Impl )
+            // InternalKiesl.g:1897:2: rule__LostOrFoundMessage__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__Group_5__1__Impl();
@@ -5975,21 +6226,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__Group_5__1__Impl"
-    // InternalKiesl.g:1822:1: rule__LostOrFoundMessage__Group_5__1__Impl : ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) ) ;
+    // InternalKiesl.g:1903:1: rule__LostOrFoundMessage__Group_5__1__Impl : ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) ) ;
     public final void rule__LostOrFoundMessage__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1826:1: ( ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) ) )
-            // InternalKiesl.g:1827:1: ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) )
+            // InternalKiesl.g:1907:1: ( ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) ) )
+            // InternalKiesl.g:1908:1: ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) )
             {
-            // InternalKiesl.g:1827:1: ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) )
-            // InternalKiesl.g:1828:2: ( rule__LostOrFoundMessage__NoteAssignment_5_1 )
+            // InternalKiesl.g:1908:1: ( ( rule__LostOrFoundMessage__NoteAssignment_5_1 ) )
+            // InternalKiesl.g:1909:2: ( rule__LostOrFoundMessage__NoteAssignment_5_1 )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getNoteAssignment_5_1()); 
-            // InternalKiesl.g:1829:2: ( rule__LostOrFoundMessage__NoteAssignment_5_1 )
-            // InternalKiesl.g:1829:3: rule__LostOrFoundMessage__NoteAssignment_5_1
+            // InternalKiesl.g:1910:2: ( rule__LostOrFoundMessage__NoteAssignment_5_1 )
+            // InternalKiesl.g:1910:3: rule__LostOrFoundMessage__NoteAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__LostOrFoundMessage__NoteAssignment_5_1();
@@ -6022,16 +6273,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__0"
-    // InternalKiesl.g:1838:1: rule__SelfMessage__Group__0 : rule__SelfMessage__Group__0__Impl rule__SelfMessage__Group__1 ;
+    // InternalKiesl.g:1919:1: rule__SelfMessage__Group__0 : rule__SelfMessage__Group__0__Impl rule__SelfMessage__Group__1 ;
     public final void rule__SelfMessage__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1842:1: ( rule__SelfMessage__Group__0__Impl rule__SelfMessage__Group__1 )
-            // InternalKiesl.g:1843:2: rule__SelfMessage__Group__0__Impl rule__SelfMessage__Group__1
+            // InternalKiesl.g:1923:1: ( rule__SelfMessage__Group__0__Impl rule__SelfMessage__Group__1 )
+            // InternalKiesl.g:1924:2: rule__SelfMessage__Group__0__Impl rule__SelfMessage__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__SelfMessage__Group__0__Impl();
 
             state._fsp--;
@@ -6060,21 +6311,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__0__Impl"
-    // InternalKiesl.g:1850:1: rule__SelfMessage__Group__0__Impl : ( ( rule__SelfMessage__LifelineAssignment_0 ) ) ;
+    // InternalKiesl.g:1931:1: rule__SelfMessage__Group__0__Impl : ( ( rule__SelfMessage__LifelineAssignment_0 ) ) ;
     public final void rule__SelfMessage__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1854:1: ( ( ( rule__SelfMessage__LifelineAssignment_0 ) ) )
-            // InternalKiesl.g:1855:1: ( ( rule__SelfMessage__LifelineAssignment_0 ) )
+            // InternalKiesl.g:1935:1: ( ( ( rule__SelfMessage__LifelineAssignment_0 ) ) )
+            // InternalKiesl.g:1936:1: ( ( rule__SelfMessage__LifelineAssignment_0 ) )
             {
-            // InternalKiesl.g:1855:1: ( ( rule__SelfMessage__LifelineAssignment_0 ) )
-            // InternalKiesl.g:1856:2: ( rule__SelfMessage__LifelineAssignment_0 )
+            // InternalKiesl.g:1936:1: ( ( rule__SelfMessage__LifelineAssignment_0 ) )
+            // InternalKiesl.g:1937:2: ( rule__SelfMessage__LifelineAssignment_0 )
             {
              before(grammarAccess.getSelfMessageAccess().getLifelineAssignment_0()); 
-            // InternalKiesl.g:1857:2: ( rule__SelfMessage__LifelineAssignment_0 )
-            // InternalKiesl.g:1857:3: rule__SelfMessage__LifelineAssignment_0
+            // InternalKiesl.g:1938:2: ( rule__SelfMessage__LifelineAssignment_0 )
+            // InternalKiesl.g:1938:3: rule__SelfMessage__LifelineAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__LifelineAssignment_0();
@@ -6107,16 +6358,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__1"
-    // InternalKiesl.g:1865:1: rule__SelfMessage__Group__1 : rule__SelfMessage__Group__1__Impl rule__SelfMessage__Group__2 ;
+    // InternalKiesl.g:1946:1: rule__SelfMessage__Group__1 : rule__SelfMessage__Group__1__Impl rule__SelfMessage__Group__2 ;
     public final void rule__SelfMessage__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1869:1: ( rule__SelfMessage__Group__1__Impl rule__SelfMessage__Group__2 )
-            // InternalKiesl.g:1870:2: rule__SelfMessage__Group__1__Impl rule__SelfMessage__Group__2
+            // InternalKiesl.g:1950:1: ( rule__SelfMessage__Group__1__Impl rule__SelfMessage__Group__2 )
+            // InternalKiesl.g:1951:2: rule__SelfMessage__Group__1__Impl rule__SelfMessage__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__SelfMessage__Group__1__Impl();
 
             state._fsp--;
@@ -6145,21 +6396,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__1__Impl"
-    // InternalKiesl.g:1877:1: rule__SelfMessage__Group__1__Impl : ( ( rule__SelfMessage__TypeAssignment_1 ) ) ;
+    // InternalKiesl.g:1958:1: rule__SelfMessage__Group__1__Impl : ( ( rule__SelfMessage__TypeAssignment_1 ) ) ;
     public final void rule__SelfMessage__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1881:1: ( ( ( rule__SelfMessage__TypeAssignment_1 ) ) )
-            // InternalKiesl.g:1882:1: ( ( rule__SelfMessage__TypeAssignment_1 ) )
+            // InternalKiesl.g:1962:1: ( ( ( rule__SelfMessage__TypeAssignment_1 ) ) )
+            // InternalKiesl.g:1963:1: ( ( rule__SelfMessage__TypeAssignment_1 ) )
             {
-            // InternalKiesl.g:1882:1: ( ( rule__SelfMessage__TypeAssignment_1 ) )
-            // InternalKiesl.g:1883:2: ( rule__SelfMessage__TypeAssignment_1 )
+            // InternalKiesl.g:1963:1: ( ( rule__SelfMessage__TypeAssignment_1 ) )
+            // InternalKiesl.g:1964:2: ( rule__SelfMessage__TypeAssignment_1 )
             {
              before(grammarAccess.getSelfMessageAccess().getTypeAssignment_1()); 
-            // InternalKiesl.g:1884:2: ( rule__SelfMessage__TypeAssignment_1 )
-            // InternalKiesl.g:1884:3: rule__SelfMessage__TypeAssignment_1
+            // InternalKiesl.g:1965:2: ( rule__SelfMessage__TypeAssignment_1 )
+            // InternalKiesl.g:1965:3: rule__SelfMessage__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__TypeAssignment_1();
@@ -6192,14 +6443,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__2"
-    // InternalKiesl.g:1892:1: rule__SelfMessage__Group__2 : rule__SelfMessage__Group__2__Impl rule__SelfMessage__Group__3 ;
+    // InternalKiesl.g:1973:1: rule__SelfMessage__Group__2 : rule__SelfMessage__Group__2__Impl rule__SelfMessage__Group__3 ;
     public final void rule__SelfMessage__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1896:1: ( rule__SelfMessage__Group__2__Impl rule__SelfMessage__Group__3 )
-            // InternalKiesl.g:1897:2: rule__SelfMessage__Group__2__Impl rule__SelfMessage__Group__3
+            // InternalKiesl.g:1977:1: ( rule__SelfMessage__Group__2__Impl rule__SelfMessage__Group__3 )
+            // InternalKiesl.g:1978:2: rule__SelfMessage__Group__2__Impl rule__SelfMessage__Group__3
             {
             pushFollow(FOLLOW_6);
             rule__SelfMessage__Group__2__Impl();
@@ -6230,17 +6481,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__2__Impl"
-    // InternalKiesl.g:1904:1: rule__SelfMessage__Group__2__Impl : ( 'self' ) ;
+    // InternalKiesl.g:1985:1: rule__SelfMessage__Group__2__Impl : ( 'self' ) ;
     public final void rule__SelfMessage__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1908:1: ( ( 'self' ) )
-            // InternalKiesl.g:1909:1: ( 'self' )
+            // InternalKiesl.g:1989:1: ( ( 'self' ) )
+            // InternalKiesl.g:1990:1: ( 'self' )
             {
-            // InternalKiesl.g:1909:1: ( 'self' )
-            // InternalKiesl.g:1910:2: 'self'
+            // InternalKiesl.g:1990:1: ( 'self' )
+            // InternalKiesl.g:1991:2: 'self'
             {
              before(grammarAccess.getSelfMessageAccess().getSelfKeyword_2()); 
             match(input,38,FOLLOW_2); 
@@ -6267,16 +6518,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__3"
-    // InternalKiesl.g:1919:1: rule__SelfMessage__Group__3 : rule__SelfMessage__Group__3__Impl rule__SelfMessage__Group__4 ;
+    // InternalKiesl.g:2000:1: rule__SelfMessage__Group__3 : rule__SelfMessage__Group__3__Impl rule__SelfMessage__Group__4 ;
     public final void rule__SelfMessage__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1923:1: ( rule__SelfMessage__Group__3__Impl rule__SelfMessage__Group__4 )
-            // InternalKiesl.g:1924:2: rule__SelfMessage__Group__3__Impl rule__SelfMessage__Group__4
+            // InternalKiesl.g:2004:1: ( rule__SelfMessage__Group__3__Impl rule__SelfMessage__Group__4 )
+            // InternalKiesl.g:2005:2: rule__SelfMessage__Group__3__Impl rule__SelfMessage__Group__4
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__SelfMessage__Group__3__Impl();
 
             state._fsp--;
@@ -6305,21 +6556,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__3__Impl"
-    // InternalKiesl.g:1931:1: rule__SelfMessage__Group__3__Impl : ( ( rule__SelfMessage__CaptionAssignment_3 ) ) ;
+    // InternalKiesl.g:2012:1: rule__SelfMessage__Group__3__Impl : ( ( rule__SelfMessage__CaptionAssignment_3 ) ) ;
     public final void rule__SelfMessage__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1935:1: ( ( ( rule__SelfMessage__CaptionAssignment_3 ) ) )
-            // InternalKiesl.g:1936:1: ( ( rule__SelfMessage__CaptionAssignment_3 ) )
+            // InternalKiesl.g:2016:1: ( ( ( rule__SelfMessage__CaptionAssignment_3 ) ) )
+            // InternalKiesl.g:2017:1: ( ( rule__SelfMessage__CaptionAssignment_3 ) )
             {
-            // InternalKiesl.g:1936:1: ( ( rule__SelfMessage__CaptionAssignment_3 ) )
-            // InternalKiesl.g:1937:2: ( rule__SelfMessage__CaptionAssignment_3 )
+            // InternalKiesl.g:2017:1: ( ( rule__SelfMessage__CaptionAssignment_3 ) )
+            // InternalKiesl.g:2018:2: ( rule__SelfMessage__CaptionAssignment_3 )
             {
              before(grammarAccess.getSelfMessageAccess().getCaptionAssignment_3()); 
-            // InternalKiesl.g:1938:2: ( rule__SelfMessage__CaptionAssignment_3 )
-            // InternalKiesl.g:1938:3: rule__SelfMessage__CaptionAssignment_3
+            // InternalKiesl.g:2019:2: ( rule__SelfMessage__CaptionAssignment_3 )
+            // InternalKiesl.g:2019:3: rule__SelfMessage__CaptionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__CaptionAssignment_3();
@@ -6352,16 +6603,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__4"
-    // InternalKiesl.g:1946:1: rule__SelfMessage__Group__4 : rule__SelfMessage__Group__4__Impl rule__SelfMessage__Group__5 ;
+    // InternalKiesl.g:2027:1: rule__SelfMessage__Group__4 : rule__SelfMessage__Group__4__Impl rule__SelfMessage__Group__5 ;
     public final void rule__SelfMessage__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1950:1: ( rule__SelfMessage__Group__4__Impl rule__SelfMessage__Group__5 )
-            // InternalKiesl.g:1951:2: rule__SelfMessage__Group__4__Impl rule__SelfMessage__Group__5
+            // InternalKiesl.g:2031:1: ( rule__SelfMessage__Group__4__Impl rule__SelfMessage__Group__5 )
+            // InternalKiesl.g:2032:2: rule__SelfMessage__Group__4__Impl rule__SelfMessage__Group__5
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__SelfMessage__Group__4__Impl();
 
             state._fsp--;
@@ -6390,29 +6641,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__4__Impl"
-    // InternalKiesl.g:1958:1: rule__SelfMessage__Group__4__Impl : ( ( rule__SelfMessage__Alternatives_4 )? ) ;
+    // InternalKiesl.g:2039:1: rule__SelfMessage__Group__4__Impl : ( ( rule__SelfMessage__Alternatives_4 )? ) ;
     public final void rule__SelfMessage__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1962:1: ( ( ( rule__SelfMessage__Alternatives_4 )? ) )
-            // InternalKiesl.g:1963:1: ( ( rule__SelfMessage__Alternatives_4 )? )
+            // InternalKiesl.g:2043:1: ( ( ( rule__SelfMessage__Alternatives_4 )? ) )
+            // InternalKiesl.g:2044:1: ( ( rule__SelfMessage__Alternatives_4 )? )
             {
-            // InternalKiesl.g:1963:1: ( ( rule__SelfMessage__Alternatives_4 )? )
-            // InternalKiesl.g:1964:2: ( rule__SelfMessage__Alternatives_4 )?
+            // InternalKiesl.g:2044:1: ( ( rule__SelfMessage__Alternatives_4 )? )
+            // InternalKiesl.g:2045:2: ( rule__SelfMessage__Alternatives_4 )?
             {
              before(grammarAccess.getSelfMessageAccess().getAlternatives_4()); 
-            // InternalKiesl.g:1965:2: ( rule__SelfMessage__Alternatives_4 )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalKiesl.g:2046:2: ( rule__SelfMessage__Alternatives_4 )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( ((LA23_0>=54 && LA23_0<=56)) ) {
-                alt23=1;
+            if ( ((LA24_0>=54 && LA24_0<=56)) ) {
+                alt24=1;
             }
-            switch (alt23) {
+            switch (alt24) {
                 case 1 :
-                    // InternalKiesl.g:1965:3: rule__SelfMessage__Alternatives_4
+                    // InternalKiesl.g:2046:3: rule__SelfMessage__Alternatives_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__SelfMessage__Alternatives_4();
@@ -6448,14 +6699,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__5"
-    // InternalKiesl.g:1973:1: rule__SelfMessage__Group__5 : rule__SelfMessage__Group__5__Impl ;
+    // InternalKiesl.g:2054:1: rule__SelfMessage__Group__5 : rule__SelfMessage__Group__5__Impl ;
     public final void rule__SelfMessage__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1977:1: ( rule__SelfMessage__Group__5__Impl )
-            // InternalKiesl.g:1978:2: rule__SelfMessage__Group__5__Impl
+            // InternalKiesl.g:2058:1: ( rule__SelfMessage__Group__5__Impl )
+            // InternalKiesl.g:2059:2: rule__SelfMessage__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__Group__5__Impl();
@@ -6481,29 +6732,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group__5__Impl"
-    // InternalKiesl.g:1984:1: rule__SelfMessage__Group__5__Impl : ( ( rule__SelfMessage__Group_5__0 )? ) ;
+    // InternalKiesl.g:2065:1: rule__SelfMessage__Group__5__Impl : ( ( rule__SelfMessage__Group_5__0 )? ) ;
     public final void rule__SelfMessage__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:1988:1: ( ( ( rule__SelfMessage__Group_5__0 )? ) )
-            // InternalKiesl.g:1989:1: ( ( rule__SelfMessage__Group_5__0 )? )
+            // InternalKiesl.g:2069:1: ( ( ( rule__SelfMessage__Group_5__0 )? ) )
+            // InternalKiesl.g:2070:1: ( ( rule__SelfMessage__Group_5__0 )? )
             {
-            // InternalKiesl.g:1989:1: ( ( rule__SelfMessage__Group_5__0 )? )
-            // InternalKiesl.g:1990:2: ( rule__SelfMessage__Group_5__0 )?
+            // InternalKiesl.g:2070:1: ( ( rule__SelfMessage__Group_5__0 )? )
+            // InternalKiesl.g:2071:2: ( rule__SelfMessage__Group_5__0 )?
             {
              before(grammarAccess.getSelfMessageAccess().getGroup_5()); 
-            // InternalKiesl.g:1991:2: ( rule__SelfMessage__Group_5__0 )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // InternalKiesl.g:2072:2: ( rule__SelfMessage__Group_5__0 )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA24_0==37) ) {
-                alt24=1;
+            if ( (LA25_0==33) ) {
+                alt25=1;
             }
-            switch (alt24) {
+            switch (alt25) {
                 case 1 :
-                    // InternalKiesl.g:1991:3: rule__SelfMessage__Group_5__0
+                    // InternalKiesl.g:2072:3: rule__SelfMessage__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__SelfMessage__Group_5__0();
@@ -6539,16 +6790,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_4_2__0"
-    // InternalKiesl.g:2000:1: rule__SelfMessage__Group_4_2__0 : rule__SelfMessage__Group_4_2__0__Impl rule__SelfMessage__Group_4_2__1 ;
+    // InternalKiesl.g:2081:1: rule__SelfMessage__Group_4_2__0 : rule__SelfMessage__Group_4_2__0__Impl rule__SelfMessage__Group_4_2__1 ;
     public final void rule__SelfMessage__Group_4_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2004:1: ( rule__SelfMessage__Group_4_2__0__Impl rule__SelfMessage__Group_4_2__1 )
-            // InternalKiesl.g:2005:2: rule__SelfMessage__Group_4_2__0__Impl rule__SelfMessage__Group_4_2__1
+            // InternalKiesl.g:2085:1: ( rule__SelfMessage__Group_4_2__0__Impl rule__SelfMessage__Group_4_2__1 )
+            // InternalKiesl.g:2086:2: rule__SelfMessage__Group_4_2__0__Impl rule__SelfMessage__Group_4_2__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__SelfMessage__Group_4_2__0__Impl();
 
             state._fsp--;
@@ -6577,21 +6828,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_4_2__0__Impl"
-    // InternalKiesl.g:2012:1: rule__SelfMessage__Group_4_2__0__Impl : ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) ) ;
+    // InternalKiesl.g:2093:1: rule__SelfMessage__Group_4_2__0__Impl : ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) ) ;
     public final void rule__SelfMessage__Group_4_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2016:1: ( ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) ) )
-            // InternalKiesl.g:2017:1: ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) )
+            // InternalKiesl.g:2097:1: ( ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) ) )
+            // InternalKiesl.g:2098:1: ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) )
             {
-            // InternalKiesl.g:2017:1: ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) )
-            // InternalKiesl.g:2018:2: ( rule__SelfMessage__EndExecAssignment_4_2_0 )
+            // InternalKiesl.g:2098:1: ( ( rule__SelfMessage__EndExecAssignment_4_2_0 ) )
+            // InternalKiesl.g:2099:2: ( rule__SelfMessage__EndExecAssignment_4_2_0 )
             {
              before(grammarAccess.getSelfMessageAccess().getEndExecAssignment_4_2_0()); 
-            // InternalKiesl.g:2019:2: ( rule__SelfMessage__EndExecAssignment_4_2_0 )
-            // InternalKiesl.g:2019:3: rule__SelfMessage__EndExecAssignment_4_2_0
+            // InternalKiesl.g:2100:2: ( rule__SelfMessage__EndExecAssignment_4_2_0 )
+            // InternalKiesl.g:2100:3: rule__SelfMessage__EndExecAssignment_4_2_0
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__EndExecAssignment_4_2_0();
@@ -6624,14 +6875,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_4_2__1"
-    // InternalKiesl.g:2027:1: rule__SelfMessage__Group_4_2__1 : rule__SelfMessage__Group_4_2__1__Impl ;
+    // InternalKiesl.g:2108:1: rule__SelfMessage__Group_4_2__1 : rule__SelfMessage__Group_4_2__1__Impl ;
     public final void rule__SelfMessage__Group_4_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2031:1: ( rule__SelfMessage__Group_4_2__1__Impl )
-            // InternalKiesl.g:2032:2: rule__SelfMessage__Group_4_2__1__Impl
+            // InternalKiesl.g:2112:1: ( rule__SelfMessage__Group_4_2__1__Impl )
+            // InternalKiesl.g:2113:2: rule__SelfMessage__Group_4_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__Group_4_2__1__Impl();
@@ -6657,29 +6908,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_4_2__1__Impl"
-    // InternalKiesl.g:2038:1: rule__SelfMessage__Group_4_2__1__Impl : ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? ) ;
+    // InternalKiesl.g:2119:1: rule__SelfMessage__Group_4_2__1__Impl : ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? ) ;
     public final void rule__SelfMessage__Group_4_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2042:1: ( ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? ) )
-            // InternalKiesl.g:2043:1: ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? )
+            // InternalKiesl.g:2123:1: ( ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? ) )
+            // InternalKiesl.g:2124:1: ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? )
             {
-            // InternalKiesl.g:2043:1: ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? )
-            // InternalKiesl.g:2044:2: ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )?
+            // InternalKiesl.g:2124:1: ( ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )? )
+            // InternalKiesl.g:2125:2: ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )?
             {
              before(grammarAccess.getSelfMessageAccess().getEndExecCountAssignment_4_2_1()); 
-            // InternalKiesl.g:2045:2: ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalKiesl.g:2126:2: ( rule__SelfMessage__EndExecCountAssignment_4_2_1 )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA25_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
-                alt25=1;
+            if ( (LA26_0==RULE_INT_GREATER_ZERO_OR_ALL) ) {
+                alt26=1;
             }
-            switch (alt25) {
+            switch (alt26) {
                 case 1 :
-                    // InternalKiesl.g:2045:3: rule__SelfMessage__EndExecCountAssignment_4_2_1
+                    // InternalKiesl.g:2126:3: rule__SelfMessage__EndExecCountAssignment_4_2_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__SelfMessage__EndExecCountAssignment_4_2_1();
@@ -6715,14 +6966,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_5__0"
-    // InternalKiesl.g:2054:1: rule__SelfMessage__Group_5__0 : rule__SelfMessage__Group_5__0__Impl rule__SelfMessage__Group_5__1 ;
+    // InternalKiesl.g:2135:1: rule__SelfMessage__Group_5__0 : rule__SelfMessage__Group_5__0__Impl rule__SelfMessage__Group_5__1 ;
     public final void rule__SelfMessage__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2058:1: ( rule__SelfMessage__Group_5__0__Impl rule__SelfMessage__Group_5__1 )
-            // InternalKiesl.g:2059:2: rule__SelfMessage__Group_5__0__Impl rule__SelfMessage__Group_5__1
+            // InternalKiesl.g:2139:1: ( rule__SelfMessage__Group_5__0__Impl rule__SelfMessage__Group_5__1 )
+            // InternalKiesl.g:2140:2: rule__SelfMessage__Group_5__0__Impl rule__SelfMessage__Group_5__1
             {
             pushFollow(FOLLOW_6);
             rule__SelfMessage__Group_5__0__Impl();
@@ -6753,20 +7004,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_5__0__Impl"
-    // InternalKiesl.g:2066:1: rule__SelfMessage__Group_5__0__Impl : ( 'note' ) ;
+    // InternalKiesl.g:2147:1: rule__SelfMessage__Group_5__0__Impl : ( 'note' ) ;
     public final void rule__SelfMessage__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2070:1: ( ( 'note' ) )
-            // InternalKiesl.g:2071:1: ( 'note' )
+            // InternalKiesl.g:2151:1: ( ( 'note' ) )
+            // InternalKiesl.g:2152:1: ( 'note' )
             {
-            // InternalKiesl.g:2071:1: ( 'note' )
-            // InternalKiesl.g:2072:2: 'note'
+            // InternalKiesl.g:2152:1: ( 'note' )
+            // InternalKiesl.g:2153:2: 'note'
             {
              before(grammarAccess.getSelfMessageAccess().getNoteKeyword_5_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getSelfMessageAccess().getNoteKeyword_5_0()); 
 
             }
@@ -6790,14 +7041,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_5__1"
-    // InternalKiesl.g:2081:1: rule__SelfMessage__Group_5__1 : rule__SelfMessage__Group_5__1__Impl ;
+    // InternalKiesl.g:2162:1: rule__SelfMessage__Group_5__1 : rule__SelfMessage__Group_5__1__Impl ;
     public final void rule__SelfMessage__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2085:1: ( rule__SelfMessage__Group_5__1__Impl )
-            // InternalKiesl.g:2086:2: rule__SelfMessage__Group_5__1__Impl
+            // InternalKiesl.g:2166:1: ( rule__SelfMessage__Group_5__1__Impl )
+            // InternalKiesl.g:2167:2: rule__SelfMessage__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__Group_5__1__Impl();
@@ -6823,21 +7074,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__Group_5__1__Impl"
-    // InternalKiesl.g:2092:1: rule__SelfMessage__Group_5__1__Impl : ( ( rule__SelfMessage__NoteAssignment_5_1 ) ) ;
+    // InternalKiesl.g:2173:1: rule__SelfMessage__Group_5__1__Impl : ( ( rule__SelfMessage__NoteAssignment_5_1 ) ) ;
     public final void rule__SelfMessage__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2096:1: ( ( ( rule__SelfMessage__NoteAssignment_5_1 ) ) )
-            // InternalKiesl.g:2097:1: ( ( rule__SelfMessage__NoteAssignment_5_1 ) )
+            // InternalKiesl.g:2177:1: ( ( ( rule__SelfMessage__NoteAssignment_5_1 ) ) )
+            // InternalKiesl.g:2178:1: ( ( rule__SelfMessage__NoteAssignment_5_1 ) )
             {
-            // InternalKiesl.g:2097:1: ( ( rule__SelfMessage__NoteAssignment_5_1 ) )
-            // InternalKiesl.g:2098:2: ( rule__SelfMessage__NoteAssignment_5_1 )
+            // InternalKiesl.g:2178:1: ( ( rule__SelfMessage__NoteAssignment_5_1 ) )
+            // InternalKiesl.g:2179:2: ( rule__SelfMessage__NoteAssignment_5_1 )
             {
              before(grammarAccess.getSelfMessageAccess().getNoteAssignment_5_1()); 
-            // InternalKiesl.g:2099:2: ( rule__SelfMessage__NoteAssignment_5_1 )
-            // InternalKiesl.g:2099:3: rule__SelfMessage__NoteAssignment_5_1
+            // InternalKiesl.g:2180:2: ( rule__SelfMessage__NoteAssignment_5_1 )
+            // InternalKiesl.g:2180:3: rule__SelfMessage__NoteAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__SelfMessage__NoteAssignment_5_1();
@@ -6870,16 +7121,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LifelineDestructionEvent__Group__0"
-    // InternalKiesl.g:2108:1: rule__LifelineDestructionEvent__Group__0 : rule__LifelineDestructionEvent__Group__0__Impl rule__LifelineDestructionEvent__Group__1 ;
+    // InternalKiesl.g:2189:1: rule__LifelineDestructionEvent__Group__0 : rule__LifelineDestructionEvent__Group__0__Impl rule__LifelineDestructionEvent__Group__1 ;
     public final void rule__LifelineDestructionEvent__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2112:1: ( rule__LifelineDestructionEvent__Group__0__Impl rule__LifelineDestructionEvent__Group__1 )
-            // InternalKiesl.g:2113:2: rule__LifelineDestructionEvent__Group__0__Impl rule__LifelineDestructionEvent__Group__1
+            // InternalKiesl.g:2193:1: ( rule__LifelineDestructionEvent__Group__0__Impl rule__LifelineDestructionEvent__Group__1 )
+            // InternalKiesl.g:2194:2: rule__LifelineDestructionEvent__Group__0__Impl rule__LifelineDestructionEvent__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__LifelineDestructionEvent__Group__0__Impl();
 
             state._fsp--;
@@ -6908,21 +7159,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LifelineDestructionEvent__Group__0__Impl"
-    // InternalKiesl.g:2120:1: rule__LifelineDestructionEvent__Group__0__Impl : ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) ) ;
+    // InternalKiesl.g:2201:1: rule__LifelineDestructionEvent__Group__0__Impl : ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) ) ;
     public final void rule__LifelineDestructionEvent__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2124:1: ( ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) ) )
-            // InternalKiesl.g:2125:1: ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) )
+            // InternalKiesl.g:2205:1: ( ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) ) )
+            // InternalKiesl.g:2206:1: ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) )
             {
-            // InternalKiesl.g:2125:1: ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) )
-            // InternalKiesl.g:2126:2: ( rule__LifelineDestructionEvent__LifelineAssignment_0 )
+            // InternalKiesl.g:2206:1: ( ( rule__LifelineDestructionEvent__LifelineAssignment_0 ) )
+            // InternalKiesl.g:2207:2: ( rule__LifelineDestructionEvent__LifelineAssignment_0 )
             {
              before(grammarAccess.getLifelineDestructionEventAccess().getLifelineAssignment_0()); 
-            // InternalKiesl.g:2127:2: ( rule__LifelineDestructionEvent__LifelineAssignment_0 )
-            // InternalKiesl.g:2127:3: rule__LifelineDestructionEvent__LifelineAssignment_0
+            // InternalKiesl.g:2208:2: ( rule__LifelineDestructionEvent__LifelineAssignment_0 )
+            // InternalKiesl.g:2208:3: rule__LifelineDestructionEvent__LifelineAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__LifelineDestructionEvent__LifelineAssignment_0();
@@ -6955,14 +7206,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LifelineDestructionEvent__Group__1"
-    // InternalKiesl.g:2135:1: rule__LifelineDestructionEvent__Group__1 : rule__LifelineDestructionEvent__Group__1__Impl ;
+    // InternalKiesl.g:2216:1: rule__LifelineDestructionEvent__Group__1 : rule__LifelineDestructionEvent__Group__1__Impl ;
     public final void rule__LifelineDestructionEvent__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2139:1: ( rule__LifelineDestructionEvent__Group__1__Impl )
-            // InternalKiesl.g:2140:2: rule__LifelineDestructionEvent__Group__1__Impl
+            // InternalKiesl.g:2220:1: ( rule__LifelineDestructionEvent__Group__1__Impl )
+            // InternalKiesl.g:2221:2: rule__LifelineDestructionEvent__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LifelineDestructionEvent__Group__1__Impl();
@@ -6988,17 +7239,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LifelineDestructionEvent__Group__1__Impl"
-    // InternalKiesl.g:2146:1: rule__LifelineDestructionEvent__Group__1__Impl : ( 'destroy' ) ;
+    // InternalKiesl.g:2227:1: rule__LifelineDestructionEvent__Group__1__Impl : ( 'destroy' ) ;
     public final void rule__LifelineDestructionEvent__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2150:1: ( ( 'destroy' ) )
-            // InternalKiesl.g:2151:1: ( 'destroy' )
+            // InternalKiesl.g:2231:1: ( ( 'destroy' ) )
+            // InternalKiesl.g:2232:1: ( 'destroy' )
             {
-            // InternalKiesl.g:2151:1: ( 'destroy' )
-            // InternalKiesl.g:2152:2: 'destroy'
+            // InternalKiesl.g:2232:1: ( 'destroy' )
+            // InternalKiesl.g:2233:2: 'destroy'
             {
              before(grammarAccess.getLifelineDestructionEventAccess().getDestroyKeyword_1()); 
             match(input,30,FOLLOW_2); 
@@ -7025,14 +7276,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__0"
-    // InternalKiesl.g:2162:1: rule__InteractionUse__Group__0 : rule__InteractionUse__Group__0__Impl rule__InteractionUse__Group__1 ;
+    // InternalKiesl.g:2243:1: rule__InteractionUse__Group__0 : rule__InteractionUse__Group__0__Impl rule__InteractionUse__Group__1 ;
     public final void rule__InteractionUse__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2166:1: ( rule__InteractionUse__Group__0__Impl rule__InteractionUse__Group__1 )
-            // InternalKiesl.g:2167:2: rule__InteractionUse__Group__0__Impl rule__InteractionUse__Group__1
+            // InternalKiesl.g:2247:1: ( rule__InteractionUse__Group__0__Impl rule__InteractionUse__Group__1 )
+            // InternalKiesl.g:2248:2: rule__InteractionUse__Group__0__Impl rule__InteractionUse__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__InteractionUse__Group__0__Impl();
@@ -7063,17 +7314,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__0__Impl"
-    // InternalKiesl.g:2174:1: rule__InteractionUse__Group__0__Impl : ( 'ref' ) ;
+    // InternalKiesl.g:2255:1: rule__InteractionUse__Group__0__Impl : ( 'ref' ) ;
     public final void rule__InteractionUse__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2178:1: ( ( 'ref' ) )
-            // InternalKiesl.g:2179:1: ( 'ref' )
+            // InternalKiesl.g:2259:1: ( ( 'ref' ) )
+            // InternalKiesl.g:2260:1: ( 'ref' )
             {
-            // InternalKiesl.g:2179:1: ( 'ref' )
-            // InternalKiesl.g:2180:2: 'ref'
+            // InternalKiesl.g:2260:1: ( 'ref' )
+            // InternalKiesl.g:2261:2: 'ref'
             {
              before(grammarAccess.getInteractionUseAccess().getRefKeyword_0()); 
             match(input,39,FOLLOW_2); 
@@ -7100,16 +7351,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__1"
-    // InternalKiesl.g:2189:1: rule__InteractionUse__Group__1 : rule__InteractionUse__Group__1__Impl rule__InteractionUse__Group__2 ;
+    // InternalKiesl.g:2270:1: rule__InteractionUse__Group__1 : rule__InteractionUse__Group__1__Impl rule__InteractionUse__Group__2 ;
     public final void rule__InteractionUse__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2193:1: ( rule__InteractionUse__Group__1__Impl rule__InteractionUse__Group__2 )
-            // InternalKiesl.g:2194:2: rule__InteractionUse__Group__1__Impl rule__InteractionUse__Group__2
+            // InternalKiesl.g:2274:1: ( rule__InteractionUse__Group__1__Impl rule__InteractionUse__Group__2 )
+            // InternalKiesl.g:2275:2: rule__InteractionUse__Group__1__Impl rule__InteractionUse__Group__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_19);
             rule__InteractionUse__Group__1__Impl();
 
             state._fsp--;
@@ -7138,21 +7389,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__1__Impl"
-    // InternalKiesl.g:2201:1: rule__InteractionUse__Group__1__Impl : ( ( rule__InteractionUse__CaptionAssignment_1 ) ) ;
+    // InternalKiesl.g:2282:1: rule__InteractionUse__Group__1__Impl : ( ( rule__InteractionUse__CaptionAssignment_1 ) ) ;
     public final void rule__InteractionUse__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2205:1: ( ( ( rule__InteractionUse__CaptionAssignment_1 ) ) )
-            // InternalKiesl.g:2206:1: ( ( rule__InteractionUse__CaptionAssignment_1 ) )
+            // InternalKiesl.g:2286:1: ( ( ( rule__InteractionUse__CaptionAssignment_1 ) ) )
+            // InternalKiesl.g:2287:1: ( ( rule__InteractionUse__CaptionAssignment_1 ) )
             {
-            // InternalKiesl.g:2206:1: ( ( rule__InteractionUse__CaptionAssignment_1 ) )
-            // InternalKiesl.g:2207:2: ( rule__InteractionUse__CaptionAssignment_1 )
+            // InternalKiesl.g:2287:1: ( ( rule__InteractionUse__CaptionAssignment_1 ) )
+            // InternalKiesl.g:2288:2: ( rule__InteractionUse__CaptionAssignment_1 )
             {
              before(grammarAccess.getInteractionUseAccess().getCaptionAssignment_1()); 
-            // InternalKiesl.g:2208:2: ( rule__InteractionUse__CaptionAssignment_1 )
-            // InternalKiesl.g:2208:3: rule__InteractionUse__CaptionAssignment_1
+            // InternalKiesl.g:2289:2: ( rule__InteractionUse__CaptionAssignment_1 )
+            // InternalKiesl.g:2289:3: rule__InteractionUse__CaptionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__InteractionUse__CaptionAssignment_1();
@@ -7185,14 +7436,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__2"
-    // InternalKiesl.g:2216:1: rule__InteractionUse__Group__2 : rule__InteractionUse__Group__2__Impl rule__InteractionUse__Group__3 ;
+    // InternalKiesl.g:2297:1: rule__InteractionUse__Group__2 : rule__InteractionUse__Group__2__Impl rule__InteractionUse__Group__3 ;
     public final void rule__InteractionUse__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2220:1: ( rule__InteractionUse__Group__2__Impl rule__InteractionUse__Group__3 )
-            // InternalKiesl.g:2221:2: rule__InteractionUse__Group__2__Impl rule__InteractionUse__Group__3
+            // InternalKiesl.g:2301:1: ( rule__InteractionUse__Group__2__Impl rule__InteractionUse__Group__3 )
+            // InternalKiesl.g:2302:2: rule__InteractionUse__Group__2__Impl rule__InteractionUse__Group__3
             {
             pushFollow(FOLLOW_8);
             rule__InteractionUse__Group__2__Impl();
@@ -7223,17 +7474,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__2__Impl"
-    // InternalKiesl.g:2228:1: rule__InteractionUse__Group__2__Impl : ( 'lifelines' ) ;
+    // InternalKiesl.g:2309:1: rule__InteractionUse__Group__2__Impl : ( 'lifelines' ) ;
     public final void rule__InteractionUse__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2232:1: ( ( 'lifelines' ) )
-            // InternalKiesl.g:2233:1: ( 'lifelines' )
+            // InternalKiesl.g:2313:1: ( ( 'lifelines' ) )
+            // InternalKiesl.g:2314:1: ( 'lifelines' )
             {
-            // InternalKiesl.g:2233:1: ( 'lifelines' )
-            // InternalKiesl.g:2234:2: 'lifelines'
+            // InternalKiesl.g:2314:1: ( 'lifelines' )
+            // InternalKiesl.g:2315:2: 'lifelines'
             {
              before(grammarAccess.getInteractionUseAccess().getLifelinesKeyword_2()); 
             match(input,40,FOLLOW_2); 
@@ -7260,16 +7511,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__3"
-    // InternalKiesl.g:2243:1: rule__InteractionUse__Group__3 : rule__InteractionUse__Group__3__Impl rule__InteractionUse__Group__4 ;
+    // InternalKiesl.g:2324:1: rule__InteractionUse__Group__3 : rule__InteractionUse__Group__3__Impl rule__InteractionUse__Group__4 ;
     public final void rule__InteractionUse__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2247:1: ( rule__InteractionUse__Group__3__Impl rule__InteractionUse__Group__4 )
-            // InternalKiesl.g:2248:2: rule__InteractionUse__Group__3__Impl rule__InteractionUse__Group__4
+            // InternalKiesl.g:2328:1: ( rule__InteractionUse__Group__3__Impl rule__InteractionUse__Group__4 )
+            // InternalKiesl.g:2329:2: rule__InteractionUse__Group__3__Impl rule__InteractionUse__Group__4
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_20);
             rule__InteractionUse__Group__3__Impl();
 
             state._fsp--;
@@ -7298,21 +7549,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__3__Impl"
-    // InternalKiesl.g:2255:1: rule__InteractionUse__Group__3__Impl : ( ( rule__InteractionUse__LifelinesAssignment_3 ) ) ;
+    // InternalKiesl.g:2336:1: rule__InteractionUse__Group__3__Impl : ( ( rule__InteractionUse__LifelinesAssignment_3 ) ) ;
     public final void rule__InteractionUse__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2259:1: ( ( ( rule__InteractionUse__LifelinesAssignment_3 ) ) )
-            // InternalKiesl.g:2260:1: ( ( rule__InteractionUse__LifelinesAssignment_3 ) )
+            // InternalKiesl.g:2340:1: ( ( ( rule__InteractionUse__LifelinesAssignment_3 ) ) )
+            // InternalKiesl.g:2341:1: ( ( rule__InteractionUse__LifelinesAssignment_3 ) )
             {
-            // InternalKiesl.g:2260:1: ( ( rule__InteractionUse__LifelinesAssignment_3 ) )
-            // InternalKiesl.g:2261:2: ( rule__InteractionUse__LifelinesAssignment_3 )
+            // InternalKiesl.g:2341:1: ( ( rule__InteractionUse__LifelinesAssignment_3 ) )
+            // InternalKiesl.g:2342:2: ( rule__InteractionUse__LifelinesAssignment_3 )
             {
              before(grammarAccess.getInteractionUseAccess().getLifelinesAssignment_3()); 
-            // InternalKiesl.g:2262:2: ( rule__InteractionUse__LifelinesAssignment_3 )
-            // InternalKiesl.g:2262:3: rule__InteractionUse__LifelinesAssignment_3
+            // InternalKiesl.g:2343:2: ( rule__InteractionUse__LifelinesAssignment_3 )
+            // InternalKiesl.g:2343:3: rule__InteractionUse__LifelinesAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__InteractionUse__LifelinesAssignment_3();
@@ -7345,14 +7596,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__4"
-    // InternalKiesl.g:2270:1: rule__InteractionUse__Group__4 : rule__InteractionUse__Group__4__Impl ;
+    // InternalKiesl.g:2351:1: rule__InteractionUse__Group__4 : rule__InteractionUse__Group__4__Impl ;
     public final void rule__InteractionUse__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2274:1: ( rule__InteractionUse__Group__4__Impl )
-            // InternalKiesl.g:2275:2: rule__InteractionUse__Group__4__Impl
+            // InternalKiesl.g:2355:1: ( rule__InteractionUse__Group__4__Impl )
+            // InternalKiesl.g:2356:2: rule__InteractionUse__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__InteractionUse__Group__4__Impl();
@@ -7378,35 +7629,35 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group__4__Impl"
-    // InternalKiesl.g:2281:1: rule__InteractionUse__Group__4__Impl : ( ( rule__InteractionUse__Group_4__0 )* ) ;
+    // InternalKiesl.g:2362:1: rule__InteractionUse__Group__4__Impl : ( ( rule__InteractionUse__Group_4__0 )* ) ;
     public final void rule__InteractionUse__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2285:1: ( ( ( rule__InteractionUse__Group_4__0 )* ) )
-            // InternalKiesl.g:2286:1: ( ( rule__InteractionUse__Group_4__0 )* )
+            // InternalKiesl.g:2366:1: ( ( ( rule__InteractionUse__Group_4__0 )* ) )
+            // InternalKiesl.g:2367:1: ( ( rule__InteractionUse__Group_4__0 )* )
             {
-            // InternalKiesl.g:2286:1: ( ( rule__InteractionUse__Group_4__0 )* )
-            // InternalKiesl.g:2287:2: ( rule__InteractionUse__Group_4__0 )*
+            // InternalKiesl.g:2367:1: ( ( rule__InteractionUse__Group_4__0 )* )
+            // InternalKiesl.g:2368:2: ( rule__InteractionUse__Group_4__0 )*
             {
              before(grammarAccess.getInteractionUseAccess().getGroup_4()); 
-            // InternalKiesl.g:2288:2: ( rule__InteractionUse__Group_4__0 )*
-            loop26:
+            // InternalKiesl.g:2369:2: ( rule__InteractionUse__Group_4__0 )*
+            loop27:
             do {
-                int alt26=2;
-                int LA26_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA26_0==41) ) {
-                    alt26=1;
+                if ( (LA27_0==41) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt26) {
+                switch (alt27) {
             	case 1 :
-            	    // InternalKiesl.g:2288:3: rule__InteractionUse__Group_4__0
+            	    // InternalKiesl.g:2369:3: rule__InteractionUse__Group_4__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__InteractionUse__Group_4__0();
 
             	    state._fsp--;
@@ -7416,7 +7667,7 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop26;
+            	    break loop27;
                 }
             } while (true);
 
@@ -7443,14 +7694,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group_4__0"
-    // InternalKiesl.g:2297:1: rule__InteractionUse__Group_4__0 : rule__InteractionUse__Group_4__0__Impl rule__InteractionUse__Group_4__1 ;
+    // InternalKiesl.g:2378:1: rule__InteractionUse__Group_4__0 : rule__InteractionUse__Group_4__0__Impl rule__InteractionUse__Group_4__1 ;
     public final void rule__InteractionUse__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2301:1: ( rule__InteractionUse__Group_4__0__Impl rule__InteractionUse__Group_4__1 )
-            // InternalKiesl.g:2302:2: rule__InteractionUse__Group_4__0__Impl rule__InteractionUse__Group_4__1
+            // InternalKiesl.g:2382:1: ( rule__InteractionUse__Group_4__0__Impl rule__InteractionUse__Group_4__1 )
+            // InternalKiesl.g:2383:2: rule__InteractionUse__Group_4__0__Impl rule__InteractionUse__Group_4__1
             {
             pushFollow(FOLLOW_8);
             rule__InteractionUse__Group_4__0__Impl();
@@ -7481,17 +7732,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group_4__0__Impl"
-    // InternalKiesl.g:2309:1: rule__InteractionUse__Group_4__0__Impl : ( ',' ) ;
+    // InternalKiesl.g:2390:1: rule__InteractionUse__Group_4__0__Impl : ( ',' ) ;
     public final void rule__InteractionUse__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2313:1: ( ( ',' ) )
-            // InternalKiesl.g:2314:1: ( ',' )
+            // InternalKiesl.g:2394:1: ( ( ',' ) )
+            // InternalKiesl.g:2395:1: ( ',' )
             {
-            // InternalKiesl.g:2314:1: ( ',' )
-            // InternalKiesl.g:2315:2: ','
+            // InternalKiesl.g:2395:1: ( ',' )
+            // InternalKiesl.g:2396:2: ','
             {
              before(grammarAccess.getInteractionUseAccess().getCommaKeyword_4_0()); 
             match(input,41,FOLLOW_2); 
@@ -7518,14 +7769,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group_4__1"
-    // InternalKiesl.g:2324:1: rule__InteractionUse__Group_4__1 : rule__InteractionUse__Group_4__1__Impl ;
+    // InternalKiesl.g:2405:1: rule__InteractionUse__Group_4__1 : rule__InteractionUse__Group_4__1__Impl ;
     public final void rule__InteractionUse__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2328:1: ( rule__InteractionUse__Group_4__1__Impl )
-            // InternalKiesl.g:2329:2: rule__InteractionUse__Group_4__1__Impl
+            // InternalKiesl.g:2409:1: ( rule__InteractionUse__Group_4__1__Impl )
+            // InternalKiesl.g:2410:2: rule__InteractionUse__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__InteractionUse__Group_4__1__Impl();
@@ -7551,21 +7802,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__Group_4__1__Impl"
-    // InternalKiesl.g:2335:1: rule__InteractionUse__Group_4__1__Impl : ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) ) ;
+    // InternalKiesl.g:2416:1: rule__InteractionUse__Group_4__1__Impl : ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) ) ;
     public final void rule__InteractionUse__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2339:1: ( ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) ) )
-            // InternalKiesl.g:2340:1: ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) )
+            // InternalKiesl.g:2420:1: ( ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) ) )
+            // InternalKiesl.g:2421:1: ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) )
             {
-            // InternalKiesl.g:2340:1: ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) )
-            // InternalKiesl.g:2341:2: ( rule__InteractionUse__LifelinesAssignment_4_1 )
+            // InternalKiesl.g:2421:1: ( ( rule__InteractionUse__LifelinesAssignment_4_1 ) )
+            // InternalKiesl.g:2422:2: ( rule__InteractionUse__LifelinesAssignment_4_1 )
             {
              before(grammarAccess.getInteractionUseAccess().getLifelinesAssignment_4_1()); 
-            // InternalKiesl.g:2342:2: ( rule__InteractionUse__LifelinesAssignment_4_1 )
-            // InternalKiesl.g:2342:3: rule__InteractionUse__LifelinesAssignment_4_1
+            // InternalKiesl.g:2423:2: ( rule__InteractionUse__LifelinesAssignment_4_1 )
+            // InternalKiesl.g:2423:3: rule__InteractionUse__LifelinesAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__InteractionUse__LifelinesAssignment_4_1();
@@ -7598,16 +7849,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__Group__0"
-    // InternalKiesl.g:2351:1: rule__CombinedFragment__Group__0 : rule__CombinedFragment__Group__0__Impl rule__CombinedFragment__Group__1 ;
+    // InternalKiesl.g:2432:1: rule__CombinedFragment__Group__0 : rule__CombinedFragment__Group__0__Impl rule__CombinedFragment__Group__1 ;
     public final void rule__CombinedFragment__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2355:1: ( rule__CombinedFragment__Group__0__Impl rule__CombinedFragment__Group__1 )
-            // InternalKiesl.g:2356:2: rule__CombinedFragment__Group__0__Impl rule__CombinedFragment__Group__1
+            // InternalKiesl.g:2436:1: ( rule__CombinedFragment__Group__0__Impl rule__CombinedFragment__Group__1 )
+            // InternalKiesl.g:2437:2: rule__CombinedFragment__Group__0__Impl rule__CombinedFragment__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_22);
             rule__CombinedFragment__Group__0__Impl();
 
             state._fsp--;
@@ -7636,17 +7887,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__Group__0__Impl"
-    // InternalKiesl.g:2363:1: rule__CombinedFragment__Group__0__Impl : ( 'fragment' ) ;
+    // InternalKiesl.g:2444:1: rule__CombinedFragment__Group__0__Impl : ( 'fragment' ) ;
     public final void rule__CombinedFragment__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2367:1: ( ( 'fragment' ) )
-            // InternalKiesl.g:2368:1: ( 'fragment' )
+            // InternalKiesl.g:2448:1: ( ( 'fragment' ) )
+            // InternalKiesl.g:2449:1: ( 'fragment' )
             {
-            // InternalKiesl.g:2368:1: ( 'fragment' )
-            // InternalKiesl.g:2369:2: 'fragment'
+            // InternalKiesl.g:2449:1: ( 'fragment' )
+            // InternalKiesl.g:2450:2: 'fragment'
             {
              before(grammarAccess.getCombinedFragmentAccess().getFragmentKeyword_0()); 
             match(input,42,FOLLOW_2); 
@@ -7673,16 +7924,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__Group__1"
-    // InternalKiesl.g:2378:1: rule__CombinedFragment__Group__1 : rule__CombinedFragment__Group__1__Impl rule__CombinedFragment__Group__2 ;
+    // InternalKiesl.g:2459:1: rule__CombinedFragment__Group__1 : rule__CombinedFragment__Group__1__Impl rule__CombinedFragment__Group__2 ;
     public final void rule__CombinedFragment__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2382:1: ( rule__CombinedFragment__Group__1__Impl rule__CombinedFragment__Group__2 )
-            // InternalKiesl.g:2383:2: rule__CombinedFragment__Group__1__Impl rule__CombinedFragment__Group__2
+            // InternalKiesl.g:2463:1: ( rule__CombinedFragment__Group__1__Impl rule__CombinedFragment__Group__2 )
+            // InternalKiesl.g:2464:2: rule__CombinedFragment__Group__1__Impl rule__CombinedFragment__Group__2
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_23);
             rule__CombinedFragment__Group__1__Impl();
 
             state._fsp--;
@@ -7711,21 +7962,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__Group__1__Impl"
-    // InternalKiesl.g:2390:1: rule__CombinedFragment__Group__1__Impl : ( ( rule__CombinedFragment__TypeAssignment_1 ) ) ;
+    // InternalKiesl.g:2471:1: rule__CombinedFragment__Group__1__Impl : ( ( rule__CombinedFragment__TypeAssignment_1 ) ) ;
     public final void rule__CombinedFragment__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2394:1: ( ( ( rule__CombinedFragment__TypeAssignment_1 ) ) )
-            // InternalKiesl.g:2395:1: ( ( rule__CombinedFragment__TypeAssignment_1 ) )
+            // InternalKiesl.g:2475:1: ( ( ( rule__CombinedFragment__TypeAssignment_1 ) ) )
+            // InternalKiesl.g:2476:1: ( ( rule__CombinedFragment__TypeAssignment_1 ) )
             {
-            // InternalKiesl.g:2395:1: ( ( rule__CombinedFragment__TypeAssignment_1 ) )
-            // InternalKiesl.g:2396:2: ( rule__CombinedFragment__TypeAssignment_1 )
+            // InternalKiesl.g:2476:1: ( ( rule__CombinedFragment__TypeAssignment_1 ) )
+            // InternalKiesl.g:2477:2: ( rule__CombinedFragment__TypeAssignment_1 )
             {
              before(grammarAccess.getCombinedFragmentAccess().getTypeAssignment_1()); 
-            // InternalKiesl.g:2397:2: ( rule__CombinedFragment__TypeAssignment_1 )
-            // InternalKiesl.g:2397:3: rule__CombinedFragment__TypeAssignment_1
+            // InternalKiesl.g:2478:2: ( rule__CombinedFragment__TypeAssignment_1 )
+            // InternalKiesl.g:2478:3: rule__CombinedFragment__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__CombinedFragment__TypeAssignment_1();
@@ -7758,14 +8009,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__Group__2"
-    // InternalKiesl.g:2405:1: rule__CombinedFragment__Group__2 : rule__CombinedFragment__Group__2__Impl ;
+    // InternalKiesl.g:2486:1: rule__CombinedFragment__Group__2 : rule__CombinedFragment__Group__2__Impl ;
     public final void rule__CombinedFragment__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2409:1: ( rule__CombinedFragment__Group__2__Impl )
-            // InternalKiesl.g:2410:2: rule__CombinedFragment__Group__2__Impl
+            // InternalKiesl.g:2490:1: ( rule__CombinedFragment__Group__2__Impl )
+            // InternalKiesl.g:2491:2: rule__CombinedFragment__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CombinedFragment__Group__2__Impl();
@@ -7791,26 +8042,26 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__Group__2__Impl"
-    // InternalKiesl.g:2416:1: rule__CombinedFragment__Group__2__Impl : ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) ) ;
+    // InternalKiesl.g:2497:1: rule__CombinedFragment__Group__2__Impl : ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) ) ;
     public final void rule__CombinedFragment__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2420:1: ( ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) ) )
-            // InternalKiesl.g:2421:1: ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) )
+            // InternalKiesl.g:2501:1: ( ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) ) )
+            // InternalKiesl.g:2502:1: ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) )
             {
-            // InternalKiesl.g:2421:1: ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) )
-            // InternalKiesl.g:2422:2: ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* )
+            // InternalKiesl.g:2502:1: ( ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* ) )
+            // InternalKiesl.g:2503:2: ( ( rule__CombinedFragment__SectionsAssignment_2 ) ) ( ( rule__CombinedFragment__SectionsAssignment_2 )* )
             {
-            // InternalKiesl.g:2422:2: ( ( rule__CombinedFragment__SectionsAssignment_2 ) )
-            // InternalKiesl.g:2423:3: ( rule__CombinedFragment__SectionsAssignment_2 )
+            // InternalKiesl.g:2503:2: ( ( rule__CombinedFragment__SectionsAssignment_2 ) )
+            // InternalKiesl.g:2504:3: ( rule__CombinedFragment__SectionsAssignment_2 )
             {
              before(grammarAccess.getCombinedFragmentAccess().getSectionsAssignment_2()); 
-            // InternalKiesl.g:2424:3: ( rule__CombinedFragment__SectionsAssignment_2 )
-            // InternalKiesl.g:2424:4: rule__CombinedFragment__SectionsAssignment_2
+            // InternalKiesl.g:2505:3: ( rule__CombinedFragment__SectionsAssignment_2 )
+            // InternalKiesl.g:2505:4: rule__CombinedFragment__SectionsAssignment_2
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_24);
             rule__CombinedFragment__SectionsAssignment_2();
 
             state._fsp--;
@@ -7822,26 +8073,26 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalKiesl.g:2427:2: ( ( rule__CombinedFragment__SectionsAssignment_2 )* )
-            // InternalKiesl.g:2428:3: ( rule__CombinedFragment__SectionsAssignment_2 )*
+            // InternalKiesl.g:2508:2: ( ( rule__CombinedFragment__SectionsAssignment_2 )* )
+            // InternalKiesl.g:2509:3: ( rule__CombinedFragment__SectionsAssignment_2 )*
             {
              before(grammarAccess.getCombinedFragmentAccess().getSectionsAssignment_2()); 
-            // InternalKiesl.g:2429:3: ( rule__CombinedFragment__SectionsAssignment_2 )*
-            loop27:
+            // InternalKiesl.g:2510:3: ( rule__CombinedFragment__SectionsAssignment_2 )*
+            loop28:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA27_0==43) ) {
-                    alt27=1;
+                if ( (LA28_0==43) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt28) {
             	case 1 :
-            	    // InternalKiesl.g:2429:4: rule__CombinedFragment__SectionsAssignment_2
+            	    // InternalKiesl.g:2510:4: rule__CombinedFragment__SectionsAssignment_2
             	    {
-            	    pushFollow(FOLLOW_23);
+            	    pushFollow(FOLLOW_24);
             	    rule__CombinedFragment__SectionsAssignment_2();
 
             	    state._fsp--;
@@ -7851,7 +8102,7 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop28;
                 }
             } while (true);
 
@@ -7881,16 +8132,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__0"
-    // InternalKiesl.g:2439:1: rule__Section__Group__0 : rule__Section__Group__0__Impl rule__Section__Group__1 ;
+    // InternalKiesl.g:2520:1: rule__Section__Group__0 : rule__Section__Group__0__Impl rule__Section__Group__1 ;
     public final void rule__Section__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2443:1: ( rule__Section__Group__0__Impl rule__Section__Group__1 )
-            // InternalKiesl.g:2444:2: rule__Section__Group__0__Impl rule__Section__Group__1
+            // InternalKiesl.g:2524:1: ( rule__Section__Group__0__Impl rule__Section__Group__1 )
+            // InternalKiesl.g:2525:2: rule__Section__Group__0__Impl rule__Section__Group__1
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_25);
             rule__Section__Group__0__Impl();
 
             state._fsp--;
@@ -7919,17 +8170,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__0__Impl"
-    // InternalKiesl.g:2451:1: rule__Section__Group__0__Impl : ( '{' ) ;
+    // InternalKiesl.g:2532:1: rule__Section__Group__0__Impl : ( '{' ) ;
     public final void rule__Section__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2455:1: ( ( '{' ) )
-            // InternalKiesl.g:2456:1: ( '{' )
+            // InternalKiesl.g:2536:1: ( ( '{' ) )
+            // InternalKiesl.g:2537:1: ( '{' )
             {
-            // InternalKiesl.g:2456:1: ( '{' )
-            // InternalKiesl.g:2457:2: '{'
+            // InternalKiesl.g:2537:1: ( '{' )
+            // InternalKiesl.g:2538:2: '{'
             {
              before(grammarAccess.getSectionAccess().getLeftCurlyBracketKeyword_0()); 
             match(input,43,FOLLOW_2); 
@@ -7956,16 +8207,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__1"
-    // InternalKiesl.g:2466:1: rule__Section__Group__1 : rule__Section__Group__1__Impl rule__Section__Group__2 ;
+    // InternalKiesl.g:2547:1: rule__Section__Group__1 : rule__Section__Group__1__Impl rule__Section__Group__2 ;
     public final void rule__Section__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2470:1: ( rule__Section__Group__1__Impl rule__Section__Group__2 )
-            // InternalKiesl.g:2471:2: rule__Section__Group__1__Impl rule__Section__Group__2
+            // InternalKiesl.g:2551:1: ( rule__Section__Group__1__Impl rule__Section__Group__2 )
+            // InternalKiesl.g:2552:2: rule__Section__Group__1__Impl rule__Section__Group__2
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_25);
             rule__Section__Group__1__Impl();
 
             state._fsp--;
@@ -7994,29 +8245,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__1__Impl"
-    // InternalKiesl.g:2478:1: rule__Section__Group__1__Impl : ( ( rule__Section__Group_1__0 )? ) ;
+    // InternalKiesl.g:2559:1: rule__Section__Group__1__Impl : ( ( rule__Section__Group_1__0 )? ) ;
     public final void rule__Section__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2482:1: ( ( ( rule__Section__Group_1__0 )? ) )
-            // InternalKiesl.g:2483:1: ( ( rule__Section__Group_1__0 )? )
+            // InternalKiesl.g:2563:1: ( ( ( rule__Section__Group_1__0 )? ) )
+            // InternalKiesl.g:2564:1: ( ( rule__Section__Group_1__0 )? )
             {
-            // InternalKiesl.g:2483:1: ( ( rule__Section__Group_1__0 )? )
-            // InternalKiesl.g:2484:2: ( rule__Section__Group_1__0 )?
+            // InternalKiesl.g:2564:1: ( ( rule__Section__Group_1__0 )? )
+            // InternalKiesl.g:2565:2: ( rule__Section__Group_1__0 )?
             {
              before(grammarAccess.getSectionAccess().getGroup_1()); 
-            // InternalKiesl.g:2485:2: ( rule__Section__Group_1__0 )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // InternalKiesl.g:2566:2: ( rule__Section__Group_1__0 )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA28_0==45) ) {
-                alt28=1;
+            if ( (LA29_0==45) ) {
+                alt29=1;
             }
-            switch (alt28) {
+            switch (alt29) {
                 case 1 :
-                    // InternalKiesl.g:2485:3: rule__Section__Group_1__0
+                    // InternalKiesl.g:2566:3: rule__Section__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Section__Group_1__0();
@@ -8052,16 +8303,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__2"
-    // InternalKiesl.g:2493:1: rule__Section__Group__2 : rule__Section__Group__2__Impl rule__Section__Group__3 ;
+    // InternalKiesl.g:2574:1: rule__Section__Group__2 : rule__Section__Group__2__Impl rule__Section__Group__3 ;
     public final void rule__Section__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2497:1: ( rule__Section__Group__2__Impl rule__Section__Group__3 )
-            // InternalKiesl.g:2498:2: rule__Section__Group__2__Impl rule__Section__Group__3
+            // InternalKiesl.g:2578:1: ( rule__Section__Group__2__Impl rule__Section__Group__3 )
+            // InternalKiesl.g:2579:2: rule__Section__Group__2__Impl rule__Section__Group__3
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_26);
             rule__Section__Group__2__Impl();
 
             state._fsp--;
@@ -8090,26 +8341,26 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__2__Impl"
-    // InternalKiesl.g:2505:1: rule__Section__Group__2__Impl : ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) ) ;
+    // InternalKiesl.g:2586:1: rule__Section__Group__2__Impl : ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) ) ;
     public final void rule__Section__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2509:1: ( ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) ) )
-            // InternalKiesl.g:2510:1: ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) )
+            // InternalKiesl.g:2590:1: ( ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) ) )
+            // InternalKiesl.g:2591:1: ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) )
             {
-            // InternalKiesl.g:2510:1: ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) )
-            // InternalKiesl.g:2511:2: ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* )
+            // InternalKiesl.g:2591:1: ( ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* ) )
+            // InternalKiesl.g:2592:2: ( ( rule__Section__ElementsAssignment_2 ) ) ( ( rule__Section__ElementsAssignment_2 )* )
             {
-            // InternalKiesl.g:2511:2: ( ( rule__Section__ElementsAssignment_2 ) )
-            // InternalKiesl.g:2512:3: ( rule__Section__ElementsAssignment_2 )
+            // InternalKiesl.g:2592:2: ( ( rule__Section__ElementsAssignment_2 ) )
+            // InternalKiesl.g:2593:3: ( rule__Section__ElementsAssignment_2 )
             {
              before(grammarAccess.getSectionAccess().getElementsAssignment_2()); 
-            // InternalKiesl.g:2513:3: ( rule__Section__ElementsAssignment_2 )
-            // InternalKiesl.g:2513:4: rule__Section__ElementsAssignment_2
+            // InternalKiesl.g:2594:3: ( rule__Section__ElementsAssignment_2 )
+            // InternalKiesl.g:2594:4: rule__Section__ElementsAssignment_2
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_27);
             rule__Section__ElementsAssignment_2();
 
             state._fsp--;
@@ -8121,26 +8372,26 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // InternalKiesl.g:2516:2: ( ( rule__Section__ElementsAssignment_2 )* )
-            // InternalKiesl.g:2517:3: ( rule__Section__ElementsAssignment_2 )*
+            // InternalKiesl.g:2597:2: ( ( rule__Section__ElementsAssignment_2 )* )
+            // InternalKiesl.g:2598:3: ( rule__Section__ElementsAssignment_2 )*
             {
              before(grammarAccess.getSectionAccess().getElementsAssignment_2()); 
-            // InternalKiesl.g:2518:3: ( rule__Section__ElementsAssignment_2 )*
-            loop29:
+            // InternalKiesl.g:2599:3: ( rule__Section__ElementsAssignment_2 )*
+            loop30:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA29_0==RULE_ID||LA29_0==39||LA29_0==42||LA29_0==46) ) {
-                    alt29=1;
+                if ( (LA30_0==RULE_ID||LA30_0==39||LA30_0==42||LA30_0==46) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt30) {
             	case 1 :
-            	    // InternalKiesl.g:2518:4: rule__Section__ElementsAssignment_2
+            	    // InternalKiesl.g:2599:4: rule__Section__ElementsAssignment_2
             	    {
-            	    pushFollow(FOLLOW_26);
+            	    pushFollow(FOLLOW_27);
             	    rule__Section__ElementsAssignment_2();
 
             	    state._fsp--;
@@ -8150,7 +8401,7 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop30;
                 }
             } while (true);
 
@@ -8180,14 +8431,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__3"
-    // InternalKiesl.g:2527:1: rule__Section__Group__3 : rule__Section__Group__3__Impl ;
+    // InternalKiesl.g:2608:1: rule__Section__Group__3 : rule__Section__Group__3__Impl ;
     public final void rule__Section__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2531:1: ( rule__Section__Group__3__Impl )
-            // InternalKiesl.g:2532:2: rule__Section__Group__3__Impl
+            // InternalKiesl.g:2612:1: ( rule__Section__Group__3__Impl )
+            // InternalKiesl.g:2613:2: rule__Section__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Section__Group__3__Impl();
@@ -8213,17 +8464,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group__3__Impl"
-    // InternalKiesl.g:2538:1: rule__Section__Group__3__Impl : ( '}' ) ;
+    // InternalKiesl.g:2619:1: rule__Section__Group__3__Impl : ( '}' ) ;
     public final void rule__Section__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2542:1: ( ( '}' ) )
-            // InternalKiesl.g:2543:1: ( '}' )
+            // InternalKiesl.g:2623:1: ( ( '}' ) )
+            // InternalKiesl.g:2624:1: ( '}' )
             {
-            // InternalKiesl.g:2543:1: ( '}' )
-            // InternalKiesl.g:2544:2: '}'
+            // InternalKiesl.g:2624:1: ( '}' )
+            // InternalKiesl.g:2625:2: '}'
             {
              before(grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_3()); 
             match(input,44,FOLLOW_2); 
@@ -8250,14 +8501,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group_1__0"
-    // InternalKiesl.g:2554:1: rule__Section__Group_1__0 : rule__Section__Group_1__0__Impl rule__Section__Group_1__1 ;
+    // InternalKiesl.g:2635:1: rule__Section__Group_1__0 : rule__Section__Group_1__0__Impl rule__Section__Group_1__1 ;
     public final void rule__Section__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2558:1: ( rule__Section__Group_1__0__Impl rule__Section__Group_1__1 )
-            // InternalKiesl.g:2559:2: rule__Section__Group_1__0__Impl rule__Section__Group_1__1
+            // InternalKiesl.g:2639:1: ( rule__Section__Group_1__0__Impl rule__Section__Group_1__1 )
+            // InternalKiesl.g:2640:2: rule__Section__Group_1__0__Impl rule__Section__Group_1__1
             {
             pushFollow(FOLLOW_6);
             rule__Section__Group_1__0__Impl();
@@ -8288,17 +8539,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group_1__0__Impl"
-    // InternalKiesl.g:2566:1: rule__Section__Group_1__0__Impl : ( 'label' ) ;
+    // InternalKiesl.g:2647:1: rule__Section__Group_1__0__Impl : ( 'label' ) ;
     public final void rule__Section__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2570:1: ( ( 'label' ) )
-            // InternalKiesl.g:2571:1: ( 'label' )
+            // InternalKiesl.g:2651:1: ( ( 'label' ) )
+            // InternalKiesl.g:2652:1: ( 'label' )
             {
-            // InternalKiesl.g:2571:1: ( 'label' )
-            // InternalKiesl.g:2572:2: 'label'
+            // InternalKiesl.g:2652:1: ( 'label' )
+            // InternalKiesl.g:2653:2: 'label'
             {
              before(grammarAccess.getSectionAccess().getLabelKeyword_1_0()); 
             match(input,45,FOLLOW_2); 
@@ -8325,14 +8576,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group_1__1"
-    // InternalKiesl.g:2581:1: rule__Section__Group_1__1 : rule__Section__Group_1__1__Impl ;
+    // InternalKiesl.g:2662:1: rule__Section__Group_1__1 : rule__Section__Group_1__1__Impl ;
     public final void rule__Section__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2585:1: ( rule__Section__Group_1__1__Impl )
-            // InternalKiesl.g:2586:2: rule__Section__Group_1__1__Impl
+            // InternalKiesl.g:2666:1: ( rule__Section__Group_1__1__Impl )
+            // InternalKiesl.g:2667:2: rule__Section__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Section__Group_1__1__Impl();
@@ -8358,21 +8609,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__Group_1__1__Impl"
-    // InternalKiesl.g:2592:1: rule__Section__Group_1__1__Impl : ( ( rule__Section__CaptionAssignment_1_1 ) ) ;
+    // InternalKiesl.g:2673:1: rule__Section__Group_1__1__Impl : ( ( rule__Section__CaptionAssignment_1_1 ) ) ;
     public final void rule__Section__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2596:1: ( ( ( rule__Section__CaptionAssignment_1_1 ) ) )
-            // InternalKiesl.g:2597:1: ( ( rule__Section__CaptionAssignment_1_1 ) )
+            // InternalKiesl.g:2677:1: ( ( ( rule__Section__CaptionAssignment_1_1 ) ) )
+            // InternalKiesl.g:2678:1: ( ( rule__Section__CaptionAssignment_1_1 ) )
             {
-            // InternalKiesl.g:2597:1: ( ( rule__Section__CaptionAssignment_1_1 ) )
-            // InternalKiesl.g:2598:2: ( rule__Section__CaptionAssignment_1_1 )
+            // InternalKiesl.g:2678:1: ( ( rule__Section__CaptionAssignment_1_1 ) )
+            // InternalKiesl.g:2679:2: ( rule__Section__CaptionAssignment_1_1 )
             {
              before(grammarAccess.getSectionAccess().getCaptionAssignment_1_1()); 
-            // InternalKiesl.g:2599:2: ( rule__Section__CaptionAssignment_1_1 )
-            // InternalKiesl.g:2599:3: rule__Section__CaptionAssignment_1_1
+            // InternalKiesl.g:2680:2: ( rule__Section__CaptionAssignment_1_1 )
+            // InternalKiesl.g:2680:3: rule__Section__CaptionAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Section__CaptionAssignment_1_1();
@@ -8405,14 +8656,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__0"
-    // InternalKiesl.g:2608:1: rule__Continuation__Group__0 : rule__Continuation__Group__0__Impl rule__Continuation__Group__1 ;
+    // InternalKiesl.g:2689:1: rule__Continuation__Group__0 : rule__Continuation__Group__0__Impl rule__Continuation__Group__1 ;
     public final void rule__Continuation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2612:1: ( rule__Continuation__Group__0__Impl rule__Continuation__Group__1 )
-            // InternalKiesl.g:2613:2: rule__Continuation__Group__0__Impl rule__Continuation__Group__1
+            // InternalKiesl.g:2693:1: ( rule__Continuation__Group__0__Impl rule__Continuation__Group__1 )
+            // InternalKiesl.g:2694:2: rule__Continuation__Group__0__Impl rule__Continuation__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Continuation__Group__0__Impl();
@@ -8443,17 +8694,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__0__Impl"
-    // InternalKiesl.g:2620:1: rule__Continuation__Group__0__Impl : ( 'continuation' ) ;
+    // InternalKiesl.g:2701:1: rule__Continuation__Group__0__Impl : ( 'continuation' ) ;
     public final void rule__Continuation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2624:1: ( ( 'continuation' ) )
-            // InternalKiesl.g:2625:1: ( 'continuation' )
+            // InternalKiesl.g:2705:1: ( ( 'continuation' ) )
+            // InternalKiesl.g:2706:1: ( 'continuation' )
             {
-            // InternalKiesl.g:2625:1: ( 'continuation' )
-            // InternalKiesl.g:2626:2: 'continuation'
+            // InternalKiesl.g:2706:1: ( 'continuation' )
+            // InternalKiesl.g:2707:2: 'continuation'
             {
              before(grammarAccess.getContinuationAccess().getContinuationKeyword_0()); 
             match(input,46,FOLLOW_2); 
@@ -8480,16 +8731,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__1"
-    // InternalKiesl.g:2635:1: rule__Continuation__Group__1 : rule__Continuation__Group__1__Impl rule__Continuation__Group__2 ;
+    // InternalKiesl.g:2716:1: rule__Continuation__Group__1 : rule__Continuation__Group__1__Impl rule__Continuation__Group__2 ;
     public final void rule__Continuation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2639:1: ( rule__Continuation__Group__1__Impl rule__Continuation__Group__2 )
-            // InternalKiesl.g:2640:2: rule__Continuation__Group__1__Impl rule__Continuation__Group__2
+            // InternalKiesl.g:2720:1: ( rule__Continuation__Group__1__Impl rule__Continuation__Group__2 )
+            // InternalKiesl.g:2721:2: rule__Continuation__Group__1__Impl rule__Continuation__Group__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_19);
             rule__Continuation__Group__1__Impl();
 
             state._fsp--;
@@ -8518,21 +8769,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__1__Impl"
-    // InternalKiesl.g:2647:1: rule__Continuation__Group__1__Impl : ( ( rule__Continuation__NameAssignment_1 ) ) ;
+    // InternalKiesl.g:2728:1: rule__Continuation__Group__1__Impl : ( ( rule__Continuation__NameAssignment_1 ) ) ;
     public final void rule__Continuation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2651:1: ( ( ( rule__Continuation__NameAssignment_1 ) ) )
-            // InternalKiesl.g:2652:1: ( ( rule__Continuation__NameAssignment_1 ) )
+            // InternalKiesl.g:2732:1: ( ( ( rule__Continuation__NameAssignment_1 ) ) )
+            // InternalKiesl.g:2733:1: ( ( rule__Continuation__NameAssignment_1 ) )
             {
-            // InternalKiesl.g:2652:1: ( ( rule__Continuation__NameAssignment_1 ) )
-            // InternalKiesl.g:2653:2: ( rule__Continuation__NameAssignment_1 )
+            // InternalKiesl.g:2733:1: ( ( rule__Continuation__NameAssignment_1 ) )
+            // InternalKiesl.g:2734:2: ( rule__Continuation__NameAssignment_1 )
             {
              before(grammarAccess.getContinuationAccess().getNameAssignment_1()); 
-            // InternalKiesl.g:2654:2: ( rule__Continuation__NameAssignment_1 )
-            // InternalKiesl.g:2654:3: rule__Continuation__NameAssignment_1
+            // InternalKiesl.g:2735:2: ( rule__Continuation__NameAssignment_1 )
+            // InternalKiesl.g:2735:3: rule__Continuation__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Continuation__NameAssignment_1();
@@ -8565,14 +8816,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__2"
-    // InternalKiesl.g:2662:1: rule__Continuation__Group__2 : rule__Continuation__Group__2__Impl rule__Continuation__Group__3 ;
+    // InternalKiesl.g:2743:1: rule__Continuation__Group__2 : rule__Continuation__Group__2__Impl rule__Continuation__Group__3 ;
     public final void rule__Continuation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2666:1: ( rule__Continuation__Group__2__Impl rule__Continuation__Group__3 )
-            // InternalKiesl.g:2667:2: rule__Continuation__Group__2__Impl rule__Continuation__Group__3
+            // InternalKiesl.g:2747:1: ( rule__Continuation__Group__2__Impl rule__Continuation__Group__3 )
+            // InternalKiesl.g:2748:2: rule__Continuation__Group__2__Impl rule__Continuation__Group__3
             {
             pushFollow(FOLLOW_8);
             rule__Continuation__Group__2__Impl();
@@ -8603,17 +8854,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__2__Impl"
-    // InternalKiesl.g:2674:1: rule__Continuation__Group__2__Impl : ( 'lifelines' ) ;
+    // InternalKiesl.g:2755:1: rule__Continuation__Group__2__Impl : ( 'lifelines' ) ;
     public final void rule__Continuation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2678:1: ( ( 'lifelines' ) )
-            // InternalKiesl.g:2679:1: ( 'lifelines' )
+            // InternalKiesl.g:2759:1: ( ( 'lifelines' ) )
+            // InternalKiesl.g:2760:1: ( 'lifelines' )
             {
-            // InternalKiesl.g:2679:1: ( 'lifelines' )
-            // InternalKiesl.g:2680:2: 'lifelines'
+            // InternalKiesl.g:2760:1: ( 'lifelines' )
+            // InternalKiesl.g:2761:2: 'lifelines'
             {
              before(grammarAccess.getContinuationAccess().getLifelinesKeyword_2()); 
             match(input,40,FOLLOW_2); 
@@ -8640,16 +8891,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__3"
-    // InternalKiesl.g:2689:1: rule__Continuation__Group__3 : rule__Continuation__Group__3__Impl rule__Continuation__Group__4 ;
+    // InternalKiesl.g:2770:1: rule__Continuation__Group__3 : rule__Continuation__Group__3__Impl rule__Continuation__Group__4 ;
     public final void rule__Continuation__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2693:1: ( rule__Continuation__Group__3__Impl rule__Continuation__Group__4 )
-            // InternalKiesl.g:2694:2: rule__Continuation__Group__3__Impl rule__Continuation__Group__4
+            // InternalKiesl.g:2774:1: ( rule__Continuation__Group__3__Impl rule__Continuation__Group__4 )
+            // InternalKiesl.g:2775:2: rule__Continuation__Group__3__Impl rule__Continuation__Group__4
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_28);
             rule__Continuation__Group__3__Impl();
 
             state._fsp--;
@@ -8678,21 +8929,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__3__Impl"
-    // InternalKiesl.g:2701:1: rule__Continuation__Group__3__Impl : ( ( rule__Continuation__LifelinesAssignment_3 ) ) ;
+    // InternalKiesl.g:2782:1: rule__Continuation__Group__3__Impl : ( ( rule__Continuation__LifelinesAssignment_3 ) ) ;
     public final void rule__Continuation__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2705:1: ( ( ( rule__Continuation__LifelinesAssignment_3 ) ) )
-            // InternalKiesl.g:2706:1: ( ( rule__Continuation__LifelinesAssignment_3 ) )
+            // InternalKiesl.g:2786:1: ( ( ( rule__Continuation__LifelinesAssignment_3 ) ) )
+            // InternalKiesl.g:2787:1: ( ( rule__Continuation__LifelinesAssignment_3 ) )
             {
-            // InternalKiesl.g:2706:1: ( ( rule__Continuation__LifelinesAssignment_3 ) )
-            // InternalKiesl.g:2707:2: ( rule__Continuation__LifelinesAssignment_3 )
+            // InternalKiesl.g:2787:1: ( ( rule__Continuation__LifelinesAssignment_3 ) )
+            // InternalKiesl.g:2788:2: ( rule__Continuation__LifelinesAssignment_3 )
             {
              before(grammarAccess.getContinuationAccess().getLifelinesAssignment_3()); 
-            // InternalKiesl.g:2708:2: ( rule__Continuation__LifelinesAssignment_3 )
-            // InternalKiesl.g:2708:3: rule__Continuation__LifelinesAssignment_3
+            // InternalKiesl.g:2789:2: ( rule__Continuation__LifelinesAssignment_3 )
+            // InternalKiesl.g:2789:3: rule__Continuation__LifelinesAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Continuation__LifelinesAssignment_3();
@@ -8725,16 +8976,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__4"
-    // InternalKiesl.g:2716:1: rule__Continuation__Group__4 : rule__Continuation__Group__4__Impl rule__Continuation__Group__5 ;
+    // InternalKiesl.g:2797:1: rule__Continuation__Group__4 : rule__Continuation__Group__4__Impl rule__Continuation__Group__5 ;
     public final void rule__Continuation__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2720:1: ( rule__Continuation__Group__4__Impl rule__Continuation__Group__5 )
-            // InternalKiesl.g:2721:2: rule__Continuation__Group__4__Impl rule__Continuation__Group__5
+            // InternalKiesl.g:2801:1: ( rule__Continuation__Group__4__Impl rule__Continuation__Group__5 )
+            // InternalKiesl.g:2802:2: rule__Continuation__Group__4__Impl rule__Continuation__Group__5
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_28);
             rule__Continuation__Group__4__Impl();
 
             state._fsp--;
@@ -8763,35 +9014,35 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__4__Impl"
-    // InternalKiesl.g:2728:1: rule__Continuation__Group__4__Impl : ( ( rule__Continuation__Group_4__0 )* ) ;
+    // InternalKiesl.g:2809:1: rule__Continuation__Group__4__Impl : ( ( rule__Continuation__Group_4__0 )* ) ;
     public final void rule__Continuation__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2732:1: ( ( ( rule__Continuation__Group_4__0 )* ) )
-            // InternalKiesl.g:2733:1: ( ( rule__Continuation__Group_4__0 )* )
+            // InternalKiesl.g:2813:1: ( ( ( rule__Continuation__Group_4__0 )* ) )
+            // InternalKiesl.g:2814:1: ( ( rule__Continuation__Group_4__0 )* )
             {
-            // InternalKiesl.g:2733:1: ( ( rule__Continuation__Group_4__0 )* )
-            // InternalKiesl.g:2734:2: ( rule__Continuation__Group_4__0 )*
+            // InternalKiesl.g:2814:1: ( ( rule__Continuation__Group_4__0 )* )
+            // InternalKiesl.g:2815:2: ( rule__Continuation__Group_4__0 )*
             {
              before(grammarAccess.getContinuationAccess().getGroup_4()); 
-            // InternalKiesl.g:2735:2: ( rule__Continuation__Group_4__0 )*
-            loop30:
+            // InternalKiesl.g:2816:2: ( rule__Continuation__Group_4__0 )*
+            loop31:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( (LA30_0==41) ) {
-                    alt30=1;
+                if ( (LA31_0==41) ) {
+                    alt31=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt31) {
             	case 1 :
-            	    // InternalKiesl.g:2735:3: rule__Continuation__Group_4__0
+            	    // InternalKiesl.g:2816:3: rule__Continuation__Group_4__0
             	    {
-            	    pushFollow(FOLLOW_20);
+            	    pushFollow(FOLLOW_21);
             	    rule__Continuation__Group_4__0();
 
             	    state._fsp--;
@@ -8801,7 +9052,7 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop30;
+            	    break loop31;
                 }
             } while (true);
 
@@ -8828,14 +9079,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__5"
-    // InternalKiesl.g:2743:1: rule__Continuation__Group__5 : rule__Continuation__Group__5__Impl ;
+    // InternalKiesl.g:2824:1: rule__Continuation__Group__5 : rule__Continuation__Group__5__Impl ;
     public final void rule__Continuation__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2747:1: ( rule__Continuation__Group__5__Impl )
-            // InternalKiesl.g:2748:2: rule__Continuation__Group__5__Impl
+            // InternalKiesl.g:2828:1: ( rule__Continuation__Group__5__Impl )
+            // InternalKiesl.g:2829:2: rule__Continuation__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Continuation__Group__5__Impl();
@@ -8861,29 +9112,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group__5__Impl"
-    // InternalKiesl.g:2754:1: rule__Continuation__Group__5__Impl : ( ( rule__Continuation__Group_5__0 )? ) ;
+    // InternalKiesl.g:2835:1: rule__Continuation__Group__5__Impl : ( ( rule__Continuation__Group_5__0 )? ) ;
     public final void rule__Continuation__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2758:1: ( ( ( rule__Continuation__Group_5__0 )? ) )
-            // InternalKiesl.g:2759:1: ( ( rule__Continuation__Group_5__0 )? )
+            // InternalKiesl.g:2839:1: ( ( ( rule__Continuation__Group_5__0 )? ) )
+            // InternalKiesl.g:2840:1: ( ( rule__Continuation__Group_5__0 )? )
             {
-            // InternalKiesl.g:2759:1: ( ( rule__Continuation__Group_5__0 )? )
-            // InternalKiesl.g:2760:2: ( rule__Continuation__Group_5__0 )?
+            // InternalKiesl.g:2840:1: ( ( rule__Continuation__Group_5__0 )? )
+            // InternalKiesl.g:2841:2: ( rule__Continuation__Group_5__0 )?
             {
              before(grammarAccess.getContinuationAccess().getGroup_5()); 
-            // InternalKiesl.g:2761:2: ( rule__Continuation__Group_5__0 )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // InternalKiesl.g:2842:2: ( rule__Continuation__Group_5__0 )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA31_0==37) ) {
-                alt31=1;
+            if ( (LA32_0==33) ) {
+                alt32=1;
             }
-            switch (alt31) {
+            switch (alt32) {
                 case 1 :
-                    // InternalKiesl.g:2761:3: rule__Continuation__Group_5__0
+                    // InternalKiesl.g:2842:3: rule__Continuation__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Continuation__Group_5__0();
@@ -8919,14 +9170,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_4__0"
-    // InternalKiesl.g:2770:1: rule__Continuation__Group_4__0 : rule__Continuation__Group_4__0__Impl rule__Continuation__Group_4__1 ;
+    // InternalKiesl.g:2851:1: rule__Continuation__Group_4__0 : rule__Continuation__Group_4__0__Impl rule__Continuation__Group_4__1 ;
     public final void rule__Continuation__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2774:1: ( rule__Continuation__Group_4__0__Impl rule__Continuation__Group_4__1 )
-            // InternalKiesl.g:2775:2: rule__Continuation__Group_4__0__Impl rule__Continuation__Group_4__1
+            // InternalKiesl.g:2855:1: ( rule__Continuation__Group_4__0__Impl rule__Continuation__Group_4__1 )
+            // InternalKiesl.g:2856:2: rule__Continuation__Group_4__0__Impl rule__Continuation__Group_4__1
             {
             pushFollow(FOLLOW_8);
             rule__Continuation__Group_4__0__Impl();
@@ -8957,17 +9208,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_4__0__Impl"
-    // InternalKiesl.g:2782:1: rule__Continuation__Group_4__0__Impl : ( ',' ) ;
+    // InternalKiesl.g:2863:1: rule__Continuation__Group_4__0__Impl : ( ',' ) ;
     public final void rule__Continuation__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2786:1: ( ( ',' ) )
-            // InternalKiesl.g:2787:1: ( ',' )
+            // InternalKiesl.g:2867:1: ( ( ',' ) )
+            // InternalKiesl.g:2868:1: ( ',' )
             {
-            // InternalKiesl.g:2787:1: ( ',' )
-            // InternalKiesl.g:2788:2: ','
+            // InternalKiesl.g:2868:1: ( ',' )
+            // InternalKiesl.g:2869:2: ','
             {
              before(grammarAccess.getContinuationAccess().getCommaKeyword_4_0()); 
             match(input,41,FOLLOW_2); 
@@ -8994,14 +9245,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_4__1"
-    // InternalKiesl.g:2797:1: rule__Continuation__Group_4__1 : rule__Continuation__Group_4__1__Impl ;
+    // InternalKiesl.g:2878:1: rule__Continuation__Group_4__1 : rule__Continuation__Group_4__1__Impl ;
     public final void rule__Continuation__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2801:1: ( rule__Continuation__Group_4__1__Impl )
-            // InternalKiesl.g:2802:2: rule__Continuation__Group_4__1__Impl
+            // InternalKiesl.g:2882:1: ( rule__Continuation__Group_4__1__Impl )
+            // InternalKiesl.g:2883:2: rule__Continuation__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Continuation__Group_4__1__Impl();
@@ -9027,21 +9278,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_4__1__Impl"
-    // InternalKiesl.g:2808:1: rule__Continuation__Group_4__1__Impl : ( ( rule__Continuation__LifelinesAssignment_4_1 ) ) ;
+    // InternalKiesl.g:2889:1: rule__Continuation__Group_4__1__Impl : ( ( rule__Continuation__LifelinesAssignment_4_1 ) ) ;
     public final void rule__Continuation__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2812:1: ( ( ( rule__Continuation__LifelinesAssignment_4_1 ) ) )
-            // InternalKiesl.g:2813:1: ( ( rule__Continuation__LifelinesAssignment_4_1 ) )
+            // InternalKiesl.g:2893:1: ( ( ( rule__Continuation__LifelinesAssignment_4_1 ) ) )
+            // InternalKiesl.g:2894:1: ( ( rule__Continuation__LifelinesAssignment_4_1 ) )
             {
-            // InternalKiesl.g:2813:1: ( ( rule__Continuation__LifelinesAssignment_4_1 ) )
-            // InternalKiesl.g:2814:2: ( rule__Continuation__LifelinesAssignment_4_1 )
+            // InternalKiesl.g:2894:1: ( ( rule__Continuation__LifelinesAssignment_4_1 ) )
+            // InternalKiesl.g:2895:2: ( rule__Continuation__LifelinesAssignment_4_1 )
             {
              before(grammarAccess.getContinuationAccess().getLifelinesAssignment_4_1()); 
-            // InternalKiesl.g:2815:2: ( rule__Continuation__LifelinesAssignment_4_1 )
-            // InternalKiesl.g:2815:3: rule__Continuation__LifelinesAssignment_4_1
+            // InternalKiesl.g:2896:2: ( rule__Continuation__LifelinesAssignment_4_1 )
+            // InternalKiesl.g:2896:3: rule__Continuation__LifelinesAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Continuation__LifelinesAssignment_4_1();
@@ -9074,14 +9325,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_5__0"
-    // InternalKiesl.g:2824:1: rule__Continuation__Group_5__0 : rule__Continuation__Group_5__0__Impl rule__Continuation__Group_5__1 ;
+    // InternalKiesl.g:2905:1: rule__Continuation__Group_5__0 : rule__Continuation__Group_5__0__Impl rule__Continuation__Group_5__1 ;
     public final void rule__Continuation__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2828:1: ( rule__Continuation__Group_5__0__Impl rule__Continuation__Group_5__1 )
-            // InternalKiesl.g:2829:2: rule__Continuation__Group_5__0__Impl rule__Continuation__Group_5__1
+            // InternalKiesl.g:2909:1: ( rule__Continuation__Group_5__0__Impl rule__Continuation__Group_5__1 )
+            // InternalKiesl.g:2910:2: rule__Continuation__Group_5__0__Impl rule__Continuation__Group_5__1
             {
             pushFollow(FOLLOW_6);
             rule__Continuation__Group_5__0__Impl();
@@ -9112,20 +9363,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_5__0__Impl"
-    // InternalKiesl.g:2836:1: rule__Continuation__Group_5__0__Impl : ( 'note' ) ;
+    // InternalKiesl.g:2917:1: rule__Continuation__Group_5__0__Impl : ( 'note' ) ;
     public final void rule__Continuation__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2840:1: ( ( 'note' ) )
-            // InternalKiesl.g:2841:1: ( 'note' )
+            // InternalKiesl.g:2921:1: ( ( 'note' ) )
+            // InternalKiesl.g:2922:1: ( 'note' )
             {
-            // InternalKiesl.g:2841:1: ( 'note' )
-            // InternalKiesl.g:2842:2: 'note'
+            // InternalKiesl.g:2922:1: ( 'note' )
+            // InternalKiesl.g:2923:2: 'note'
             {
              before(grammarAccess.getContinuationAccess().getNoteKeyword_5_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getContinuationAccess().getNoteKeyword_5_0()); 
 
             }
@@ -9149,14 +9400,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_5__1"
-    // InternalKiesl.g:2851:1: rule__Continuation__Group_5__1 : rule__Continuation__Group_5__1__Impl ;
+    // InternalKiesl.g:2932:1: rule__Continuation__Group_5__1 : rule__Continuation__Group_5__1__Impl ;
     public final void rule__Continuation__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2855:1: ( rule__Continuation__Group_5__1__Impl )
-            // InternalKiesl.g:2856:2: rule__Continuation__Group_5__1__Impl
+            // InternalKiesl.g:2936:1: ( rule__Continuation__Group_5__1__Impl )
+            // InternalKiesl.g:2937:2: rule__Continuation__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Continuation__Group_5__1__Impl();
@@ -9182,21 +9433,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__Group_5__1__Impl"
-    // InternalKiesl.g:2862:1: rule__Continuation__Group_5__1__Impl : ( ( rule__Continuation__NoteAssignment_5_1 ) ) ;
+    // InternalKiesl.g:2943:1: rule__Continuation__Group_5__1__Impl : ( ( rule__Continuation__NoteAssignment_5_1 ) ) ;
     public final void rule__Continuation__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2866:1: ( ( ( rule__Continuation__NoteAssignment_5_1 ) ) )
-            // InternalKiesl.g:2867:1: ( ( rule__Continuation__NoteAssignment_5_1 ) )
+            // InternalKiesl.g:2947:1: ( ( ( rule__Continuation__NoteAssignment_5_1 ) ) )
+            // InternalKiesl.g:2948:1: ( ( rule__Continuation__NoteAssignment_5_1 ) )
             {
-            // InternalKiesl.g:2867:1: ( ( rule__Continuation__NoteAssignment_5_1 ) )
-            // InternalKiesl.g:2868:2: ( rule__Continuation__NoteAssignment_5_1 )
+            // InternalKiesl.g:2948:1: ( ( rule__Continuation__NoteAssignment_5_1 ) )
+            // InternalKiesl.g:2949:2: ( rule__Continuation__NoteAssignment_5_1 )
             {
              before(grammarAccess.getContinuationAccess().getNoteAssignment_5_1()); 
-            // InternalKiesl.g:2869:2: ( rule__Continuation__NoteAssignment_5_1 )
-            // InternalKiesl.g:2869:3: rule__Continuation__NoteAssignment_5_1
+            // InternalKiesl.g:2950:2: ( rule__Continuation__NoteAssignment_5_1 )
+            // InternalKiesl.g:2950:3: rule__Continuation__NoteAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__Continuation__NoteAssignment_5_1();
@@ -9229,16 +9480,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__0"
-    // InternalKiesl.g:2878:1: rule__StateInvariant__Group__0 : rule__StateInvariant__Group__0__Impl rule__StateInvariant__Group__1 ;
+    // InternalKiesl.g:2959:1: rule__StateInvariant__Group__0 : rule__StateInvariant__Group__0__Impl rule__StateInvariant__Group__1 ;
     public final void rule__StateInvariant__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2882:1: ( rule__StateInvariant__Group__0__Impl rule__StateInvariant__Group__1 )
-            // InternalKiesl.g:2883:2: rule__StateInvariant__Group__0__Impl rule__StateInvariant__Group__1
+            // InternalKiesl.g:2963:1: ( rule__StateInvariant__Group__0__Impl rule__StateInvariant__Group__1 )
+            // InternalKiesl.g:2964:2: rule__StateInvariant__Group__0__Impl rule__StateInvariant__Group__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_29);
             rule__StateInvariant__Group__0__Impl();
 
             state._fsp--;
@@ -9267,21 +9518,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__0__Impl"
-    // InternalKiesl.g:2890:1: rule__StateInvariant__Group__0__Impl : ( ( rule__StateInvariant__LifelineAssignment_0 ) ) ;
+    // InternalKiesl.g:2971:1: rule__StateInvariant__Group__0__Impl : ( ( rule__StateInvariant__LifelineAssignment_0 ) ) ;
     public final void rule__StateInvariant__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2894:1: ( ( ( rule__StateInvariant__LifelineAssignment_0 ) ) )
-            // InternalKiesl.g:2895:1: ( ( rule__StateInvariant__LifelineAssignment_0 ) )
+            // InternalKiesl.g:2975:1: ( ( ( rule__StateInvariant__LifelineAssignment_0 ) ) )
+            // InternalKiesl.g:2976:1: ( ( rule__StateInvariant__LifelineAssignment_0 ) )
             {
-            // InternalKiesl.g:2895:1: ( ( rule__StateInvariant__LifelineAssignment_0 ) )
-            // InternalKiesl.g:2896:2: ( rule__StateInvariant__LifelineAssignment_0 )
+            // InternalKiesl.g:2976:1: ( ( rule__StateInvariant__LifelineAssignment_0 ) )
+            // InternalKiesl.g:2977:2: ( rule__StateInvariant__LifelineAssignment_0 )
             {
              before(grammarAccess.getStateInvariantAccess().getLifelineAssignment_0()); 
-            // InternalKiesl.g:2897:2: ( rule__StateInvariant__LifelineAssignment_0 )
-            // InternalKiesl.g:2897:3: rule__StateInvariant__LifelineAssignment_0
+            // InternalKiesl.g:2978:2: ( rule__StateInvariant__LifelineAssignment_0 )
+            // InternalKiesl.g:2978:3: rule__StateInvariant__LifelineAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__StateInvariant__LifelineAssignment_0();
@@ -9314,14 +9565,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__1"
-    // InternalKiesl.g:2905:1: rule__StateInvariant__Group__1 : rule__StateInvariant__Group__1__Impl rule__StateInvariant__Group__2 ;
+    // InternalKiesl.g:2986:1: rule__StateInvariant__Group__1 : rule__StateInvariant__Group__1__Impl rule__StateInvariant__Group__2 ;
     public final void rule__StateInvariant__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2909:1: ( rule__StateInvariant__Group__1__Impl rule__StateInvariant__Group__2 )
-            // InternalKiesl.g:2910:2: rule__StateInvariant__Group__1__Impl rule__StateInvariant__Group__2
+            // InternalKiesl.g:2990:1: ( rule__StateInvariant__Group__1__Impl rule__StateInvariant__Group__2 )
+            // InternalKiesl.g:2991:2: rule__StateInvariant__Group__1__Impl rule__StateInvariant__Group__2
             {
             pushFollow(FOLLOW_6);
             rule__StateInvariant__Group__1__Impl();
@@ -9352,17 +9603,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__1__Impl"
-    // InternalKiesl.g:2917:1: rule__StateInvariant__Group__1__Impl : ( 'invariant' ) ;
+    // InternalKiesl.g:2998:1: rule__StateInvariant__Group__1__Impl : ( 'invariant' ) ;
     public final void rule__StateInvariant__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2921:1: ( ( 'invariant' ) )
-            // InternalKiesl.g:2922:1: ( 'invariant' )
+            // InternalKiesl.g:3002:1: ( ( 'invariant' ) )
+            // InternalKiesl.g:3003:1: ( 'invariant' )
             {
-            // InternalKiesl.g:2922:1: ( 'invariant' )
-            // InternalKiesl.g:2923:2: 'invariant'
+            // InternalKiesl.g:3003:1: ( 'invariant' )
+            // InternalKiesl.g:3004:2: 'invariant'
             {
              before(grammarAccess.getStateInvariantAccess().getInvariantKeyword_1()); 
             match(input,47,FOLLOW_2); 
@@ -9389,16 +9640,16 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__2"
-    // InternalKiesl.g:2932:1: rule__StateInvariant__Group__2 : rule__StateInvariant__Group__2__Impl rule__StateInvariant__Group__3 ;
+    // InternalKiesl.g:3013:1: rule__StateInvariant__Group__2 : rule__StateInvariant__Group__2__Impl rule__StateInvariant__Group__3 ;
     public final void rule__StateInvariant__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2936:1: ( rule__StateInvariant__Group__2__Impl rule__StateInvariant__Group__3 )
-            // InternalKiesl.g:2937:2: rule__StateInvariant__Group__2__Impl rule__StateInvariant__Group__3
+            // InternalKiesl.g:3017:1: ( rule__StateInvariant__Group__2__Impl rule__StateInvariant__Group__3 )
+            // InternalKiesl.g:3018:2: rule__StateInvariant__Group__2__Impl rule__StateInvariant__Group__3
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_30);
             rule__StateInvariant__Group__2__Impl();
 
             state._fsp--;
@@ -9427,21 +9678,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__2__Impl"
-    // InternalKiesl.g:2944:1: rule__StateInvariant__Group__2__Impl : ( ( rule__StateInvariant__InvariantAssignment_2 ) ) ;
+    // InternalKiesl.g:3025:1: rule__StateInvariant__Group__2__Impl : ( ( rule__StateInvariant__InvariantAssignment_2 ) ) ;
     public final void rule__StateInvariant__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2948:1: ( ( ( rule__StateInvariant__InvariantAssignment_2 ) ) )
-            // InternalKiesl.g:2949:1: ( ( rule__StateInvariant__InvariantAssignment_2 ) )
+            // InternalKiesl.g:3029:1: ( ( ( rule__StateInvariant__InvariantAssignment_2 ) ) )
+            // InternalKiesl.g:3030:1: ( ( rule__StateInvariant__InvariantAssignment_2 ) )
             {
-            // InternalKiesl.g:2949:1: ( ( rule__StateInvariant__InvariantAssignment_2 ) )
-            // InternalKiesl.g:2950:2: ( rule__StateInvariant__InvariantAssignment_2 )
+            // InternalKiesl.g:3030:1: ( ( rule__StateInvariant__InvariantAssignment_2 ) )
+            // InternalKiesl.g:3031:2: ( rule__StateInvariant__InvariantAssignment_2 )
             {
              before(grammarAccess.getStateInvariantAccess().getInvariantAssignment_2()); 
-            // InternalKiesl.g:2951:2: ( rule__StateInvariant__InvariantAssignment_2 )
-            // InternalKiesl.g:2951:3: rule__StateInvariant__InvariantAssignment_2
+            // InternalKiesl.g:3032:2: ( rule__StateInvariant__InvariantAssignment_2 )
+            // InternalKiesl.g:3032:3: rule__StateInvariant__InvariantAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__StateInvariant__InvariantAssignment_2();
@@ -9474,14 +9725,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__3"
-    // InternalKiesl.g:2959:1: rule__StateInvariant__Group__3 : rule__StateInvariant__Group__3__Impl ;
+    // InternalKiesl.g:3040:1: rule__StateInvariant__Group__3 : rule__StateInvariant__Group__3__Impl ;
     public final void rule__StateInvariant__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2963:1: ( rule__StateInvariant__Group__3__Impl )
-            // InternalKiesl.g:2964:2: rule__StateInvariant__Group__3__Impl
+            // InternalKiesl.g:3044:1: ( rule__StateInvariant__Group__3__Impl )
+            // InternalKiesl.g:3045:2: rule__StateInvariant__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StateInvariant__Group__3__Impl();
@@ -9507,29 +9758,29 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group__3__Impl"
-    // InternalKiesl.g:2970:1: rule__StateInvariant__Group__3__Impl : ( ( rule__StateInvariant__Group_3__0 )? ) ;
+    // InternalKiesl.g:3051:1: rule__StateInvariant__Group__3__Impl : ( ( rule__StateInvariant__Group_3__0 )? ) ;
     public final void rule__StateInvariant__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2974:1: ( ( ( rule__StateInvariant__Group_3__0 )? ) )
-            // InternalKiesl.g:2975:1: ( ( rule__StateInvariant__Group_3__0 )? )
+            // InternalKiesl.g:3055:1: ( ( ( rule__StateInvariant__Group_3__0 )? ) )
+            // InternalKiesl.g:3056:1: ( ( rule__StateInvariant__Group_3__0 )? )
             {
-            // InternalKiesl.g:2975:1: ( ( rule__StateInvariant__Group_3__0 )? )
-            // InternalKiesl.g:2976:2: ( rule__StateInvariant__Group_3__0 )?
+            // InternalKiesl.g:3056:1: ( ( rule__StateInvariant__Group_3__0 )? )
+            // InternalKiesl.g:3057:2: ( rule__StateInvariant__Group_3__0 )?
             {
              before(grammarAccess.getStateInvariantAccess().getGroup_3()); 
-            // InternalKiesl.g:2977:2: ( rule__StateInvariant__Group_3__0 )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // InternalKiesl.g:3058:2: ( rule__StateInvariant__Group_3__0 )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA32_0==37) ) {
-                alt32=1;
+            if ( (LA33_0==33) ) {
+                alt33=1;
             }
-            switch (alt32) {
+            switch (alt33) {
                 case 1 :
-                    // InternalKiesl.g:2977:3: rule__StateInvariant__Group_3__0
+                    // InternalKiesl.g:3058:3: rule__StateInvariant__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__StateInvariant__Group_3__0();
@@ -9565,14 +9816,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group_3__0"
-    // InternalKiesl.g:2986:1: rule__StateInvariant__Group_3__0 : rule__StateInvariant__Group_3__0__Impl rule__StateInvariant__Group_3__1 ;
+    // InternalKiesl.g:3067:1: rule__StateInvariant__Group_3__0 : rule__StateInvariant__Group_3__0__Impl rule__StateInvariant__Group_3__1 ;
     public final void rule__StateInvariant__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:2990:1: ( rule__StateInvariant__Group_3__0__Impl rule__StateInvariant__Group_3__1 )
-            // InternalKiesl.g:2991:2: rule__StateInvariant__Group_3__0__Impl rule__StateInvariant__Group_3__1
+            // InternalKiesl.g:3071:1: ( rule__StateInvariant__Group_3__0__Impl rule__StateInvariant__Group_3__1 )
+            // InternalKiesl.g:3072:2: rule__StateInvariant__Group_3__0__Impl rule__StateInvariant__Group_3__1
             {
             pushFollow(FOLLOW_6);
             rule__StateInvariant__Group_3__0__Impl();
@@ -9603,20 +9854,20 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group_3__0__Impl"
-    // InternalKiesl.g:2998:1: rule__StateInvariant__Group_3__0__Impl : ( 'note' ) ;
+    // InternalKiesl.g:3079:1: rule__StateInvariant__Group_3__0__Impl : ( 'note' ) ;
     public final void rule__StateInvariant__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3002:1: ( ( 'note' ) )
-            // InternalKiesl.g:3003:1: ( 'note' )
+            // InternalKiesl.g:3083:1: ( ( 'note' ) )
+            // InternalKiesl.g:3084:1: ( 'note' )
             {
-            // InternalKiesl.g:3003:1: ( 'note' )
-            // InternalKiesl.g:3004:2: 'note'
+            // InternalKiesl.g:3084:1: ( 'note' )
+            // InternalKiesl.g:3085:2: 'note'
             {
              before(grammarAccess.getStateInvariantAccess().getNoteKeyword_3_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getStateInvariantAccess().getNoteKeyword_3_0()); 
 
             }
@@ -9640,14 +9891,14 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group_3__1"
-    // InternalKiesl.g:3013:1: rule__StateInvariant__Group_3__1 : rule__StateInvariant__Group_3__1__Impl ;
+    // InternalKiesl.g:3094:1: rule__StateInvariant__Group_3__1 : rule__StateInvariant__Group_3__1__Impl ;
     public final void rule__StateInvariant__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3017:1: ( rule__StateInvariant__Group_3__1__Impl )
-            // InternalKiesl.g:3018:2: rule__StateInvariant__Group_3__1__Impl
+            // InternalKiesl.g:3098:1: ( rule__StateInvariant__Group_3__1__Impl )
+            // InternalKiesl.g:3099:2: rule__StateInvariant__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StateInvariant__Group_3__1__Impl();
@@ -9673,21 +9924,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__Group_3__1__Impl"
-    // InternalKiesl.g:3024:1: rule__StateInvariant__Group_3__1__Impl : ( ( rule__StateInvariant__NoteAssignment_3_1 ) ) ;
+    // InternalKiesl.g:3105:1: rule__StateInvariant__Group_3__1__Impl : ( ( rule__StateInvariant__NoteAssignment_3_1 ) ) ;
     public final void rule__StateInvariant__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3028:1: ( ( ( rule__StateInvariant__NoteAssignment_3_1 ) ) )
-            // InternalKiesl.g:3029:1: ( ( rule__StateInvariant__NoteAssignment_3_1 ) )
+            // InternalKiesl.g:3109:1: ( ( ( rule__StateInvariant__NoteAssignment_3_1 ) ) )
+            // InternalKiesl.g:3110:1: ( ( rule__StateInvariant__NoteAssignment_3_1 ) )
             {
-            // InternalKiesl.g:3029:1: ( ( rule__StateInvariant__NoteAssignment_3_1 ) )
-            // InternalKiesl.g:3030:2: ( rule__StateInvariant__NoteAssignment_3_1 )
+            // InternalKiesl.g:3110:1: ( ( rule__StateInvariant__NoteAssignment_3_1 ) )
+            // InternalKiesl.g:3111:2: ( rule__StateInvariant__NoteAssignment_3_1 )
             {
              before(grammarAccess.getStateInvariantAccess().getNoteAssignment_3_1()); 
-            // InternalKiesl.g:3031:2: ( rule__StateInvariant__NoteAssignment_3_1 )
-            // InternalKiesl.g:3031:3: rule__StateInvariant__NoteAssignment_3_1
+            // InternalKiesl.g:3112:2: ( rule__StateInvariant__NoteAssignment_3_1 )
+            // InternalKiesl.g:3112:3: rule__StateInvariant__NoteAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__StateInvariant__NoteAssignment_3_1();
@@ -9720,17 +9971,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__CaptionAssignment_1_1"
-    // InternalKiesl.g:3040:1: rule__Interaction__CaptionAssignment_1_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3121:1: rule__Interaction__CaptionAssignment_1_1 : ( RULE_STRING ) ;
     public final void rule__Interaction__CaptionAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3044:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3045:2: ( RULE_STRING )
+            // InternalKiesl.g:3125:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3126:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3045:2: ( RULE_STRING )
-            // InternalKiesl.g:3046:3: RULE_STRING
+            // InternalKiesl.g:3126:2: ( RULE_STRING )
+            // InternalKiesl.g:3127:3: RULE_STRING
             {
              before(grammarAccess.getInteractionAccess().getCaptionSTRINGTerminalRuleCall_1_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -9757,17 +10008,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__NameAssignment_1_2_1"
-    // InternalKiesl.g:3055:1: rule__Interaction__NameAssignment_1_2_1 : ( RULE_ID ) ;
+    // InternalKiesl.g:3136:1: rule__Interaction__NameAssignment_1_2_1 : ( RULE_ID ) ;
     public final void rule__Interaction__NameAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3059:1: ( ( RULE_ID ) )
-            // InternalKiesl.g:3060:2: ( RULE_ID )
+            // InternalKiesl.g:3140:1: ( ( RULE_ID ) )
+            // InternalKiesl.g:3141:2: ( RULE_ID )
             {
-            // InternalKiesl.g:3060:2: ( RULE_ID )
-            // InternalKiesl.g:3061:3: RULE_ID
+            // InternalKiesl.g:3141:2: ( RULE_ID )
+            // InternalKiesl.g:3142:3: RULE_ID
             {
              before(grammarAccess.getInteractionAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9793,18 +10044,55 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Interaction__NameAssignment_1_2_1"
 
 
+    // $ANTLR start "rule__Interaction__NoteAssignment_1_3_1"
+    // InternalKiesl.g:3151:1: rule__Interaction__NoteAssignment_1_3_1 : ( RULE_STRING ) ;
+    public final void rule__Interaction__NoteAssignment_1_3_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalKiesl.g:3155:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3156:2: ( RULE_STRING )
+            {
+            // InternalKiesl.g:3156:2: ( RULE_STRING )
+            // InternalKiesl.g:3157:3: RULE_STRING
+            {
+             before(grammarAccess.getInteractionAccess().getNoteSTRINGTerminalRuleCall_1_3_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getInteractionAccess().getNoteSTRINGTerminalRuleCall_1_3_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Interaction__NoteAssignment_1_3_1"
+
+
     // $ANTLR start "rule__Interaction__LifelinesAssignment_2"
-    // InternalKiesl.g:3070:1: rule__Interaction__LifelinesAssignment_2 : ( ruleLifeline ) ;
+    // InternalKiesl.g:3166:1: rule__Interaction__LifelinesAssignment_2 : ( ruleLifeline ) ;
     public final void rule__Interaction__LifelinesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3074:1: ( ( ruleLifeline ) )
-            // InternalKiesl.g:3075:2: ( ruleLifeline )
+            // InternalKiesl.g:3170:1: ( ( ruleLifeline ) )
+            // InternalKiesl.g:3171:2: ( ruleLifeline )
             {
-            // InternalKiesl.g:3075:2: ( ruleLifeline )
-            // InternalKiesl.g:3076:3: ruleLifeline
+            // InternalKiesl.g:3171:2: ( ruleLifeline )
+            // InternalKiesl.g:3172:3: ruleLifeline
             {
              before(grammarAccess.getInteractionAccess().getLifelinesLifelineParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -9835,17 +10123,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Interaction__ElementsAssignment_3"
-    // InternalKiesl.g:3085:1: rule__Interaction__ElementsAssignment_3 : ( ruleElement ) ;
+    // InternalKiesl.g:3181:1: rule__Interaction__ElementsAssignment_3 : ( ruleElement ) ;
     public final void rule__Interaction__ElementsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3089:1: ( ( ruleElement ) )
-            // InternalKiesl.g:3090:2: ( ruleElement )
+            // InternalKiesl.g:3185:1: ( ( ruleElement ) )
+            // InternalKiesl.g:3186:2: ( ruleElement )
             {
-            // InternalKiesl.g:3090:2: ( ruleElement )
-            // InternalKiesl.g:3091:3: ruleElement
+            // InternalKiesl.g:3186:2: ( ruleElement )
+            // InternalKiesl.g:3187:3: ruleElement
             {
              before(grammarAccess.getInteractionAccess().getElementsElementParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -9876,17 +10164,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__CaptionAssignment_1"
-    // InternalKiesl.g:3100:1: rule__Lifeline__CaptionAssignment_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3196:1: rule__Lifeline__CaptionAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Lifeline__CaptionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3104:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3105:2: ( RULE_STRING )
+            // InternalKiesl.g:3200:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3201:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3105:2: ( RULE_STRING )
-            // InternalKiesl.g:3106:3: RULE_STRING
+            // InternalKiesl.g:3201:2: ( RULE_STRING )
+            // InternalKiesl.g:3202:3: RULE_STRING
             {
              before(grammarAccess.getLifelineAccess().getCaptionSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -9913,17 +10201,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Lifeline__NameAssignment_3"
-    // InternalKiesl.g:3115:1: rule__Lifeline__NameAssignment_3 : ( RULE_ID ) ;
+    // InternalKiesl.g:3211:1: rule__Lifeline__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__Lifeline__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3119:1: ( ( RULE_ID ) )
-            // InternalKiesl.g:3120:2: ( RULE_ID )
+            // InternalKiesl.g:3215:1: ( ( RULE_ID ) )
+            // InternalKiesl.g:3216:2: ( RULE_ID )
             {
-            // InternalKiesl.g:3120:2: ( RULE_ID )
-            // InternalKiesl.g:3121:3: RULE_ID
+            // InternalKiesl.g:3216:2: ( RULE_ID )
+            // InternalKiesl.g:3217:3: RULE_ID
             {
              before(grammarAccess.getLifelineAccess().getNameIDTerminalRuleCall_3_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9950,21 +10238,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__SourceAssignment_0"
-    // InternalKiesl.g:3130:1: rule__RegularMessage__SourceAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3226:1: rule__RegularMessage__SourceAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__RegularMessage__SourceAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3134:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3135:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3230:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3231:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3135:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3136:3: ( RULE_ID )
+            // InternalKiesl.g:3231:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3232:3: ( RULE_ID )
             {
              before(grammarAccess.getRegularMessageAccess().getSourceCommunicationParticipantCrossReference_0_0()); 
-            // InternalKiesl.g:3137:3: ( RULE_ID )
-            // InternalKiesl.g:3138:4: RULE_ID
+            // InternalKiesl.g:3233:3: ( RULE_ID )
+            // InternalKiesl.g:3234:4: RULE_ID
             {
              before(grammarAccess.getRegularMessageAccess().getSourceCommunicationParticipantIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -9995,17 +10283,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__TypeAssignment_1"
-    // InternalKiesl.g:3149:1: rule__RegularMessage__TypeAssignment_1 : ( ruleTwoParticipantsMessageType ) ;
+    // InternalKiesl.g:3245:1: rule__RegularMessage__TypeAssignment_1 : ( ruleTwoParticipantsMessageType ) ;
     public final void rule__RegularMessage__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3153:1: ( ( ruleTwoParticipantsMessageType ) )
-            // InternalKiesl.g:3154:2: ( ruleTwoParticipantsMessageType )
+            // InternalKiesl.g:3249:1: ( ( ruleTwoParticipantsMessageType ) )
+            // InternalKiesl.g:3250:2: ( ruleTwoParticipantsMessageType )
             {
-            // InternalKiesl.g:3154:2: ( ruleTwoParticipantsMessageType )
-            // InternalKiesl.g:3155:3: ruleTwoParticipantsMessageType
+            // InternalKiesl.g:3250:2: ( ruleTwoParticipantsMessageType )
+            // InternalKiesl.g:3251:3: ruleTwoParticipantsMessageType
             {
              before(grammarAccess.getRegularMessageAccess().getTypeTwoParticipantsMessageTypeEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10036,17 +10324,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__CaptionAssignment_2"
-    // InternalKiesl.g:3164:1: rule__RegularMessage__CaptionAssignment_2 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3260:1: rule__RegularMessage__CaptionAssignment_2 : ( RULE_STRING ) ;
     public final void rule__RegularMessage__CaptionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3168:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3169:2: ( RULE_STRING )
+            // InternalKiesl.g:3264:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3265:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3169:2: ( RULE_STRING )
-            // InternalKiesl.g:3170:3: RULE_STRING
+            // InternalKiesl.g:3265:2: ( RULE_STRING )
+            // InternalKiesl.g:3266:3: RULE_STRING
             {
              before(grammarAccess.getRegularMessageAccess().getCaptionSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -10073,21 +10361,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__TargetAssignment_4"
-    // InternalKiesl.g:3179:1: rule__RegularMessage__TargetAssignment_4 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3275:1: rule__RegularMessage__TargetAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__RegularMessage__TargetAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3183:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3184:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3279:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3280:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3184:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3185:3: ( RULE_ID )
+            // InternalKiesl.g:3280:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3281:3: ( RULE_ID )
             {
              before(grammarAccess.getRegularMessageAccess().getTargetCommunicationParticipantCrossReference_4_0()); 
-            // InternalKiesl.g:3186:3: ( RULE_ID )
-            // InternalKiesl.g:3187:4: RULE_ID
+            // InternalKiesl.g:3282:3: ( RULE_ID )
+            // InternalKiesl.g:3283:4: RULE_ID
             {
              before(grammarAccess.getRegularMessageAccess().getTargetCommunicationParticipantIDTerminalRuleCall_4_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -10118,21 +10406,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__SourceStartEndExecAssignment_5_0"
-    // InternalKiesl.g:3198:1: rule__RegularMessage__SourceStartEndExecAssignment_5_0 : ( ( 'sourceStartEndExec' ) ) ;
+    // InternalKiesl.g:3294:1: rule__RegularMessage__SourceStartEndExecAssignment_5_0 : ( ( 'sourceStartEndExec' ) ) ;
     public final void rule__RegularMessage__SourceStartEndExecAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3202:1: ( ( ( 'sourceStartEndExec' ) ) )
-            // InternalKiesl.g:3203:2: ( ( 'sourceStartEndExec' ) )
+            // InternalKiesl.g:3298:1: ( ( ( 'sourceStartEndExec' ) ) )
+            // InternalKiesl.g:3299:2: ( ( 'sourceStartEndExec' ) )
             {
-            // InternalKiesl.g:3203:2: ( ( 'sourceStartEndExec' ) )
-            // InternalKiesl.g:3204:3: ( 'sourceStartEndExec' )
+            // InternalKiesl.g:3299:2: ( ( 'sourceStartEndExec' ) )
+            // InternalKiesl.g:3300:3: ( 'sourceStartEndExec' )
             {
              before(grammarAccess.getRegularMessageAccess().getSourceStartEndExecSourceStartEndExecKeyword_5_0_0()); 
-            // InternalKiesl.g:3205:3: ( 'sourceStartEndExec' )
-            // InternalKiesl.g:3206:4: 'sourceStartEndExec'
+            // InternalKiesl.g:3301:3: ( 'sourceStartEndExec' )
+            // InternalKiesl.g:3302:4: 'sourceStartEndExec'
             {
              before(grammarAccess.getRegularMessageAccess().getSourceStartEndExecSourceStartEndExecKeyword_5_0_0()); 
             match(input,48,FOLLOW_2); 
@@ -10163,21 +10451,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__SourceStartExecAssignment_5_1"
-    // InternalKiesl.g:3217:1: rule__RegularMessage__SourceStartExecAssignment_5_1 : ( ( 'sourceStartExec' ) ) ;
+    // InternalKiesl.g:3313:1: rule__RegularMessage__SourceStartExecAssignment_5_1 : ( ( 'sourceStartExec' ) ) ;
     public final void rule__RegularMessage__SourceStartExecAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3221:1: ( ( ( 'sourceStartExec' ) ) )
-            // InternalKiesl.g:3222:2: ( ( 'sourceStartExec' ) )
+            // InternalKiesl.g:3317:1: ( ( ( 'sourceStartExec' ) ) )
+            // InternalKiesl.g:3318:2: ( ( 'sourceStartExec' ) )
             {
-            // InternalKiesl.g:3222:2: ( ( 'sourceStartExec' ) )
-            // InternalKiesl.g:3223:3: ( 'sourceStartExec' )
+            // InternalKiesl.g:3318:2: ( ( 'sourceStartExec' ) )
+            // InternalKiesl.g:3319:3: ( 'sourceStartExec' )
             {
              before(grammarAccess.getRegularMessageAccess().getSourceStartExecSourceStartExecKeyword_5_1_0()); 
-            // InternalKiesl.g:3224:3: ( 'sourceStartExec' )
-            // InternalKiesl.g:3225:4: 'sourceStartExec'
+            // InternalKiesl.g:3320:3: ( 'sourceStartExec' )
+            // InternalKiesl.g:3321:4: 'sourceStartExec'
             {
              before(grammarAccess.getRegularMessageAccess().getSourceStartExecSourceStartExecKeyword_5_1_0()); 
             match(input,49,FOLLOW_2); 
@@ -10208,21 +10496,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__SourceEndExecAssignment_5_2_0"
-    // InternalKiesl.g:3236:1: rule__RegularMessage__SourceEndExecAssignment_5_2_0 : ( ( 'sourceEndExec' ) ) ;
+    // InternalKiesl.g:3332:1: rule__RegularMessage__SourceEndExecAssignment_5_2_0 : ( ( 'sourceEndExec' ) ) ;
     public final void rule__RegularMessage__SourceEndExecAssignment_5_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3240:1: ( ( ( 'sourceEndExec' ) ) )
-            // InternalKiesl.g:3241:2: ( ( 'sourceEndExec' ) )
+            // InternalKiesl.g:3336:1: ( ( ( 'sourceEndExec' ) ) )
+            // InternalKiesl.g:3337:2: ( ( 'sourceEndExec' ) )
             {
-            // InternalKiesl.g:3241:2: ( ( 'sourceEndExec' ) )
-            // InternalKiesl.g:3242:3: ( 'sourceEndExec' )
+            // InternalKiesl.g:3337:2: ( ( 'sourceEndExec' ) )
+            // InternalKiesl.g:3338:3: ( 'sourceEndExec' )
             {
              before(grammarAccess.getRegularMessageAccess().getSourceEndExecSourceEndExecKeyword_5_2_0_0()); 
-            // InternalKiesl.g:3243:3: ( 'sourceEndExec' )
-            // InternalKiesl.g:3244:4: 'sourceEndExec'
+            // InternalKiesl.g:3339:3: ( 'sourceEndExec' )
+            // InternalKiesl.g:3340:4: 'sourceEndExec'
             {
              before(grammarAccess.getRegularMessageAccess().getSourceEndExecSourceEndExecKeyword_5_2_0_0()); 
             match(input,50,FOLLOW_2); 
@@ -10253,17 +10541,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__SourceEndExecCountAssignment_5_2_1"
-    // InternalKiesl.g:3255:1: rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
+    // InternalKiesl.g:3351:1: rule__RegularMessage__SourceEndExecCountAssignment_5_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
     public final void rule__RegularMessage__SourceEndExecCountAssignment_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3259:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
-            // InternalKiesl.g:3260:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3355:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
+            // InternalKiesl.g:3356:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
             {
-            // InternalKiesl.g:3260:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
-            // InternalKiesl.g:3261:3: RULE_INT_GREATER_ZERO_OR_ALL
+            // InternalKiesl.g:3356:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3357:3: RULE_INT_GREATER_ZERO_OR_ALL
             {
              before(grammarAccess.getRegularMessageAccess().getSourceEndExecCountINT_GREATER_ZERO_OR_ALLTerminalRuleCall_5_2_1_0()); 
             match(input,RULE_INT_GREATER_ZERO_OR_ALL,FOLLOW_2); 
@@ -10290,21 +10578,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__TargetStartEndExecAssignment_6_0"
-    // InternalKiesl.g:3270:1: rule__RegularMessage__TargetStartEndExecAssignment_6_0 : ( ( 'targetStartEndExec' ) ) ;
+    // InternalKiesl.g:3366:1: rule__RegularMessage__TargetStartEndExecAssignment_6_0 : ( ( 'targetStartEndExec' ) ) ;
     public final void rule__RegularMessage__TargetStartEndExecAssignment_6_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3274:1: ( ( ( 'targetStartEndExec' ) ) )
-            // InternalKiesl.g:3275:2: ( ( 'targetStartEndExec' ) )
+            // InternalKiesl.g:3370:1: ( ( ( 'targetStartEndExec' ) ) )
+            // InternalKiesl.g:3371:2: ( ( 'targetStartEndExec' ) )
             {
-            // InternalKiesl.g:3275:2: ( ( 'targetStartEndExec' ) )
-            // InternalKiesl.g:3276:3: ( 'targetStartEndExec' )
+            // InternalKiesl.g:3371:2: ( ( 'targetStartEndExec' ) )
+            // InternalKiesl.g:3372:3: ( 'targetStartEndExec' )
             {
              before(grammarAccess.getRegularMessageAccess().getTargetStartEndExecTargetStartEndExecKeyword_6_0_0()); 
-            // InternalKiesl.g:3277:3: ( 'targetStartEndExec' )
-            // InternalKiesl.g:3278:4: 'targetStartEndExec'
+            // InternalKiesl.g:3373:3: ( 'targetStartEndExec' )
+            // InternalKiesl.g:3374:4: 'targetStartEndExec'
             {
              before(grammarAccess.getRegularMessageAccess().getTargetStartEndExecTargetStartEndExecKeyword_6_0_0()); 
             match(input,51,FOLLOW_2); 
@@ -10335,21 +10623,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__TargetStartExecAssignment_6_1"
-    // InternalKiesl.g:3289:1: rule__RegularMessage__TargetStartExecAssignment_6_1 : ( ( 'targetStartExec' ) ) ;
+    // InternalKiesl.g:3385:1: rule__RegularMessage__TargetStartExecAssignment_6_1 : ( ( 'targetStartExec' ) ) ;
     public final void rule__RegularMessage__TargetStartExecAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3293:1: ( ( ( 'targetStartExec' ) ) )
-            // InternalKiesl.g:3294:2: ( ( 'targetStartExec' ) )
+            // InternalKiesl.g:3389:1: ( ( ( 'targetStartExec' ) ) )
+            // InternalKiesl.g:3390:2: ( ( 'targetStartExec' ) )
             {
-            // InternalKiesl.g:3294:2: ( ( 'targetStartExec' ) )
-            // InternalKiesl.g:3295:3: ( 'targetStartExec' )
+            // InternalKiesl.g:3390:2: ( ( 'targetStartExec' ) )
+            // InternalKiesl.g:3391:3: ( 'targetStartExec' )
             {
              before(grammarAccess.getRegularMessageAccess().getTargetStartExecTargetStartExecKeyword_6_1_0()); 
-            // InternalKiesl.g:3296:3: ( 'targetStartExec' )
-            // InternalKiesl.g:3297:4: 'targetStartExec'
+            // InternalKiesl.g:3392:3: ( 'targetStartExec' )
+            // InternalKiesl.g:3393:4: 'targetStartExec'
             {
              before(grammarAccess.getRegularMessageAccess().getTargetStartExecTargetStartExecKeyword_6_1_0()); 
             match(input,52,FOLLOW_2); 
@@ -10380,21 +10668,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__TargetEndExecAssignment_6_2_0"
-    // InternalKiesl.g:3308:1: rule__RegularMessage__TargetEndExecAssignment_6_2_0 : ( ( 'targetEndExec' ) ) ;
+    // InternalKiesl.g:3404:1: rule__RegularMessage__TargetEndExecAssignment_6_2_0 : ( ( 'targetEndExec' ) ) ;
     public final void rule__RegularMessage__TargetEndExecAssignment_6_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3312:1: ( ( ( 'targetEndExec' ) ) )
-            // InternalKiesl.g:3313:2: ( ( 'targetEndExec' ) )
+            // InternalKiesl.g:3408:1: ( ( ( 'targetEndExec' ) ) )
+            // InternalKiesl.g:3409:2: ( ( 'targetEndExec' ) )
             {
-            // InternalKiesl.g:3313:2: ( ( 'targetEndExec' ) )
-            // InternalKiesl.g:3314:3: ( 'targetEndExec' )
+            // InternalKiesl.g:3409:2: ( ( 'targetEndExec' ) )
+            // InternalKiesl.g:3410:3: ( 'targetEndExec' )
             {
              before(grammarAccess.getRegularMessageAccess().getTargetEndExecTargetEndExecKeyword_6_2_0_0()); 
-            // InternalKiesl.g:3315:3: ( 'targetEndExec' )
-            // InternalKiesl.g:3316:4: 'targetEndExec'
+            // InternalKiesl.g:3411:3: ( 'targetEndExec' )
+            // InternalKiesl.g:3412:4: 'targetEndExec'
             {
              before(grammarAccess.getRegularMessageAccess().getTargetEndExecTargetEndExecKeyword_6_2_0_0()); 
             match(input,53,FOLLOW_2); 
@@ -10425,17 +10713,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__TargetEndExecCountAssignment_6_2_1"
-    // InternalKiesl.g:3327:1: rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
+    // InternalKiesl.g:3423:1: rule__RegularMessage__TargetEndExecCountAssignment_6_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
     public final void rule__RegularMessage__TargetEndExecCountAssignment_6_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3331:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
-            // InternalKiesl.g:3332:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3427:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
+            // InternalKiesl.g:3428:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
             {
-            // InternalKiesl.g:3332:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
-            // InternalKiesl.g:3333:3: RULE_INT_GREATER_ZERO_OR_ALL
+            // InternalKiesl.g:3428:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3429:3: RULE_INT_GREATER_ZERO_OR_ALL
             {
              before(grammarAccess.getRegularMessageAccess().getTargetEndExecCountINT_GREATER_ZERO_OR_ALLTerminalRuleCall_6_2_1_0()); 
             match(input,RULE_INT_GREATER_ZERO_OR_ALL,FOLLOW_2); 
@@ -10462,17 +10750,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__SourceNoteAssignment_7_1"
-    // InternalKiesl.g:3342:1: rule__RegularMessage__SourceNoteAssignment_7_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3438:1: rule__RegularMessage__SourceNoteAssignment_7_1 : ( RULE_STRING ) ;
     public final void rule__RegularMessage__SourceNoteAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3346:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3347:2: ( RULE_STRING )
+            // InternalKiesl.g:3442:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3443:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3347:2: ( RULE_STRING )
-            // InternalKiesl.g:3348:3: RULE_STRING
+            // InternalKiesl.g:3443:2: ( RULE_STRING )
+            // InternalKiesl.g:3444:3: RULE_STRING
             {
              before(grammarAccess.getRegularMessageAccess().getSourceNoteSTRINGTerminalRuleCall_7_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -10499,17 +10787,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RegularMessage__TargetNoteAssignment_8_1"
-    // InternalKiesl.g:3357:1: rule__RegularMessage__TargetNoteAssignment_8_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3453:1: rule__RegularMessage__TargetNoteAssignment_8_1 : ( RULE_STRING ) ;
     public final void rule__RegularMessage__TargetNoteAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3361:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3362:2: ( RULE_STRING )
+            // InternalKiesl.g:3457:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3458:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3362:2: ( RULE_STRING )
-            // InternalKiesl.g:3363:3: RULE_STRING
+            // InternalKiesl.g:3458:2: ( RULE_STRING )
+            // InternalKiesl.g:3459:3: RULE_STRING
             {
              before(grammarAccess.getRegularMessageAccess().getTargetNoteSTRINGTerminalRuleCall_8_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -10536,21 +10824,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__LifelineAssignment_0"
-    // InternalKiesl.g:3372:1: rule__LostOrFoundMessage__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3468:1: rule__LostOrFoundMessage__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__LostOrFoundMessage__LifelineAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3376:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3377:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3472:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3473:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3377:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3378:3: ( RULE_ID )
+            // InternalKiesl.g:3473:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3474:3: ( RULE_ID )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getLifelineLifelineCrossReference_0_0()); 
-            // InternalKiesl.g:3379:3: ( RULE_ID )
-            // InternalKiesl.g:3380:4: RULE_ID
+            // InternalKiesl.g:3475:3: ( RULE_ID )
+            // InternalKiesl.g:3476:4: RULE_ID
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getLifelineLifelineIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -10581,17 +10869,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__TypeAssignment_1"
-    // InternalKiesl.g:3391:1: rule__LostOrFoundMessage__TypeAssignment_1 : ( ruleOneParticipantMessageType ) ;
+    // InternalKiesl.g:3487:1: rule__LostOrFoundMessage__TypeAssignment_1 : ( ruleOneParticipantMessageType ) ;
     public final void rule__LostOrFoundMessage__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3395:1: ( ( ruleOneParticipantMessageType ) )
-            // InternalKiesl.g:3396:2: ( ruleOneParticipantMessageType )
+            // InternalKiesl.g:3491:1: ( ( ruleOneParticipantMessageType ) )
+            // InternalKiesl.g:3492:2: ( ruleOneParticipantMessageType )
             {
-            // InternalKiesl.g:3396:2: ( ruleOneParticipantMessageType )
-            // InternalKiesl.g:3397:3: ruleOneParticipantMessageType
+            // InternalKiesl.g:3492:2: ( ruleOneParticipantMessageType )
+            // InternalKiesl.g:3493:3: ruleOneParticipantMessageType
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getTypeOneParticipantMessageTypeEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10622,17 +10910,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__LostOrFoundAssignment_2"
-    // InternalKiesl.g:3406:1: rule__LostOrFoundMessage__LostOrFoundAssignment_2 : ( ruleLostOrFound ) ;
+    // InternalKiesl.g:3502:1: rule__LostOrFoundMessage__LostOrFoundAssignment_2 : ( ruleLostOrFound ) ;
     public final void rule__LostOrFoundMessage__LostOrFoundAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3410:1: ( ( ruleLostOrFound ) )
-            // InternalKiesl.g:3411:2: ( ruleLostOrFound )
+            // InternalKiesl.g:3506:1: ( ( ruleLostOrFound ) )
+            // InternalKiesl.g:3507:2: ( ruleLostOrFound )
             {
-            // InternalKiesl.g:3411:2: ( ruleLostOrFound )
-            // InternalKiesl.g:3412:3: ruleLostOrFound
+            // InternalKiesl.g:3507:2: ( ruleLostOrFound )
+            // InternalKiesl.g:3508:3: ruleLostOrFound
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getLostOrFoundLostOrFoundEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -10663,17 +10951,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__CaptionAssignment_3"
-    // InternalKiesl.g:3421:1: rule__LostOrFoundMessage__CaptionAssignment_3 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3517:1: rule__LostOrFoundMessage__CaptionAssignment_3 : ( RULE_STRING ) ;
     public final void rule__LostOrFoundMessage__CaptionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3425:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3426:2: ( RULE_STRING )
+            // InternalKiesl.g:3521:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3522:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3426:2: ( RULE_STRING )
-            // InternalKiesl.g:3427:3: RULE_STRING
+            // InternalKiesl.g:3522:2: ( RULE_STRING )
+            // InternalKiesl.g:3523:3: RULE_STRING
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getCaptionSTRINGTerminalRuleCall_3_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -10700,21 +10988,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__StartEndExecAssignment_4_0"
-    // InternalKiesl.g:3436:1: rule__LostOrFoundMessage__StartEndExecAssignment_4_0 : ( ( 'startEndExec' ) ) ;
+    // InternalKiesl.g:3532:1: rule__LostOrFoundMessage__StartEndExecAssignment_4_0 : ( ( 'startEndExec' ) ) ;
     public final void rule__LostOrFoundMessage__StartEndExecAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3440:1: ( ( ( 'startEndExec' ) ) )
-            // InternalKiesl.g:3441:2: ( ( 'startEndExec' ) )
+            // InternalKiesl.g:3536:1: ( ( ( 'startEndExec' ) ) )
+            // InternalKiesl.g:3537:2: ( ( 'startEndExec' ) )
             {
-            // InternalKiesl.g:3441:2: ( ( 'startEndExec' ) )
-            // InternalKiesl.g:3442:3: ( 'startEndExec' )
+            // InternalKiesl.g:3537:2: ( ( 'startEndExec' ) )
+            // InternalKiesl.g:3538:3: ( 'startEndExec' )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getStartEndExecStartEndExecKeyword_4_0_0()); 
-            // InternalKiesl.g:3443:3: ( 'startEndExec' )
-            // InternalKiesl.g:3444:4: 'startEndExec'
+            // InternalKiesl.g:3539:3: ( 'startEndExec' )
+            // InternalKiesl.g:3540:4: 'startEndExec'
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getStartEndExecStartEndExecKeyword_4_0_0()); 
             match(input,54,FOLLOW_2); 
@@ -10745,21 +11033,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__StartExecAssignment_4_1"
-    // InternalKiesl.g:3455:1: rule__LostOrFoundMessage__StartExecAssignment_4_1 : ( ( 'startExec' ) ) ;
+    // InternalKiesl.g:3551:1: rule__LostOrFoundMessage__StartExecAssignment_4_1 : ( ( 'startExec' ) ) ;
     public final void rule__LostOrFoundMessage__StartExecAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3459:1: ( ( ( 'startExec' ) ) )
-            // InternalKiesl.g:3460:2: ( ( 'startExec' ) )
+            // InternalKiesl.g:3555:1: ( ( ( 'startExec' ) ) )
+            // InternalKiesl.g:3556:2: ( ( 'startExec' ) )
             {
-            // InternalKiesl.g:3460:2: ( ( 'startExec' ) )
-            // InternalKiesl.g:3461:3: ( 'startExec' )
+            // InternalKiesl.g:3556:2: ( ( 'startExec' ) )
+            // InternalKiesl.g:3557:3: ( 'startExec' )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getStartExecStartExecKeyword_4_1_0()); 
-            // InternalKiesl.g:3462:3: ( 'startExec' )
-            // InternalKiesl.g:3463:4: 'startExec'
+            // InternalKiesl.g:3558:3: ( 'startExec' )
+            // InternalKiesl.g:3559:4: 'startExec'
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getStartExecStartExecKeyword_4_1_0()); 
             match(input,55,FOLLOW_2); 
@@ -10790,21 +11078,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__EndExecAssignment_4_2_0"
-    // InternalKiesl.g:3474:1: rule__LostOrFoundMessage__EndExecAssignment_4_2_0 : ( ( 'endExec' ) ) ;
+    // InternalKiesl.g:3570:1: rule__LostOrFoundMessage__EndExecAssignment_4_2_0 : ( ( 'endExec' ) ) ;
     public final void rule__LostOrFoundMessage__EndExecAssignment_4_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3478:1: ( ( ( 'endExec' ) ) )
-            // InternalKiesl.g:3479:2: ( ( 'endExec' ) )
+            // InternalKiesl.g:3574:1: ( ( ( 'endExec' ) ) )
+            // InternalKiesl.g:3575:2: ( ( 'endExec' ) )
             {
-            // InternalKiesl.g:3479:2: ( ( 'endExec' ) )
-            // InternalKiesl.g:3480:3: ( 'endExec' )
+            // InternalKiesl.g:3575:2: ( ( 'endExec' ) )
+            // InternalKiesl.g:3576:3: ( 'endExec' )
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getEndExecEndExecKeyword_4_2_0_0()); 
-            // InternalKiesl.g:3481:3: ( 'endExec' )
-            // InternalKiesl.g:3482:4: 'endExec'
+            // InternalKiesl.g:3577:3: ( 'endExec' )
+            // InternalKiesl.g:3578:4: 'endExec'
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getEndExecEndExecKeyword_4_2_0_0()); 
             match(input,56,FOLLOW_2); 
@@ -10835,17 +11123,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1"
-    // InternalKiesl.g:3493:1: rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
+    // InternalKiesl.g:3589:1: rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
     public final void rule__LostOrFoundMessage__EndExecCountAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3497:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
-            // InternalKiesl.g:3498:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3593:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
+            // InternalKiesl.g:3594:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
             {
-            // InternalKiesl.g:3498:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
-            // InternalKiesl.g:3499:3: RULE_INT_GREATER_ZERO_OR_ALL
+            // InternalKiesl.g:3594:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3595:3: RULE_INT_GREATER_ZERO_OR_ALL
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getEndExecCountINT_GREATER_ZERO_OR_ALLTerminalRuleCall_4_2_1_0()); 
             match(input,RULE_INT_GREATER_ZERO_OR_ALL,FOLLOW_2); 
@@ -10872,17 +11160,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LostOrFoundMessage__NoteAssignment_5_1"
-    // InternalKiesl.g:3508:1: rule__LostOrFoundMessage__NoteAssignment_5_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3604:1: rule__LostOrFoundMessage__NoteAssignment_5_1 : ( RULE_STRING ) ;
     public final void rule__LostOrFoundMessage__NoteAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3512:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3513:2: ( RULE_STRING )
+            // InternalKiesl.g:3608:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3609:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3513:2: ( RULE_STRING )
-            // InternalKiesl.g:3514:3: RULE_STRING
+            // InternalKiesl.g:3609:2: ( RULE_STRING )
+            // InternalKiesl.g:3610:3: RULE_STRING
             {
              before(grammarAccess.getLostOrFoundMessageAccess().getNoteSTRINGTerminalRuleCall_5_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -10909,21 +11197,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__LifelineAssignment_0"
-    // InternalKiesl.g:3523:1: rule__SelfMessage__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3619:1: rule__SelfMessage__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__SelfMessage__LifelineAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3527:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3528:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3623:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3624:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3528:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3529:3: ( RULE_ID )
+            // InternalKiesl.g:3624:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3625:3: ( RULE_ID )
             {
              before(grammarAccess.getSelfMessageAccess().getLifelineLifelineCrossReference_0_0()); 
-            // InternalKiesl.g:3530:3: ( RULE_ID )
-            // InternalKiesl.g:3531:4: RULE_ID
+            // InternalKiesl.g:3626:3: ( RULE_ID )
+            // InternalKiesl.g:3627:4: RULE_ID
             {
              before(grammarAccess.getSelfMessageAccess().getLifelineLifelineIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -10954,17 +11242,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__TypeAssignment_1"
-    // InternalKiesl.g:3542:1: rule__SelfMessage__TypeAssignment_1 : ( ruleOneParticipantMessageType ) ;
+    // InternalKiesl.g:3638:1: rule__SelfMessage__TypeAssignment_1 : ( ruleOneParticipantMessageType ) ;
     public final void rule__SelfMessage__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3546:1: ( ( ruleOneParticipantMessageType ) )
-            // InternalKiesl.g:3547:2: ( ruleOneParticipantMessageType )
+            // InternalKiesl.g:3642:1: ( ( ruleOneParticipantMessageType ) )
+            // InternalKiesl.g:3643:2: ( ruleOneParticipantMessageType )
             {
-            // InternalKiesl.g:3547:2: ( ruleOneParticipantMessageType )
-            // InternalKiesl.g:3548:3: ruleOneParticipantMessageType
+            // InternalKiesl.g:3643:2: ( ruleOneParticipantMessageType )
+            // InternalKiesl.g:3644:3: ruleOneParticipantMessageType
             {
              before(grammarAccess.getSelfMessageAccess().getTypeOneParticipantMessageTypeEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10995,17 +11283,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__CaptionAssignment_3"
-    // InternalKiesl.g:3557:1: rule__SelfMessage__CaptionAssignment_3 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3653:1: rule__SelfMessage__CaptionAssignment_3 : ( RULE_STRING ) ;
     public final void rule__SelfMessage__CaptionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3561:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3562:2: ( RULE_STRING )
+            // InternalKiesl.g:3657:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3658:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3562:2: ( RULE_STRING )
-            // InternalKiesl.g:3563:3: RULE_STRING
+            // InternalKiesl.g:3658:2: ( RULE_STRING )
+            // InternalKiesl.g:3659:3: RULE_STRING
             {
              before(grammarAccess.getSelfMessageAccess().getCaptionSTRINGTerminalRuleCall_3_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11032,21 +11320,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__StartEndExecAssignment_4_0"
-    // InternalKiesl.g:3572:1: rule__SelfMessage__StartEndExecAssignment_4_0 : ( ( 'startEndExec' ) ) ;
+    // InternalKiesl.g:3668:1: rule__SelfMessage__StartEndExecAssignment_4_0 : ( ( 'startEndExec' ) ) ;
     public final void rule__SelfMessage__StartEndExecAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3576:1: ( ( ( 'startEndExec' ) ) )
-            // InternalKiesl.g:3577:2: ( ( 'startEndExec' ) )
+            // InternalKiesl.g:3672:1: ( ( ( 'startEndExec' ) ) )
+            // InternalKiesl.g:3673:2: ( ( 'startEndExec' ) )
             {
-            // InternalKiesl.g:3577:2: ( ( 'startEndExec' ) )
-            // InternalKiesl.g:3578:3: ( 'startEndExec' )
+            // InternalKiesl.g:3673:2: ( ( 'startEndExec' ) )
+            // InternalKiesl.g:3674:3: ( 'startEndExec' )
             {
              before(grammarAccess.getSelfMessageAccess().getStartEndExecStartEndExecKeyword_4_0_0()); 
-            // InternalKiesl.g:3579:3: ( 'startEndExec' )
-            // InternalKiesl.g:3580:4: 'startEndExec'
+            // InternalKiesl.g:3675:3: ( 'startEndExec' )
+            // InternalKiesl.g:3676:4: 'startEndExec'
             {
              before(grammarAccess.getSelfMessageAccess().getStartEndExecStartEndExecKeyword_4_0_0()); 
             match(input,54,FOLLOW_2); 
@@ -11077,21 +11365,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__StartExecAssignment_4_1"
-    // InternalKiesl.g:3591:1: rule__SelfMessage__StartExecAssignment_4_1 : ( ( 'startExec' ) ) ;
+    // InternalKiesl.g:3687:1: rule__SelfMessage__StartExecAssignment_4_1 : ( ( 'startExec' ) ) ;
     public final void rule__SelfMessage__StartExecAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3595:1: ( ( ( 'startExec' ) ) )
-            // InternalKiesl.g:3596:2: ( ( 'startExec' ) )
+            // InternalKiesl.g:3691:1: ( ( ( 'startExec' ) ) )
+            // InternalKiesl.g:3692:2: ( ( 'startExec' ) )
             {
-            // InternalKiesl.g:3596:2: ( ( 'startExec' ) )
-            // InternalKiesl.g:3597:3: ( 'startExec' )
+            // InternalKiesl.g:3692:2: ( ( 'startExec' ) )
+            // InternalKiesl.g:3693:3: ( 'startExec' )
             {
              before(grammarAccess.getSelfMessageAccess().getStartExecStartExecKeyword_4_1_0()); 
-            // InternalKiesl.g:3598:3: ( 'startExec' )
-            // InternalKiesl.g:3599:4: 'startExec'
+            // InternalKiesl.g:3694:3: ( 'startExec' )
+            // InternalKiesl.g:3695:4: 'startExec'
             {
              before(grammarAccess.getSelfMessageAccess().getStartExecStartExecKeyword_4_1_0()); 
             match(input,55,FOLLOW_2); 
@@ -11122,21 +11410,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__EndExecAssignment_4_2_0"
-    // InternalKiesl.g:3610:1: rule__SelfMessage__EndExecAssignment_4_2_0 : ( ( 'endExec' ) ) ;
+    // InternalKiesl.g:3706:1: rule__SelfMessage__EndExecAssignment_4_2_0 : ( ( 'endExec' ) ) ;
     public final void rule__SelfMessage__EndExecAssignment_4_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3614:1: ( ( ( 'endExec' ) ) )
-            // InternalKiesl.g:3615:2: ( ( 'endExec' ) )
+            // InternalKiesl.g:3710:1: ( ( ( 'endExec' ) ) )
+            // InternalKiesl.g:3711:2: ( ( 'endExec' ) )
             {
-            // InternalKiesl.g:3615:2: ( ( 'endExec' ) )
-            // InternalKiesl.g:3616:3: ( 'endExec' )
+            // InternalKiesl.g:3711:2: ( ( 'endExec' ) )
+            // InternalKiesl.g:3712:3: ( 'endExec' )
             {
              before(grammarAccess.getSelfMessageAccess().getEndExecEndExecKeyword_4_2_0_0()); 
-            // InternalKiesl.g:3617:3: ( 'endExec' )
-            // InternalKiesl.g:3618:4: 'endExec'
+            // InternalKiesl.g:3713:3: ( 'endExec' )
+            // InternalKiesl.g:3714:4: 'endExec'
             {
              before(grammarAccess.getSelfMessageAccess().getEndExecEndExecKeyword_4_2_0_0()); 
             match(input,56,FOLLOW_2); 
@@ -11167,17 +11455,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__EndExecCountAssignment_4_2_1"
-    // InternalKiesl.g:3629:1: rule__SelfMessage__EndExecCountAssignment_4_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
+    // InternalKiesl.g:3725:1: rule__SelfMessage__EndExecCountAssignment_4_2_1 : ( RULE_INT_GREATER_ZERO_OR_ALL ) ;
     public final void rule__SelfMessage__EndExecCountAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3633:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
-            // InternalKiesl.g:3634:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3729:1: ( ( RULE_INT_GREATER_ZERO_OR_ALL ) )
+            // InternalKiesl.g:3730:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
             {
-            // InternalKiesl.g:3634:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
-            // InternalKiesl.g:3635:3: RULE_INT_GREATER_ZERO_OR_ALL
+            // InternalKiesl.g:3730:2: ( RULE_INT_GREATER_ZERO_OR_ALL )
+            // InternalKiesl.g:3731:3: RULE_INT_GREATER_ZERO_OR_ALL
             {
              before(grammarAccess.getSelfMessageAccess().getEndExecCountINT_GREATER_ZERO_OR_ALLTerminalRuleCall_4_2_1_0()); 
             match(input,RULE_INT_GREATER_ZERO_OR_ALL,FOLLOW_2); 
@@ -11204,17 +11492,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SelfMessage__NoteAssignment_5_1"
-    // InternalKiesl.g:3644:1: rule__SelfMessage__NoteAssignment_5_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3740:1: rule__SelfMessage__NoteAssignment_5_1 : ( RULE_STRING ) ;
     public final void rule__SelfMessage__NoteAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3648:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3649:2: ( RULE_STRING )
+            // InternalKiesl.g:3744:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3745:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3649:2: ( RULE_STRING )
-            // InternalKiesl.g:3650:3: RULE_STRING
+            // InternalKiesl.g:3745:2: ( RULE_STRING )
+            // InternalKiesl.g:3746:3: RULE_STRING
             {
              before(grammarAccess.getSelfMessageAccess().getNoteSTRINGTerminalRuleCall_5_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11241,21 +11529,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LifelineDestructionEvent__LifelineAssignment_0"
-    // InternalKiesl.g:3659:1: rule__LifelineDestructionEvent__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3755:1: rule__LifelineDestructionEvent__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__LifelineDestructionEvent__LifelineAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3663:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3664:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3759:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3760:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3664:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3665:3: ( RULE_ID )
+            // InternalKiesl.g:3760:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3761:3: ( RULE_ID )
             {
              before(grammarAccess.getLifelineDestructionEventAccess().getLifelineLifelineCrossReference_0_0()); 
-            // InternalKiesl.g:3666:3: ( RULE_ID )
-            // InternalKiesl.g:3667:4: RULE_ID
+            // InternalKiesl.g:3762:3: ( RULE_ID )
+            // InternalKiesl.g:3763:4: RULE_ID
             {
              before(grammarAccess.getLifelineDestructionEventAccess().getLifelineLifelineIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11286,17 +11574,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__CaptionAssignment_1"
-    // InternalKiesl.g:3678:1: rule__InteractionUse__CaptionAssignment_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3774:1: rule__InteractionUse__CaptionAssignment_1 : ( RULE_STRING ) ;
     public final void rule__InteractionUse__CaptionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3682:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3683:2: ( RULE_STRING )
+            // InternalKiesl.g:3778:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3779:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3683:2: ( RULE_STRING )
-            // InternalKiesl.g:3684:3: RULE_STRING
+            // InternalKiesl.g:3779:2: ( RULE_STRING )
+            // InternalKiesl.g:3780:3: RULE_STRING
             {
              before(grammarAccess.getInteractionUseAccess().getCaptionSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11323,21 +11611,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__LifelinesAssignment_3"
-    // InternalKiesl.g:3693:1: rule__InteractionUse__LifelinesAssignment_3 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3789:1: rule__InteractionUse__LifelinesAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__InteractionUse__LifelinesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3697:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3698:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3793:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3794:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3698:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3699:3: ( RULE_ID )
+            // InternalKiesl.g:3794:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3795:3: ( RULE_ID )
             {
              before(grammarAccess.getInteractionUseAccess().getLifelinesLifelineCrossReference_3_0()); 
-            // InternalKiesl.g:3700:3: ( RULE_ID )
-            // InternalKiesl.g:3701:4: RULE_ID
+            // InternalKiesl.g:3796:3: ( RULE_ID )
+            // InternalKiesl.g:3797:4: RULE_ID
             {
              before(grammarAccess.getInteractionUseAccess().getLifelinesLifelineIDTerminalRuleCall_3_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11368,21 +11656,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__InteractionUse__LifelinesAssignment_4_1"
-    // InternalKiesl.g:3712:1: rule__InteractionUse__LifelinesAssignment_4_1 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3808:1: rule__InteractionUse__LifelinesAssignment_4_1 : ( ( RULE_ID ) ) ;
     public final void rule__InteractionUse__LifelinesAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3716:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3717:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3812:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3813:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3717:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3718:3: ( RULE_ID )
+            // InternalKiesl.g:3813:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3814:3: ( RULE_ID )
             {
              before(grammarAccess.getInteractionUseAccess().getLifelinesLifelineCrossReference_4_1_0()); 
-            // InternalKiesl.g:3719:3: ( RULE_ID )
-            // InternalKiesl.g:3720:4: RULE_ID
+            // InternalKiesl.g:3815:3: ( RULE_ID )
+            // InternalKiesl.g:3816:4: RULE_ID
             {
              before(grammarAccess.getInteractionUseAccess().getLifelinesLifelineIDTerminalRuleCall_4_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11413,17 +11701,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__TypeAssignment_1"
-    // InternalKiesl.g:3731:1: rule__CombinedFragment__TypeAssignment_1 : ( ruleCombinedFragmentType ) ;
+    // InternalKiesl.g:3827:1: rule__CombinedFragment__TypeAssignment_1 : ( ruleCombinedFragmentType ) ;
     public final void rule__CombinedFragment__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3735:1: ( ( ruleCombinedFragmentType ) )
-            // InternalKiesl.g:3736:2: ( ruleCombinedFragmentType )
+            // InternalKiesl.g:3831:1: ( ( ruleCombinedFragmentType ) )
+            // InternalKiesl.g:3832:2: ( ruleCombinedFragmentType )
             {
-            // InternalKiesl.g:3736:2: ( ruleCombinedFragmentType )
-            // InternalKiesl.g:3737:3: ruleCombinedFragmentType
+            // InternalKiesl.g:3832:2: ( ruleCombinedFragmentType )
+            // InternalKiesl.g:3833:3: ruleCombinedFragmentType
             {
              before(grammarAccess.getCombinedFragmentAccess().getTypeCombinedFragmentTypeEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11454,17 +11742,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CombinedFragment__SectionsAssignment_2"
-    // InternalKiesl.g:3746:1: rule__CombinedFragment__SectionsAssignment_2 : ( ruleSection ) ;
+    // InternalKiesl.g:3842:1: rule__CombinedFragment__SectionsAssignment_2 : ( ruleSection ) ;
     public final void rule__CombinedFragment__SectionsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3750:1: ( ( ruleSection ) )
-            // InternalKiesl.g:3751:2: ( ruleSection )
+            // InternalKiesl.g:3846:1: ( ( ruleSection ) )
+            // InternalKiesl.g:3847:2: ( ruleSection )
             {
-            // InternalKiesl.g:3751:2: ( ruleSection )
-            // InternalKiesl.g:3752:3: ruleSection
+            // InternalKiesl.g:3847:2: ( ruleSection )
+            // InternalKiesl.g:3848:3: ruleSection
             {
              before(grammarAccess.getCombinedFragmentAccess().getSectionsSectionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -11495,17 +11783,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__CaptionAssignment_1_1"
-    // InternalKiesl.g:3761:1: rule__Section__CaptionAssignment_1_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3857:1: rule__Section__CaptionAssignment_1_1 : ( RULE_STRING ) ;
     public final void rule__Section__CaptionAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3765:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3766:2: ( RULE_STRING )
+            // InternalKiesl.g:3861:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3862:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3766:2: ( RULE_STRING )
-            // InternalKiesl.g:3767:3: RULE_STRING
+            // InternalKiesl.g:3862:2: ( RULE_STRING )
+            // InternalKiesl.g:3863:3: RULE_STRING
             {
              before(grammarAccess.getSectionAccess().getCaptionSTRINGTerminalRuleCall_1_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11532,17 +11820,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Section__ElementsAssignment_2"
-    // InternalKiesl.g:3776:1: rule__Section__ElementsAssignment_2 : ( ruleElement ) ;
+    // InternalKiesl.g:3872:1: rule__Section__ElementsAssignment_2 : ( ruleElement ) ;
     public final void rule__Section__ElementsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3780:1: ( ( ruleElement ) )
-            // InternalKiesl.g:3781:2: ( ruleElement )
+            // InternalKiesl.g:3876:1: ( ( ruleElement ) )
+            // InternalKiesl.g:3877:2: ( ruleElement )
             {
-            // InternalKiesl.g:3781:2: ( ruleElement )
-            // InternalKiesl.g:3782:3: ruleElement
+            // InternalKiesl.g:3877:2: ( ruleElement )
+            // InternalKiesl.g:3878:3: ruleElement
             {
              before(grammarAccess.getSectionAccess().getElementsElementParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -11573,17 +11861,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__NameAssignment_1"
-    // InternalKiesl.g:3791:1: rule__Continuation__NameAssignment_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3887:1: rule__Continuation__NameAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Continuation__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3795:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3796:2: ( RULE_STRING )
+            // InternalKiesl.g:3891:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3892:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3796:2: ( RULE_STRING )
-            // InternalKiesl.g:3797:3: RULE_STRING
+            // InternalKiesl.g:3892:2: ( RULE_STRING )
+            // InternalKiesl.g:3893:3: RULE_STRING
             {
              before(grammarAccess.getContinuationAccess().getNameSTRINGTerminalRuleCall_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11610,21 +11898,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__LifelinesAssignment_3"
-    // InternalKiesl.g:3806:1: rule__Continuation__LifelinesAssignment_3 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3902:1: rule__Continuation__LifelinesAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__Continuation__LifelinesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3810:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3811:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3906:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3907:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3811:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3812:3: ( RULE_ID )
+            // InternalKiesl.g:3907:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3908:3: ( RULE_ID )
             {
              before(grammarAccess.getContinuationAccess().getLifelinesLifelineCrossReference_3_0()); 
-            // InternalKiesl.g:3813:3: ( RULE_ID )
-            // InternalKiesl.g:3814:4: RULE_ID
+            // InternalKiesl.g:3909:3: ( RULE_ID )
+            // InternalKiesl.g:3910:4: RULE_ID
             {
              before(grammarAccess.getContinuationAccess().getLifelinesLifelineIDTerminalRuleCall_3_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11655,21 +11943,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__LifelinesAssignment_4_1"
-    // InternalKiesl.g:3825:1: rule__Continuation__LifelinesAssignment_4_1 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3921:1: rule__Continuation__LifelinesAssignment_4_1 : ( ( RULE_ID ) ) ;
     public final void rule__Continuation__LifelinesAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3829:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3830:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3925:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3926:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3830:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3831:3: ( RULE_ID )
+            // InternalKiesl.g:3926:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3927:3: ( RULE_ID )
             {
              before(grammarAccess.getContinuationAccess().getLifelinesLifelineCrossReference_4_1_0()); 
-            // InternalKiesl.g:3832:3: ( RULE_ID )
-            // InternalKiesl.g:3833:4: RULE_ID
+            // InternalKiesl.g:3928:3: ( RULE_ID )
+            // InternalKiesl.g:3929:4: RULE_ID
             {
              before(grammarAccess.getContinuationAccess().getLifelinesLifelineIDTerminalRuleCall_4_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11700,17 +11988,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Continuation__NoteAssignment_5_1"
-    // InternalKiesl.g:3844:1: rule__Continuation__NoteAssignment_5_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3940:1: rule__Continuation__NoteAssignment_5_1 : ( RULE_STRING ) ;
     public final void rule__Continuation__NoteAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3848:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3849:2: ( RULE_STRING )
+            // InternalKiesl.g:3944:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3945:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3849:2: ( RULE_STRING )
-            // InternalKiesl.g:3850:3: RULE_STRING
+            // InternalKiesl.g:3945:2: ( RULE_STRING )
+            // InternalKiesl.g:3946:3: RULE_STRING
             {
              before(grammarAccess.getContinuationAccess().getNoteSTRINGTerminalRuleCall_5_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11737,21 +12025,21 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__LifelineAssignment_0"
-    // InternalKiesl.g:3859:1: rule__StateInvariant__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalKiesl.g:3955:1: rule__StateInvariant__LifelineAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__StateInvariant__LifelineAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3863:1: ( ( ( RULE_ID ) ) )
-            // InternalKiesl.g:3864:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3959:1: ( ( ( RULE_ID ) ) )
+            // InternalKiesl.g:3960:2: ( ( RULE_ID ) )
             {
-            // InternalKiesl.g:3864:2: ( ( RULE_ID ) )
-            // InternalKiesl.g:3865:3: ( RULE_ID )
+            // InternalKiesl.g:3960:2: ( ( RULE_ID ) )
+            // InternalKiesl.g:3961:3: ( RULE_ID )
             {
              before(grammarAccess.getStateInvariantAccess().getLifelineLifelineCrossReference_0_0()); 
-            // InternalKiesl.g:3866:3: ( RULE_ID )
-            // InternalKiesl.g:3867:4: RULE_ID
+            // InternalKiesl.g:3962:3: ( RULE_ID )
+            // InternalKiesl.g:3963:4: RULE_ID
             {
              before(grammarAccess.getStateInvariantAccess().getLifelineLifelineIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11782,17 +12070,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__InvariantAssignment_2"
-    // InternalKiesl.g:3878:1: rule__StateInvariant__InvariantAssignment_2 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3974:1: rule__StateInvariant__InvariantAssignment_2 : ( RULE_STRING ) ;
     public final void rule__StateInvariant__InvariantAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3882:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3883:2: ( RULE_STRING )
+            // InternalKiesl.g:3978:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3979:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3883:2: ( RULE_STRING )
-            // InternalKiesl.g:3884:3: RULE_STRING
+            // InternalKiesl.g:3979:2: ( RULE_STRING )
+            // InternalKiesl.g:3980:3: RULE_STRING
             {
              before(grammarAccess.getStateInvariantAccess().getInvariantSTRINGTerminalRuleCall_2_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11819,17 +12107,17 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StateInvariant__NoteAssignment_3_1"
-    // InternalKiesl.g:3893:1: rule__StateInvariant__NoteAssignment_3_1 : ( RULE_STRING ) ;
+    // InternalKiesl.g:3989:1: rule__StateInvariant__NoteAssignment_3_1 : ( RULE_STRING ) ;
     public final void rule__StateInvariant__NoteAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalKiesl.g:3897:1: ( ( RULE_STRING ) )
-            // InternalKiesl.g:3898:2: ( RULE_STRING )
+            // InternalKiesl.g:3993:1: ( ( RULE_STRING ) )
+            // InternalKiesl.g:3994:2: ( RULE_STRING )
             {
-            // InternalKiesl.g:3898:2: ( RULE_STRING )
-            // InternalKiesl.g:3899:3: RULE_STRING
+            // InternalKiesl.g:3994:2: ( RULE_STRING )
+            // InternalKiesl.g:3995:3: RULE_STRING
             {
              before(grammarAccess.getStateInvariantAccess().getNoteSTRINGTerminalRuleCall_3_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -11859,22 +12147,22 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
     protected DFA1 dfa1 = new DFA1(this);
     static final String dfa_1s = "\16\uffff";
-    static final String dfa_2s = "\11\uffff\1\15\4\uffff";
-    static final String dfa_3s = "\1\5\1\32\4\uffff\4\4\4\uffff";
-    static final String dfa_4s = "\1\56\1\57\4\uffff\3\46\1\56\4\uffff";
-    static final String dfa_5s = "\2\uffff\1\5\1\6\1\7\1\10\4\uffff\1\1\1\3\1\2\1\4";
+    static final String dfa_2s = "\10\uffff\1\15\5\uffff";
+    static final String dfa_3s = "\1\5\1\32\3\uffff\4\4\5\uffff";
+    static final String dfa_4s = "\1\56\1\57\3\uffff\3\46\1\56\5\uffff";
+    static final String dfa_5s = "\2\uffff\1\5\1\6\1\7\4\uffff\1\1\1\10\1\2\1\3\1\4";
     static final String dfa_6s = "\16\uffff}>";
     static final String[] dfa_7s = {
             "\1\1\41\uffff\1\2\2\uffff\1\3\3\uffff\1\4",
-            "\1\6\1\7\1\10\1\12\1\11\20\uffff\1\5",
+            "\1\5\1\6\1\7\1\11\1\10\20\uffff\1\12",
             "",
             "",
             "",
+            "\1\11\7\uffff\2\13\30\uffff\1\14",
+            "\1\11\7\uffff\2\13\30\uffff\1\14",
+            "\1\11\7\uffff\2\13\30\uffff\1\14",
+            "\1\11\1\15\41\uffff\1\15\2\uffff\1\15\1\uffff\1\15\1\uffff\1\15",
             "",
-            "\1\12\7\uffff\2\14\30\uffff\1\13",
-            "\1\12\7\uffff\2\14\30\uffff\1\13",
-            "\1\12\7\uffff\2\14\30\uffff\1\13",
-            "\1\12\1\15\41\uffff\1\15\2\uffff\1\15\1\uffff\1\15\1\uffff\1\15",
             "",
             "",
             "",
@@ -11910,32 +12198,33 @@ public class InternalKieslParser extends AbstractInternalContentAssistParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000448280000020L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000200000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000448480000020L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000400000002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000448000000022L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000300000000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x000000007C000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x003F001800000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x000000001C000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000003000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x01C0002000000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000003FFC000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000080000000002L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000648000000020L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000648000000022L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000022000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000007C000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x003F003000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x000000001C000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000003000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x01C0000200000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000003FFC000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000080000000002L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000648000000020L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000648000000022L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000020200000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000200000000L});
 
 }

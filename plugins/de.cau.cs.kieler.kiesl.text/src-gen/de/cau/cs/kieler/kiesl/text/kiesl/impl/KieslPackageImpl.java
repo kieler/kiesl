@@ -245,9 +245,19 @@ public class KieslPackageImpl extends EPackageImpl implements KieslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getInteraction_Note()
+  {
+    return (EAttribute)interactionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getInteraction_Lifelines()
   {
-    return (EReference)interactionEClass.getEStructuralFeatures().get(0);
+    return (EReference)interactionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -257,7 +267,7 @@ public class KieslPackageImpl extends EPackageImpl implements KieslPackage
    */
   public EReference getInteraction_Elements()
   {
-    return (EReference)interactionEClass.getEStructuralFeatures().get(1);
+    return (EReference)interactionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -911,6 +921,7 @@ public class KieslPackageImpl extends EPackageImpl implements KieslPackage
 
     // Create classes and their features
     interactionEClass = createEClass(INTERACTION);
+    createEAttribute(interactionEClass, INTERACTION__NOTE);
     createEReference(interactionEClass, INTERACTION__LIFELINES);
     createEReference(interactionEClass, INTERACTION__ELEMENTS);
 
@@ -1033,6 +1044,7 @@ public class KieslPackageImpl extends EPackageImpl implements KieslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(interactionEClass, Interaction.class, "Interaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInteraction_Note(), ecorePackage.getEString(), "note", null, 0, 1, Interaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInteraction_Lifelines(), this.getLifeline(), null, "lifelines", null, 0, -1, Interaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInteraction_Elements(), this.getElement(), null, "elements", null, 0, -1, Interaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

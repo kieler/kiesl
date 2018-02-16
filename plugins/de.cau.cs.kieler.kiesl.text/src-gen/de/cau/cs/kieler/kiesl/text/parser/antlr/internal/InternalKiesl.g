@@ -140,13 +140,37 @@ ruleInteraction returns [EObject current=null]
 					)
 				)
 			)?
+			(
+				otherlv_5='note'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getInteractionAccess().getNoteKeyword_1_3_0());
+				}
+				(
+					(
+						lv_note_6_0=RULE_STRING
+						{
+							newLeafNode(lv_note_6_0, grammarAccess.getInteractionAccess().getNoteSTRINGTerminalRuleCall_1_3_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getInteractionRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"note",
+								lv_note_6_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+			)?
 		)?
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getInteractionAccess().getLifelinesLifelineParserRuleCall_2_0());
 				}
-				lv_lifelines_5_0=ruleLifeline
+				lv_lifelines_7_0=ruleLifeline
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getInteractionRule());
@@ -154,7 +178,7 @@ ruleInteraction returns [EObject current=null]
 					add(
 						$current,
 						"lifelines",
-						lv_lifelines_5_0,
+						lv_lifelines_7_0,
 						"de.cau.cs.kieler.kiesl.text.Kiesl.Lifeline");
 					afterParserOrEnumRuleCall();
 				}
@@ -165,7 +189,7 @@ ruleInteraction returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getInteractionAccess().getElementsElementParserRuleCall_3_0());
 				}
-				lv_elements_6_0=ruleElement
+				lv_elements_8_0=ruleElement
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getInteractionRule());
@@ -173,7 +197,7 @@ ruleInteraction returns [EObject current=null]
 					add(
 						$current,
 						"elements",
-						lv_elements_6_0,
+						lv_elements_8_0,
 						"de.cau.cs.kieler.kiesl.text.Kiesl.Element");
 					afterParserOrEnumRuleCall();
 				}

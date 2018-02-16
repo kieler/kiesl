@@ -48,6 +48,10 @@ public class KieslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAsKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Assignment cNameAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_2_1_0 = (RuleCall)cNameAssignment_1_2_1.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Keyword cNoteKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cNoteAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cNoteSTRINGTerminalRuleCall_1_3_1_0 = (RuleCall)cNoteAssignment_1_3_1.eContents().get(0);
 		private final Assignment cLifelinesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cLifelinesLifelineParserRuleCall_2_0 = (RuleCall)cLifelinesAssignment_2.eContents().get(0);
 		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -60,18 +64,19 @@ public class KieslGrammarAccess extends AbstractGrammarElementFinder {
 		// * interaction depicted by the diagram can have an optional caption, and can have an ID that messages can use
 		// * to refer to it.
 		// */ Interaction:
-		//	{Interaction} ('interaction' caption=STRING ('as' name=ID)?)?
+		//	{Interaction} ('interaction' caption=STRING ('as' name=ID)? ('note' note=STRING)?)?
 		//	lifelines+=Lifeline*
 		//	elements+=Element*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Interaction} ('interaction' caption=STRING ('as' name=ID)?)? lifelines+=Lifeline* elements+=Element*
+		//{Interaction} ('interaction' caption=STRING ('as' name=ID)? ('note' note=STRING)?)? lifelines+=Lifeline*
+		//elements+=Element*
 		public Group getGroup() { return cGroup; }
 		
 		//{Interaction}
 		public Action getInteractionAction_0() { return cInteractionAction_0; }
 		
-		//('interaction' caption=STRING ('as' name=ID)?)?
+		//('interaction' caption=STRING ('as' name=ID)? ('note' note=STRING)?)?
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'interaction'
@@ -94,6 +99,18 @@ public class KieslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_2_1_0() { return cNameIDTerminalRuleCall_1_2_1_0; }
+		
+		//('note' note=STRING)?
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//'note'
+		public Keyword getNoteKeyword_1_3_0() { return cNoteKeyword_1_3_0; }
+		
+		//note=STRING
+		public Assignment getNoteAssignment_1_3_1() { return cNoteAssignment_1_3_1; }
+		
+		//STRING
+		public RuleCall getNoteSTRINGTerminalRuleCall_1_3_1_0() { return cNoteSTRINGTerminalRuleCall_1_3_1_0; }
 		
 		//lifelines+=Lifeline*
 		public Assignment getLifelinesAssignment_2() { return cLifelinesAssignment_2; }
@@ -1271,7 +1288,7 @@ public class KieslGrammarAccess extends AbstractGrammarElementFinder {
 	// * interaction depicted by the diagram can have an optional caption, and can have an ID that messages can use
 	// * to refer to it.
 	// */ Interaction:
-	//	{Interaction} ('interaction' caption=STRING ('as' name=ID)?)?
+	//	{Interaction} ('interaction' caption=STRING ('as' name=ID)? ('note' note=STRING)?)?
 	//	lifelines+=Lifeline*
 	//	elements+=Element*;
 	public InteractionElements getInteractionAccess() {

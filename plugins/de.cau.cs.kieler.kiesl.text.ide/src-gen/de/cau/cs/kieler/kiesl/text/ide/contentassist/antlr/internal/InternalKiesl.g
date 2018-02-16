@@ -923,6 +923,7 @@ rule__Interaction__Group_1__2
 	}
 :
 	rule__Interaction__Group_1__2__Impl
+	rule__Interaction__Group_1__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -937,6 +938,32 @@ rule__Interaction__Group_1__2__Impl
 	{ before(grammarAccess.getInteractionAccess().getGroup_1_2()); }
 	(rule__Interaction__Group_1_2__0)?
 	{ after(grammarAccess.getInteractionAccess().getGroup_1_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interaction__Group_1__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Interaction__Group_1__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interaction__Group_1__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getInteractionAccess().getGroup_1_3()); }
+	(rule__Interaction__Group_1_3__0)?
+	{ after(grammarAccess.getInteractionAccess().getGroup_1_3()); }
 )
 ;
 finally {
@@ -991,6 +1018,60 @@ rule__Interaction__Group_1_2__1__Impl
 	{ before(grammarAccess.getInteractionAccess().getNameAssignment_1_2_1()); }
 	(rule__Interaction__NameAssignment_1_2_1)
 	{ after(grammarAccess.getInteractionAccess().getNameAssignment_1_2_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Interaction__Group_1_3__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Interaction__Group_1_3__0__Impl
+	rule__Interaction__Group_1_3__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interaction__Group_1_3__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getInteractionAccess().getNoteKeyword_1_3_0()); }
+	'note'
+	{ after(grammarAccess.getInteractionAccess().getNoteKeyword_1_3_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interaction__Group_1_3__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Interaction__Group_1_3__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interaction__Group_1_3__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getInteractionAccess().getNoteAssignment_1_3_1()); }
+	(rule__Interaction__NoteAssignment_1_3_1)
+	{ after(grammarAccess.getInteractionAccess().getNoteAssignment_1_3_1()); }
 )
 ;
 finally {
@@ -3061,6 +3142,21 @@ rule__Interaction__NameAssignment_1_2_1
 		{ before(grammarAccess.getInteractionAccess().getNameIDTerminalRuleCall_1_2_1_0()); }
 		RULE_ID
 		{ after(grammarAccess.getInteractionAccess().getNameIDTerminalRuleCall_1_2_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Interaction__NoteAssignment_1_3_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getInteractionAccess().getNoteSTRINGTerminalRuleCall_1_3_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getInteractionAccess().getNoteSTRINGTerminalRuleCall_1_3_1_0()); }
 	)
 ;
 finally {

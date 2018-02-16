@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="KIELER - Kiel Integrated Environment for Layout Eclipse RichClient&#xA; *&#xA;http://rtsys.informatik.uni-kiel.de/kieler&#xA;&#xA;Copyright 2018 by&#xA;+ Kiel University&#xA;  + Department of Computer Science&#xA;    + Real-Time and Embedded Systems Group&#xA;&#xA;This code is provided under the terms of the Eclipse Public License (EPL)."
     modelDirectory="/de.cau.cs.kieler.kiesl.text/src-gen" modelPluginID="de.cau.cs.kieler.kiesl.text"
     forceOverwrite="true" modelName="Kiesl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
+    complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.12">
   <genPackages prefix="Kiesl" basePackage="de.cau.cs.kieler.kiesl.text" disposableProviderFactory="true"
       fileExtensions="sd" ecorePackage="Kiesl.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Kiesl.ecore#//LostOrFound">
@@ -37,6 +37,7 @@
       <genEnumLiterals ecoreEnumLiteral="Kiesl.ecore#//TwoParticipantsMessageType/DESTROY"/>
     </genEnums>
     <genClasses ecoreClass="Kiesl.ecore#//Interaction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Kiesl.ecore#//Interaction/note"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kiesl.ecore#//Interaction/lifelines"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Kiesl.ecore#//Interaction/elements"/>
     </genClasses>

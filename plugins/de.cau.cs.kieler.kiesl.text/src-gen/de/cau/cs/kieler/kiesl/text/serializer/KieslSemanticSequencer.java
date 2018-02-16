@@ -134,7 +134,7 @@ public class KieslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     CommunicationParticipant returns Interaction
 	 *
 	 * Constraint:
-	 *     ((caption=STRING name=ID?)? lifelines+=Lifeline* elements+=Element*)
+	 *     ((caption=STRING name=ID? note=STRING?)? lifelines+=Lifeline* elements+=Element*)
 	 */
 	protected void sequence_Interaction(ISerializationContext context, Interaction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
