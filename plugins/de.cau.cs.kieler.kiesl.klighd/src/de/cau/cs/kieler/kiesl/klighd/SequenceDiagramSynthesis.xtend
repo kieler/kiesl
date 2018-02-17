@@ -20,6 +20,7 @@ import de.cau.cs.kieler.kiesl.klighd.transform.SequenceDiagramTransformation
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction
 import de.cau.cs.kieler.klighd.SynthesisOption
 import de.cau.cs.kieler.klighd.syntheses.AbstractDiagramSynthesis
+import org.eclipse.elk.alg.sequence.options.LabelSideSelection
 import org.eclipse.elk.alg.sequence.options.LifelineSortingStrategy
 
 /**
@@ -49,8 +50,19 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
             LLSORT_SHORT_MESSAGE),
         LLSORT_INTERACTIVE);
     
+    private static val LABELS_INLINE = "Inline";
+    private static val LABELS_CONSISTENT = "Above";
+    private static val LABELS_DIRECTIONAL = "Direction-dependent";
+    private static val SynthesisOption LABELS = SynthesisOption.createChoiceOption(
+        "Label Placement", ImmutableList.of(
+            LABELS_INLINE,
+            LABELS_CONSISTENT,
+            LABELS_DIRECTIONAL
+        ),
+        LABELS_INLINE);
+    
     override getDisplayedSynthesisOptions() {
-        return ImmutableList.of(STYLE, LLSORT);
+        return ImmutableList.of(STYLE, LLSORT, LABELS);
     }
     
     // TODO Instantiate as needed in switch below
@@ -64,6 +76,8 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         public val SequenceDiagramSynthesis synthesis;
         public val BasicStyle style;
         public val LifelineSortingStrategy llsort;
+        public val LabelSideSelection labelSide;
+        public val boolean inlineLabels;
         
         new(SequenceDiagramSynthesis s) {
             synthesis = s;
@@ -83,6 +97,15 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
                 case LLSORT_SHORT_MESSAGE:
                     LifelineSortingStrategy.SHORT_MESSAGES
             }
+            
+            labelSide = switch (s.getObjectValue(LABELS)) {
+                case LABELS_DIRECTIONAL:
+                    LabelSideSelection.DIRECTION_UP
+                default:
+                    LabelSideSelection.ALWAYS_UP
+            }
+            
+            inlineLabels = s.getObjectValue(LABELS) == LABELS_INLINE;
         }
     }
     

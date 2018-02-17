@@ -32,6 +32,8 @@ import de.cau.cs.kieler.klighd.kgraph.KNode
 import de.cau.cs.kieler.klighd.kgraph.util.KGraphUtil
 import de.cau.cs.kieler.klighd.krendering.extensions.KEdgeExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KNodeExtensions
+import de.cau.cs.kieler.klighd.labels.decoration.LabelDecorationConfigurator
+import de.cau.cs.kieler.klighd.labels.decoration.LabelDecorationConfigurator.LayoutMode
 import java.util.ArrayDeque
 import java.util.Deque
 import java.util.HashMap
@@ -100,6 +102,9 @@ public class SequenceDiagramTransformation {
         
         transformElements(interaction.elements);
         
+        // Make sure the rendering for edge labels is configured
+        createLabelDecorationConfigurator().applyToAll(kinteraction, false);
+        
         // Release state
         this.options = null;
         this.kinteraction = null;
@@ -129,6 +134,19 @@ public class SequenceDiagramTransformation {
         ];
     }
     
+    /**
+     * Creates a fully configured label decoration configurator.
+     */
+    private def LabelDecorationConfigurator createLabelDecorationConfigurator() {
+        // Setup the configurator
+        val configurator = LabelDecorationConfigurator.create()
+            .withLayoutMode(LayoutMode.HORIZONTAL)
+            .withInlineLabels(options.inlineLabels);
+        options.style.setupLabelDecorationConfigurator(configurator);
+        
+        return configurator;
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Individual Node Transformations
@@ -149,6 +167,7 @@ public class SequenceDiagramTransformation {
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_EDGE_LABEL, 2.0);
         kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 20.0);
         kinteraction.setProperty(SequenceDiagramOptions.AREAS_PADDING, new ElkPadding(40, 15, 8, 15));
+        kinteraction.setProperty(SequenceDiagramOptions.LABEL_SIDE, options.labelSide);
         
         // The padding depends on whether the interaction's border and title are in fact drawn
         if (Strings.isNullOrEmpty(interaction.caption)) {

@@ -55,7 +55,9 @@ class StylishStyle extends BasicStyle {
     override protected EntityColorTheme initMessageTheme() {
         return new EntityColorTheme()
             .define(FOREGROUND, "#666666")
-            .define(CAPTION_TEXT, "black");
+            .define(CAPTION_TEXT, "black")
+            .define(CAPTION_FOREGROUND, "#666666")
+            .define(CAPTION_BACKGROUND, "white");
     }
     
     override protected EntityColorTheme initLostFoundDummyTheme() {

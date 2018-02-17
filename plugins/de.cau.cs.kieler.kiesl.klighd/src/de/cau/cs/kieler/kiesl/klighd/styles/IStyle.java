@@ -22,6 +22,7 @@ import de.cau.cs.kieler.kiesl.text.kiesl.SelfMessage;
 import de.cau.cs.kieler.klighd.kgraph.KEdge;
 import de.cau.cs.kieler.klighd.kgraph.KLabel;
 import de.cau.cs.kieler.klighd.kgraph.KNode;
+import de.cau.cs.kieler.klighd.labels.decoration.LabelDecorationConfigurator;
 
 /**
  * A style knows how to add renderings to KGraph elements for them to look cool in a sequence
@@ -79,5 +80,10 @@ public interface IStyle {
      * Adds rendering information to the given node which represents a note with the given text.
      */
     void renderNote(KNode knote, String text);
+    
+    /**
+     * Configures the configurator for proper label rendering.
+     */
+    void setupLabelDecorationConfigurator(LabelDecorationConfigurator configurator);
     
 }

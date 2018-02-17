@@ -22,10 +22,12 @@ import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFoundMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.RegularMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.SelfMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.TwoParticipantsMessageType
+import de.cau.cs.kieler.klighd.actions.FocusAndContextAction
 import de.cau.cs.kieler.klighd.kgraph.KEdge
 import de.cau.cs.kieler.klighd.kgraph.KLabel
 import de.cau.cs.kieler.klighd.kgraph.KNode
 import de.cau.cs.kieler.klighd.krendering.KColor
+import de.cau.cs.kieler.klighd.krendering.KContainerRendering
 import de.cau.cs.kieler.klighd.krendering.KGridPlacementData
 import de.cau.cs.kieler.klighd.krendering.KRendering
 import de.cau.cs.kieler.klighd.krendering.KRenderingFactory
@@ -37,6 +39,9 @@ import de.cau.cs.kieler.klighd.krendering.extensions.KEdgeExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KNodeExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KPolylineExtensions
 import de.cau.cs.kieler.klighd.krendering.extensions.KRenderingExtensions
+import de.cau.cs.kieler.klighd.labels.decoration.LabelDecorationConfigurator
+import de.cau.cs.kieler.klighd.labels.decoration.RectangleDecorator
+import java.awt.Color
 import java.util.EnumMap
 import java.util.Map
 
@@ -310,6 +315,35 @@ public class BasicStyle implements IStyle {
         ];
     }
     
+    override setupLabelDecorationConfigurator(LabelDecorationConfigurator configurator) {
+        val theme = entityThemeMap.get(Entity.MESSAGE);
+        
+        configurator.withLabelTextRenderingProvider([ container, label | createTextRendering(container, label) ])
+        
+        val backgroundProvider = RectangleDecorator.create().withBackground(
+            theme.color(ThemeColor.CAPTION_BACKGROUND).toAwtColor(220));
+        configurator.addDecoratorRenderingProvider(backgroundProvider);
+        
+        // The line decorator produced too much visual clutter in our sequence diagrams
+//        configurator.addDecoratorRenderingProvider(
+//            LinesDecorator.create()
+//                .withColor(theme.color(ThemeColor.CAPTION_FOREGROUND).toAwtColor(220))
+//                .withBrackets(false));
+    }
+    
+    private def KRendering createTextRendering(KContainerRendering container, KLabel label) {
+        val theme = entityThemeMap.get(Entity.MESSAGE);
+        
+        val rendering = KRenderingFactory.eINSTANCE.createKText() => [ text |
+            text.foreground = theme.color(ThemeColor.CAPTION_TEXT);
+            text.fontSize = 10;
+            text.addSingleClickAction(FocusAndContextAction.ID);
+        ];
+        
+        container.children += rendering;
+        return rendering;
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Utilities
@@ -355,6 +389,13 @@ public class BasicStyle implements IStyle {
         };
     }
     
+    /**
+     * Turns a KColor into a regular AWT Color.
+     */
+    private def Color toAwtColor(KColor kcolor, int alpha) {
+        return new Color(kcolor.red, kcolor.green, kcolor.blue, alpha);
+    }
+    
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Color Themes
@@ -381,6 +422,7 @@ public class BasicStyle implements IStyle {
         BACKGROUND,
         BACKGROUND_START,
         BACKGROUND_END,
+        CAPTION_FOREGROUND,
         CAPTION_BACKGROUND,
         CAPTION_BACKGROUND_START,
         CAPTION_BACKGROUND_END,
@@ -471,7 +513,9 @@ public class BasicStyle implements IStyle {
     protected def EntityColorTheme initMessageTheme() {
         return new EntityColorTheme()
             .define(ThemeColor.FOREGROUND, "black")
-            .define(ThemeColor.CAPTION_TEXT, "black");
+            .define(ThemeColor.CAPTION_TEXT, "black")
+            .define(ThemeColor.CAPTION_FOREGROUND, "black")
+            .define(ThemeColor.CAPTION_BACKGROUND, "white");
     }
     
     /**
