@@ -85,15 +85,19 @@ public class SequenceDiagramTransformation {
         kroot.setProperty(CoreOptions.ALGORITHM, FixedLayouterOptions.ALGORITHM_ID);
         kroot.setProperty(FixedLayouterOptions.PADDING, new ElkPadding(0, BORDER_SPACING, BORDER_SPACING, 0));
         
-        // The main interaction node and its lifelines
+        // The main interaction node
         kinteraction = toNode(interaction);
         kroot.children += kinteraction;
         
+        if (!Strings.isNullOrEmpty(interaction.note)) {
+            createNote(interaction.note);
+        } 
+        
+        // Lifelines and all the other elements
         interaction.lifelines.forEach[ ll |
             toNode(ll);
         ];
         
-        // The rest of the elements
         transformElements(interaction.elements);
         
         // Release state
@@ -142,6 +146,7 @@ public class SequenceDiagramTransformation {
         kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_SORTING_STRATEGY, options.llsort);
         kinteraction.setProperty(SequenceDiagramOptions.MARGINS, new ElkMargin(BORDER_SPACING, 0, 0, BORDER_SPACING));
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_MESSAGE, 40.0);
+        kinteraction.setProperty(SequenceDiagramOptions.SPACING_EDGE_LABEL, 2.0);
         kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 20.0);
         kinteraction.setProperty(SequenceDiagramOptions.AREAS_PADDING, new ElkPadding(40, 15, 8, 15));
         
