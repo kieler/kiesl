@@ -22,6 +22,7 @@ import de.cau.cs.kieler.klighd.SynthesisOption
 import de.cau.cs.kieler.klighd.syntheses.AbstractDiagramSynthesis
 import org.eclipse.elk.alg.sequence.options.LabelSideSelection
 import org.eclipse.elk.alg.sequence.options.LifelineSortingStrategy
+import de.cau.cs.kieler.kiesl.klighd.styles.ThesisStyle
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -34,10 +35,12 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
     
     private static val STYLE_BORING = "Boring";
     private static val STYLE_STYLISH = "Stylish";
+    private static val STYLE_THESIS = "Thesis";
     public static val SynthesisOption STYLE = SynthesisOption.createChoiceOption(
         "Style", ImmutableList.of(
             STYLE_BORING,
-            STYLE_STYLISH),
+            STYLE_STYLISH,
+            STYLE_THESIS),
         STYLE_STYLISH);
     
     private static val LLSORT_INTERACTIVE = "Declaration Order";
@@ -68,6 +71,7 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
     // TODO Instantiate as needed in switch below
     @Inject BasicStyle styleBasic;
     @Inject StylishStyle styleStylish;
+    @Inject ThesisStyle styleThesis;
     
     /**
      * Container class for easy handling of synthesis options.
@@ -87,6 +91,8 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
                     s.styleBasic
                 case STYLE_STYLISH:
                     s.styleStylish
+                case STYLE_THESIS:
+                    s.styleThesis
             }
             
             llsort = switch (s.getObjectValue(LLSORT)) {
