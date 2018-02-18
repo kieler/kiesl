@@ -14,6 +14,7 @@ package de.cau.cs.kieler.kiesl.klighd.styles
 
 import com.google.common.base.Strings
 import com.google.inject.Inject
+import de.cau.cs.kieler.kiesl.klighd.SequenceFocusAndContextAction
 import de.cau.cs.kieler.kiesl.text.kiesl.CombinedFragment
 import de.cau.cs.kieler.kiesl.text.kiesl.Interaction
 import de.cau.cs.kieler.kiesl.text.kiesl.Lifeline
@@ -22,7 +23,6 @@ import de.cau.cs.kieler.kiesl.text.kiesl.LostOrFoundMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.RegularMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.SelfMessage
 import de.cau.cs.kieler.kiesl.text.kiesl.TwoParticipantsMessageType
-import de.cau.cs.kieler.klighd.actions.FocusAndContextAction
 import de.cau.cs.kieler.klighd.kgraph.KEdge
 import de.cau.cs.kieler.klighd.kgraph.KLabel
 import de.cau.cs.kieler.klighd.kgraph.KNode
@@ -163,7 +163,7 @@ public class BasicStyle implements IStyle {
                 .from(LEFT, 0, 0, TOP, 0, 0)
                 .to(RIGHT, 0, 0, BOTTOM, 0, 0);
             
-            addSingleClickAction(FocusAndContextAction.ID)
+            addSingleClickAction(SequenceFocusAndContextAction.ID)
             
             // The lifeline's header
             addRectangle() => [
@@ -294,13 +294,13 @@ public class BasicStyle implements IStyle {
         knote.addRectangle() => [
             foreground = theme.color(ThemeColor.FOREGROUND);
             configureBackground(it, theme, ThemeColor.BACKGROUND, 90);
-            addSingleClickAction(FocusAndContextAction.ID)
+            addSingleClickAction(SequenceFocusAndContextAction.ID)
         ];
         
         klabel.data += renderingFactory.createKText() => [
             foreground = theme.color(ThemeColor.CAPTION_TEXT);
             fontSize = 8;
-            addSingleClickAction(FocusAndContextAction.ID)
+            addSingleClickAction(SequenceFocusAndContextAction.ID)
         ];
     }
     
@@ -326,7 +326,7 @@ public class BasicStyle implements IStyle {
         val rendering = KRenderingFactory.eINSTANCE.createKText() => [ text |
             text.foreground = theme.color(ThemeColor.CAPTION_TEXT);
             text.fontSize = 10;
-            text.addSingleClickAction(FocusAndContextAction.ID);
+            text.addSingleClickAction(SequenceFocusAndContextAction.ID);
         ];
         
         container.children += rendering;

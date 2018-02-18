@@ -8,5 +8,12 @@
             id="de.cau.cs.kieler.kiesl.klighd.SequenceDiagramSynthesis">
       </diagramSynthesis>
    </extension>
+   <extension
+         point="de.cau.cs.kieler.klighd.extensions">
+      <action
+            class="de.cau.cs.kieler.kiesl.klighd.SequenceFocusAndContextAction"
+            id="de.cau.cs.kieler.kiesl.klighd.SequenceFocusAndContextAction">
+      </action>
+   </extension>
 
 </plugin>
