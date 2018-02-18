@@ -150,14 +150,26 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
      * Installs label managers.
      */
     private def void configureLabelManagement(KNode kgraph) {
-        val labelManager = new ListLabelManager();
+        val labelManagers = new ListLabelManager();
         
-        val commentLabelManager = TypeConditionLabelManager.wrapForCommentLabels(new TruncatingLabelManager()
-            .truncateAfterFirstWords(5)
-            .setMode(AbstractKlighdLabelManager.Mode.ALWAYS_ON))
-        labelManager.addLabelManager(commentLabelManager);
+        val commentLabelManager = new ListLabelManager() => [
+            // We want both truncators to run
+            withStopOnFirstHit(false);
+            
+            // The first label manager always removes all but the first line. The second shortens what remains to
+            // meet the target width.
+            addLabelManager(new TruncatingLabelManager()
+                .truncateAfterFirstLine()
+                .setMode(AbstractKlighdLabelManager.Mode.ALWAYS_ON));
+            addLabelManager(new TruncatingLabelManager());
+        ]
+        labelManagers.addLabelManager(TypeConditionLabelManager.wrapForCommentLabels(commentLabelManager));
+        
+        // Message labels are truncated to meet the target width
+        val messageLabelManager = new TruncatingLabelManager();
+        labelManagers.addLabelManager(TypeConditionLabelManager.wrapForEdgeLabels(messageLabelManager));
                 
-        kgraph.setLayoutOption(LabelManagementOptions.LABEL_MANAGER, labelManager);
+        kgraph.setLayoutOption(LabelManagementOptions.LABEL_MANAGER, labelManagers);
     }
         
 }

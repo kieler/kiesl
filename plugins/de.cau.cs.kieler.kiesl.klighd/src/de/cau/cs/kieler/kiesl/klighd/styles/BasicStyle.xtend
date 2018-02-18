@@ -108,7 +108,7 @@ public class BasicStyle implements IStyle {
         val textPaddingHorizontal = if (isSurroundingInteraction) 10 else 5;
         val textPaddingVertical = if (isSurroundingInteraction) 8 else 3;
         val captionFontSize = if (isSurroundingInteraction) 12 else 10;
-            
+        
         kthing.addRectangle() => [
             foreground = theme.color(ThemeColor.FOREGROUND);
             if (isSurroundingInteraction) {
@@ -149,13 +149,6 @@ public class BasicStyle implements IStyle {
                     setSurroundingSpaceGrid(textPaddingHorizontal, 0, textPaddingVertical, 0);
                 ];
             ];
-            
-//            if (isSurroundingInteraction) {
-//                val contentCell = addGridBox(0, 0,
-//                    createKPosition(LEFT, 10, 0, TOP, 10, 0),
-//                    createKPosition(RIGHT, 10, 0, BOTTOM, 10, 0));
-//                contentCell.addChildArea();
-//            }
         ];
         
     }
@@ -169,6 +162,8 @@ public class BasicStyle implements IStyle {
             setGridPlacement(1)
                 .from(LEFT, 0, 0, TOP, 0, 0)
                 .to(RIGHT, 0, 0, BOTTOM, 0, 0);
+            
+            addSingleClickAction(FocusAndContextAction.ID)
             
             // The lifeline's header
             addRectangle() => [
@@ -282,13 +277,6 @@ public class BasicStyle implements IStyle {
                 ];
             }
         ];
-        
-        if (klabel !== null) {
-            klabel.data += renderingFactory.createKText() => [
-                foreground = theme.color(ThemeColor.CAPTION_TEXT);
-                fontSize = 10;
-            ]
-        }
     }
     
     override renderExecution(KNode kexecution) {
@@ -306,12 +294,13 @@ public class BasicStyle implements IStyle {
         knote.addRectangle() => [
             foreground = theme.color(ThemeColor.FOREGROUND);
             configureBackground(it, theme, ThemeColor.BACKGROUND, 90);
+            addSingleClickAction(FocusAndContextAction.ID)
         ];
         
         klabel.data += renderingFactory.createKText() => [
             foreground = theme.color(ThemeColor.CAPTION_TEXT);
             fontSize = 8;
-//            setSurroundingSpaceGrid(5, 0, 3, 0);
+            addSingleClickAction(FocusAndContextAction.ID)
         ];
     }
     
