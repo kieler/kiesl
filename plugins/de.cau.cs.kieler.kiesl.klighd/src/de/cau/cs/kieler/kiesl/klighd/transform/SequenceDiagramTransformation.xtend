@@ -36,6 +36,7 @@ import de.cau.cs.kieler.klighd.labels.decoration.LabelDecorationConfigurator
 import de.cau.cs.kieler.klighd.labels.decoration.LabelDecorationConfigurator.LayoutMode
 import java.util.ArrayDeque
 import java.util.Deque
+import java.util.EnumSet
 import java.util.HashMap
 import java.util.List
 import java.util.Map
@@ -47,6 +48,8 @@ import org.eclipse.elk.core.math.ElkMargin
 import org.eclipse.elk.core.math.ElkPadding
 import org.eclipse.elk.core.options.CoreOptions
 import org.eclipse.elk.core.options.FixedLayouterOptions
+import org.eclipse.elk.core.options.NodeLabelPlacement
+import org.eclipse.elk.core.options.SizeConstraint
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -167,6 +170,7 @@ public class SequenceDiagramTransformation {
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_EDGE_LABEL, 2.0);
         kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 20.0);
         kinteraction.setProperty(SequenceDiagramOptions.AREAS_PADDING, new ElkPadding(40, 15, 8, 15));
+        kinteraction.setProperty(SequenceDiagramOptions.NODE_LABELS_PADDING, new ElkPadding(3));
         kinteraction.setProperty(SequenceDiagramOptions.LABEL_SIDE, options.labelSide);
         
         // The padding depends on whether the interaction's border and title are in fact drawn
@@ -532,7 +536,10 @@ public class SequenceDiagramTransformation {
         val knote = createNode();
         kinteraction.children += knote;
         
+        // Marking the thing as a comment node is required for the layout algorithm, marking it as a comment box is
+        // required for label management.
         knote.setProperty(SequenceDiagramOptions.TYPE_NODE, NodeType.COMMENT);
+        knote.setProperty(CoreOptions.COMMENT_BOX, true);
         
         if (kelements !== null) {
             val List<Integer> attachedElementIDs = Lists.newArrayList();
@@ -543,9 +550,15 @@ public class SequenceDiagramTransformation {
             knote.setProperty(SequenceDiagramOptions.ID_ATTACHED_ELEMENTS, attachedElementIDs);
         }
         
-        // TODO This should probably use a label instead
-        //      (once the layout algorithm supports node size calculation and label management)
-        options.style.renderNote(knote, text);
+        val klabel = KGraphUtil.createInitializedLabel(knote) => [
+            it.text = text;
+        ];
+        
+        // The node must have its size calculated for its label
+        knote.setProperty(SequenceDiagramOptions.NODE_LABELS_PLACEMENT, NodeLabelPlacement.insideCenter);
+        knote.setProperty(SequenceDiagramOptions.NODE_SIZE_CONSTRAINTS, EnumSet.of(SizeConstraint.NODE_LABELS));
+        
+        options.style.renderNote(knote, klabel);
     }
     
     

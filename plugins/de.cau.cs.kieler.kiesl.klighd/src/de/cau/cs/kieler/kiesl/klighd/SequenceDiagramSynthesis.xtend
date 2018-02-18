@@ -23,6 +23,12 @@ import de.cau.cs.kieler.klighd.syntheses.AbstractDiagramSynthesis
 import org.eclipse.elk.alg.sequence.options.LabelSideSelection
 import org.eclipse.elk.alg.sequence.options.LifelineSortingStrategy
 import de.cau.cs.kieler.kiesl.klighd.styles.ThesisStyle
+import de.cau.cs.kieler.klighd.kgraph.KNode
+import de.cau.cs.kieler.klighd.labels.management.ListLabelManager
+import org.eclipse.elk.core.labels.LabelManagementOptions
+import de.cau.cs.kieler.klighd.labels.management.TypeConditionLabelManager
+import de.cau.cs.kieler.klighd.labels.management.TruncatingLabelManager
+import de.cau.cs.kieler.klighd.labels.management.AbstractKlighdLabelManager
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -64,8 +70,11 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         ),
         LABELS_INLINE);
     
+    private static val SynthesisOption LABEL_MANAGEMENT = SynthesisOption.createCheckOption("Label Management", false);
+    
+    
     override getDisplayedSynthesisOptions() {
-        return ImmutableList.of(STYLE, LLSORT, LABELS);
+        return ImmutableList.of(STYLE, LLSORT, LABELS, LABEL_MANAGEMENT);
     }
     
     // TODO Instantiate as needed in switch below
@@ -82,6 +91,7 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         public val LifelineSortingStrategy llsort;
         public val LabelSideSelection labelSide;
         public val boolean inlineLabels;
+        public val boolean labelManagement;
         
         new(SequenceDiagramSynthesis s) {
             synthesis = s;
@@ -112,6 +122,7 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
             }
             
             inlineLabels = s.getObjectValue(LABELS) == LABELS_INLINE;
+            labelManagement = s.getBooleanValue(LABEL_MANAGEMENT);
         }
     }
     
@@ -125,7 +136,28 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
      * Entry point.
      */
     override transform(Interaction interaction) {
-        return transformation.transformModel(interaction, new Options(this));
+        val options = new Options(this);
+        val kmodel = transformation.transformModel(interaction, options);
+        
+        if (options.labelManagement) {
+            configureLabelManagement(kmodel);
+        }
+        
+        return kmodel;
+    }
+    
+    /**
+     * Installs label managers.
+     */
+    private def void configureLabelManagement(KNode kgraph) {
+        val labelManager = new ListLabelManager();
+        
+        val commentLabelManager = TypeConditionLabelManager.wrapForCommentLabels(new TruncatingLabelManager()
+            .truncateAfterFirstWords(5)
+            .setMode(AbstractKlighdLabelManager.Mode.ALWAYS_ON))
+        labelManager.addLabelManager(commentLabelManager);
+                
+        kgraph.setLayoutOption(LabelManagementOptions.LABEL_MANAGER, labelManager);
     }
         
 }

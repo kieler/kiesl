@@ -79,7 +79,7 @@ public interface IStyle {
     /**
      * Adds rendering information to the given node which represents a note with the given text.
      */
-    void renderNote(KNode knote, String text);
+    void renderNote(KNode knote, KLabel klabel);
     
     /**
      * Configures the configurator for proper label rendering.

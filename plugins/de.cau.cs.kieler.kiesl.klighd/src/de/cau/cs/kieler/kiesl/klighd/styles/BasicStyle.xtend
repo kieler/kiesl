@@ -300,18 +300,18 @@ public class BasicStyle implements IStyle {
         ]
     }
     
-    override renderNote(KNode knote, String text) {
+    override renderNote(KNode knote, KLabel klabel) {
         val theme = entityThemeMap.get(Entity.NOTE);
         
         knote.addRectangle() => [
             foreground = theme.color(ThemeColor.FOREGROUND);
             configureBackground(it, theme, ThemeColor.BACKGROUND, 90);
-            
-            addText(text) => [
-                foreground = theme.color(ThemeColor.CAPTION_TEXT);
-                fontSize = 8;
-                setSurroundingSpaceGrid(5, 0, 3, 0);
-            ];
+        ];
+        
+        klabel.data += renderingFactory.createKText() => [
+            foreground = theme.color(ThemeColor.CAPTION_TEXT);
+            fontSize = 8;
+//            setSurroundingSpaceGrid(5, 0, 3, 0);
         ];
     }
     
