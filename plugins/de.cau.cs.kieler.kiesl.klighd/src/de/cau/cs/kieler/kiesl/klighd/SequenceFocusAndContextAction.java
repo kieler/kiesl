@@ -14,14 +14,12 @@ package de.cau.cs.kieler.kiesl.klighd;
 
 import java.util.List;
 
-import org.eclipse.elk.alg.sequence.options.MessageType;
 import org.eclipse.elk.alg.sequence.options.NodeType;
 import org.eclipse.elk.alg.sequence.options.SequenceDiagramOptions;
 
 import com.google.common.collect.Lists;
 
 import de.cau.cs.kieler.klighd.actions.FocusAndContextAction;
-import de.cau.cs.kieler.klighd.kgraph.KEdge;
 import de.cau.cs.kieler.klighd.kgraph.KGraphElement;
 import de.cau.cs.kieler.klighd.kgraph.KNode;
 
@@ -47,17 +45,10 @@ public class SequenceFocusAndContextAction extends FocusAndContextAction {
                     result = Lists.newArrayList();
                 }
                 
-                // Put all outgoing messages into the focus as well
+                // Put all incident messages into the focus as well (self-loops will appear twice
+                // in the list, but that doesn't matter)
                 result.addAll(node.getOutgoingEdges());
-                
-                // Put incoming messages into the focus if they are found messages
-                for (KEdge edge : node.getIncomingEdges()) {
-                    MessageType msgType = edge.getProperty(SequenceDiagramOptions.TYPE_MESSAGE);
-                    if (msgType == MessageType.FOUND) {
-                        result.add(edge);
-                    }
-                }
-                
+                result.addAll(node.getIncomingEdges());
             }
         }
         

@@ -150,24 +150,23 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
      * Installs label managers.
      */
     private def void configureLabelManagement(KNode kgraph) {
-        val labelManagers = new ListLabelManager();
-        
-        val commentLabelManager = new ListLabelManager() => [
-            // We want both truncators to run
-            withStopOnFirstHit(false);
+        val labelManagers = new ListLabelManager() => [
+            // Label manager for comments
+            addLabelManager(TypeConditionLabelManager.wrapForCommentLabels(new ListLabelManager() => [
+                // We want both truncators to run
+                withStopOnFirstHit(false);
+                
+                // The first label manager always removes all but the first 5 words. The second is just to ensure
+                // that what remains doesn't enlarge the diagram.
+                addLabelManager(new TruncatingLabelManager()
+                    .truncateAfterFirstWords(5)
+                    .setMode(AbstractKlighdLabelManager.Mode.ALWAYS_ON));
+                addLabelManager(new TruncatingLabelManager());
+            ]));
             
-            // The first label manager always removes all but the first line. The second shortens what remains to
-            // meet the target width.
-            addLabelManager(new TruncatingLabelManager()
-                .truncateAfterFirstLine()
-                .setMode(AbstractKlighdLabelManager.Mode.ALWAYS_ON));
-            addLabelManager(new TruncatingLabelManager());
-        ]
-        labelManagers.addLabelManager(TypeConditionLabelManager.wrapForCommentLabels(commentLabelManager));
-        
-        // Message labels are truncated to meet the target width
-        val messageLabelManager = new TruncatingLabelManager();
-        labelManagers.addLabelManager(TypeConditionLabelManager.wrapForEdgeLabels(messageLabelManager));
+            // Label manager for messages
+            addLabelManager(TypeConditionLabelManager.wrapForEdgeLabels(new TruncatingLabelManager()));
+        ];
                 
         kgraph.setLayoutOption(LabelManagementOptions.LABEL_MANAGER, labelManagers);
     }

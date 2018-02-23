@@ -86,6 +86,8 @@ public class BasicStyle implements IStyle {
             kinteraction.addRectangle() => [
                 foregroundInvisible = true;
                 backgroundInvisible = true;
+                
+                addSingleClickAction(SequenceFocusAndContextAction.ID);
             ]
             
         } else {
@@ -121,6 +123,8 @@ public class BasicStyle implements IStyle {
                 .from(LEFT, 0, 0, TOP, 0, 0)
                 .to(RIGHT, 0, 0, BOTTOM, 0, 0);
             
+            addSingleClickAction(SequenceFocusAndContextAction.ID);
+            
             val captionCell = addGridBox(0, 0,
                 createKPosition(LEFT, 0, 0, TOP, 0, 0),
                 createKPosition(RIGHT, 0, 0, BOTTOM, 0, 0));
@@ -141,10 +145,13 @@ public class BasicStyle implements IStyle {
                 
                 setPointPlacementData(LEFT, 0, 0, TOP, 0, 0, H_LEFT, V_TOP, 10, 0, 0, 0);
                 
+                addSingleClickAction(SequenceFocusAndContextAction.ID);
+                
                 // This text will contain the interaction's name
                 addText(caption.trim()) => [
                     foreground = theme.color(ThemeColor.CAPTION_TEXT);
                     fontSize = captionFontSize;
+                    addSingleClickAction(SequenceFocusAndContextAction.ID);
                     
                     setSurroundingSpaceGrid(textPaddingHorizontal, 0, textPaddingVertical, 0);
                 ];
@@ -187,6 +194,7 @@ public class BasicStyle implements IStyle {
                     foreground = theme.color(ThemeColor.CAPTION_TEXT);
                     fontSize = 12;
                     setSurroundingSpaceGrid(10, 0, 8, 0);
+                    addSingleClickAction(SequenceFocusAndContextAction.ID);
                 ];
             ];
             
