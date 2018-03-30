@@ -273,11 +273,9 @@ public class SequenceDiagramTransformation {
         kmessage.target = toNode(message.target as Lifeline);
         
         // Add a label to represent the message's text, if any
-        val klabel = if (!Strings.isNullOrEmpty(message.caption)) {
-            KGraphUtil.createInitializedLabel(kmessage) => [
-                text = message.caption;
-            ];
-        }
+        val klabel = KGraphUtil.createInitializedLabel(kmessage) => [
+            text = message.caption ?: "";
+        ];
         
         // Set the necessary properties for the layout algorithm
         kmessage.setProperty(SequenceDiagramOptions.TYPE_MESSAGE, message.type.toSequenceMessageType());
@@ -371,11 +369,9 @@ public class SequenceDiagramTransformation {
         }
         
         // Add a label to represent the message's text, if any
-        val klabel = if (!Strings.isNullOrEmpty(message.caption)) {
-            KGraphUtil.createInitializedLabel(kmessage) => [
-                text = message.caption;
-            ];
-        }
+        val klabel = KGraphUtil.createInitializedLabel(kmessage) => [
+            text = message.caption ?: "";
+        ];
         
         // Check for and possibly create note
         if (!Strings.isNullOrEmpty(message.note)) {
@@ -421,11 +417,9 @@ public class SequenceDiagramTransformation {
         kmessage.target = toNode(message.lifeline);
         
         // Add a label to represent the message's text, if any
-        val klabel = if (!Strings.isNullOrEmpty(message.caption)) {
-            KGraphUtil.createInitializedLabel(kmessage) => [
-                text = message.caption;
-            ];
-        }
+        val klabel = KGraphUtil.createInitializedLabel(kmessage) => [
+            text = message.caption ?: "";
+        ];
         
         // Check for and possibly create note
         if (!Strings.isNullOrEmpty(message.note)) {
