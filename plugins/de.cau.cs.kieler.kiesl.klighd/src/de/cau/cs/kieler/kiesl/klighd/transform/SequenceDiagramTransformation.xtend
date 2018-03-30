@@ -169,7 +169,7 @@ public class SequenceDiagramTransformation {
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_LIFELINE, 30.0);
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_MESSAGE, 40.0);
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_EDGE_LABEL, 5.0);
-        kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 20.0);
+        kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 30.0);
         kinteraction.setProperty(SequenceDiagramOptions.AREAS_PADDING, new ElkPadding(40, 15, 8, 15));
         kinteraction.setProperty(SequenceDiagramOptions.NODE_LABELS_PADDING, new ElkPadding(3));
         kinteraction.setProperty(SequenceDiagramOptions.LABEL_SIDE, options.labelSide);

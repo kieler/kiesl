@@ -22,7 +22,7 @@ class ThesisStyle extends BasicStyle {
     override protected initInteractionTheme() {
         return new EntityColorTheme()
             .define(BACKGROUND, "white")
-            .define(FOREGROUND, "#2c2c2c")
+            .define(FOREGROUND, "#676767")
             .define(CAPTION_BACKGROUND, "#e6e6e6")
             .define(CAPTION_TEXT, "#676767");
     }
