@@ -173,6 +173,7 @@ public class SequenceDiagramTransformation {
         kinteraction.setProperty(SequenceDiagramOptions.AREAS_PADDING, new ElkPadding(40, 15, 8, 15));
         kinteraction.setProperty(SequenceDiagramOptions.NODE_LABELS_PADDING, new ElkPadding(3));
         kinteraction.setProperty(SequenceDiagramOptions.LABEL_SIDE, options.labelSide);
+        kinteraction.setProperty(SequenceDiagramOptions.VERTICAL_COMPACTION, options.verticalCompaction);
         
         // The padding depends on whether the interaction's border and title are in fact drawn
         if (Strings.isNullOrEmpty(interaction.caption)) {

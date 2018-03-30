@@ -70,11 +70,14 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         ),
         LABELS_INLINE);
     
+    private static val SynthesisOption VERTICAL_COMPACTION =
+        SynthesisOption.createCheckOption("Vertical Compaction", true);
+    
     private static val SynthesisOption LABEL_MANAGEMENT = SynthesisOption.createCheckOption("Label Management", false);
     
     
     override getDisplayedSynthesisOptions() {
-        return ImmutableList.of(STYLE, LLSORT, LABELS, LABEL_MANAGEMENT);
+        return ImmutableList.of(STYLE, LLSORT, LABELS, de.cau.cs.kieler.kiesl.klighd.SequenceDiagramSynthesis.VERTICAL_COMPACTION, LABEL_MANAGEMENT);
     }
     
     // TODO Instantiate as needed in switch below
@@ -91,6 +94,7 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         public val LifelineSortingStrategy llsort;
         public val LabelSideSelection labelSide;
         public val boolean inlineLabels;
+        public val boolean verticalCompaction;
         public val boolean labelManagement;
         
         new(SequenceDiagramSynthesis s) {
@@ -122,6 +126,7 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
             }
             
             inlineLabels = s.getObjectValue(LABELS) == LABELS_INLINE;
+            verticalCompaction = s.getBooleanValue(VERTICAL_COMPACTION);
             labelManagement = s.getBooleanValue(LABEL_MANAGEMENT);
         }
     }
