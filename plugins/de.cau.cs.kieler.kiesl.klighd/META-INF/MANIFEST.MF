@@ -14,3 +14,4 @@ Require-Bundle: javax.inject,
  de.cau.cs.kieler.klighd.krendering.extensions,
  org.eclipse.elk.core,
  org.eclipse.elk.alg.sequence
+Export-Package: de.cau.cs.kieler.kiesl.klighd
