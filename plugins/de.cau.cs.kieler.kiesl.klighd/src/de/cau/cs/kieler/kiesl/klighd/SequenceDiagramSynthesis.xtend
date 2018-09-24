@@ -60,16 +60,14 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
             LLSORT_SHORT_MESSAGE),
         LLSORT_INTERACTIVE);
     
-    public static val LABELS_INLINE = "Inline";
     public static val LABELS_CONSISTENT = "Above";
-    public static val LABELS_DIRECTIONAL = "Direction-dependent";
+    public static val LABELS_INLINE = "Inline";
     public static val SynthesisOption LABELS = SynthesisOption.createChoiceOption(
         "Label Placement", ImmutableList.of(
-            LABELS_INLINE,
             LABELS_CONSISTENT,
-            LABELS_DIRECTIONAL
+            LABELS_INLINE
         ),
-        LABELS_INLINE);
+        LABELS_CONSISTENT);
     
     public static val MANAGEMENT_OFF = "Off";
     public static val MANAGEMENT_TRUNCATE = "Truncate";
@@ -102,7 +100,6 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
         public val SequenceDiagramSynthesis synthesis;
         public val BasicStyle style;
         public val LifelineSortingStrategy llsort;
-        public val LabelSideSelection labelSide;
         public val boolean inlineLabels;
         public val boolean verticalCompaction;
         public val String labelManagement;
@@ -126,13 +123,6 @@ public class SequenceDiagramSynthesis extends AbstractDiagramSynthesis<Interacti
                     LifelineSortingStrategy.LAYER_BASED
                 case LLSORT_SHORT_MESSAGE:
                     LifelineSortingStrategy.SHORT_MESSAGES
-            }
-            
-            labelSide = switch (s.getObjectValue(LABELS)) {
-                case LABELS_DIRECTIONAL:
-                    LabelSideSelection.DIRECTION_UP
-                default:
-                    LabelSideSelection.ALWAYS_UP
             }
             
             inlineLabels = s.getObjectValue(LABELS) == LABELS_INLINE;

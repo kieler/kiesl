@@ -50,6 +50,7 @@ import org.eclipse.elk.core.options.CoreOptions
 import org.eclipse.elk.core.options.FixedLayouterOptions
 import org.eclipse.elk.core.options.NodeLabelPlacement
 import org.eclipse.elk.core.options.SizeConstraint
+import org.eclipse.elk.alg.sequence.options.LabelSideSelection
 
 /**
  * Synthesis that transforms KieSL sequence diagrams into KLighD graphs laid out with ELK's sequence diagram
@@ -167,12 +168,12 @@ public class SequenceDiagramTransformation {
         kinteraction.setProperty(SequenceDiagramOptions.LIFELINE_SORTING_STRATEGY, options.llsort);
         kinteraction.setProperty(SequenceDiagramOptions.MARGINS, new ElkMargin(BORDER_SPACING, 0, 0, BORDER_SPACING));
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_LIFELINE, 30.0);
-        kinteraction.setProperty(SequenceDiagramOptions.SPACING_MESSAGE, 40.0);
+        kinteraction.setProperty(SequenceDiagramOptions.SPACING_MESSAGE, 30.0);
         kinteraction.setProperty(SequenceDiagramOptions.SPACING_EDGE_LABEL, 5.0);
         kinteraction.setProperty(SequenceDiagramOptions.SIZE_LIFELINE_HEADER_HEIGHT, 30.0);
         kinteraction.setProperty(SequenceDiagramOptions.AREAS_PADDING, new ElkPadding(40, 15, 8, 15));
         kinteraction.setProperty(SequenceDiagramOptions.NODE_LABELS_PADDING, new ElkPadding(3));
-        kinteraction.setProperty(SequenceDiagramOptions.LABEL_SIDE, options.labelSide);
+        kinteraction.setProperty(SequenceDiagramOptions.LABEL_SIDE, LabelSideSelection.ALWAYS_UP);
         kinteraction.setProperty(SequenceDiagramOptions.VERTICAL_COMPACTION, options.verticalCompaction);
         
         // The padding depends on whether the interaction's border and title are in fact drawn
@@ -468,13 +469,22 @@ public class SequenceDiagramTransformation {
         kexecution.setProperty(SequenceDiagramOptions.TYPE_EXECUTION, SequenceExecutionType.EXECUTION);
         kexecution.setProperty(SequenceDiagramOptions.ID_PARENT_LIFELINE, toNode(lifeline).elementId);
         
-        // Push the execution on the lifeline's stack
+        // Find the executions active for our lifeline
         if (!activeExecutions.containsKey(lifeline)) {
             // An initial capacity for 6 simultaneously open executions should be just fine
             activeExecutions.put(lifeline, new ArrayDeque(6));
         }
         
-        activeExecutions.get(lifeline).addLast(kexecution.elementId);
+        val executionsActiveOnLifeline = activeExecutions.get(lifeline);
+        
+        // If there is an active execution, that's going to be our new execution's parent
+        if (!executionsActiveOnLifeline.isEmpty()) {
+            val parentExecutionId = executionsActiveOnLifeline.peek();
+            kexecution.setProperty(SequenceDiagramOptions.ID_PARENT_EXECUTION, parentExecutionId);
+        }
+        
+        // Push the new execution on to the stack of active executions
+        executionsActiveOnLifeline.addLast(kexecution.elementId);
         
         options.style.renderExecution(kexecution);
     }
