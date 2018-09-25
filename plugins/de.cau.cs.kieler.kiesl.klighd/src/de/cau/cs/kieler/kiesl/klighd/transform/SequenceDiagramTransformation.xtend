@@ -479,7 +479,7 @@ public class SequenceDiagramTransformation {
         
         // If there is an active execution, that's going to be our new execution's parent
         if (!executionsActiveOnLifeline.isEmpty()) {
-            val parentExecutionId = executionsActiveOnLifeline.peek();
+            val parentExecutionId = executionsActiveOnLifeline.peekLast();
             kexecution.setProperty(SequenceDiagramOptions.ID_PARENT_EXECUTION, parentExecutionId);
         }
         
