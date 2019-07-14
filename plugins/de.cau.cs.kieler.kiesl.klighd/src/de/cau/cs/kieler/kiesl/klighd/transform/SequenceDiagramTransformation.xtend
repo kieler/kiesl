@@ -444,6 +444,9 @@ public class SequenceDiagramTransformation {
             endExecutions(message.lifeline, 1);
         }
         
+        // Add to active executions, if any
+        kmessage.setProperty(SequenceDiagramOptions.ID_TARGET_EXECUTIONS, activeExecutions(message.lifeline));
+        
         // Add to any active sections in fragments
         kmessage.setProperty(SequenceDiagramOptions.ID_AREAS, Lists.newArrayList(activeFragments));
         
